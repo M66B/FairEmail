@@ -1943,19 +1943,24 @@ Target: Service</code></pre>
 <p><br /></p>
 <p><a name="faq88"></a> <strong>(88) How can I use a Yahoo/AT&amp;T, AOL or Sky account?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq88">Google Translate</a></p>
-<p>The preferred way to set up a Yahoo account is by using the quick setup wizard, which will use OAuth instead of a password and is therefore safer (and easier as well).</p>
-<p>To authorize a Yahoo/AT&amp;T, AOL, or Sky account you need to use an app password instead of your normal account password. For instructions about how to create an app password, please see here:</p>
+<p>A Yahoo account can only be configured using the quick setup wizard (=OAuth). Yahoo no longer allows users to log in using just an (app) password to access email.</p>
+<p><del>The preferred way to set up a Yahoo account is by using the quick setup wizard,</del> <del>which will use OAuth instead of a password and is therefore safer (and easier as well).</del></p>
+<p><del>To authorize a Yahoo/AT&amp;T, AOL, or Sky account you need to use an app password instead of your normal account password.</del> <del>For instructions about how to create an app password, please see here:</del></p>
 <ul>
-<li><a href="https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html">for Yahoo/AT&amp;T</a></li>
-<li><a href="https://help.aol.com/articles/Create-and-manage-app-password">for AOL</a> <del><strong>Important</strong>: app password generation is broken, <a href="https://aol.uservoice.com/forums/912886-aol-mail/suggestions/45235399-i-wanted-to-generate-a-third-party-app-password-bu">frustrating many people</a> because this means you can use the AOL app and the browser only.</del></li>
-<li><a href="https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail">for Sky</a> (under <em>Other email apps</em>)</li>
+<li><del><a href="https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html">for Yahoo/AT&amp;T</a></del></li>
+<li><del><a href="https://help.aol.com/articles/Create-and-manage-app-password">for AOL</a></del> <del><strong>Important</strong>: app password generation is broken, <a href="https://aol.uservoice.com/forums/912886-aol-mail/suggestions/45235399-i-wanted-to-generate-a-third-party-app-password-bu">frustrating many people</a> because this means you can use the AOL app and the browser only.</del></li>
+<li><del><a href="https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail">for Sky</a> (under <em>Other email apps</em>)</del></li>
 </ul>
 <p>Please see <a href="#faq111">this FAQ</a> about OAuth support.</p>
-<p>Note that Yahoo, AOL, and Sky do not support standard push messages. The Yahoo email app uses a proprietary, undocumented protocol for push messages.</p>
-<p>Push messages require <a href="https://en.wikipedia.org/wiki/IMAP_IDLE">IMAP IDLE</a> and the Yahoo email server does not report IDLE as capability:</p>
+<p><del>Note that Yahoo, AOL, and Sky do not support standard push messages.</del> <del>The Yahoo email app uses a proprietary, undocumented protocol for push messages.</del></p>
+<p><del>Push messages require <a href="https://en.wikipedia.org/wiki/IMAP_IDLE">IMAP IDLE</a> and the Yahoo email server does not report IDLE as capability:</del></p>
 <pre><code>Y1 CAPABILITY
 * CAPABILITY IMAP4rev1 ID MOVE NAMESPACE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT UNSELECT OBJECTID
 Y1 OK CAPABILITY completed</code></pre>
+<p>Retrieving new email when there are <strong>more than 10,000 messages</strong> in the inbox does not work properly. This is due to a limitation of the Yahoo mail server that is unique to Yahoo. In this case, changing the IMAP server address may help.</p>
+<p>Please see <a href="https://help.yahoo.com/kb/download-email-yahoo-mail-third-party-sln28681.html">this Yahoo help article</a> for details.</p>
+<p>In short:</p>
+<p>Navigation menu (left side menu) ⟶ “Settings” ⟶ “Manual setup and account options” ⟶ “Accounts” ⟶ tap the account ⟶ tap “Advanced” ⟶ change the host name to <em>export.imap.mail.yahoo.com</em></p>
 <p><br /></p>
 <p><a name="faq89"></a> <strong>(89) How can I send plain text only messages?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq89">Google Translate</a></p>
@@ -2523,18 +2528,18 @@ $NotDisplayed</code></pre>
 <p><br /></p>
 <p><a name="faq147"></a> <strong>(147) What should I know about third party versions?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq147">Google Translate</a></p>
-<p>You likely came here because you are using a third party build of FairEmail.</p>
-<p>There is <strong>only support</strong> on the latest Play store version, the latest GitHub release and the F-Droid build, but <strong>only if</strong> the version number of the F-Droid build is the same as the version number of the latest GitHub release.</p>
-<p>F-Droid builds irregularly, which can be problematic if there is an important update. Therefore you are advised to switch to the GitHub release. F-Droid isn’t as secure as you might think anyway, <a href="https://privsec.dev/posts/android/f-droid-security-issues/">see here</a>.</p>
+<p>You likely came here because you are using a third-party build of FairEmail.</p>
+<p>There is <strong>only support</strong> for the latest Play Store version and the latest GitHub release because those are the releases that can be built and released at any time.</p>
+<p>F-Droid builds irregularly, which can be problematic if there is an important update. Therefore, you are advised to switch to the GitHub release. F-Droid isn’t as secure as you might think anyway, <a href="https://privsec.dev/posts/android/f-droid-security-issues/">see here</a>.</p>
 <p>Note that developers have no control over F-Droid builds and the F-Droid infrastructure (apps, forums, etc.).</p>
-<p>OAuth access is available only for Play Store and Github releases because email providers permitted the use of OAuth for these releases only. The responsible for a release, for the F-Droid build this is the F-Droid organization, needs to ask for OAuth permissions, which mostly involves signing a contract with binding terms and conditions, often with the clause that the use of OAuth is exclusive.</p>
-<p>Note that you’ll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install (“<em>App was not installed</em>”) the same app with a different signature for security reasons.</p>
+<p>OAuth access is available only for Play Store and GitHub releases because email providers permitted the use of OAuth for these releases only. The responsible for a release, for the F-Droid build, this is the F-Droid organization, needs to ask for OAuth permissions, which mostly involves signing a contract with binding terms and conditions, often with the clause that the use of OAuth is exclusive.</p>
+<p>Note that you’ll need to uninstall the F-Droid build first before you can install a GitHub release because Android refuses to install (“<em>App was not installed</em>”, etc.) the same app with a different signature for security reasons.</p>
 <p>At the start of 2024, the Play Store app started to update all apps, including apps not installed via the Play Store. Since the F-Droid build is signed by the F-Droid organization, which basically means the F-Droid build is another app, updating the F-Droid build will fail. Unfortunately, there is no way to resolve this.</p>
 <p>Note that the GitHub version will automatically check for updates. When desired, this can be turned off in the miscellaneous settings.</p>
-<p>Please <a href="https://github.com/M66B/FairEmail/blob/master/README.md#downloads">see here</a> for all download option and <a href="#faq173">see here</a> for the differences between the different release types.</p>
+<p>Please <a href="https://github.com/M66B/FairEmail/blob/master/README.md#downloads">see here</a> for all download options and <a href="#faq173">see here</a> for the differences between the different release types.</p>
 <p>If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.</p>
-<p>You can see the source of the app in <em>About</em> of the navigation menu (left side menu), either <em>Play store</em>, <em>GitHub</em>, <em>F-Droid</em>, or <em>?</em> (for example in the case of a custom build).</p>
-<p><a href="https://apt.izzysoft.de/fdroid/">IzzyOnDroid</a> hosts the GitHub release of the app. <a href="https://f-droid.org/packages/com.aurora.store/">Aurora Store</a> hosts the Play store version of the app, even though the Aurora Store app was downloaded from F-Droid.</p>
+<p>You can see the source of the app in <em>About</em> of the navigation menu (left side menu), either <em>Play Store</em>, <em>GitHub</em>, <em>F-Droid</em>, or <em>?</em> (for example, in the case of a custom build).</p>
+<p><a href="https://apt.izzysoft.de/fdroid/">IzzyOnDroid</a> hosts the GitHub release of the app. <a href="https://f-droid.org/packages/com.aurora.store/">Aurora Store</a> hosts the Play Store version of the app, even though the Aurora Store app was downloaded from F-Droid.</p>
 <p>Please <a href="https://forum.f-droid.org/t/help-wanted-how-to-create-a-reproducible-build-fairemail/8860">see here</a> why reproducible F-Droid builds are not an option. Instead, you can check the integrity of an APK file produced by a GitHub workflow, <a href="#faq205">see here</a> on how.</p>
 <p><br /></p>
 <p><a name="faq148"></a> <strong>(148) How can I use an Apple iCloud account?</strong></p>

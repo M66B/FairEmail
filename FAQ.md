@@ -3590,28 +3590,41 @@ So, try to disable all VPN based apps or allow this address.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq88)
 
-The preferred way to set up a Yahoo account is by using the quick setup wizard,
-which will use OAuth instead of a password and is therefore safer (and easier as well).
+A Yahoo account can only be configured using the quick setup wizard (=OAuth).
+Yahoo no longer allows users to log in using just an (app) password to access email.
 
-To authorize a Yahoo/AT&T, AOL, or Sky account you need to use an app password instead of your normal account password.
-For instructions about how to create an app password, please see here:
+~~The preferred way to set up a Yahoo account is by using the quick setup wizard,~~
+~~which will use OAuth instead of a password and is therefore safer (and easier as well).~~
 
-* [for Yahoo/AT&T](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-* [for AOL](https://help.aol.com/articles/Create-and-manage-app-password) ~~**Important**: app password generation is broken, [frustrating many people](https://aol.uservoice.com/forums/912886-aol-mail/suggestions/45235399-i-wanted-to-generate-a-third-party-app-password-bu) because this means you can use the AOL app and the browser only.~~
-* [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
+~~To authorize a Yahoo/AT&T, AOL, or Sky account you need to use an app password instead of your normal account password.~~
+~~For instructions about how to create an app password, please see here:~~
+
+* ~~[for Yahoo/AT&T](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)~~
+* ~~[for AOL](https://help.aol.com/articles/Create-and-manage-app-password)~~ ~~**Important**: app password generation is broken, [frustrating many people](https://aol.uservoice.com/forums/912886-aol-mail/suggestions/45235399-i-wanted-to-generate-a-third-party-app-password-bu) because this means you can use the AOL app and the browser only.~~
+* ~~[for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)~~
 
 Please see [this FAQ](#faq111) about OAuth support.
 
-Note that Yahoo, AOL, and Sky do not support standard push messages.
-The Yahoo email app uses a proprietary, undocumented protocol for push messages.
+~~Note that Yahoo, AOL, and Sky do not support standard push messages.~~
+~~The Yahoo email app uses a proprietary, undocumented protocol for push messages.~~
 
-Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:
+~~Push messages require [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) and the Yahoo email server does not report IDLE as capability:~~
 
 ```
 Y1 CAPABILITY
 * CAPABILITY IMAP4rev1 ID MOVE NAMESPACE XYMHIGHESTMODSEQ UIDPLUS LITERAL+ CHILDREN X-MSG-EXT UNSELECT OBJECTID
 Y1 OK CAPABILITY completed
 ```
+
+Retrieving new email when there are **more than 10,000 messages** in the inbox does not work properly.
+This is due to a limitation of the Yahoo mail server that is unique to Yahoo.
+In this case, changing the IMAP server address may help.
+
+Please see [this Yahoo help article](https://help.yahoo.com/kb/download-email-yahoo-mail-third-party-sln28681.html) for details.
+
+In short:
+
+Navigation menu (left side menu) ⟶ "Settings" ⟶ "Manual setup and account options" ⟶ "Accounts" ⟶ tap the account ⟶ tap "Advanced"  ⟶ change the host name to *export.imap.mail.yahoo.com*
 
 <br />
 
