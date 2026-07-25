@@ -239,6 +239,7 @@ Most apps store their data in the cloud instead of on the device, which is why t
 * &#x2714; ~~Search for settings~~
 * &#x274C; ~~POP3 folders~~
 * &#x2714; ~~Bottom action bar~~
+* [SMTP Require TLS Option](https://datatracker.ietf.org/doc/html/rfc8689)
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -1028,6 +1029,8 @@ If you want to undo decryption, you can tap on the "close" padlock icon.
 
 You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first.
 FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+
+[PGPony for Android](https://github.com/norsehorse-dev/PGPonyAndroid) is reported to work too. You can select the PGP provider on the encryption settings tab page.
 
 **Important**: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key.
 You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.
