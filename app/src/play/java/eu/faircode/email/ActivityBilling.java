@@ -52,12 +52,14 @@ import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
 import com.android.billingclient.api.ConsumeResponseListener;
 import com.android.billingclient.api.PendingPurchasesParams;
+import com.android.billingclient.api.ProductDetails;
+import com.android.billingclient.api.ProductDetailsResponseListener;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesResponseListener;
 import com.android.billingclient.api.PurchasesUpdatedListener;
-import com.android.billingclient.api.SkuDetails;
-import com.android.billingclient.api.SkuDetailsParams;
-import com.android.billingclient.api.SkuDetailsResponseListener;
+import com.android.billingclient.api.QueryProductDetailsParams;
+import com.android.billingclient.api.QueryProductDetailsResult;
+import com.android.billingclient.api.QueryPurchasesParams;
 
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -70,7 +72,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ActivityBilling extends ActivityBase implements
-        BillingClientStateListener, SkuDetailsResponseListener, PurchasesResponseListener, PurchasesUpdatedListener,
+        BillingClientStateListener, ProductDetailsResponseListener, PurchasesResponseListener, PurchasesUpdatedListener,
         FragmentManager.OnBackStackChangedListener {
     private boolean standalone = false;
     private int backoff = 4; // seconds
@@ -116,6 +118,7 @@ public class ActivityBilling extends ActivityBase implements
                 Log.i("IAB start");
                 billingClient = BillingClient.newBuilder(getApplicationContext())
                         .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
+                        //.enableAutoServiceReconnection()
                         .setListener(this)
                         .build();
                 billingClient.startConnection(this);
@@ -282,29 +285,36 @@ public class ActivityBilling extends ActivityBase implements
             String skuPro = getSkuPro(this);
             Log.i("IAB purchase SKU=" + skuPro);
 
-            SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
-            builder.setSkusList(Arrays.asList(skuPro));
-            builder.setType(BillingClient.SkuType.INAPP);
-            billingClient.querySkuDetailsAsync(builder.build(),
-                    new SkuDetailsResponseListener() {
+            QueryProductDetailsParams.Product.Builder pBuilder = QueryProductDetailsParams.Product.newBuilder();
+            pBuilder.setProductId(skuPro);
+            pBuilder.setProductType(BillingClient.ProductType.INAPP);
+
+            QueryProductDetailsParams.Builder builder = QueryProductDetailsParams.newBuilder();
+            builder.setProductList(Arrays.asList(pBuilder.build()));
+            billingClient.queryProductDetailsAsync(builder.build(),
+                    new ProductDetailsResponseListener() {
                         @Override
-                        public void onSkuDetailsResponse(@NonNull BillingResult r, List<SkuDetails> skuDetailsList) {
+                        public void onProductDetailsResponse(@NonNull BillingResult r, @NonNull QueryProductDetailsResult productDetailsResult) {
                             if (r.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-                                if (skuDetailsList.size() == 0)
-                                    reportError(null, "Unknown SKU=" + skuPro);
+                                if (productDetailsResult.getProductDetailsList().size() == 0)
+                                    reportError(null, "Unknown product=" + skuPro);
                                 else {
-                                    SkuDetails skuDetails = skuDetailsList.get(0);
-                                    Log.i("IAB purchase details=" + skuDetails);
+                                    ProductDetails productDetails = productDetailsResult.getProductDetailsList().get(0);
+                                    Log.i("IAB product details=" + productDetails);
+
+                                    BillingFlowParams.ProductDetailsParams.Builder pdBuilder = BillingFlowParams.ProductDetailsParams.newBuilder();
+                                    pdBuilder.setProductDetails(productDetails);
 
                                     BillingFlowParams.Builder flowParams = BillingFlowParams.newBuilder();
-                                    flowParams.setSkuDetails(skuDetails);
+                                    flowParams.setProductDetailsParamsList(Arrays.asList(pdBuilder.build()));
 
                                     BillingResult result = billingClient.launchBillingFlow(ActivityBilling.this, flowParams.build());
                                     if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
                                         reportError(result, "IAB launch billing flow");
+
                                 }
                             } else
-                                reportError(r, "IAB query SKUs");
+                                reportError(r, "IAB query product details");
                         }
                     });
         } else
@@ -319,7 +329,9 @@ public class ActivityBilling extends ActivityBase implements
     }
 
     private void onPurchaseConsume(Intent intent) {
-        billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, new PurchasesResponseListener() {
+        QueryPurchasesParams.Builder builder = QueryPurchasesParams.newBuilder();
+        builder.setProductType(BillingClient.ProductType.INAPP);
+        billingClient.queryPurchasesAsync(builder.build(), new PurchasesResponseListener() {
             @Override
             public void onQueryPurchasesResponse(@NonNull BillingResult result, @NonNull List<Purchase> list) {
                 if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
@@ -396,7 +408,9 @@ public class ActivityBilling extends ActivityBase implements
     }
 
     private void queryPurchases() {
-        billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, this);
+        QueryPurchasesParams.Builder builder = QueryPurchasesParams.newBuilder();
+        builder.setProductType(BillingClient.ProductType.INAPP);
+        billingClient.queryPurchasesAsync(builder.build(), this);
     }
 
     @Override
@@ -518,23 +532,35 @@ public class ActivityBilling extends ActivityBase implements
     }
 
     private void querySkus(List<String> query) {
-        Log.i("IAB query SKUs");
-        SkuDetailsParams.Builder builder = SkuDetailsParams.newBuilder();
-        builder.setSkusList(query);
-        builder.setType(BillingClient.SkuType.INAPP);
-        billingClient.querySkuDetailsAsync(builder.build(), this);
+        Log.i("IAB query product details");
+
+        List<QueryProductDetailsParams.Product> products = new ArrayList<>();
+        for (String product : query) {
+            QueryProductDetailsParams.Product.Builder pBuilder = QueryProductDetailsParams.Product.newBuilder();
+            pBuilder.setProductId(product);
+            pBuilder.setProductType(BillingClient.ProductType.INAPP);
+            products.add(pBuilder.build());
+        }
+
+        QueryProductDetailsParams.Builder builder = QueryProductDetailsParams.newBuilder();
+        builder.setProductList(products);
+
+        billingClient.queryProductDetailsAsync(builder.build(), this);
     }
 
-    @Override
-    public void onSkuDetailsResponse(@NonNull BillingResult result, List<SkuDetails> skuDetailsList) {
+    public void onProductDetailsResponse(@NonNull BillingResult result, @NonNull QueryProductDetailsResult productDetailsResult) {
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-            for (SkuDetails skuDetail : skuDetailsList) {
-                Log.i("IAB SKU detail=" + skuDetail);
-                for (IBillingListener listener : listeners)
-                    listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
+            for (ProductDetails productDetail : productDetailsResult.getProductDetailsList()) {
+                Log.i("IAB product detail=" + productDetail);
+                for (IBillingListener listener : listeners) {
+                    String product = productDetail.getProductId();
+                    String price = productDetail.getOneTimePurchaseOfferDetails().getFormattedPrice();
+                    Log.i("IAB product=" + product + " price=" + price);
+                    listener.onSkuDetails(product, price);
+                }
             }
         } else
-            reportError(result, "IAB query SKUs");
+            reportError(result, "IAB query product details");
     }
 
     private void consumePurchase(final Purchase purchase) {
@@ -572,6 +598,8 @@ public class ActivityBilling extends ActivityBase implements
                         editor.putBoolean("pro", true);
                         editor.putLong(sku + ".cached", new Date().getTime());
                         editor.apply();
+
+                        Log.i("IAB ackknowledged purchase SKU=" + sku);
 
                         for (IBillingListener listener : listeners)
                             listener.onPurchased(sku, true);
@@ -640,6 +668,17 @@ public class ActivityBilling extends ActivityBase implements
     }
 
     private static String getBillingResponseText(BillingResult result) {
+        switch (result.getOnPurchasesUpdatedSubResponseCode()) {
+            case BillingClient.OnPurchasesUpdatedSubResponseCode.PAYMENT_DECLINED_DUE_TO_INSUFFICIENT_FUNDS:
+                return _getBillingResponseText(result) + " - PAYMENT_DECLINED_DUE_TO_INSUFFICIENT_FUNDS";
+            case BillingClient.OnPurchasesUpdatedSubResponseCode.USER_INELIGIBLE:
+                return _getBillingResponseText(result) + " - USER_INELIGIBLE";
+            default:
+                return _getBillingResponseText(result);
+        }
+    }
+
+    private static String _getBillingResponseText(BillingResult result) {
         switch (result.getResponseCode()) {
             case BillingClient.BillingResponseCode.BILLING_UNAVAILABLE:
                 // Billing API version is not supported for the type requested
