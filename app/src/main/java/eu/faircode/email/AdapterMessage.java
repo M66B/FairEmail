@@ -646,22 +646,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         @Override
                         public void onLongPress(@NonNull MotionEvent event) {
+                            Spannable buffer = (Spannable) tvBody.getText();
+                            int off = Helper.getOffset(tvBody, buffer, event);
+                            URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
+                            if (link.length > 0) {
+                                ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
+                                cbm.setPrimaryClip(ClipData.newPlainText(context.getString(R.string.app_name), link[0].getURL()));
+                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                                    ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
+                            }
+
                             boolean confirm_links = prefs.getBoolean("confirm_links", true);
-                            if (confirm_links) {
-                                Spannable buffer = (Spannable) tvBody.getText();
-                                int off = Helper.getOffset(tvBody, buffer, event);
-                                URLSpan[] link = buffer.getSpans(off, off, URLSpan.class);
-                                if (link.length > 0) {
-                                    String url = link[0].getURL();
-
-                                    ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
-                                    cbm.setPrimaryClip(ClipData.newPlainText(context.getString(R.string.app_name), url));
-
-                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
-                                        ToastEx.makeText(context, R.string.title_clipboard_copied, Toast.LENGTH_LONG).show();
-                                }
-
-                            } else
+                            if (!confirm_links)
                                 onClick(event, true);
                         }
 
