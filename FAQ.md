@@ -3040,6 +3040,8 @@ Example conditions:
 
 ```header("X-Mailer") contains "Open-Xchange" && from matches ".*service@.*" && Is("seen")```
 
+```!subject contains "Test" && !(subject contains "Example")```
+
 ```!onBlocklist() && hasMx() && attachments() > 0```
 
 ```(received + 7*24*60*60*1000) < DT_DATE_TO_EPOCH(DT_NOW())```
