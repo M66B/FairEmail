@@ -30,6 +30,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Fixed all reported bugs
+* Collapsed inline attachments in the message editor
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2326 2026-07-21
 
 * Added helpers to grant [local network permission](https://m66b.github.io/FairEmail/#faq210)
