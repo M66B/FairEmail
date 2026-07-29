@@ -240,6 +240,7 @@ Most apps store their data in the cloud instead of on the device, which is why t
 * &#x274C; ~~POP3 folders~~
 * &#x2714; ~~Bottom action bar~~
 * [SMTP Require TLS Option](https://datatracker.ietf.org/doc/html/rfc8689)
+* [Unobtrusive End-to-End Email Signatures](https://datatracker.ietf.org/doc/draft-ietf-mailmaint-unobtrusive-signatures/)
 
 Anything on this list is in random order and *might* be added in the near future.
 
