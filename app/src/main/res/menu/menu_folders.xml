@@ -57,6 +57,12 @@
             android:checkable="true"
             android:title="@string/title_sort_unread_atop"
             app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_sort_sync"
+            android:checkable="true"
+            android:title="@string/title_sort_sync"
+            app:showAsAction="never" />
     </group>
 
     <group android:id="@+id/group_operations">

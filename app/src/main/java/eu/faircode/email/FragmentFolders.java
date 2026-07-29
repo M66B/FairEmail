@@ -700,6 +700,7 @@ public class FragmentFolders extends FragmentBase {
         boolean subscriptions = prefs.getBoolean("subscriptions", false);
         boolean subscribed_only = prefs.getBoolean("subscribed_only", false);
         boolean sort_unread_atop = prefs.getBoolean("sort_unread_atop", false);
+        boolean sort_sync = prefs.getBoolean("sort_sync", false);
 
         menu.findItem(R.id.menu_unified).setVisible(account < 0 || primary);
         menu.findItem(R.id.menu_outbox).setVisible(account < 0 || primary);
@@ -711,6 +712,7 @@ public class FragmentFolders extends FragmentBase {
                 .setChecked(subscribed_only)
                 .setVisible(subscriptions);
         menu.findItem(R.id.menu_sort_unread_atop).setChecked(sort_unread_atop);
+        menu.findItem(R.id.menu_sort_sync).setChecked(sort_sync);
         menu.findItem(R.id.menu_apply_all).setVisible(account >= 0 && imap);
         menu.findItem(R.id.menu_edit_account_name).setVisible(account >= 0);
         menu.findItem(R.id.menu_edit_account_color).setVisible(account >= 0);
@@ -747,6 +749,9 @@ public class FragmentFolders extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_sort_unread_atop) {
             onMenuSortUnreadAtop();
+            return true;
+        } else if (itemId == R.id.menu_sort_sync) {
+            onMenuSortSync();
             return true;
         } else if (itemId == R.id.menu_search_folder) {
             onMenuSearchFolder(item);
@@ -859,6 +864,14 @@ public class FragmentFolders extends FragmentBase {
         prefs.edit().putBoolean("sort_unread_atop", sort_unread_atop).apply();
         invalidateOptionsMenu();
         adapter.setSortUnreadAtop(sort_unread_atop);
+    }
+
+    private void onMenuSortSync() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean sort_sync = !prefs.getBoolean("sort_sync", false);
+        prefs.edit().putBoolean("sort_sync", sort_sync).apply();
+        invalidateOptionsMenu();
+        adapter.setSortSync(sort_sync);
     }
 
     private void onMenuSearchFolder(MenuItem item) {

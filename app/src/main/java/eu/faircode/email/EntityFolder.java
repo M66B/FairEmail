@@ -836,6 +836,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean sort_sync = prefs.getBoolean("sort_sync", false);
+
         return new Comparator() {
             @Override
             public int compare(Object o1, Object o2) {
@@ -854,9 +857,11 @@ public class EntityFolder extends EntityOrder implements Serializable {
                 if (s != 0)
                     return s;
 
-                int c = -f1.synchronize.compareTo(f2.synchronize);
-                if (c != 0)
-                    return c;
+                if (sort_sync) {
+                    int c = -f1.synchronize.compareTo(f2.synchronize);
+                    if (c != 0)
+                        return c;
+                }
 
                 String name1 = (context == null ? f1.name : f1.getDisplayName(context));
                 String name2 = (context == null ? f2.name : f2.getDisplayName(context));

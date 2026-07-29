@@ -324,7 +324,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ibExpander.setVisibility((account < 0 && !primary) || !folder.expander
                     ? View.GONE
                     : folder.child_refs != null && folder.child_refs.size() > 0
-                    ? View.VISIBLE : View.INVISIBLE);
+                      ? View.VISIBLE : View.INVISIBLE);
 
             if (listener == null && folder.selectable) {
                 ivUnified.setVisibility(
@@ -447,8 +447,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 tvKeywords.setText(debug ?
                         (folder.separator == null ? "" : folder.separator + " ") +
-                                (folder.namespace == null ? "" : folder.namespace + " ") +
-                                (folder.flags == null ? null : TextUtils.join(" ", folder.flags) + " ") +
+                        (folder.namespace == null ? "" : folder.namespace + " ") +
+                        (folder.flags == null ? null : TextUtils.join(" ", folder.flags) + " ") +
                                 TextUtils.join(" ", folder.keywords) : null);
 
                 tvFlagged.setText(NF.format(folder.flagged));
@@ -1561,6 +1561,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             this.sort_unread_atop = sort_unread_atop;
             set(all);
         }
+    }
+
+    void setSortSync(boolean sort_sync) {
+        set(all);
     }
 
     void setDisabled(List<Long> ids) {

@@ -113,9 +113,9 @@ public class TupleAccountFolder extends EntityAccount {
                 if (t != 0)
                     return t;
 
-                int s = -Boolean.compare(a1.folderSync, a2.folderSync);
-                if (s != 0)
-                    return s;
+                //int s = -Boolean.compare(a1.folderSync, a2.folderSync);
+                //if (s != 0)
+                //    return s;
 
                 if (a1.folderName == null && a2.folderName == null)
                     return 0;
