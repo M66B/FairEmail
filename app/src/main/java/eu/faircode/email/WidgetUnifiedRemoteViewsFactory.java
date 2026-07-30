@@ -300,14 +300,10 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             Address[] recipients = ContactInfo.fillIn(message.from, prefer_contact, only_contact);
             boolean known = (distinguish_contacts && ContactInfo.getLookupUri(message.from) != null);
 
-            SpannableString ssFrom = new SpannableString(pro
-                    ? MessageHelper.formatAddressesShort(recipients)
-                    : context.getString(R.string.title_pro_feature));
+            SpannableString ssFrom = new SpannableString(MessageHelper.formatAddressesShort(recipients));
             SpannableString ssTime = new SpannableString(
                     Helper.getRelativeTimeSpanString(context, message.received));
-            SpannableString ssSubject = new SpannableString(pro
-                    ? TextUtils.isEmpty(message.subject) ? "" : message.subject
-                    : context.getString(R.string.title_pro_feature));
+            SpannableString ssSubject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
             SpannableString ssAccount = new SpannableString(
                     TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
 
