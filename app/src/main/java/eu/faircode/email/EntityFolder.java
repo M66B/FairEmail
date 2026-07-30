@@ -836,8 +836,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
         final Collator collator = Collator.getInstance(Locale.getDefault());
         collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean sort_sync = prefs.getBoolean("sort_sync", false);
+        SharedPreferences prefs = (context == null ? null : PreferenceManager.getDefaultSharedPreferences(context));
+        boolean sort_sync = (prefs != null && prefs.getBoolean("sort_sync", false));
 
         return new Comparator() {
             @Override
