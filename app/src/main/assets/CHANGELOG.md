@@ -30,6 +30,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2327 2026-07-31
+
 * Fixed all reported bugs
 * Collapsed inline attachments in the message editor
 * Small improvements and minor bug fixes
