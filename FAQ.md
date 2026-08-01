@@ -206,42 +206,42 @@ Most apps store their data in the cloud instead of on the device, which is why t
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23planned-features)
 
-* &#x2714; ~~Synchronize on demand (manual)~~
-* &#x2714; ~~Semi-automatic encryption~~
-* &#x2714; ~~Copy message~~
-* &#x2714; ~~Colored stars~~
-* &#x2714; ~~Notification settings per folder~~
-* &#x2714; ~~Select local images for signatures~~
-* &#x2714; ~~Show messages matched by a rule~~
+* &#x2705; ~~Synchronize on demand (manual)~~
+* &#x2705; ~~Semi-automatic encryption~~
+* &#x2705; ~~Copy message~~
+* &#x2705; ~~Colored stars~~
+* &#x2705; ~~Notification settings per folder~~
+* &#x2705; ~~Select local images for signatures~~
+* &#x2705; ~~Show messages matched by a rule~~
 * &#x274C; ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own rules)
-* &#x2714; ~~Search for messages with/without attachments~~ (on-device only because IMAP doesn't support searching for attachments)
-* &#x2714; ~~Search for a folder~~
-* &#x2714; ~~Search suggestions~~
+* &#x2705; ~~Search for messages with/without attachments~~ (on-device only because IMAP doesn't support searching for attachments)
+* &#x2705; ~~Search for a folder~~
+* &#x2705; ~~Search suggestions~~
 * &#x274C; ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys, too)
-* &#x2714; ~~Generic unified folders~~
-* &#x2714; ~~New per-account message notification schedules~~ (implemented by adding a time condition to rules, so that messages can be snoozed during selected periods)
-* &#x2714; ~~Copy accounts and identities~~
-* &#x2714; ~~Pinch to zoom~~
-* &#x2714; ~~More compact folder view~~
-* &#x2714; ~~Compose lists~~
+* &#x2705; ~~Generic unified folders~~
+* &#x2705; ~~New per-account message notification schedules~~ (implemented by adding a time condition to rules, so that messages can be snoozed during selected periods)
+* &#x2705; ~~Copy accounts and identities~~
+* &#x2705; ~~Pinch to zoom~~
+* &#x2705; ~~More compact folder view~~
+* &#x2705; ~~Compose lists~~
 * &#x274C; ~~Compose tables~~ (the Android editor doesn't support tables)
-* &#x2714; ~~Pinch to zoom text size~~
-* &#x2714; ~~Display GIFs~~
-* &#x2714; ~~Themes~~
-* &#x274C; ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
-* &#x2714; ~~Send as attachment~~
-* &#x2714; ~~Widget for selected account~~
-* &#x2714; ~~Remind to attach files~~
-* &#x2714; ~~Select domains to show images for~~
-* &#x2714; ~~Unified starred messages view~~ (implemented as saved search)
-* &#x2714; ~~Move notification action~~
-* &#x2714; ~~S/MIME support~~
-* &#x2714; ~~Search for settings~~
+* &#x2705; ~~Pinch to zoom text size~~
+* &#x2705; ~~Display GIFs~~
+* &#x2705; ~~Themes~~
+* &#x2705; ~~Any day time condition~~
+* &#x2705; ~~Send as attachment~~
+* &#x2705; ~~Widget for selected account~~
+* &#x2705; ~~Remind to attach files~~
+* &#x2705; ~~Select domains to show images for~~
+* &#x2705; ~~Unified starred messages view~~ (implemented as saved search)
+* &#x2705; ~~Move notification action~~
+* &#x2705; ~~S/MIME support~~
+* &#x2705; ~~Search for settings~~
 * &#x274C; ~~POP3 folders~~
-* &#x2714; ~~Bottom action bar~~
-* [SMTP Require TLS Option](https://datatracker.ietf.org/doc/html/rfc8689)
-* [Unobtrusive End-to-End Email Signatures](https://datatracker.ietf.org/doc/draft-ietf-mailmaint-unobtrusive-signatures/)
-* [OAuth for Thundermail](https://github.com/thunderbird/thunderbird-accounts/issues/1124)
+* &#x2705; ~~Bottom action bar~~
+* &#10067; [SMTP Require TLS Option](https://datatracker.ietf.org/doc/html/rfc8689)
+* &#10067; [Unobtrusive End-to-End Email Signatures](https://datatracker.ietf.org/doc/draft-ietf-mailmaint-unobtrusive-signatures/)
+* &#10067; [OAuth for Thundermail](https://github.com/thunderbird/thunderbird-accounts/issues/1124)
 
 Anything on this list is in random order and *might* be added in the near future.
 
