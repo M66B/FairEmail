@@ -519,7 +519,7 @@ public class FragmentMessages extends FragmentBase
         threading = (prefs.getBoolean("threading", true) ||
                 args.getBoolean("force_threading"));
         swipenav = prefs.getBoolean("swipenav", true);
-        spacing = Helper.dp2pixels(getContext(), prefs.getInt("spacing", 0) * 12);
+        spacing = Helper.dp2pixels(getContext(), prefs.getInt("spacing", 1) * 12);
         seekbar = prefs.getBoolean("seekbar", false);
         move_thread_all = prefs.getBoolean("move_thread_all", false);
         move_thread_sent = (move_thread_all || prefs.getBoolean("move_thread_sent", false));

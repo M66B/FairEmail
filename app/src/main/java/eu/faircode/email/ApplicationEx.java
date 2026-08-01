@@ -1137,6 +1137,9 @@ public class ApplicationEx extends Application
         if (version < 2327 && !prefs.contains("sort_sync"))
             editor.putBoolean("sort_sync", true);
 
+        if (version < 2328 && !prefs.contains("spacing"))
+            editor.putInt("spacing", 0);
+
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);

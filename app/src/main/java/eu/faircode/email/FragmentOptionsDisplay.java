@@ -1684,7 +1684,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swThreadingUnread.setEnabled(swThreading.isChecked());
             swIndentation.setChecked(prefs.getBoolean("indentation", false));
             swIndentation.setEnabled(swCards.isChecked() && swThreading.isChecked());
-            spSpacing.setSelection(prefs.getInt("spacing", 0));
+            spSpacing.setSelection(prefs.getInt("spacing", 1));
             swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
             swActionbar.setChecked(prefs.getBoolean("actionbar", true));
             swActionbarSwap.setChecked(prefs.getBoolean("actionbar_swap", false));
