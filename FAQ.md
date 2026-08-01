@@ -478,9 +478,7 @@ The following Android permissions are **required**:
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while performing actions, like synchronization of messages
 * *use fingerprint hardware* (USE_FINGERPRINT) and *use biometric hardware* (USE_BIOMETRIC): to use biometric authentication (fingerprint, face unlock, etc.)
 * *ask to ignore battery optimizations* (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS): to disable battery optimizations, please see [this FAQ](#faq175) for more information
-* *allow the app to show notifications* (POST_NOTIFICATIONS): to show new message notifications and (account) warnings and errors (Android 13 and later only)
 * *Google Play (in-app) billing service* (BILLING): for in-app purchases
-* *Nearby devices* (ACCESS_LOCAL_NETWORK): to access email servers via local network addresses (Android 17 and later only; not available in the Play Store release)
 
 <br />
 
@@ -491,7 +489,9 @@ The following Android permissions are **optional**:
 * *read the contents of your shared storage (SD card)* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#faq49)
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* *allow the app to show notifications* (POST_NOTIFICATIONS): to show new message notifications and (account) warnings and errors (Android 13 and later only)
 * GitHub version only: *read and write calendar data* (READ_CALENDAR/WRITE_CALENDAR): to [auto-store invitations](#faq186)
+* GitHub version only: *nearby devices* (ACCESS_LOCAL_NETWORK): to access email servers via [local network addresses](#faq210) (Android 17 and later only)
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only.
 On earlier Android versions, you will be asked to grant the permissions on installing FairEmail.
@@ -3974,6 +3974,12 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq106)
 
+**Because badge counters are not supported by Android as released by Google, there are fewer and fewer devices that support badge counters.**
+
+The best and most compatible option is to use the unread message count home screen widget.
+
+<br>
+
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers)
 for a list of launchers which can show the number of unread messages.
 Standard Android [does not support this](https://developer.android.com/training/notify-user/badges).
@@ -3993,7 +3999,7 @@ This feature depends on support of your launcher.
 FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
 If it doesn't work, this cannot be fixed by changes in FairEmail.
 
-An alternative is to use the unread messages count home screen widget.
+An alternative is to use the unread message count home screen widget.
 You can add this widget by long pressing on an empty place on the home screen.
 
 If you are using Nova launcher and you want to show the number of notifications in the launcher icon (maximum 10; imposed by Nova launcher),
