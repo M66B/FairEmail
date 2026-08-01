@@ -22,8 +22,12 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 
@@ -45,7 +49,7 @@ public class FragmentDialogVPN extends FragmentDialogBase {
         ssb.append(context.getString(R.string.title_hint_dismiss));
         ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
 
-        return new AlertDialog.Builder(context)
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_vpn_key_24)
                 .setTitle(R.string.title_hint_vpn_active)
                 .setMessage(ssb)
@@ -56,7 +60,20 @@ public class FragmentDialogVPN extends FragmentDialogBase {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         prefs.edit().putBoolean("vpn_reminder", false).apply();
                     }
-                })
-                .create();
+                });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            PackageManager pm = context.getPackageManager();
+            Intent intent = new Intent(Settings.ACTION_VPN_SETTINGS);
+            if (intent.resolveActivity(pm) != null)
+                builder.setNeutralButton(R.string.title_hint_vpn_settings, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(intent);
+                    }
+                });
+        }
+
+        return builder.create();
     }
 }
