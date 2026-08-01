@@ -202,7 +202,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         ViewCompat.setOnApplyWindowInsetsListener(holder, (v, windowInsets) -> {
             try {
-                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
 
                 boolean changed = false;
                 ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
