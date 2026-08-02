@@ -4748,6 +4748,7 @@ The confusing Microsoft specific server error *User is authenticated but not con
 * The same account is configured in multiple email clients, also on other devices.
 * Multiple Outlook accounts are being used at the same time.
 * IMAP is disabled, which is the default for new Outlook accounts now
+* Push messages are enabled for too many folders: see [this FAQ](#faq23) for more information and a workaround
 
 To fix the latter:
 
