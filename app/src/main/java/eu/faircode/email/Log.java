@@ -913,9 +913,8 @@ public class Log {
             return false;
 
         if (ex instanceof NullPointerException &&
-                stack.length > 0 &&
-                "android.graphics.Rect".equals(stack[0].getClassName()) &&
-                "set".equals(stack[0].getMethodName()))
+                ex.getMessage() != null &&
+                ex.getMessage().contains("android.graphics.Rect"))
             /*
                 java.lang.NullPointerException: Attempt to read from field 'int android.graphics.Rect.left' on a null object reference
                   at android.graphics.Rect.set(Rect.java:371)
@@ -925,7 +924,17 @@ public class Log {
                   at android.view.WindowManagerGlobal.addView(WindowManagerGlobal.java:387)
                   at android.view.WindowManagerImpl.addView(WindowManagerImpl.java:96)
                   at android.app.ActivityThread.handleResumeActivity(ActivityThread.java:4297)
-             */
+
+                java.lang.NullPointerException: Attempt to read from field 'int android.graphics.Rect.left' on a null object reference in method 'android.graphics.Point android.widget.Magnifier.getPosition()'
+                    at android.widget.Magnifier.getPosition(Magnifier.java:648)
+                    at android.widget.Editor$HandleView.updateHandlesVisibility(Editor.java:6033)
+                    at android.widget.Editor$HandleView.updateMagnifier(Editor.java:6122)
+                    at android.widget.Editor$SelectionModifierCursorController.lambda$onTouchEvent$0(Editor.java:7878)
+                    at android.widget.Editor$SelectionModifierCursorController.$r8$lambda$rtEoSkEyXt1SjLrT5IxD9csj2aU(Unknown Source:0)
+                    at android.widget.Editor$SelectionModifierCursorController$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+                    at android.widget.EditorExtImpl$1.run(EditorExtImpl.java:101)
+                    at android.os.Handler.handleCallback(Handler.java:1027)
+            */
             return false;
 
         if (ex instanceof NullPointerException &&
