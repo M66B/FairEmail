@@ -2548,7 +2548,8 @@
     <provider
         name="Thundermail"
         appPassword="true"
-        domain="thundermail\\.com,tb\\.pro">
+        domain="thundermail\\.com,tb\\.pro"
+        id="thundermail">
         <imap
             host="mail.thundermail.com"
             port="993"
@@ -2559,13 +2560,13 @@
             starttls="false" />
         <oauth
             askAccount="true"
-            authorizationEndpoint="???"
+            authorizationEndpoint="https://auth.tb.pro/realms/tbpro/protocol/openid-connect/auth"
             clientId="ext-fairemail"
-            clientSecret="???"
-            enabled="false"
+            clientSecret=""
+            enabled="true"
             privacy="https://tb.pro/privacy/"
             redirectUri="https://oauth.faircode.eu/"
             scopes="openid,profile,email,offline_access"
-            tokenEndpoint="???" />
+            tokenEndpoint="https://auth.tb.pro/realms/tbpro/protocol/openid-connect/token" />
     </provider>
 </providers>
