@@ -30,6 +30,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Added inset for display cut outs
+* Added [OAuth for Thundermail](https://github.com/thunderbird/thunderbird-accounts/issues/1124)
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [S/MIME root certificates](https://wiki.mozilla.org/CA/Included_Certificates)
+* Updated [Brave's debounce list](https://github.com/brave/brave-browser/wiki/Debouncing)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2327 2026-07-31
 
 * Fixed all reported bugs

@@ -30,6 +30,14 @@ Elopteryx
 
 Next version (Work in progress)
 
+* Added inset for display cut outs
+* Added OAuth for Thundermail
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated S/MIME root certificates
+* Updated Brave's debounce list
+* Updated translations
+
 1.2327 2026-07-31
 
 * Fixed all reported bugs
