@@ -6835,7 +6835,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-07-15T16:20:56Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-07-24T16:40:16Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -10729,6 +10729,10 @@ weather
 // https://www.iana.org/domains/root/db/weatherchannel.html
 weatherchannel
 
+// web : VeriSign, Inc.
+// https://www.iana.org/domains/root/db/web.html
+web
+
 // webcam : dot Webcam Limited
 // https://www.iana.org/domains/root/db/webcam.html
 webcam
@@ -11296,10 +11300,6 @@ ltd.ua
 // Submitted by Tyler Hall <sysadmin@a2hosting.com>
 a2hosted.com
 cpserver.com
-
-// Acorn Labs : https://acorn.io
-// Submitted by Craig Jellick <domains@acorn.io>
-*.on-acorn.io
 
 // ActiveTrail : https://www.activetrail.biz/
 // Submitted by Ofer Kalaora <postmaster@activetrail.com>
@@ -12915,11 +12915,6 @@ deployagent.space
 // Submitted by Peter Thomassen <peter@desec.io>
 dedyn.io
 
-// Deta : https://www.deta.sh/
-// Submitted by Aavash Shrestha <aavash@deta.sh>
-deta.app
-deta.dev
-
 // Deuxfleurs : https://deuxfleurs.fr
 // Submitted by Aeddis Desauw <ca@deuxfleurs.fr>
 deuxfleurs.eu
@@ -13498,10 +13493,6 @@ expo.app
 on.expo.app
 staging.expo.app
 on.staging.expo.app
-
-// Fabrica Technologies, Inc. : https://www.fabrica.dev/
-// Submitted by Eric Jiang <eric@fabrica.dev>
-onfabrica.com
 
 // fachschaften.org: https://fachschaften.org/
 // Submitted by Felix Schäfer <security@fachschaften.org>
@@ -15210,6 +15201,10 @@ eu.platform.sh
 us.platform.sh
 *.platformsh.site
 *.tst.site
+
+// Playcode : https://playcode.io
+// Submitted by Ruslan Ianberdin <security@playcode.io>
+playcode.site
 
 // Pley AB : https://www.pley.com/
 // Submitted by Henning Pohl <infra@pley.com>
