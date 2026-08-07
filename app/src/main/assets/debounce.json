@@ -60,6 +60,15 @@
   },
   {
     "include": [
+      "*://r.bttn.io/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "btn_url"
+  },
+  {
+    "include": [
       "*://trk.pmsrv.co/v2/trk?*",
       "*://trk.pm-srv.co/v2/trk?*"
     ],
