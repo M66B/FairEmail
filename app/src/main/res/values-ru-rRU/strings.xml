@@ -1071,7 +1071,7 @@
     <string name="title_notify_remark">Вы можете включить это для уведомлений конкретной учётной записи</string>
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Обычно основной адрес электронной почты</string>
+    <string name="title_user_hint">Обычно основной адрес электронной почты</string>
     <string name="title_password">Пароль</string>
     <string name="title_password_storage">Как хранятся пароли?</string>
     <string name="title_case_sensitive">Имена пользователей и пароли обычно чувствительны к регистру</string>
@@ -1232,6 +1232,7 @@
     <string name="title_show_flagged">Показывать количество избранных сообщений</string>
     <string name="title_subscribed_only">Только подписки</string>
     <string name="title_sort_unread_atop">Непрочитанные вверху</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Сортировать по синхронизации</string>
     <string name="title_search_folder">Поиск в названии папки</string>
     <string name="title_apply_to_all">Применить ко всем</string>
     <string name="title_edit_account_name">Изменить название учётной записи</string>

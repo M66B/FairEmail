@@ -1050,7 +1050,7 @@
     <string name="title_notify_remark">Vous pouvez activer ceci pour avoir des notifications spécifiques par compte</string>
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d’utilisateur</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">En général, l\'adresse e-mail principale</string>
+    <string name="title_user_hint">En général, l\'adresse e-mail principale</string>
     <string name="title_password">Mot de passe</string>
     <string name="title_password_storage">Comment les mots de passe sont-ils stockés ?</string>
     <string name="title_case_sensitive">Les noms d\'utilisateur et les mots de passe sont généralement sensibles à la casse</string>
@@ -1211,6 +1211,7 @@
     <string name="title_show_flagged">Afficher le nombre de messages suivis</string>
     <string name="title_subscribed_only">Abonnés uniquement</string>
     <string name="title_sort_unread_atop">Afficher les dossiers contenant des messages non-lus en haut</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Trier si synchronisé</string>
     <string name="title_search_folder">Rechercher un dossier</string>
     <string name="title_apply_to_all">Appliquer à tous</string>
     <string name="title_edit_account_name">Modifier le nom du compte</string>

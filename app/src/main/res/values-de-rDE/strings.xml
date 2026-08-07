@@ -1051,7 +1051,7 @@
     <string name="title_notify_remark">Sie können das für kontenspezifische Benachrichtigungen aktivieren</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Benutzername</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">In der Regel die Haupt-E-Mail-Adresse</string>
+    <string name="title_user_hint">In der Regel die Haupt-E-Mail-Adresse</string>
     <string name="title_password">Passwort</string>
     <string name="title_password_storage">Wie werden Passwörter gespeichert?</string>
     <string name="title_case_sensitive">Bei Benutzernamen und Passwörtern wird normalerweise zwischen Groß- und Kleinschreibung unterschieden</string>
@@ -1212,6 +1212,7 @@
     <string name="title_show_flagged">Anzahl markierter Nachrichten anzeigen</string>
     <string name="title_subscribed_only">Nur abonnierte</string>
     <string name="title_sort_unread_atop">Ungelesene oben einreihen</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Nach Synchronisation sortiert</string>
     <string name="title_search_folder">Nach Ordnern suchen</string>
     <string name="title_apply_to_all">Für alle übernehmen</string>
     <string name="title_edit_account_name">Kontonamen ändern</string>

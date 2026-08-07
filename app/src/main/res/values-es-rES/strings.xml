@@ -1042,7 +1042,7 @@
     <string name="title_notify_remark">Puedes activar esto para notificaciones específicas de la cuenta</string>
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Habitualmente la dirección de correo principal</string>
+    <string name="title_user_hint">Habitualmente la dirección de correo principal</string>
     <string name="title_password">Contraseña</string>
     <string name="title_password_storage">¿Cómo se almacenan las contraseñas?</string>
     <string name="title_case_sensitive">Los nombres de usuario y contraseñas por lo general distinguen mayúsculas y minúsculas</string>
@@ -1203,6 +1203,7 @@
     <string name="title_show_flagged">Mostrar cantidad de mensajes destacados</string>
     <string name="title_subscribed_only">Sólo suscritas</string>
     <string name="title_sort_unread_atop">Mostrar no leídos arriba</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Ordenar según sincronización</string>
     <string name="title_search_folder">Buscar carpeta</string>
     <string name="title_apply_to_all">Aplicar a todos</string>
     <string name="title_edit_account_name">Editar el nombre de la cuenta</string>

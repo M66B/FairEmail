@@ -1041,6 +1041,7 @@
     <string name="title_account_gmail">Za pouzdanu sinhronizaciju Gmail računa, koristite Gmail-ov čarobnjak za brzo postavljanje kad god je moguće</string>
     <string name="title_domain">Naziv domene</string>
     <string name="title_autoconfig">Dohvati postavke</string>
+    <string name="title_lan_required">Potrebne su dozvole lokalne mreže</string>
     <string name="title_aliases">Pseudonimi</string>
     <string name="title_provider">Provajder</string>
     <string name="title_custom">Prilagođen</string>
@@ -1056,6 +1057,7 @@
     <string name="title_notify_remark">Možete omogućiti ovo za obavještenja specifična za račune</string>
     <string name="title_port">Broj porta</string>
     <string name="title_user">Korisničko ime</string>
+    <string name="title_user_hint">Obično primarna e-mail adresa</string>
     <string name="title_password">Lozinka</string>
     <string name="title_password_storage">Kako se čuvaju lozinke?</string>
     <string name="title_case_sensitive">Korisnička imena i lozinke su obično precizne veličine slova</string>
@@ -1216,6 +1218,7 @@
     <string name="title_show_flagged">Prikaži broj poruka sa zvjezdicom</string>
     <string name="title_subscribed_only">Samo pretplata</string>
     <string name="title_sort_unread_atop">Sortiraj nepročitane na vrh</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sortiraj po sinhronizovanom</string>
     <string name="title_search_folder">Traži folder</string>
     <string name="title_apply_to_all">Primijeni za sve</string>
     <string name="title_edit_account_name">Uredi ime računa</string>

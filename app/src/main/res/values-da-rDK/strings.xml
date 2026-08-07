@@ -1044,7 +1044,7 @@
     <string name="title_notify_remark">Dette kan aktivere for kontospecifikke notifikationer</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brugernavn</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Normalt den primære e-mailadresse</string>
+    <string name="title_user_hint">Normalt den primære e-mailadresse</string>
     <string name="title_password">Adgangskode</string>
     <string name="title_password_storage">Hvordan opbevares adgangskoder?</string>
     <string name="title_case_sensitive">I brugernavne og adgangskoder skelnes normalt mellem minuskler og versaler</string>
@@ -1205,6 +1205,7 @@
     <string name="title_show_flagged">Vis stjernemarkerede beskedantal</string>
     <string name="title_subscribed_only">Abonnér på</string>
     <string name="title_sort_unread_atop">Sortér ulæst øverst</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sortér efter synkronisering</string>
     <string name="title_search_folder">Søg efter mappe</string>
     <string name="title_apply_to_all">Anvend på alle</string>
     <string name="title_edit_account_name">Redigér kontonavn</string>

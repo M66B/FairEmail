@@ -1056,6 +1056,7 @@
     <string name="title_account_gmail">לסנכרון אמין של חשבון Gmail, עדיף להשתמש באשף ההגדרה המהיר ל־Gmail ככל שניתן</string>
     <string name="title_domain">שם תחום</string>
     <string name="title_autoconfig">קבלת הגדרות</string>
+    <string name="title_lan_required">דורש הרשאות לרשת המקומית</string>
     <string name="title_aliases">כינויים</string>
     <string name="title_provider">ספק</string>
     <string name="title_custom">משלך</string>
@@ -1071,6 +1072,7 @@
     <string name="title_notify_remark">אפשר להפעיל את זה לקבלת התראות לחשבון מסוים</string>
     <string name="title_port">מספר פתחה</string>
     <string name="title_user">שם משתמש</string>
+    <string name="title_user_hint">בדרך כלל כתובת הדוא״ל הראשית</string>
     <string name="title_password">סיסמה</string>
     <string name="title_password_storage">איך סיסמאות מאוחסנות?</string>
     <string name="title_case_sensitive">שמות המשתמשים והסיסמאות הם בדרך כלל תלויי רישיות</string>
@@ -1231,6 +1233,7 @@
     <string name="title_show_flagged">הצגת מונה הודעות עם כוכב</string>
     <string name="title_subscribed_only">עם רישום בלבד</string>
     <string name="title_sort_unread_atop">מיון אלו שלא נקראו בהתחלה</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">סידור לפי סנכרון</string>
     <string name="title_search_folder">חיפוש אחר תיקייה</string>
     <string name="title_apply_to_all">החלה על הכול</string>
     <string name="title_edit_account_name">עריכת שם חשבון</string>

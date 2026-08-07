@@ -1044,7 +1044,7 @@ Não precisará da maioria das opções e, como algumas opções são bastante e
     <string name="title_notify_remark">Pode activar isto para ter notificações de uma conta em específico</string>
     <string name="title_port">Número da porta</string>
     <string name="title_user">Nome de utilizador</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Geralmente, o endereço de e-mail principal</string>
+    <string name="title_user_hint">Geralmente, o endereço de e-mail principal</string>
     <string name="title_password">Palavra-passe</string>
     <string name="title_password_storage">Como são armazenadas as palavras-passe?</string>
     <string name="title_case_sensitive">Nomes de utilizador e palavras-passe habitualmente diferenciam maiúsculas de minúsculas</string>
@@ -1205,6 +1205,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_show_flagged">Mostrar n⁰ de msg. favoritas</string>
     <string name="title_subscribed_only">Apenas subscritas</string>
     <string name="title_sort_unread_atop">Mostrar pastas por ler primeiro</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Ordenar quando sincronizado</string>
     <string name="title_search_folder">Pesquisar por pasta</string>
     <string name="title_apply_to_all">Aplicar a tudo</string>
     <string name="title_edit_account_name">Editar nome da conta</string>

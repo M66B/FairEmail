@@ -1069,7 +1069,7 @@ Nie musisz być tutaj, aby skonfigurować konto. W tym celu skorzystaj z przycis
     <string name="title_notify_remark">Można włączyć tę funkcję dla specyficznych powiadomień danego konta</string>
     <string name="title_port">Numer portu</string>
     <string name="title_user">Nazwa użytkownika</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Zazwyczaj główny adres e-mail</string>
+    <string name="title_user_hint">Zazwyczaj główny adres e-mail</string>
     <string name="title_password">Hasło</string>
     <string name="title_password_storage">Jak przechowywane są hasła?</string>
     <string name="title_case_sensitive">W nazwach użytkowników i hasłach rozróżniane są małe i wielkie litery</string>
@@ -1230,6 +1230,7 @@ Nie musisz być tutaj, aby skonfigurować konto. W tym celu skorzystaj z przycis
     <string name="title_show_flagged">Pokaż liczbę wiadomości oznaczonych gwiazdką</string>
     <string name="title_subscribed_only">Tylko subskrybowane</string>
     <string name="title_sort_unread_atop">Sortuj nieprzeczytane na górze</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sortuj według zsynchronizowanych</string>
     <string name="title_search_folder">Szukaj folderu</string>
     <string name="title_apply_to_all">Zastosuj dla wszystkich</string>
     <string name="title_edit_account_name">Edytuj nazwę konta</string>

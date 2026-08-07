@@ -754,7 +754,7 @@
     <string name="title_notify_remark">می‌توانید این را برای نوتیفیکیشن‌های خاص حساب فعال کنید</string>
     <string name="title_port">شماره پورت</string>
     <string name="title_user">نام کاربری</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">معمولا نشانی ایمیل اصلی</string>
+    <string name="title_user_hint">معمولا نشانی ایمیل اصلی</string>
     <string name="title_password">گذرواژه</string>
     <string name="title_case_sensitive">نام‌های کاربری و گذرواژه‌ها در بیشتر موارد به بزرگ و کوچک بودن حروف حساسند</string>
     <string name="title_login_before_send">دریافت پیش از ارسال</string>
@@ -842,6 +842,7 @@
     <string name="title_show_folders">نمایش پوشه‌های پنهان</string>
     <string name="title_show_flagged">نمایش شمار پیام‌های ستاره‌دار</string>
     <string name="title_subscribed_only">تنها مشترک شده</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">مرتب‌سازی بر اساس هماهنگ‌سازی</string>
     <string name="title_edit_account_color">ویرایش رنگ حساب</string>
     <string name="title_hide_folder">پنهان‌سازی پوشه</string>
     <string name="title_hide_seen_folder">در صورتی که همه پیام‌ها خوانده شده‌اند پوشه را پنهان کن</string>
@@ -1436,6 +1437,7 @@
         می‌توانید از دکمه پایین سمت راست برای ذخیره پیام در صندوق ورودی استفاده کنید تا همه محتوا را مشاهده کنید.
     </string>
     <string name="title_open_link">بازکردن لینک</string>
+    <string name="title_image_link">لينك تصوير</string>
     <string name="title_tracking_link">این وبسایت شاید شما را ردیابی کند</string>
     <string name="title_link_http">ترافیک رمزگذاری نخواهد شد</string>
     <string name="title_link_https">ترافیک رمزگذاری خواهد شد</string>
@@ -1443,7 +1445,11 @@
     <string name="title_insecure_link">این پیوند نا‌امن می‌باشد</string>
     <string name="title_check_owner">بررسی مالک</string>
     <string name="title_ip_owner">نشانی IP مالک</string>
+    <string name="title_default_apps">برنامه‌های پیش‌فرض</string>
+    <string name="title_reset_open">تنظیم یا حذف اپلیکیشن‌های پیش‌فرض</string>
     <string name="title_select_app">انتخاب برنامه</string>
+    <string name="title_updated">یک بروز رسانی به نسخه %1$s وجود دارد</string>
+    <string name="title_no_update">هیچ به روزرسانی‌ای موجود نیست</string>
     <string name="title_issue">سوال یا مشکلی دارید؟</string>
     <string name="title_yes">بله</string>
     <string name="title_no">خير</string>
@@ -1452,6 +1458,12 @@
     <string name="title_paste_as_quote">درج کردن به عنوان نقل‌قول</string>
     <string name="title_undo">عقبگرد</string>
     <string name="title_redo">انجام دوباره</string>
+    <string name="title_insert_line">درج لینک</string>
+    <string name="title_select_block">انتخاب بلوک</string>
+    <string name="title_insert_brackets">کروشه</string>
+    <string name="title_insert_quotes">نقل قول</string>
+    <string name="title_lt_add">افزودن کلیدواژه</string>
+    <string name="title_lt_delete">حذف کلمه</string>
     <string name="title_add">افزودن</string>
     <string name="title_browse">باز کردن با</string>
     <string name="title_info">اطلاعات</string>
@@ -1462,8 +1474,10 @@
     <string name="title_enable">فعال‌سازی</string>
     <string name="title_enabled">فعال شده</string>
     <string name="title_disable">غیرفعال‌سازی</string>
+    <string name="title_keep_current">نگه داشتن</string>
     <string name="title_executing">در حال اجرا</string>
     <string name="title_completed">کامل شده</string>
+    <string name="title_default_changed">پیش‌فرض تغییر کرد</string>
     <string name="title_clipboard_copy">کپی به کلیپ‌بورد</string>
     <string name="title_clipboard_copied">کپی شده به کلیپ‌بورد</string>
     <string name="title_ask_what">بپرس چه باید کرد</string>
@@ -1478,6 +1492,11 @@
     <string name="title_1hour">۱ ساعت</string>
     <string name="title_1day">۱ روز</string>
     <string name="title_snooze_doze">لطفا بهینه‌سازی باتری را از طریق مرحله ۳ در صفحه تنظیمات اصلی غیرفعال کنید</string>
+    <string name="title_more_overflow">بیشتر &#8230;</string>
+    <string name="title_today_at">امروز ساعت %1$s</string>
+    <string name="title_tomorrow_at">فردا ساعت %1$s</string>
+    <string name="title_day_at_time">%1$s در %2$s</string>
+    <string name="title_next_week">همین موقع هفته بعد</string>
     <string name="title_now">هم اکنون</string>
     <string name="title_after">پس از %1$s</string>
     <string name="title_reset">بازنشانی</string>
@@ -1487,6 +1506,8 @@
     <string name="title_snooze_now">تعویق</string>
     <string name="title_loading">درحال بارگذاری &#8230;</string>
     <string name="title_fetching_again">در حال واکشی دوباره پیام از سرور</string>
+    <string name="title_go_back">بازگشت</string>
+    <string name="title_global_default">استفاده از پیش‌فرض جهانی</string>
     <string name="title_not_existing">این پیام دیگر روی سرور ایمیل وجود ندارد</string>
     <string name="title_conversation_actions">کنش‌ها</string>
     <string name="title_conversation_action_reply">پاسخ با: \'%1$s\'</string>
@@ -1498,6 +1519,7 @@
     <string name="title_pro_feature">این یکی از ویژگی‌های نسخه حرفه‌ای است</string>
     <string name="title_pro_list">لیست ویژگی‌های نسخه حرفه‌ای</string>
     <string name="title_pro_purchase">خرید</string>
+    <string name="title_pro_no_play">پلی‌استور یافت نشد</string>
     <string name="title_pro_info">        توسعه FairEmail به معنای واقعی کلمه هزاران ساعت طول کشیده و با وجود این، بیشتر ویژگی‌ها برای استفاده رایگان هستند.        FairEmail حریم خصوصی شما را جدی می گیرد، آگهی نشان نمی دهد و از ردیابی یا تجزیه و تحلیل برای کسب درآمد استفاده نمی کند.
         برای حفظ و پشتیبانی FairEmail در طولانی مدت، برخی از امکانات و ویژگی‌های پیشرفته برای استفاده رایگان نیستند.
         FairEmail پیام کوچکی را برای یادآوری این مورد نشان می دهد که در صورت خرید ویژگی‌های حرفه‌ای حذف خواهد شد.
@@ -1514,6 +1536,8 @@
     <string name="title_unexpected_error">خطای غیر منتظره</string>
     <string name="title_log">گزارش اتفاقات</string>
     <string name="title_log_clear">پاک‌سازی</string>
+    <string name="title_rules_delete_all">حذف همه قوانین</string>
+    <string name="title_rules_delete_all_confirm">همه قوانین حذف شوند؟</string>
     <string name="title_debug_info">اطلاعات اشکال زدایی</string>
     <string name="title_debug_info_remark">لطفاً مشکل را شرح داده و به زمان مشکل نیز اشاره کنید:</string>
     <string name="title_crash_info_remark">لطفاً توضیح دهید که در هنگام کرش برنامه درحال انجام چه کاری بودید:</string>
@@ -1521,9 +1545,14 @@
     <string name="title_debug_info_contact">پیشتر درباره این مشکل پیام دریافت کرده‌ایم</string>
     <string name="title_debug_info_send">ارسال فوری</string>
     <string name="title_debug_info_question">اگر پرسشی دارید، لطفا از دکمه اطلاعات استفاده کنید</string>
+    <string name="title_unexpected_info_remark">لطفا توضیح دهید که در هنگام دریافت پیام خطا درحال انجام چه کاری بودید:</string>
     <string name="title_widget_title_count">شمار پیام جدید</string>
     <string name="title_widget_title_list">لیست پیام‌ها</string>
+    <string name="title_widget_title_sync">همگام‌سازی روشن/خاموش</string>
+    <string name="title_power_menu_sync">همگام‌سازی</string>
+    <string name="title_power_menu_on">روشن</string>
     <string name="title_power_menu_off">خاموش</string>
+    <string name="title_power_menu_on_off">روشن/خاموش</string>
     <string name="title_widget_account">حساب</string>
     <string name="title_widget_account_all">همه</string>
     <string name="title_widget_folder">پوشه</string>
@@ -1536,7 +1565,10 @@
     <string name="title_widget_padding">اندازه لایه‌گذاری</string>
     <string name="title_widget_separator_lines">نمایش خطوط جدا کننده</string>
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
+    <string name="title_widget_count_top">نمایش تعداد خوانده نشده‌ها در بالا</string>
     <string name="title_widget_avatars">نمایش تصویر مخاطبین</string>
+    <string name="title_widget_account_name">نمایش نام حساب کاربری</string>
+    <string name="title_widget_caption">نمایش عنوان</string>
     <string name="title_widget_background">رنگ پس‌زمینه</string>
     <string name="title_widget_icon">رنگ آیکون</string>
     <string name="title_widget_day_night">بر اساس تم تاریک سیستم</string>
@@ -1547,6 +1579,10 @@
     <string name="title_keyword_label3">شخصی</string>
     <string name="title_keyword_label4">برای انجام</string>
     <string name="title_keyword_label5">بعدا</string>
+    <string name="title_keyword_displayed">نمایش داده شده</string>
+    <string name="title_keyword_delivered">تحویل داده شده</string>
+    <string name="title_keyword_not_displayed">نمایش داده نشده</string>
+    <string name="title_keyword_not_delivered">تحویل داده نشده</string>
     <string name="title_keyword_complaint">شکایت</string>
     <string name="title_keyword_phishing">فیشینگ</string>
     <plurals name="title_accessibility_messages">
@@ -1555,6 +1591,9 @@
     </plurals>
     <string name="title_accessibility_accounts">حساب‌ها</string>
     <string name="title_accessibility_folders">پوشه‌ها</string>
+    <string name="title_accessibility_searches">جستجوها</string>
+    <string name="title_accessibility_menus">منوها</string>
+    <string name="title_accessibility_extras">سایر</string>
     <string name="title_accessibility_collapsed">جمع شده</string>
     <string name="title_accessibility_expanded">گسترش یافته</string>
     <string name="title_accessibility_seen">خوانده شده</string>
@@ -1666,8 +1705,8 @@
     <string-array name="sensitivityNames">
         <item>متوسط</item>
         <item>شخصی</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>خصوصی</item>
+        <item>محرمانه</item>
     </string-array>
     <string-array name="linesNames">
         <item>۱</item>
@@ -1725,7 +1764,7 @@
         <item>5 s</item>
         <item>7.5 s</item>
         <item>10 s</item>
-        <item>15 s</item>
+        <item>۱۵ ثانیه</item>
         <item>۳۰ ثانیه</item>
         <item>۶۰ ثانیه</item>
     </string-array>
@@ -1734,9 +1773,14 @@
         <item>Serif</item>
         <item>Sans-serif</item>
         <item>Monospace</item>
-        <item>Fantasy</item>
+        <item>فانتزی</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>تنها نام</item>
+        <item>فقط ایمیل</item>
+        <item>نام و ایمیل</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->

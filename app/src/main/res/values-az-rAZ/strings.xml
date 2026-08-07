@@ -1045,7 +1045,7 @@
     <string name="title_notify_remark">Bunu, hesaba özəl bildirişlər üçün fəallaşdıra bilərsiniz</string>
     <string name="title_port">Port nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Adətən birinci dərəcəli e-poçt ünvanı</string>
+    <string name="title_user_hint">Adətən birinci dərəcəli e-poçt ünvanı</string>
     <string name="title_password">Parol</string>
     <string name="title_password_storage">Parollar necə saxlanılır?</string>
     <string name="title_case_sensitive">İstifadəçi adları və parollar adətən böyük-kiçik hərflərə həssasdır</string>
@@ -1206,6 +1206,7 @@
     <string name="title_show_flagged">Ulduzlu mesaj sayını göstər</string>
     <string name="title_subscribed_only">Yalnız abunə olunanlar</string>
     <string name="title_sort_unread_atop">Oxunulmayanları üstdə sırala</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sinxron formatda sırala</string>
     <string name="title_search_folder">Qovluq axtar</string>
     <string name="title_apply_to_all">Hamısına tətbiq et</string>
     <string name="title_edit_account_name">Hesab adına düzəliş et</string>

@@ -411,7 +411,7 @@ Jo sille de measte opsjes net nedich hawwe en omdat guon opsjes frij spesifyk bi
     <string name="title_advanced_suggest_local">Lokaal bewarre kontakten foarstelle</string>
     <string name="title_advanced_suggest_sent">Adressen fûn yn ferstjoerde berjochten foarstelle</string>
     <string name="title_advanced_suggest_received">Adressen fûn yn ûntfangen berjochten foarstelle</string>
-    <string name="title_advanced_suggest_frequently">Sortearje foarstelle adressen op gebrûksfrekwinsje</string>
+    <string name="title_advanced_suggest_frequently">Foarstelde adressen op gebrûksfrekwinsje sortearje</string>
     <string name="title_advanced_suggest_account">Suggestjes beheine ta aktuele account</string>
     <string name="title_advanced_auto_delete_local">Automatysk lokale kontakten fuortsmite âlder as en minder brûkt as:</string>
     <string name="title_advanced_alt_re_fwd">Alternatyf antwurd/trochstjoere foarfoechsel</string>
@@ -1039,7 +1039,7 @@ De standert fersiferingsmetoade (PGP of S/MIME) wurdt per identiteit bewarre nei
     <string name="title_notify_remark">Jo kinne dit ynskeakelje foar accountspesifike meldingen</string>
     <string name="title_port">Poartenûmer</string>
     <string name="title_user">Brûkersnamme</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Meastentiids it primêre e-mailadres</string>
+    <string name="title_user_hint">Meastentiids it primêre e-mailadres</string>
     <string name="title_password">Wachtwurd</string>
     <string name="title_password_storage">Hoe wurde wachtwurden bewarre?</string>
     <string name="title_case_sensitive">Brûkersnammen en wachtwurden binne meastal haadlettergefoelich</string>
@@ -1198,6 +1198,7 @@ Berjochten wurde ophelle sa gau as de e-mailserver se ôfleverje kin en bewarje 
     <string name="title_show_flagged">Oantal berjochten mei stjer toane</string>
     <string name="title_subscribed_only">Allinnich abonnearre</string>
     <string name="title_sort_unread_atop">Net-lêzen boppe-oan sortearje</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Op syngronisearre sortearje</string>
     <string name="title_search_folder">Sykje nei map</string>
     <string name="title_apply_to_all">Op alle tapasse</string>
     <string name="title_edit_account_name">Accountnamme bewurkje</string>

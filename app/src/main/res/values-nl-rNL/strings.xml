@@ -410,7 +410,7 @@ U zult de meeste opties niet nodig hebben en aangezien sommige opties vrij speci
     <string name="title_advanced_suggest_local">Suggereer lokaal opgeslagen contacten</string>
     <string name="title_advanced_suggest_sent">Suggereer adressen gevonden in verzonden berichten</string>
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
-    <string name="title_advanced_suggest_frequently">Sorteer voorgestelde adressen op gebruiksfrequentie</string>
+    <string name="title_advanced_suggest_frequently">Voorgestelde adressen op gebruiksfrequentie sorteren</string>
     <string name="title_advanced_suggest_account">Suggesties beperken tot huidige account</string>
     <string name="title_advanced_auto_delete_local">Verwijder automatisch lokale contacten ouder dan en minder gebruikt dan:</string>
     <string name="title_advanced_alt_re_fwd">Alternatief antwoord/doorsturen voorvoegsel</string>
@@ -787,7 +787,7 @@ De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslag
     <string name="title_advanced_power_menu">Acties toevoegen aan het Android power menu</string>
     <string name="title_advanced_send_self">Voeg \'Stuur naar jezelf\' toe aan het Android-deelmenu</string>
     <string name="title_advanced_external_search">Voeg \'FairEmail zoeken\' toe aan Android tekst selectie menu</string>
-    <string name="title_advanced_sort_answers">Sorteer antwoordsjablonen op gebruiksfrequentie</string>
+    <string name="title_advanced_sort_answers">Antwoordsjablonen op gebruiksfrequentie sorteren</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
     <string name="title_advanced_ical_tentative">Bewaar ontvangen uitnodigingen als voorlopig</string>
     <string name="title_advanced_ical_email">E-mailadres van deelnemers opslaan</string>
@@ -1037,7 +1037,7 @@ De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslag
     <string name="title_notify_remark">U kunt dit inschakelen voor account specifieke meldingen</string>
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
-    <string name="title_user_hint" comment="title_user_hint Hint text for account/identity username field. Please keep it short!">Meestal het primaire mailadres</string>
+    <string name="title_user_hint">Meestal het primaire mailadres</string>
     <string name="title_password">Wachtwoord</string>
     <string name="title_password_storage">Hoe worden wachtwoorden bewaard?</string>
     <string name="title_case_sensitive">Gebruikersnamen en wachtwoorden zijn meestal hoofdlettergevoelig</string>
@@ -1195,7 +1195,8 @@ Berichten worden opgehaald zo snel als de mailserver ze kan afleveren en opgesla
     <string name="title_show_folders">Toon verborgen mappen</string>
     <string name="title_show_flagged">Toon aantal berichten met ster</string>
     <string name="title_subscribed_only">Alleen geabonneerde</string>
-    <string name="title_sort_unread_atop">Sorteer ongelezen bovenaan</string>
+    <string name="title_sort_unread_atop">Ongelezen bovenaan sorteren</string>
+    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Op gesynchroniseerd sorteren</string>
     <string name="title_search_folder">Zoeken naar map</string>
     <string name="title_apply_to_all">Toepassen op alle</string>
     <string name="title_edit_account_name">Bewerk accountnaam</string>

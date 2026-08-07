@@ -1055,6 +1055,7 @@ Android можа запытаць дазвол на доступ да выбра
     <string name="title_account_gmail">Для надзейнай сінхранізацыі ўліковага запісу Gmail па магчымасці трэба выкарыстоўваць майстар хуткага наладжвання</string>
     <string name="title_domain">Назва дамена</string>
     <string name="title_autoconfig">Атрымаць налады</string>
+    <string name="title_lan_required">Патрабуецца доступ да лакальнай сеткі</string>
     <string name="title_aliases">Псеўданімы</string>
     <string name="title_provider">Правайдар</string>
     <string name="title_custom">Карыстальніцкае</string>
@@ -1070,6 +1071,7 @@ Android можа запытаць дазвол на доступ да выбра
     <string name="title_notify_remark">Вы можаце ўключыць гэту опцыю для апавяшчэнняў пэўнага ўліковага запісу</string>
     <string name="title_port">Нумар порта</string>
     <string name="title_user">Імя карыстальніка</string>
+    <string name="title_user_hint">Звычайна асноўны адрас электроннай пошты</string>
     <string name="title_password">Пароль</string>
     <string name="title_password_storage">Як захоўваюцца паролі?</string>
     <string name="title_case_sensitive">Імёны карыстальнікаў і паролі звычайна маюць высокую адчувальнасць да рэгістра</string>
