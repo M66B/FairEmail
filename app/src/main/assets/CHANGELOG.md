@@ -30,6 +30,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2328 2026-08-07
+
 * Added inset for display cut outs
 * Added [OAuth for Thundermail](https://github.com/thunderbird/thunderbird-accounts/issues/1124)
 * Small improvements and minor bug fixes
