@@ -1934,7 +1934,6 @@ public class HtmlHelper {
 
                 boolean hasMinWidth = false;
                 boolean hasMaxWidth = false;
-                boolean preferDark = false;
                 List<Property> props = _media.mediaQuery(i).getProperties();
                 if (props != null)
                     for (Property prop : props) {
@@ -1949,13 +1948,10 @@ public class HtmlHelper {
                             break;
                         }
                         // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme
-                        if ("prefers-color-scheme".equals(prop.getName())) {
-                            CSSValue cvalue = prop.getValue();
-                            if (cvalue != null && cvalue.getCssText() != null)
-                                preferDark = "dark".equalsIgnoreCase(cvalue.getCssText().trim());
-                        }
+                        if ("prefers-color-scheme".equals(prop.getName()))
+                            return false;
                     }
-                if (!hasMinWidth && !hasMaxWidth && !preferDark)
+                if (!hasMinWidth && !hasMaxWidth)
                     if ("all".equals(type) || "screen".equals(type) || _media.mediaQuery(i).isNot()) {
                         Log.i("Using media=" + media.getMediaText());
                         return true;
