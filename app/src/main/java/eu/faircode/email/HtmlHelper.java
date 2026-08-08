@@ -98,6 +98,7 @@ import org.w3c.css.sac.Selector;
 import org.w3c.dom.css.CSSRule;
 import org.w3c.dom.css.CSSRuleList;
 import org.w3c.dom.css.CSSStyleSheet;
+import org.w3c.dom.css.CSSValue;
 import org.w3c.dom.stylesheets.MediaList;
 
 import java.io.ByteArrayInputStream;
@@ -1933,6 +1934,7 @@ public class HtmlHelper {
 
                 boolean hasMinWidth = false;
                 boolean hasMaxWidth = false;
+                boolean preferDark = false;
                 List<Property> props = _media.mediaQuery(i).getProperties();
                 if (props != null)
                     for (Property prop : props) {
@@ -1946,8 +1948,14 @@ public class HtmlHelper {
                             hasMaxWidth = true;
                             break;
                         }
+                        // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme
+                        if ("prefers-color-scheme".equals(prop.getName())) {
+                            CSSValue cvalue = prop.getValue();
+                            if (cvalue != null && cvalue.getCssText() != null)
+                                preferDark = "dark".equalsIgnoreCase(cvalue.getCssText().trim());
+                        }
                     }
-                if (!hasMinWidth && !hasMaxWidth)
+                if (!hasMinWidth && !hasMaxWidth && !preferDark)
                     if ("all".equals(type) || "screen".equals(type) || _media.mediaQuery(i).isNot()) {
                         Log.i("Using media=" + media.getMediaText());
                         return true;
