@@ -55,6 +55,7 @@ import org.jsoup.parser.ParseError;
 import org.jsoup.parser.ParseErrorList;
 import org.jsoup.parser.Parser;
 import org.w3c.dom.css.CSSStyleSheet;
+import org.w3c.dom.stylesheets.MediaList;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -62,7 +63,9 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ActivityCode extends ActivityBase {
     private WebView wvCode;
@@ -356,12 +359,13 @@ public class ActivityCode extends ActivityBase {
                 if (sanitize) {
                     List<CSSStyleSheet> sheets =
                             HtmlHelper.parseStyles(d.head().select("style"));
+                    Map<MediaList, Boolean> cache = new HashMap<>();
                     for (Element element : d.select("*")) {
                         String computed = HtmlHelper.processStyles(context,
                                 element.tagName(),
                                 element.className(),
                                 element.attr("style"),
-                                sheets);
+                                sheets, cache);
                         if (!TextUtils.isEmpty(computed))
                             element.attr("x-computed", computed);
                     }

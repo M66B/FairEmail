@@ -660,11 +660,12 @@ public class HtmlHelper {
         }
 
         // Sanitize styles
+        Map<MediaList, Boolean> cache = new HashMap<>();
         for (Element element : document.select("*")) {
             // Class style
             String tag = element.tagName();
             String clazz = element.className();
-            String style = processStyles(context, tag, clazz, null, sheets);
+            String style = processStyles(context, tag, clazz, null, sheets, cache);
 
             // Element style
             style = mergeStyles(style, element.attr("style"));
@@ -1855,17 +1856,17 @@ public class HtmlHelper {
         return sheets;
     }
 
-    static String processStyles(Context context, String tag, String clazz, String style, List<CSSStyleSheet> sheets) {
+    static String processStyles(Context context, String tag, String clazz, String style, List<CSSStyleSheet> sheets, Map<MediaList, Boolean> cache) {
         for (CSSStyleSheet sheet : sheets)
-            if (isScreenMedia(context, sheet.getMedia())) {
-                style = processStyles(context, null, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
-                style = processStyles(context, tag, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
-                style = processStyles(context, tag, clazz, style, sheet.getCssRules(), Selector.SAC_CONDITIONAL_SELECTOR);
+            if (isScreenMedia(context, sheet.getMedia(), cache)) {
+                style = processStyles(context, null, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR, cache);
+                style = processStyles(context, tag, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR, cache);
+                style = processStyles(context, tag, clazz, style, sheet.getCssRules(), Selector.SAC_CONDITIONAL_SELECTOR, cache);
             }
         return style;
     }
 
-    private static String processStyles(Context context, String tag, String clazz, String style, CSSRuleList rules, int stype) {
+    private static String processStyles(Context context, String tag, String clazz, String style, CSSRuleList rules, int stype, Map<MediaList, Boolean> cache) {
         for (int i = 0; rules != null && i < rules.getLength(); i++) {
             CSSRule rule = rules.item(i);
             switch (rule.getType()) {
@@ -1904,15 +1905,25 @@ public class HtmlHelper {
 
                 case CSSRule.MEDIA_RULE:
                     CSSMediaRuleImpl mrule = (CSSMediaRuleImpl) rule;
-                    if (isScreenMedia(context, mrule.getMedia()))
-                        style = processStyles(context, tag, clazz, style, mrule.getCssRules(), stype);
+                    if (isScreenMedia(context, mrule.getMedia(), cache))
+                        style = processStyles(context, tag, clazz, style, mrule.getCssRules(), stype, cache);
                     break;
             }
         }
         return style;
     }
 
-    private static boolean isScreenMedia(Context context, MediaList media) {
+    private static boolean isScreenMedia(Context context, MediaList media, Map<MediaList, Boolean> cache) {
+        if (cache != null && cache.containsKey(media))
+            return cache.get(media);
+
+        boolean is = _isScreenMedia(context, media);
+        if (cache != null)
+            cache.put(media, is);
+        return is;
+    }
+
+    private static boolean _isScreenMedia(Context context, MediaList media) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
         // https://developers.google.com/gmail/design/reference/supported_css#supported_types
         if (media instanceof MediaListImpl) {
