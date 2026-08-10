@@ -65,6 +65,14 @@ public class FragmentDialogNotifications extends FragmentDialogBase {
                         prefs.edit().putBoolean("notifications_reminder", false).apply();
                     }
                 })
+                .setNeutralButton(R.string.title_setup, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        context.startActivity(new Intent(context, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                .putExtra("tab", "notifications"));
+                    }
+                })
                 .create();
     }
 }
