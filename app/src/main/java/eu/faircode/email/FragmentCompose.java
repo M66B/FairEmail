@@ -3588,7 +3588,7 @@ public class FragmentCompose extends FragmentBase {
                     if (cursor != null && cursor.getCount() == 0)
                         throw new SecurityException("Could not retrieve selected contact");
 
-                    if (cursor != null && cursor.moveToFirst()) {
+                    if (cursor != null && cursor.moveToFirst() && cursor.getColumnCount() > 0) {
                         int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
                         int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
                         if (colEmail >= 0 && colName >= 0) {

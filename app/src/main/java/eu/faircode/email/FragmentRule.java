@@ -1180,7 +1180,7 @@ public class FragmentRule extends FragmentBase {
                         ContactsContract.CommonDataKinds.Email.ADDRESS
                 },
                 null, null, null)) {
-            if (cursor != null && cursor.moveToFirst())
+            if (cursor != null && cursor.moveToFirst() && cursor.getColumnCount() > 0)
                 et.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
