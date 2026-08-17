@@ -1,6 +1,7 @@
 [
   {
     "include": [
+      "*://*.prsm1.com/r?*",
       "*://lcmspubcontact.lc.ca.gov/PublicLCMS/LinkTracking.php?*",
       "*://cc.zdnet.com/v1/otc/*",
       "*://cc.cnet.com/v1/otc/*",
@@ -225,6 +226,7 @@
   },
   {
     "include": [
+      "*://*.dttq.net/c/*",
       "*://c212.net/c/link/?*",
       "*://*.c9ftyd.net/c/*",
       "*://*.iyhh.net/c/*",
