@@ -713,6 +713,29 @@ public class EntityRule {
             throw new IllegalArgumentException(message, ex);
         }
 
+        JSONObject jcondition = new JSONObject(condition);
+
+        JSONObject jsender = jcondition.optJSONObject("sender");
+        JSONObject jrecipient = jcondition.optJSONObject("recipient");
+        JSONObject jsubject = jcondition.optJSONObject("subject");
+        JSONObject jheader = jcondition.optJSONObject("header");
+        JSONObject jbody = jcondition.optJSONObject("body");
+
+        if (jsender != null && jsender.optBoolean("regex"))
+            Pattern.compile(jsender.optString("value"));
+
+        if (jrecipient != null && jrecipient.optBoolean("regex"))
+            Pattern.compile(jrecipient.optString("value"));
+
+        if (jsubject != null && jsubject.optBoolean("regex"))
+            Pattern.compile(jsubject.optString("value"));
+
+        if (jheader != null && jheader.optBoolean("regex"))
+            Pattern.compile(jheader.optString("value"));
+
+        if (jbody != null && jbody.optBoolean("regex"))
+            Pattern.compile(jbody.optString("value"));
+
         JSONObject jargs = new JSONObject(action);
         int type = jargs.getInt("type");
 
