@@ -549,7 +549,7 @@ dependencies {
     def playservicesbasement_version = "18.10.0";
     def transparency_version = "2.8.20"
     def javamail_version = "1.6.7"
-    def jsoup_version = "1.18.3"
+    def jsoup_version = "1.23.1"
     def jsonpath_version = "2.9.0"
     def css_version = "0.9.30"
     def jax_version = "2.3.0-jaxb-1.0.6"
