@@ -1658,6 +1658,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>The following extra functions are available:</p>
 <ul>
 <li><em>header(“name”)</em> (returns an array of header values for the named header)</li>
+<li><em>message(“language”)</em> returns the two letter <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes">ISO language code</a> of a message; note that it cannot always be determined and that it can be incorrect (since version 1.2330)</li>
 <li><em>blocklist()</em> (version 1.2176-1.2178; deprecated, use <em>onBlocklist()</em> instead)</li>
 <li><em>onBlocklist()</em> (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)</li>
 <li><em>hasMx()</em> (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)</li>
@@ -1674,6 +1675,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p><code>!onBlocklist() &amp;&amp; hasMx() &amp;&amp; attachments() &gt; 0</code></p>
 <p><code>(received + 7*24*60*60*1000) &lt; DT_DATE_TO_EPOCH(DT_NOW())</code></p>
 <p><code>AI("Is the message below a scam? Answer in English with just yes or no.") contains "yes"</code></p>
+<p><code>COALESCE(message("language")) == "en"</code></p>
 <p><br></p>
 <p><strong>Actions</strong></p>
 <p>You can select one of these actions to apply to matching messages:</p>

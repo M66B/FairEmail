@@ -3028,6 +3028,7 @@ The following extra operators are available:
 The following extra functions are available:
 
 * *header("name")* (returns an array of header values for the named header)
+* *message("language")* returns the two letter [ISO language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) of a message; note that it cannot always be determined and that it can be incorrect (since version 1.2330)
 * *blocklist()* (version 1.2176-1.2178; deprecated, use *onBlocklist()* instead)
 * *onBlocklist()* (returns a boolean indicating if the sender/server is on a DNS blocklist; since version 1.2179)
 * *hasMx()* (returns a boolean indicating if the from/reply-to address has an associated MX record; since version 1.2179)
@@ -3049,6 +3050,8 @@ Example conditions:
 ```(received + 7*24*60*60*1000) < DT_DATE_TO_EPOCH(DT_NOW())```
 
 ```AI("Is the message below a scam? Answer in English with just yes or no.") contains "yes"```
+
+```COALESCE(message("language")) == "en"```
 
 <br>
 

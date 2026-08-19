@@ -108,7 +108,7 @@ public class ExpressionHelper {
         }
 
         HeaderFunction fHeader = new HeaderFunction(headers);
-        MessageFunction fMessage = new MessageFunction(message);
+        MessageFunction fMessage = new MessageFunction(context, message, doc);
         BlocklistFunction fBlocklist = new BlocklistFunction(context, message, headers);
         MxFunction fMx = new MxFunction(context, message);
         AttachmentsFunction fAttachments = new AttachmentsFunction(context, message);
@@ -189,7 +189,7 @@ public class ExpressionHelper {
                 Token token = node.getToken();
                 Log.i("EXPR token=" + token.getType() + ":" + token.getValue());
                 if (token.getType() == Token.TokenType.FUNCTION &&
-                        "AI".equalsIgnoreCase(token.getValue())) {
+                        ("AI".equalsIgnoreCase(token.getValue()) || "message".equalsIgnoreCase(token.getValue()))) {
                     Log.i("EXPR needs body");
                     return true;
                 }
@@ -232,10 +232,14 @@ public class ExpressionHelper {
 
     @FunctionParameter(name = "value")
     public static class MessageFunction extends AbstractFunction {
+        private Context context;
         private final EntityMessage message;
+        private final Document doc;
 
-        MessageFunction(EntityMessage message) {
+        MessageFunction(Context context, EntityMessage message, Document doc) {
+            this.context = context;
             this.message = message;
+            this.doc = doc;
         }
 
         @Override
@@ -246,20 +250,32 @@ public class ExpressionHelper {
             try {
                 if (parameterValues.length == 1) {
                     String name = parameterValues[0].getStringValue();
-                    if (name != null && message != null) {
-                        Field field = message.getClass().getField(name);
-                        field.setAccessible(true);
-                        Object value = field.get(message);
-                        if (value != null)
-                            result.add(value);
+                    if ("language".equalsIgnoreCase(name)) {
+                        String language;
+                        if (message.language == null)
+                            language = (doc == null ? null : HtmlHelper.getLanguage(context, message.subject, doc.text()));
+                        else
+                            language = message.language;
+                        Log.i("EXPR language=" + language);
+                        if (language != null)
+                            result.add(language);
+                    } else {
+                        if (name != null && message != null) {
+                            Field field = message.getClass().getField(name);
+                            field.setAccessible(true);
+                            Object value = field.get(message);
+                            if (value != null)
+                                result.add(value);
+                        }
                     }
                 }
             } catch (Throwable ex) {
                 Log.e("EXPR", ex);
             }
 
-            Log.i("EXPR message(" + parameterValues[0] + ")=" + TextUtils.join(", ", result));
-            return EvaluationValue.of(result, ExpressionConfiguration.defaultConfiguration());
+            EvaluationValue val = EvaluationValue.of(result, ExpressionConfiguration.defaultConfiguration());
+            Log.i("EXPR message(" + parameterValues[0] + ")=" + TextUtils.join(", ", result) + " val=" + val);
+            return val;
         }
     }
 
