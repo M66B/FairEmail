@@ -3053,6 +3053,8 @@ Example conditions:
 
 ```COALESCE(message("language")) == "en"```
 
+Note that *message("name")* returns an array. COALESCE returns the first value of an array, so it can be compared with a string value.
+
 <br>
 
 **Actions**
