@@ -3055,6 +3055,9 @@ Example conditions:
 
 Note that *message("name")* returns an array. COALESCE returns the first value of an array, so it can be compared with a string value.
 
+Note that detecting the message text language needs to be enabled on the behavior settings tab page,
+and that changing this option doesn't affect the language detection of already received messages.
+
 <br>
 
 **Actions**
