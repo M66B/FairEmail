@@ -220,10 +220,6 @@ public class Helper {
 
     static final String PLAY_PACKAGE_NAME = "com.android.vending";
 
-    static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
-    static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
-    static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
-
     static final String PACKAGE_WEBVIEW = "https://play.google.com/store/apps/details?id=com.google.android.webview";
     static final String PRIVACY_URI = "https://email.faircode.eu/privacy/";
     static final String TUTORIALS_URI = "https://github.com/M66B/FairEmail/tree/master/tutorials#main";

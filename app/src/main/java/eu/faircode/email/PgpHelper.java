@@ -50,6 +50,11 @@ public class PgpHelper {
     private static final long CONNECT_TIMEOUT = 5000L;
     private static final long KEY_TIMEOUT = 250L;
 
+    static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
+    static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
+    private static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
+    private static final String PGP_PGPONY = "com.pgpony.android";
+
     static Intent execute(Context context, Intent data, InputStream is, OutputStream os) {
         return execute(context, data, is, os, CONNECT_TIMEOUT);
     }
@@ -160,19 +165,26 @@ public class PgpHelper {
     }
 
     static String getPackageName(Context context) {
+        PackageManager pm = context.getPackageManager();
+        Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
+        List<ResolveInfo> ris = pm.queryIntentServices(intent, 0); // package whitelisted
+        if (ris != null && ris.size() == 1 && ris.get(0).serviceInfo != null) {
+            String pkg = ris.get(0).serviceInfo.packageName;
+            if (pkg != null)
+                return pkg;
+        }
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
+        return prefs.getString("openpgp_provider", PGP_OPENKEYCHAIN_PACKAGE);
     }
 
     static boolean isOpenKeychainInstalled(Context context) {
-        String provider = getPackageName(context);
-
         try {
+            String provider = getPackageName(context);
             PackageManager pm = context.getPackageManager();
             Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
             intent.setPackage(provider);
             List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
-
             return (ris != null && ris.size() > 0);
         } catch (Throwable ex) {
             Log.e(ex);

@@ -351,7 +351,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         btnImportPgp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String provider = prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
+                String provider = PgpHelper.getPackageName(v.getContext());
 
                 PackageManager pm = v.getContext().getPackageManager();
                 Intent intent = pm.getLaunchIntentForPackage(provider);
@@ -689,7 +689,7 @@ public class FragmentOptionsEncryption extends FragmentBase
             swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
             swAutoUndoDecrypt.setChecked(prefs.getBoolean("auto_undecrypt", false));
 
-            String provider = prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
+            String provider = PgpHelper.getPackageName(getContext());
             spOpenPgp.setTag(provider);
             for (int pos = 0; pos < openPgpProvider.size(); pos++)
                 if (provider.equals(openPgpProvider.get(pos))) {

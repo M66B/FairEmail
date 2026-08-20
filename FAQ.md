@@ -1029,8 +1029,10 @@ If you want to undo decryption, you can tap on the "close" padlock icon.
 
 *PGP*
 
-You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) first.
-FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.
+You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) or [PGPony](https://github.com/norsehorse-dev/PGPonyAndroid) first.
+FairEmail was tested with OpenKeychain version 5.4 and PGPony 4.1.1. Later versions will most likely be compatible, but earlier versions might not be.
+
+**Note** that you need to select the correct OpenPGP provider on the encryption settings tab page.
 
 [PGPony for Android](https://github.com/norsehorse-dev/PGPonyAndroid) is reported to work too. You can select the PGP provider on the encryption settings tab page.
 

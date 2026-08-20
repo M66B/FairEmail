@@ -1153,6 +1153,9 @@ public class ApplicationEx extends Application
         if ("none".equals(onclose))
             editor.remove("onclose");
 
+        if (BuildConfig.DEBUG)
+            editor.remove("openpgp_provider");
+
         editor.apply();
     }
 

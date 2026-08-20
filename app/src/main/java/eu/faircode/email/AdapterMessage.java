@@ -3285,8 +3285,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     // Check for inline encryption
                     boolean iencrypted = HtmlHelper.contains(document, new String[]{
-                            Helper.PGP_BEGIN_MESSAGE,
-                            Helper.PGP_END_MESSAGE
+                            PgpHelper.PGP_BEGIN_MESSAGE,
+                            PgpHelper.PGP_END_MESSAGE
                     });
                     args.putBoolean("inline_encrypted", iencrypted);
 

@@ -4432,14 +4432,10 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException
-                        || ex instanceof GeneralSecurityException /* InvalidKeyException */) {
-                    Log.i(ex);
-                    Helper.setSnackbarOptions(
-                                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG))
-                            .show();
-                } else if (ex instanceof OperationCanceledException) {
-                    Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_INDEFINITE));
+                if (!PgpHelper.isOpenKeychainInstalled(getContext())) {
+                    String text = getString(R.string.title_no_openpgp);
+                    text += "\n" + Log.formatThrowable(ex, false);
+                    Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, text, Snackbar.LENGTH_INDEFINITE));
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -4447,7 +4443,14 @@ public class FragmentCompose extends FragmentBase {
                             Helper.viewFAQ(v.getContext(), 12);
                         }
                     });
+                    Helper.setSnackbarLines(snackbar, 7);
                     snackbar.show();
+                } else if (ex instanceof IllegalArgumentException
+                        || ex instanceof GeneralSecurityException /* InvalidKeyException */) {
+                    Log.i(ex);
+                    Helper.setSnackbarOptions(
+                                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG))
+                            .show();
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }

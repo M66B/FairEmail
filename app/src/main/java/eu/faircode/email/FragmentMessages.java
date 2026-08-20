@@ -9974,11 +9974,11 @@ public class FragmentMessages extends FragmentBase
                             // https://tools.ietf.org/html/rfc4880#section-6.2
                             String html = Helper.readText(file);
                             String body = HtmlHelper.fromHtml(html, context).toString();
-                            int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
-                            int end = body.indexOf(Helper.PGP_END_MESSAGE);
+                            int begin = body.indexOf(PgpHelper.PGP_BEGIN_MESSAGE);
+                            int end = body.indexOf(PgpHelper.PGP_END_MESSAGE);
                             if (begin >= 0 && begin < end) {
                                 String[] lines = body
-                                        .substring(begin, end + Helper.PGP_END_MESSAGE.length())
+                                        .substring(begin, end + PgpHelper.PGP_END_MESSAGE.length())
                                         .split("\\r?\\n");
 
                                 List<String> disarmored = new ArrayList<>();
@@ -10269,13 +10269,10 @@ public class FragmentMessages extends FragmentBase
                 if (auto)
                     return;
 
-                if (ex instanceof IllegalArgumentException) {
-                    Log.i(ex);
-                    Helper.setSnackbarOptions(
-                                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG))
-                            .show();
-                } else if (ex instanceof OperationCanceledException) {
-                    Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_INDEFINITE));
+                if (!PgpHelper.isOpenKeychainInstalled(getContext())) {
+                    String text = getString(R.string.title_no_openpgp);
+                    text += "\n" + Log.formatThrowable(ex, false);
+                    Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, text, Snackbar.LENGTH_INDEFINITE));
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -10283,7 +10280,13 @@ public class FragmentMessages extends FragmentBase
                             Helper.viewFAQ(v.getContext(), 12);
                         }
                     });
+                    Helper.setSnackbarLines(snackbar, 7);
                     snackbar.show();
+                } else if (ex instanceof IllegalArgumentException) {
+                    Log.i(ex);
+                    Helper.setSnackbarOptions(
+                                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG))
+                            .show();
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
