@@ -2992,7 +2992,7 @@ Note that a regular expression supports an *or* operator, so if you want to matc
 ```
 
 Note that [dot all mode](https://developer.android.com/reference/java/util/regex/Pattern#DOTALL) is enabled
-to be able to match [unfolded headers](https://tools.ietf.org/html/rfc2822#section-3.2.3).
+to be able to match [unfolded headers](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.23).
 
 <br />
 
