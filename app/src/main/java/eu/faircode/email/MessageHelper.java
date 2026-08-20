@@ -3269,8 +3269,8 @@ public class MessageHelper {
 
         // (qmail nnn invoked by uid nnn); 1 Jan 2022 00:00:00 -0000
         // Postfix: by <host name> (<name>, from userid nnn)
-        if (header.matches(".*\\(qmail \\d+ invoked by uid \\d+\\).*") ||
-                header.matches(".*\\(nullmailer pid \\d+ invoked by uid \\d+\\).*") ||
+        if (header.matches(".*\\(qmail .* invoked .*\\).*") ||
+                header.matches(".*\\(nullmailer .* invoked .*\\).*") ||
                 header.matches(".*\\(.*, from userid \\d+\\).*")) {
             Log.i("--- phrase");
             return true;
