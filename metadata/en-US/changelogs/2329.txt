@@ -30,10 +30,11 @@ Elopteryx
 
 Next version (Work in progress)
 
-* Added message language to rule expression conditions
+* Added message language to expression conditions
 * Updated Jsoup to version 1.23.1
 * Updated EvalEx to version 3.7.0
 * Updated BouncyCastle to version 1.85
+* Updated ez-vcard to version 0.12.2
 
 1.2329 2026-08-17
 

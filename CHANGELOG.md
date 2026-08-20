@@ -30,10 +30,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
-* Added message language to rule [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+* Added message language to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
 * Updated [Jsoup](https://jsoup.org/news/) to version 1.23.1
 * Updated [EvalEx](https://github.com/ezylang/EvalEx/releases) to version 3.7.0
 * Updated [BouncyCastle](https://www.bouncycastle.org/news/) to version 1.85
+* Updated [ez-vcard](https://github.com/mangstadt/ez-vcard) to version 0.12.2
 
 ### 1.2329 2026-08-17
 
