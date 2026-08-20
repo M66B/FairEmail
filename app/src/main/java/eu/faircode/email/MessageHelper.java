@@ -2956,7 +2956,7 @@ public class MessageHelper {
             Address[] from = getAddressHeader("From");
             if (from != null && from.length == 1) {
                 String email = ((InternetAddress) from[0]).getAddress();
-                if (email != null && email.endsWith(".mozmail.com"))
+                if (email != null && (email.endsWith(".mozmail.com") || email.endsWith("@mozmail.com")))
                     sender = getAddressHeader("Resent-From");
             }
         }
