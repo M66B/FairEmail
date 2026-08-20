@@ -30,6 +30,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2330 2026-08-20
+
 * Added message language to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
 * Updated [Jsoup](https://jsoup.org/news/) to version 1.23.1
 * Updated [EvalEx](https://github.com/ezylang/EvalEx/releases) to version 3.7.0
