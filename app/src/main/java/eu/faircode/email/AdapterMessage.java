@@ -5671,8 +5671,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         continue;
                     if (!TextHelper.isSingleScript(personal))
                         return true;
-                    if (false && !BuildConfig.PLAY_STORE_RELEASE && Helper.EMAIL_ADDRESS.matcher(personal).find())
-                        return true;
+                    if (!message.isForwarder()) {
+                        String email = ((InternetAddress) from).getAddress();
+                        Matcher m = Helper.EMAIL_ADDRESS.matcher(personal);
+                        while (m.find())
+                            try {
+                                String e = personal.substring(m.start(), m.end());
+                                if (!e.equalsIgnoreCase(email))
+                                    return true;
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                break;
+                            }
+                    }
                 }
 
             return false;
