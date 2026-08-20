@@ -35,6 +35,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Updated [EvalEx](https://github.com/ezylang/EvalEx/releases) to version 3.7.0
 * Updated [BouncyCastle](https://www.bouncycastle.org/news/) to version 1.85
 * Updated [ez-vcard](https://github.com/mangstadt/ez-vcard) to version 0.12.2
+* Updated [MiniDNS](https://github.com/MiniDNS/minidns) to version 1.1.1
 
 ### 1.2329 2026-08-17
 
