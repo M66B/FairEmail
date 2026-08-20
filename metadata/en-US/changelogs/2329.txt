@@ -36,6 +36,7 @@ Next version (Work in progress)
 * Updated BouncyCastle to version 1.85
 * Updated ez-vcard to version 0.12.2
 * Updated MiniDNS to version 1.1.1
+* Updated JsonPath to version 3.0.0
 
 1.2329 2026-08-17
 
