@@ -30,6 +30,9 @@ Elopteryx
 
 Next version (Work in progress)
 
+* Added message language to rule expression conditions
+* Updated Jsoup
+
 1.2329 2026-08-17
 
 * Performance improvements reformatted message view
