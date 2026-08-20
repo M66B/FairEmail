@@ -31,7 +31,9 @@ Elopteryx
 Next version (Work in progress)
 
 * Added message language to rule expression conditions
-* Updated Jsoup
+* Updated Jsoup to version 1.23.1
+* Updated EvalEx to version 3.7.0
+* Updated BouncyCastle to version 1.85
 
 1.2329 2026-08-17
 
