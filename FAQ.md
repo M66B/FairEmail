@@ -75,7 +75,7 @@ For authorizing:
 * Posteo: note that there is [no spam folder](https://posteo.de/en/help/how-does-the-posteo-spam-filter-work) ([German](https://posteo.de/hilfe/wie-funktioniert-der-posteo-spamfilter))
 * Posteo: if you want to synchronize contacts, please [see here](https://posteo.de/en/help/how-do-i-set-up-synchronisation-of-contacts-with-an-android-address-book)
 * Web.de: please check if [IMAP is enabled](https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html)
-* Web.de: with two factor authentication you must use [an app password](https://web.de/email/sicherheit/zwei-faktor-authentifizierung/)
+* Web.de: with two factor authentication you must use [an app password](https://hilfe.web.de/sicherheit/2fa/anwendungsspezifisches-passwort.html)
 * Web.de: if you are missing the spam messages folder, you should enable spam filtering via the website of web.de again
 * GMX: please check if [IMAP is enabled](https://support.gmx.com/pop-imap/toggle.html) ([German](https://hilfe.gmx.net/pop-imap/einschalten.html)). Reportedly, you need to do this on a desktop computer.
 * GMX: with two-factor authentication, and sometimes in other cases as well, for example when traveling or using a VPN, you must use [an app password](https://support.gmx.com/security/2fa/application-specific-passwords.html) ([German](https://hilfe.gmx.net/sicherheit/2fa/anwendungsspezifisches-passwort.html)). Not that enabling two-factor authentication does not automatically enable IMAP.

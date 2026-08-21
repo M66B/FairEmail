@@ -99,7 +99,7 @@
 <li>Posteo: note that there is <a href="https://posteo.de/en/help/how-does-the-posteo-spam-filter-work">no spam folder</a> (<a href="https://posteo.de/hilfe/wie-funktioniert-der-posteo-spamfilter">German</a>)</li>
 <li>Posteo: if you want to synchronize contacts, please <a href="https://posteo.de/en/help/how-do-i-set-up-synchronisation-of-contacts-with-an-android-address-book">see here</a></li>
 <li>Web.de: please check if <a href="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html">IMAP is enabled</a></li>
-<li>Web.de: with two factor authentication you must use <a href="https://web.de/email/sicherheit/zwei-faktor-authentifizierung/">an app password</a></li>
+<li>Web.de: with two factor authentication you must use <a href="https://hilfe.web.de/sicherheit/2fa/anwendungsspezifisches-passwort.html">an app password</a></li>
 <li>Web.de: if you are missing the spam messages folder, you should enable spam filtering via the website of web.de again</li>
 <li>GMX: please check if <a href="https://support.gmx.com/pop-imap/toggle.html">IMAP is enabled</a> (<a href="https://hilfe.gmx.net/pop-imap/einschalten.html">German</a>). Reportedly, you need to do this on a desktop computer.</li>
 <li>GMX: with two-factor authentication, and sometimes in other cases as well, for example when traveling or using a VPN, you must use <a href="https://support.gmx.com/security/2fa/application-specific-passwords.html">an app password</a> (<a href="https://hilfe.gmx.net/sicherheit/2fa/anwendungsspezifisches-passwort.html">German</a>). Not that enabling two-factor authentication does not automatically enable IMAP.</li>
@@ -758,7 +758,8 @@ or by installing the GitHub version of the app (as an update) and enabling insec
 <p>The to be encrypted message text/attachments and the decrypted message text/attachments are stored locally only and will never be added to the remote server. If you want to undo decryption, you can tap on the “close” padlock icon.</p>
 <p><br /></p>
 <p><em>PGP</em></p>
-<p>You’ll need to install and configure <a href="https://f-droid.org/en/packages/org.sufficientlysecure.keychain/">OpenKeychain</a> first. FairEmail was tested with OpenKeychain version 5.4. Later versions will most likely be compatible, but earlier versions might not be.</p>
+<p>You’ll need to install and configure <a href="https://f-droid.org/en/packages/org.sufficientlysecure.keychain/">OpenKeychain</a> or <a href="https://github.com/norsehorse-dev/PGPonyAndroid">PGPony</a> first. FairEmail was tested with OpenKeychain version 5.4 and PGPony 4.1.1. Later versions will most likely be compatible, but earlier versions might not be.</p>
+<p><strong>Note</strong> that you need to select the correct OpenPGP provider on the encryption settings tab page.</p>
 <p><a href="https://github.com/norsehorse-dev/PGPonyAndroid">PGPony for Android</a> is reported to work too. You can select the PGP provider on the encryption settings tab page.</p>
 <p><strong>Important</strong>: the OpenKeychain app is known to (silently) crash when the calling app (FairEmail) is not authorized yet and is getting an existing public key. You can workaround this by trying to send a signed/encrypted message to a sender with an unknown public key.</p>
 <p><strong>Important</strong>: if the OpenKeychain app cannot find a key (anymore), you might need to reset a previously selected key. This can be done by long pressing an identity in the list of identities (Settings, tap Manual setup, tap Identities).</p>
