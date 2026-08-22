@@ -1212,7 +1212,7 @@
     <string name="title_show_flagged">Anzahl markierter Nachrichten anzeigen</string>
     <string name="title_subscribed_only">Nur abonnierte</string>
     <string name="title_sort_unread_atop">Ungelesene oben einreihen</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Nach Synchronisation sortiert</string>
+    <string name="title_sort_sync">Nach Synchronisation sortiert</string>
     <string name="title_search_folder">Nach Ordnern suchen</string>
     <string name="title_apply_to_all">Für alle übernehmen</string>
     <string name="title_edit_account_name">Kontonamen ändern</string>
@@ -1637,9 +1637,9 @@
     <string name="title_charset_auto">Automatisch</string>
     <string name="title_alternative_text">Einfachen Text laden</string>
     <string name="title_alternative_html">HTML laden</string>
-    <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
+    <string name="title_no_openpgp">OpenPGP-Anbieter nicht gefunden</string>
     <string name="title_no_openpgp_remark">PGP-Ende-zu-Ende-Verschlüsselung muss zuerst konfiguriert werden</string>
-    <string name="title_user_interaction">Übertragung zu OpenKeychain</string>
+    <string name="title_user_interaction">Übertragung zu einem OpenPGP-Anbieter</string>
     <string name="title_padlock">Vorhängeschloss zum Entschlüsseln der Nachricht verwenden</string>
     <string name="title_signed_data">Überprüfen Sie die Signatur, um den Nachrichtentext anzuzeigen</string>
     <string name="title_not_encrypted">Nachricht ist nicht signiert oder verschlüsselt</string>
@@ -2023,6 +2023,7 @@
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_airplane">Flugzeugmodus aktiviert</string>
     <string name="title_hint_vpn_active">VPN aktiv</string>
+    <string name="title_hint_vpn_settings">VPN-Liste</string>
     <string name="title_hint_notifications">Keine Benachrichtigungsberechtigungen</string>
     <string name="title_hint_notifications_remark">Benachrichtigungsberechtigungen sind auch für (Konto-)Benachrichtigungen erforderlich. Benachrichtigungen für neue Nachrichten können in den Einstellungen deaktiviert werden.</string>
     <string name="title_hint_battery_optimizations">Akkuoptimierung ist immer noch aktiv</string>

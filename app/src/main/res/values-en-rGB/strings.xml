@@ -101,7 +101,7 @@
     <string name="title_empty_trash_ask">Remove all deleted messages permanently?</string>
     <string name="title_empty_trash_all_ask">Remove all deleted messages of all accounts permanently?</string>
     <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronisation problems</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sort on synchronised</string>
+    <string name="title_sort_sync">Sort on synchronised</string>
     <string name="title_edit_account_color">Edit account colour</string>
     <string name="title_synchronize_folder">Synchronise (receive messages)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronise</string>

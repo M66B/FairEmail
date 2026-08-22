@@ -1233,7 +1233,7 @@
     <string name="title_show_flagged">הצגת מונה הודעות עם כוכב</string>
     <string name="title_subscribed_only">עם רישום בלבד</string>
     <string name="title_sort_unread_atop">מיון אלו שלא נקראו בהתחלה</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">סידור לפי סנכרון</string>
+    <string name="title_sort_sync">סידור לפי סנכרון</string>
     <string name="title_search_folder">חיפוש אחר תיקייה</string>
     <string name="title_apply_to_all">החלה על הכול</string>
     <string name="title_edit_account_name">עריכת שם חשבון</string>
@@ -1656,9 +1656,9 @@
     <string name="title_charset_auto">אוטומטי</string>
     <string name="title_alternative_text">טעינת טקסט פשוט</string>
     <string name="title_alternative_html">טעינת HTML</string>
-    <string name="title_no_openpgp">OpenKeychain לא נמצא</string>
+    <string name="title_no_openpgp">ספק OpenPGP לא נמצא</string>
     <string name="title_no_openpgp_remark">יש להגדיר הצפנת PGP מקצה לקצה תחילה</string>
-    <string name="title_user_interaction">מועבר ל־OpenKeychain</string>
+    <string name="title_user_interaction">מועבר לספק ה־OpenPGP</string>
     <string name="title_padlock">המנעול משמש לפענוח ההודעה</string>
     <string name="title_signed_data">אימות החתימה כדי להציג את טקסט ההודעה</string>
     <string name="title_not_encrypted">ההודעה אינה חתומה או מוצפנת</string>
@@ -2041,6 +2041,7 @@
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כברירת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
     <string name="title_hint_vpn_active">VPN פעיל</string>
+    <string name="title_hint_vpn_settings">רשימת VPN</string>
     <string name="title_hint_notifications">אין הרשאות להתראות</string>
     <string name="title_hint_notifications_remark">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
     <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>

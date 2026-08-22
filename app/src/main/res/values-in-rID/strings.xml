@@ -1598,9 +1598,7 @@ Untuk menghapus lampiran, pesan baru harus ditambahkan dan pesan lama harus diha
     <string name="title_charset_auto">Otomatis</string>
     <string name="title_alternative_text">Muat teks biasa</string>
     <string name="title_alternative_html">Muat HTML</string>
-    <string name="title_no_openpgp">OpenKeychain tidak ditemukan</string>
     <string name="title_no_openpgp_remark">Enkripsi end-to-end PGP perlu dikonfigurasi terlebih dahulu</string>
-    <string name="title_user_interaction">Memindahkan ke OpenKeychain</string>
     <string name="title_padlock">Gunakan gembok untuk mendekripsi pesan</string>
     <string name="title_signed_data">Verifikasi tanda tangan untuk menampilkan teks pesan</string>
     <string name="title_not_encrypted">Pesan tidak ditandatangani atau dienkripsi</string>

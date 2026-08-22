@@ -1655,9 +1655,7 @@ Android можа запытаць дазвол на доступ да выбра
     <string name="title_charset_auto">Аўтаматычна</string>
     <string name="title_alternative_text">Загрузіць звычайны тэкст</string>
     <string name="title_alternative_html">Загрузіць HTML</string>
-    <string name="title_no_openpgp">OpenKeychain не знойдзена</string>
     <string name="title_no_openpgp_remark">Спачатку неабходна наладзіць скразное шыфраванне PGP</string>
-    <string name="title_user_interaction">Перанос на OpenKeychain</string>
     <string name="title_padlock">Выкарыстоўваць замок для расшыфроўкі паведамлення</string>
     <string name="title_signed_data">Для паказу тэксту паведамлення правяраць подпіс</string>
     <string name="title_not_encrypted">Паведамленне не падпісана і не зашыфравана</string>

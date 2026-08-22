@@ -1198,7 +1198,7 @@
     <string name="title_show_flagged">Csillagozott üzenet számláló mutatása</string>
     <string name="title_subscribed_only">Csak feliratkozott</string>
     <string name="title_sort_unread_atop">Olvasatlan előre rendezése</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Rendezés szinkronizálás szerint</string>
+    <string name="title_sort_sync">Rendezés szinkronizálás szerint</string>
     <string name="title_search_folder">Keresés könyvtárra</string>
     <string name="title_apply_to_all">Alkalmazás mindre</string>
     <string name="title_edit_account_name">Fióknév módosítása</string>
@@ -1618,9 +1618,7 @@
     <string name="title_charset_auto">Automatikus</string>
     <string name="title_alternative_text">Egyszerű szöveg betöltése</string>
     <string name="title_alternative_html">HTML betöltése</string>
-    <string name="title_no_openpgp">OpenKeychain nem található</string>
     <string name="title_no_openpgp_remark">A PGP végpontok közti titkosítást először be kell állítani</string>
-    <string name="title_user_interaction">Átvitel az OpenKeychain-re</string>
     <string name="title_padlock">A lakat érintésével titkosítja az üzenetet</string>
     <string name="title_signed_data">Hitelesítse az aláírást az üzenetszöveg megjelenítéséhez</string>
     <string name="title_not_encrypted">Az üzenet nincs aláírva vagy titkosítva</string>

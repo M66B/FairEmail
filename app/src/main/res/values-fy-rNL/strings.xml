@@ -1198,7 +1198,7 @@ Berjochten wurde ophelle sa gau as de e-mailserver se ôfleverje kin en bewarje 
     <string name="title_show_flagged">Oantal berjochten mei stjer toane</string>
     <string name="title_subscribed_only">Allinnich abonnearre</string>
     <string name="title_sort_unread_atop">Net-lêzen boppe-oan sortearje</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Op syngronisearre sortearje</string>
+    <string name="title_sort_sync">Op syngronisearre sortearje</string>
     <string name="title_search_folder">Sykje nei map</string>
     <string name="title_apply_to_all">Op alle tapasse</string>
     <string name="title_edit_account_name">Accountnamme bewurkje</string>
@@ -1619,9 +1619,7 @@ Berjochten wurde ophelle sa gau as de e-mailserver se ôfleverje kin en bewarje 
     <string name="title_charset_auto">Automatysk</string>
     <string name="title_alternative_text">Platte tekst lade</string>
     <string name="title_alternative_html">HTML lade</string>
-    <string name="title_no_openpgp">OpenKeychain net fûn</string>
     <string name="title_no_openpgp_remark">PGP-end-to-end-fersifering moat earst konfigurearre wurde</string>
-    <string name="title_user_interaction">Oerdrage nei OpenKeychain</string>
     <string name="title_padlock">Brûk it hingslot om it berjocht te ûntsiferjen</string>
     <string name="title_signed_data">Ferifiearje de hantekening om de berjochttekst te toanen</string>
     <string name="title_not_encrypted">Berjocht is net ûndertekene of fersifere</string>

@@ -1639,9 +1639,7 @@ Dosya: strings. xml</string>
     <string name="title_charset_auto">Otomatik</string>
     <string name="title_alternative_text">Düzen metni yükle</string>
     <string name="title_alternative_html">HTML\'i yükle</string>
-    <string name="title_no_openpgp">OpenKeychain bulunamadı</string>
     <string name="title_no_openpgp_remark">Önce PGP uçtan uca şifrelemenin yapılandırılması gerekir</string>
-    <string name="title_user_interaction">OpenKeychain\'e gönderiliyor</string>
     <string name="title_padlock">Mesajın şifresini çözmek için asma kilidi kullan</string>
     <string name="title_signed_data">Mesaj metnini göstermek için imzayı doğrula</string>
     <string name="title_not_encrypted">Mesaj imzalı veya şifreli değil</string>

@@ -625,7 +625,6 @@
     <string name="title_encrypt">Шифруј</string>
     <string name="title_decrypt">Дешифруј</string>
     <string name="title_resync">Ресинхронизуј</string>
-    <string name="title_no_openpgp">OpenKeychain није нађен</string>
     <string name="title_not_encrypted">Порука није ни потписана ни шифрована</string>
     <string name="title_reset_sign_key">Ресетуј кључ за потпис</string>
     <string name="title_signature_none">Порука није потписана</string>

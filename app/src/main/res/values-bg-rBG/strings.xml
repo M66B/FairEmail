@@ -1603,9 +1603,7 @@
     <string name="title_charset_auto">Автоматично</string>
     <string name="title_alternative_text">Зареждане на прост текст</string>
     <string name="title_alternative_html">Зареждане на HTML</string>
-    <string name="title_no_openpgp">OpenKeychain не е намерена</string>
     <string name="title_no_openpgp_remark">Първо трябва да се настрои криптирането от край до край PGP</string>
-    <string name="title_user_interaction">Прехвърляне към OpenKeychain</string>
     <string name="title_padlock">Употреба на катинара за дешифриране на съобщението</string>
     <string name="title_signed_data">Потвърдете подписа, за да се покаже текста на съобщението</string>
     <string name="title_not_encrypted">Съобщението не е подписано или криптирано</string>

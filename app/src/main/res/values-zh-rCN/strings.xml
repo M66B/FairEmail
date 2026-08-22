@@ -1195,7 +1195,7 @@
     <string name="title_show_flagged">显示星标邮件数</string>
     <string name="title_subscribed_only">隐藏未订阅</string>
     <string name="title_sort_unread_atop">未读居前</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">排列已同步文件夹</string>
+    <string name="title_sort_sync">排列已同步文件夹</string>
     <string name="title_search_folder">搜索文件夹</string>
     <string name="title_apply_to_all">应用到全部</string>
     <string name="title_edit_account_name">编辑账户名称</string>
@@ -1615,9 +1615,9 @@
     <string name="title_charset_auto">自动</string>
     <string name="title_alternative_text">加载纯文本</string>
     <string name="title_alternative_html">加载 HTML</string>
-    <string name="title_no_openpgp">OpenKeychain 未找到</string>
+    <string name="title_no_openpgp">未找到 OpenPGP 提供商</string>
     <string name="title_no_openpgp_remark">PGP 端到端加密需要先进行配置</string>
-    <string name="title_user_interaction">正传输到 OpenKeychain</string>
+    <string name="title_user_interaction">正在传输到 OpenPGP 提供商</string>
     <string name="title_padlock">使用挂锁解密邮件</string>
     <string name="title_signed_data">验证签名以显示邮件文本</string>
     <string name="title_not_encrypted">邮件未签名或加密</string>
@@ -2000,6 +2000,7 @@
     <string name="title_hint_folder_sync">为了降低电量和网络流量的消耗，默认不会同步全部的文件夹和邮件</string>
     <string name="title_hint_airplane">飞行模式已开启</string>
     <string name="title_hint_vpn_active">VPN 处于活跃状态</string>
+    <string name="title_hint_vpn_settings">VPN 列表</string>
     <string name="title_hint_notifications">无通知权限</string>
     <string name="title_hint_notifications_remark">(账户) 提醒也需要通知权限。新邮件的通知可以在设置中关闭。</string>
     <string name="title_hint_battery_optimizations">电池优化仍已启用</string>

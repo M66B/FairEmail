@@ -1644,9 +1644,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_charset_auto">Automaticky</string>
     <string name="title_alternative_text">Načíst prostý text</string>
     <string name="title_alternative_html">Načíst HTML</string>
-    <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_no_openpgp_remark">PGP end-to-end šifrování musí být nejprve nakonfigurováno</string>
-    <string name="title_user_interaction">Přenášení do OpenKeychain</string>
     <string name="title_padlock">K dešifrování zprávy použijte zámek</string>
     <string name="title_signed_data">Ověřit podpis pro zobrazení textu zprávy</string>
     <string name="title_not_encrypted">Zpráva není podepsána ani šifrována</string>

@@ -1054,8 +1054,6 @@ Aukerak fitxatan kategorizatuta daude, atalka sakabnatuta, itxura edo erabilerar
     <string name="title_resync">Birsinkronizatu</string>
     <string name="title_charset">Kodeaketa</string>
     <string name="title_charset_auto">Automatikoa</string>
-    <string name="title_no_openpgp">Ez da OpenKeychain aurkitu</string>
-    <string name="title_user_interaction">OpenKeychain-era transferitzen</string>
     <string name="title_signed_data">Egiaztatu sinadura mezuaren testua erakusteko</string>
     <string name="title_not_encrypted">Mezua ez dago ez zifratuta ez sinatuta</string>
     <string name="title_no_sign_key">Sinatzeko gakorik ez da hautatu</string>

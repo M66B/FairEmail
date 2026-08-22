@@ -1594,9 +1594,7 @@ Systém Android môže požiadať o povolenie prístupu k vybranému priečinku,
     <string name="title_charset_auto">Automatické</string>
     <string name="title_alternative_text">Načítať obyčajný text</string>
     <string name="title_alternative_html">Načítať HTML</string>
-    <string name="title_no_openpgp">OpenKeychain nenájdený</string>
     <string name="title_no_openpgp_remark">Najprv je potrebné nastaviť end-to-end šifrovanie PGP</string>
-    <string name="title_user_interaction">Prenos do OpenKeychain</string>
     <string name="title_padlock">Na dešifrovanie správy použiť zámok</string>
     <string name="title_signed_data">Overiť podpis pre zobrazenie textu správy</string>
     <string name="title_not_encrypted">Správa nie je podpísaná alebo šifrovaná</string>

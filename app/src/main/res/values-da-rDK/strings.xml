@@ -1205,7 +1205,7 @@
     <string name="title_show_flagged">Vis stjernemarkerede beskedantal</string>
     <string name="title_subscribed_only">Abonnér på</string>
     <string name="title_sort_unread_atop">Sortér ulæst øverst</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sortér efter synkronisering</string>
+    <string name="title_sort_sync">Sortér efter synkronisering</string>
     <string name="title_search_folder">Søg efter mappe</string>
     <string name="title_apply_to_all">Anvend på alle</string>
     <string name="title_edit_account_name">Redigér kontonavn</string>
@@ -1628,9 +1628,9 @@ For at slette vedhæftninger, opret en ny besked og slet den gamle.
     <string name="title_charset_auto">Automatisk</string>
     <string name="title_alternative_text">Indlæs simpel tekst</string>
     <string name="title_alternative_html">Indlæs HTML</string>
-    <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
+    <string name="title_no_openpgp">OpenPGP-udbyder ikke fundet</string>
     <string name="title_no_openpgp_remark">PGP end-to-end kryptering skal opsættes først</string>
-    <string name="title_user_interaction">Overfører til OpenKeychain</string>
+    <string name="title_user_interaction">Overfører til OpenPGP-udbyder</string>
     <string name="title_padlock">Brug hængelåsen til at dekryptere beskeden</string>
     <string name="title_signed_data">Bekræft signaturen for at vise beskedtekst</string>
     <string name="title_not_encrypted">Besked er ikke signeret eller krypteret</string>
@@ -2013,6 +2013,7 @@ For at slette vedhæftninger, opret en ny besked og slet den gamle.
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_airplane">Flytilstand er Til</string>
     <string name="title_hint_vpn_active">VPN aktiv</string>
+    <string name="title_hint_vpn_settings">VPN-liste</string>
     <string name="title_hint_notifications">Ingen notifikationstilladelser</string>
     <string name="title_hint_notifications_remark">Notifikationstilladelser kræves også for (konto-)advarsler. Notifikationer til nye beskeder kan slås fra i indstillingerne.</string>
     <string name="title_hint_battery_optimizations">Batterioptimering er stadig slået til</string>

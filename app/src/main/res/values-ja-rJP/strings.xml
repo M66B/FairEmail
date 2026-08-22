@@ -1612,9 +1612,7 @@
     <string name="title_charset_auto">自動</string>
     <string name="title_alternative_text">プレーンテキストを読み込む</string>
     <string name="title_alternative_html">HTML を読み込む</string>
-    <string name="title_no_openpgp">OpenKeychain が見つかりません</string>
     <string name="title_no_openpgp_remark">PGP エンドツーエンド暗号化は先に設定が必要です</string>
-    <string name="title_user_interaction">OpenKeychain へ転送しています</string>
     <string name="title_padlock">鍵をタップしてメッセージを復号</string>
     <string name="title_signed_data">デジタル署名を検証して本文を表示</string>
     <string name="title_not_encrypted">メッセージはデジタル署名または暗号化されていません</string>

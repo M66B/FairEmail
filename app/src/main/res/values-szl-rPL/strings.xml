@@ -1230,7 +1230,7 @@ Nie musisz być tutaj, aby skonfigurować konto. W tym celu skorzystaj z przycis
     <string name="title_show_flagged">Pokaż liczbę wiadomości oznaczonych gwiazdką</string>
     <string name="title_subscribed_only">Tylko subskrybowane</string>
     <string name="title_sort_unread_atop">Sortuj nieprzeczytane na górze</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sortuj według zsynchronizowanych</string>
+    <string name="title_sort_sync">Sortuj według zsynchronizowanych</string>
     <string name="title_search_folder">Szukaj folderu</string>
     <string name="title_apply_to_all">Zastosuj dla wszystkich</string>
     <string name="title_edit_account_name">Edytuj nazwę konta</string>
@@ -1651,9 +1651,9 @@ Jest to bezpieczny, sformatowany widok wiadomości.
     <string name="title_charset_auto">Automatyczne</string>
     <string name="title_alternative_text">Wczytaj zwykły tekst</string>
     <string name="title_alternative_html">Wczytaj HTML</string>
-    <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
+    <string name="title_no_openpgp">Nie znaleziono dostawcy OpenPGP</string>
     <string name="title_no_openpgp_remark">Najpierw należy skonfigurować szyfrowanie PGP end-to-end</string>
-    <string name="title_user_interaction">Przenoszenie do OpenKeychain</string>
+    <string name="title_user_interaction">Przenoszenie do dostawcy OpenPGP</string>
     <string name="title_padlock">Użyj kłódki, aby odszyfrować wiadomość</string>
     <string name="title_signed_data">Sprawdź podpis, aby wyświetlić tekst wiadomości</string>
     <string name="title_not_encrypted">Wiadomość nie jest podpisana lub zaszyfrowana</string>
@@ -2037,6 +2037,7 @@ Jest to bezpieczny, sformatowany widok wiadomości.
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
     <string name="title_hint_vpn_active">VPN aktywny</string>
+    <string name="title_hint_vpn_settings">Lista VPN</string>
     <string name="title_hint_notifications">Brak uprawnień dla powiadomień</string>
     <string name="title_hint_notifications_remark">Uprawnienia powiadomień są również wymagane dla ostrzeżeń dotyczących konta. Powiadomienia dla nowych wiadomości mogą być wyłączone w ustawieniach.</string>
     <string name="title_hint_battery_optimizations">Optymalizacja baterii jest nadal włączona</string>

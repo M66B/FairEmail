@@ -1562,9 +1562,7 @@
     <string name="title_charset_auto">자동</string>
     <string name="title_alternative_text">일반 텍스트 불러오기</string>
     <string name="title_alternative_html">HTML 불러오기</string>
-    <string name="title_no_openpgp">OpenKeychain 없음</string>
     <string name="title_no_openpgp_remark">PGP 엔드 투 엔드 암호화를 먼저 설정해야 함</string>
-    <string name="title_user_interaction">OpenKeychain으로 이전</string>
     <string name="title_not_encrypted">메시지가 서명 또는 암호화되지 않았습니다</string>
     <string name="title_no_sign_key">선택된 서명 키 없음</string>
     <string name="title_reset_sign_key">서명 키 초기화</string>

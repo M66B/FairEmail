@@ -1249,8 +1249,6 @@
     <string name="title_resync">Volver sincronizar</string>
     <string name="title_charset">Codificación</string>
     <string name="title_charset_auto">Automático</string>
-    <string name="title_no_openpgp">Non se atopou OpenKeychain</string>
-    <string name="title_user_interaction">Transferindo a OpenKeychain</string>
     <string name="title_padlock">Use o cadeado para descifrar a mensaxe</string>
     <string name="title_signed_data">Verificar a sinatura para mostrar o texto da mensaxe</string>
     <string name="title_not_encrypted">A mensaxe non está asinada nin cifrada</string>

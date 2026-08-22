@@ -1007,8 +1007,6 @@ Les opcions estan categoritzades per pestanya, dividides en seccions, organitzad
     <string name="title_encrypt">Xifra</string>
     <string name="title_decrypt">Desxifra</string>
     <string name="title_resync">Resincronitza</string>
-    <string name="title_no_openpgp">OpenKeychain no trobat</string>
-    <string name="title_user_interaction">Transferència a OpenKeychain</string>
     <string name="title_signed_data">Verifiqueu la signatura per mostrar el text del missatge</string>
     <string name="title_not_encrypted">El missatge no està signat o xifrat</string>
     <string name="title_no_sign_key">No s\'ha seleccionat cap clau de signe</string>

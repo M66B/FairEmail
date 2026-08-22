@@ -1632,9 +1632,7 @@ Sa ei pea olema siin, et kontot häälestada. Palun kasuta selleks kiirseadistam
     <string name="title_charset_auto">Automaatne</string>
     <string name="title_alternative_text">Laadi lihttekst</string>
     <string name="title_alternative_html">Laadi HTML</string>
-    <string name="title_no_openpgp">Ei leidnud OpenKeychaini</string>
     <string name="title_no_openpgp_remark">Kõigepealt tuleb häälestada PGP otspunktkrüpteerimine</string>
-    <string name="title_user_interaction">Üle kandmine OpenKeychaini</string>
     <string name="title_padlock">Kasuta sõnumi dekrüpteerimiseks Padlocki</string>
     <string name="title_signed_data">Sõnumi näitamiseks kontrolli allkirja</string>
     <string name="title_not_encrypted">Sõnum pole signeeritud ega krüpteeritud</string>

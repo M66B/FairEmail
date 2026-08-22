@@ -1211,7 +1211,7 @@
     <string name="title_show_flagged">Afficher le nombre de messages suivis</string>
     <string name="title_subscribed_only">Abonnés uniquement</string>
     <string name="title_sort_unread_atop">Afficher les dossiers contenant des messages non-lus en haut</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Trier si synchronisé</string>
+    <string name="title_sort_sync">Trier si synchronisé</string>
     <string name="title_search_folder">Rechercher un dossier</string>
     <string name="title_apply_to_all">Appliquer à tous</string>
     <string name="title_edit_account_name">Modifier le nom du compte</string>
@@ -1636,9 +1636,9 @@
     <string name="title_charset_auto">Automatique</string>
     <string name="title_alternative_text">Charger le texte brut</string>
     <string name="title_alternative_html">Charger le HTML</string>
-    <string name="title_no_openpgp">OpenKeychain introuvable</string>
+    <string name="title_no_openpgp">Fournisseur OpenPGP introuvable</string>
     <string name="title_no_openpgp_remark">Le chiffrement PGP de bout en bout doit être configuré en premier</string>
-    <string name="title_user_interaction">Transfert vers OpenKeychain</string>
+    <string name="title_user_interaction">Transfert vers le fournisseur OpenPGP</string>
     <string name="title_padlock">Utiliser le cadenas pour déchiffrer le message</string>
     <string name="title_signed_data">Vérifier la signature pour afficher le texte du message</string>
     <string name="title_not_encrypted">Le message n\'est ni signé ni chiffré</string>
@@ -2022,6 +2022,7 @@
     <string name="title_hint_folder_sync">Afin de limiter l’utilisation de la batterie et du réseau, les dossiers et messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_airplane">Le mode avion est activé</string>
     <string name="title_hint_vpn_active">VPN actif</string>
+    <string name="title_hint_vpn_settings">Liste des VPN</string>
     <string name="title_hint_notifications">Aucune autorisation de notification</string>
     <string name="title_hint_notifications_remark">Les autorisations de notification sont également obligatoires pour les alertes (comptes). Les notifications de nouveaux messages peuvent être désactivées dans les paramètres.</string>
     <string name="title_hint_battery_optimizations">Les optimisations de la batterie sont toujours activées</string>

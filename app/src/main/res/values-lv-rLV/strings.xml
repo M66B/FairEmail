@@ -608,7 +608,7 @@
     <string name="title_show_folders">Rādīt slēptās mapes</string>
     <string name="title_show_flagged">Rādīt ar zvaigni atzīmēto ziņojumu skaitu</string>
     <string name="title_sort_unread_atop">Kārtot neizlasītos ziņojumus augšā</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Kārtot pēc vienādošanas</string>
+    <string name="title_sort_sync">Kārtot pēc vienādošanas</string>
     <string name="title_search_folder">Meklēt mapi</string>
     <string name="title_apply_to_all">Pielietot visam</string>
     <string name="title_edit_account_name">Labot konta nosaukumu</string>

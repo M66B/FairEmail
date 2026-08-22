@@ -1234,7 +1234,7 @@
     <string name="title_show_flagged">Показувати кількість обраних повідомлень</string>
     <string name="title_subscribed_only">Тільки підписки</string>
     <string name="title_sort_unread_atop">Сортувати, непрочитані зверху</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">За останньою синхронізацією</string>
+    <string name="title_sort_sync">За останньою синхронізацією</string>
     <string name="title_search_folder">Шукати теку</string>
     <string name="title_apply_to_all">Застосувати до всіх</string>
     <string name="title_edit_account_name">Редагувати назву облікового запису</string>
@@ -1657,9 +1657,9 @@
     <string name="title_charset_auto">Автоматичне</string>
     <string name="title_alternative_text">Завантажити простий текст</string>
     <string name="title_alternative_html">Завантажити HTML</string>
-    <string name="title_no_openpgp">OpenKeychain не знайдено</string>
+    <string name="title_no_openpgp">Провайдера OpenPGP не знайдено</string>
     <string name="title_no_openpgp_remark">Для використання шифрування PGP end-to-end потрібно спершу його налаштувати</string>
-    <string name="title_user_interaction">Передача в OpenKeychain</string>
+    <string name="title_user_interaction">Передача до провайдера OpenPGP</string>
     <string name="title_padlock">Натисніть на замок для розшифровки повідомлення</string>
     <string name="title_signed_data">Перевірте підпис, щоб показати текст повідомлення</string>
     <string name="title_not_encrypted">Повідомлення не підписано або не зашифровано</string>
@@ -2043,6 +2043,7 @@
     <string name="title_hint_folder_sync">Щоб обмежити використання батареї та мережі не всі теки й не всі повідомлення буде синхронізовано за замовчуванням</string>
     <string name="title_hint_airplane">Режим «у літаку» ввімкнено</string>
     <string name="title_hint_vpn_active">VPN є активним</string>
+    <string name="title_hint_vpn_settings">Список VPN</string>
     <string name="title_hint_notifications">Немає дозволів для сповіщень</string>
     <string name="title_hint_notifications_remark">Дозволи на показ сповіщень також необхідні для попереджень (зокрема щодо облікових записів). Сповіщення про нові повідомлення можна вимкнути в налаштуваннях.</string>
     <string name="title_hint_battery_optimizations">Оптимізація батареї все ще увімкнена</string>

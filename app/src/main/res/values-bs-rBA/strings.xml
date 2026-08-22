@@ -1218,7 +1218,7 @@
     <string name="title_show_flagged">Prikaži broj poruka sa zvjezdicom</string>
     <string name="title_subscribed_only">Samo pretplata</string>
     <string name="title_sort_unread_atop">Sortiraj nepročitane na vrh</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sortiraj po sinhronizovanom</string>
+    <string name="title_sort_sync">Sortiraj po sinhronizovanom</string>
     <string name="title_search_folder">Traži folder</string>
     <string name="title_apply_to_all">Primijeni za sve</string>
     <string name="title_edit_account_name">Uredi ime računa</string>
@@ -1641,9 +1641,9 @@
     <string name="title_charset_auto">Automatski</string>
     <string name="title_alternative_text">Učitaj obični tekst</string>
     <string name="title_alternative_html">Učitaj HTML</string>
-    <string name="title_no_openpgp">OpenKeychan nije pronađen</string>
+    <string name="title_no_openpgp">Nije pronađen OpenPGP provajder</string>
     <string name="title_no_openpgp_remark">Potrebno je prvo podesiti PGP end-to-end šifriranje</string>
-    <string name="title_user_interaction">Prebacivanje na OpenKeychain</string>
+    <string name="title_user_interaction">Prebacivanje na OpenPGP provajdera</string>
     <string name="title_padlock">Koristi lokot za dešifriranje poruke</string>
     <string name="title_signed_data">Potvrdi potpis za prikazivanje teksta poruke</string>
     <string name="title_not_encrypted">Poruka nije potpisana niti šifrirana</string>
@@ -2026,6 +2026,7 @@
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_airplane">Način rada u avionu je uključen</string>
     <string name="title_hint_vpn_active">VPN aktivan</string>
+    <string name="title_hint_vpn_settings">Spisak VPN-ova</string>
     <string name="title_hint_notifications">Nema dozvola za notifikacije</string>
     <string name="title_hint_notifications_remark">Dozvole za obavještenja su neophodne i za upozorenja računa. Obavještenja za nove poruke mogu se isključiti u postavkama.</string>
     <string name="title_hint_battery_optimizations">Optimizacije baterije su još uključene</string>

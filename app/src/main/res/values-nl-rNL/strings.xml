@@ -1196,7 +1196,7 @@ Berichten worden opgehaald zo snel als de mailserver ze kan afleveren en opgesla
     <string name="title_show_flagged">Toon aantal berichten met ster</string>
     <string name="title_subscribed_only">Alleen geabonneerde</string>
     <string name="title_sort_unread_atop">Ongelezen bovenaan sorteren</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Op gesynchroniseerd sorteren</string>
+    <string name="title_sort_sync">Op gesynchroniseerd sorteren</string>
     <string name="title_search_folder">Zoeken naar map</string>
     <string name="title_apply_to_all">Toepassen op alle</string>
     <string name="title_edit_account_name">Bewerk accountnaam</string>
@@ -1615,9 +1615,9 @@ Berichten worden opgehaald zo snel als de mailserver ze kan afleveren en opgesla
     <string name="title_charset_auto">Automatisch</string>
     <string name="title_alternative_text">Laad platte tekst</string>
     <string name="title_alternative_html">Laad HTML</string>
-    <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
+    <string name="title_no_openpgp">OpenPGP-provider niet gevonden</string>
     <string name="title_no_openpgp_remark">PGP end-to-end versleuteling moet eerst worden geconfigureerd</string>
-    <string name="title_user_interaction">Overdragen naar OpenKeychain</string>
+    <string name="title_user_interaction">Overdagen naar OpenPGP-provider</string>
     <string name="title_padlock">Gebruik het hangslot om het bericht te ontsleutelen</string>
     <string name="title_signed_data">Verifieer de handtekening om de berichttekst te tonen</string>
     <string name="title_not_encrypted">Bericht is niet ondertekend of versleuteld</string>
@@ -1997,6 +1997,7 @@ Bij het verzenden van een bericht wordt de afbeelding vanaf de geselecteerde loc
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_airplane">Vliegtuigmodus is ingeschakeld</string>
     <string name="title_hint_vpn_active">VPN actief</string>
+    <string name="title_hint_vpn_settings">VPN lijst</string>
     <string name="title_hint_notifications">Geen meldingsrechten</string>
     <string name="title_hint_notifications_remark">Meldingsrechten zijn vereist voor (account) meldingen. Meldingen voor nieuwe berichten kunnen worden uitgeschakeld in de instellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaties nog steeds ingeschakeld</string>

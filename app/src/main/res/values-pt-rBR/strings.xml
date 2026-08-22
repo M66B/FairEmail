@@ -1205,7 +1205,7 @@
     <string name="title_show_flagged">Exibir contagem de mensagens favoritas</string>
     <string name="title_subscribed_only">Somente inscritos</string>
     <string name="title_sort_unread_atop">Ordenar não lidas no topo</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Ordenar em sincronizado</string>
+    <string name="title_sort_sync">Ordenar em sincronizado</string>
     <string name="title_search_folder">Pesquisar pasta</string>
     <string name="title_apply_to_all">Aplicar a todos</string>
     <string name="title_edit_account_name">Editar nome da conta</string>
@@ -1626,9 +1626,9 @@
     <string name="title_charset_auto">Automático</string>
     <string name="title_alternative_text">Carregar texto plano</string>
     <string name="title_alternative_html">Carregar HTML</string>
-    <string name="title_no_openpgp">OpenKeychain não encontrado</string>
+    <string name="title_no_openpgp">Provedor OpenPGP não encontrado</string>
     <string name="title_no_openpgp_remark">A criptografia de ponta a ponta de PGP precisa ser configurada primeiro</string>
-    <string name="title_user_interaction">Transferindo para o OpenKeychain</string>
+    <string name="title_user_interaction">Transferindo para provedor OpenPGP</string>
     <string name="title_padlock">Usar o cadeado para descriptografar a mensagem</string>
     <string name="title_signed_data">Verifique a assinatura para mostrar o texto da mensagem</string>
     <string name="title_not_encrypted">Mensagem não assinada ou criptografada</string>
@@ -2011,6 +2011,7 @@
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e de rede nem todas as pastas e mensagens serão sincronizadas por padrão</string>
     <string name="title_hint_airplane">Modo avião está ativado</string>
     <string name="title_hint_vpn_active">VPN ativa</string>
+    <string name="title_hint_vpn_settings">Lista de VPNs</string>
     <string name="title_hint_notifications">Sem permissões de notificação</string>
     <string name="title_hint_notifications_remark">As permissões de notificação também são necessárias para alerta (de conta). As notificações de novas mensagens podem ser desativadas nas configurações.</string>
     <string name="title_hint_battery_optimizations">Otimizações de bateria continuam ativadas</string>

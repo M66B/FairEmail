@@ -1592,9 +1592,7 @@ Android 可能會要求訪問所選資料夾的權限，儘管應用程式並不
     <string name="title_charset_auto">自動</string>
     <string name="title_alternative_text">載入純文字</string>
     <string name="title_alternative_html">載入 HTML</string>
-    <string name="title_no_openpgp">未發現 OpenKeychain</string>
     <string name="title_no_openpgp_remark">PGP 端到端加密需要先進行設定</string>
-    <string name="title_user_interaction">正在轉移至 OpenKeychain</string>
     <string name="title_padlock">使用鎖頭圖示來解密訊息</string>
     <string name="title_signed_data">驗證簽名以顯示訊息文字</string>
     <string name="title_not_encrypted">訊息未簽名或未加密</string>

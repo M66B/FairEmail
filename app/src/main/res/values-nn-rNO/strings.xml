@@ -937,8 +937,6 @@ Blokkerer en sender er en gratis egenskap.
     <string name="title_encrypt">Krypter</string>
     <string name="title_decrypt">Dekrypter</string>
     <string name="title_resync">Resync</string>
-    <string name="title_no_openpgp">Finner ikke OpenKeychain</string>
-    <string name="title_user_interaction">Overfører til OpenKeychain</string>
     <string name="title_signed_data">Bekreft signaturen for å vise meldingsteksten</string>
     <string name="title_not_encrypted">Meldingen er ikke signert eller kryptert</string>
     <string name="title_no_sign_key">Ingen signert nøkkel valgt</string>

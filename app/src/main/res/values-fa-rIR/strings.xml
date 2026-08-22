@@ -842,7 +842,7 @@
     <string name="title_show_folders">نمایش پوشه‌های پنهان</string>
     <string name="title_show_flagged">نمایش شمار پیام‌های ستاره‌دار</string>
     <string name="title_subscribed_only">تنها مشترک شده</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">مرتب‌سازی بر اساس هماهنگ‌سازی</string>
+    <string name="title_sort_sync">مرتب‌سازی بر اساس هماهنگ‌سازی</string>
     <string name="title_edit_account_color">ویرایش رنگ حساب</string>
     <string name="title_hide_folder">پنهان‌سازی پوشه</string>
     <string name="title_hide_seen_folder">در صورتی که همه پیام‌ها خوانده شده‌اند پوشه را پنهان کن</string>
@@ -1138,8 +1138,8 @@
     <string name="title_resync">همگام‌سازی دوباره</string>
     <string name="title_charset">رمزگذاری</string>
     <string name="title_charset_auto">خودکار</string>
-    <string name="title_no_openpgp">OpenKeychain یافت نشد</string>
-    <string name="title_user_interaction">در حال انتقال به OpenKeychain</string>
+    <string name="title_no_openpgp">ارائه دهنده OpenPGP یافت نشد</string>
+    <string name="title_user_interaction">انتقال به ارائه‌دهنده OpenPGP</string>
     <string name="title_padlock">از قفل برای رمزگشایی پیام استفاده کن</string>
     <string name="title_not_encrypted">پیام امضا یا رمزگذاری نشده است</string>
     <string name="title_no_sign_key">کلید امضائی انتخاب نشده</string>
@@ -1422,6 +1422,7 @@
     <string name="title_hint_folder_sync">برای محدود کردن مصرف دیتا و باتری تمامی پوشه‌ها و پیام‌ها به صورت پیش‌فرض همگام سازی نخواهند شد</string>
     <string name="title_hint_airplane">حالت هواپیما روشن است</string>
     <string name="title_hint_vpn_active">وی‌پی‌ان فعال</string>
+    <string name="title_hint_vpn_settings">لیست وی‌پی‌ان‌ها</string>
     <string name="title_hint_notifications">اجازه اعلان داده نشده</string>
     <string name="title_hint_data_saver">اگر کاهنده مصرف داده فعال باشد، برنامه نمی‌تواند در پس‌زمینه همگام‌سازی شود و ممکن است خطاهای اتصال رخ دهد.</string>
     <string name="title_hint_vpn">خدمات‌دهندگان ایمیل اغلب برقراری ارتباط با وی‌پی‌ان را مسدود می‌کنند. در صورت مواجهه با این مشکل، تنها ارائه‌دهنده ایمیل می‌تواند این مشکل را رفع کند.</string>

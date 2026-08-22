@@ -1206,7 +1206,7 @@
     <string name="title_show_flagged">Ulduzlu mesaj sayını göstər</string>
     <string name="title_subscribed_only">Yalnız abunə olunanlar</string>
     <string name="title_sort_unread_atop">Oxunulmayanları üstdə sırala</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Sinxron formatda sırala</string>
+    <string name="title_sort_sync">Sinxron formatda sırala</string>
     <string name="title_search_folder">Qovluq axtar</string>
     <string name="title_apply_to_all">Hamısına tətbiq et</string>
     <string name="title_edit_account_name">Hesab adına düzəliş et</string>
@@ -1630,9 +1630,7 @@
     <string name="title_charset_auto">Avtomatik</string>
     <string name="title_alternative_text">Düz mətni yüklə</string>
     <string name="title_alternative_html">HTML-i yüklə</string>
-    <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
     <string name="title_no_openpgp_remark">Əvvəlcə \"PGB bir ucdan digərinə qədər şifrələmə\" konfiqurasiya edilməlidir</string>
-    <string name="title_user_interaction">\"OpenKeychain\"ə köçürülür</string>
     <string name="title_padlock">Mesajın şifrəsini açmaq üçün asma kilid istifadə et</string>
     <string name="title_signed_data">Mesaj mətnini göstərmək üçün imzanı doğrula</string>
     <string name="title_not_encrypted">Mesaj imzalı və ya şifrələnmiş deyil</string>

@@ -1614,9 +1614,7 @@
     <string name="title_charset_auto">Αυτόματο</string>
     <string name="title_alternative_text">Φόρτωση απλού κειμένου</string>
     <string name="title_alternative_html">Φόρτωση HTML</string>
-    <string name="title_no_openpgp">Δεν βρέθηκε OpenKeychain</string>
     <string name="title_no_openpgp_remark">Η από άκρο σε άκρο κρυπτογράφηση PGP πρέπει πρώτα να ρυθμιστεί</string>
-    <string name="title_user_interaction">Μεταφορά προς OpenKeychain</string>
     <string name="title_padlock">Χρησιμοποιήστε το λουκέτο για να αποκρυπτογραφήσετε το μήνυμα</string>
     <string name="title_signed_data">Επαλήθευση της υπογραφής για προβολή του κειμένου του μηνύματος</string>
     <string name="title_not_encrypted">Το μήνυμα δεν είναι υπογεγραμμένο ή κρυπτογραφημένο</string>

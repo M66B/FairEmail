@@ -1232,7 +1232,7 @@
     <string name="title_show_flagged">Показывать количество избранных сообщений</string>
     <string name="title_subscribed_only">Только подписки</string>
     <string name="title_sort_unread_atop">Непрочитанные вверху</string>
-    <string name="title_sort_sync" comment="title_sort_sync Title for menu item in the overflow menu of the folder list to enable/disable sorting folders on whether they are synchronized or not. Please keep it short!">Сортировать по синхронизации</string>
+    <string name="title_sort_sync">Сортировать по синхронизации</string>
     <string name="title_search_folder">Поиск в названии папки</string>
     <string name="title_apply_to_all">Применить ко всем</string>
     <string name="title_edit_account_name">Изменить название учётной записи</string>
@@ -1654,9 +1654,9 @@
     <string name="title_charset_auto">Автовыбор</string>
     <string name="title_alternative_text">Загрузить простой текст</string>
     <string name="title_alternative_html">Загрузить HTML</string>
-    <string name="title_no_openpgp">OpenKeychain не найдено</string>
+    <string name="title_no_openpgp">Провайдер OpenPGP не найден</string>
     <string name="title_no_openpgp_remark">Сначала нужно настроить сквозное шифрование PGP</string>
-    <string name="title_user_interaction">Перенос в OpenKeychain</string>
+    <string name="title_user_interaction">Переход на провайдера OpenPGP</string>
     <string name="title_padlock">Используйте замок для расшифровки сообщения</string>
     <string name="title_signed_data">Проверить подпись, чтобы показать текст сообщения</string>
     <string name="title_not_encrypted">Сообщение не подписано и не зашифровано</string>
@@ -2039,6 +2039,7 @@
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
     <string name="title_hint_airplane">Режим полета включён</string>
     <string name="title_hint_vpn_active">Включён VPN</string>
+    <string name="title_hint_vpn_settings">Список VPN</string>
     <string name="title_hint_notifications">Отсутствует разрешение на отображение уведомлений</string>
     <string name="title_hint_notifications_remark">Разрешения на уведомления также необходимы для предупреждений (учётной записи). Уведомления о новых сообщениях можно отключить в настройках.</string>
     <string name="title_hint_battery_optimizations">Оптимизация энергопотребления всё ещё включена</string>
