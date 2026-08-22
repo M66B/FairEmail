@@ -30,6 +30,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2331 2026-08-22
+
+* Improved support for [PGPony](https://github.com/norsehorse-dev/PGPonyAndroid) as an alternative to [OpenKeychain](https://github.com/open-keychain/open-keychain)
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+
 ### 1.2330 2026-08-20
 
 * Added message language to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
