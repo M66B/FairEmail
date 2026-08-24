@@ -94,6 +94,7 @@ public class EmailProvider implements Parcelable {
     public boolean alt;
     public List<String> domain;
     public List<String> mx;
+    public List<String> txt;
     public int order;
     public String type;
     public int keepalive;
@@ -260,6 +261,10 @@ public class EmailProvider implements Parcelable {
                         String mx = xml.getAttributeValue(null, "mx");
                         if (mx != null)
                             provider.mx = Arrays.asList(mx.split(","));
+
+                        String txt = xml.getAttributeValue(null, "txt");
+                        if (txt != null)
+                            provider.txt = Arrays.asList(txt.split(","));
 
                         provider.order = getAttributeIntValue(xml, "order", Integer.MAX_VALUE);
                         provider.keepalive = getAttributeIntValue(xml, "keepalive", 0);
@@ -487,6 +492,29 @@ public class EmailProvider implements Parcelable {
                 }
             } catch (Throwable ex) {
                 Log.w(ex);
+            }
+
+        List<DnsHelper.DnsRecord> txt = new ArrayList<>();
+        try {
+            intf.onStatus("TXT " + domain);
+            txt.addAll(Arrays.asList(DnsHelper.lookup(context, domain, "txt")));
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        for (DnsHelper.DnsRecord record : txt)
+            if (!TextUtils.isEmpty(record.response)) {
+                String target = record.response.toLowerCase(Locale.ROOT);
+                EntityLog.log(context, "TXT target=" + target);
+                for (EmailProvider provider : providers) {
+                    if (provider.enabled && provider.txt != null)
+                        for (String t : provider.txt)
+                            if (target.matches(t)) {
+                                EntityLog.log(context, "From TXT record=" + domain);
+                                candidates.add(provider);
+                                break;
+                            }
+                }
             }
 
         try {

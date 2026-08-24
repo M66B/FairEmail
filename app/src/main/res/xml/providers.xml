@@ -2410,9 +2410,10 @@
             starttls="false" />
     </provider>
     <provider
-        name="Reagan.com"
+        name="Rackspace"
         domain="reagan\\.com"
-        link="https://www.reagan.com/support-outlook-express">
+        link="https://www.reagan.com/support-outlook-express"
+        txt=".*include\:emailsrvr\.com.*">
         <imap
             host="secure.emailsrvr.com"
             port="993"
