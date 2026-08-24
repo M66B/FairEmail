@@ -583,7 +583,7 @@ dependencies {
     def heifwriter_version = "1.1.0"
 
     // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs_nio:$desugar_version"
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$desugar_version"
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
