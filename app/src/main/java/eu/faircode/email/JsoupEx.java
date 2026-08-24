@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2026 by Marcel Bokhorst (M66B)
 */
 
+import android.os.Build;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -65,7 +67,33 @@ public class JsoupEx {
 
     static Document parse(File in) throws IOException {
         try (InputStream is = new FileInputStream(in)) {
-            return Jsoup.parse(new FilteredStream(is), StandardCharsets.UTF_8.name(), "");
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+                /*
+                    java.lang.IllegalArgumentException: Bad position (limit 1020): -8
+                        at java.nio.Buffer.positionImpl(Buffer.java:351)
+                        at java.nio.Buffer.position(Buffer.java:345)
+                        at java.nio.charset.CharsetDecoderICU.setPosition(CharsetDecoderICU.java:205)
+                        at java.nio.charset.CharsetDecoderICU.decodeLoop(CharsetDecoderICU.java:154)
+                        at java.nio.charset.CharsetDecoder.decode(CharsetDecoder.java:306)
+                        at org.jsoup.internal.SimpleStreamReader.read(SourceFile:26)
+                        at org.jsoup.parser.CharacterReader.doBufferUp(SourceFile:35)
+                        at org.jsoup.parser.CharacterReader.bufferUp(SourceFile:17)
+                        at org.jsoup.parser.CharacterReader.consume(SourceFile:1)
+                        at org.jsoup.parser.TokeniserState$38.read(SourceFile:35)
+                        at org.jsoup.parser.Tokeniser.read(SourceFile:9)
+                        at org.jsoup.parser.TreeBuilder.stepParser(SourceFile:37)
+                        at org.jsoup.parser.TreeBuilder.runParser(SourceFile:1)
+                        at org.jsoup.parser.TreeBuilder.parse(SourceFile:4)
+                        at org.jsoup.parser.Parser.parseInput(SourceFile:8)
+                        at org.jsoup.helper.DataUtil.parseInputStream(SourceFile:18)
+                        at org.jsoup.helper.DataUtil.parseInputStream(SourceFile:64)
+                        at org.jsoup.helper.DataUtil.load(SourceFile:10)
+                        at org.jsoup.Jsoup.parse(SourceFile:10)
+                        at eu.faircode.email.JsoupEx.parse(SourceFile:47)
+                */
+                return parse(Helper.readStream(new FilteredStream(is), StandardCharsets.UTF_8));
+            } else
+                return Jsoup.parse(new FilteredStream(is), StandardCharsets.UTF_8.name(), "");
         }
     }
 
