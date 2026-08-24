@@ -4424,7 +4424,7 @@ $NotDisplayed
 ```
 
 * Delivered: action = *delivered*, *relayed*, or *expanded*, [see here](https://datatracker.ietf.org/doc/html/rfc3464#section-2.3.3)
-* Displayed: disposition = *displayed*, [see here](https://datatracker.ietf.org/doc/html/rfc3798#section-3.2.6)
+* Displayed: disposition = *displayed*, [see here](https://datatracker.ietf.org/doc/html/rfc8098#section-3.2.6.1)
 
 It is probably a good idea to enable *Show keywords in message header* in the display settings.
 
