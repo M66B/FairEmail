@@ -1997,7 +1997,7 @@ Bij het verzenden van een bericht wordt de afbeelding vanaf de geselecteerde loc
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_airplane">Vliegtuigmodus is ingeschakeld</string>
     <string name="title_hint_vpn_active">VPN actief</string>
-    <string name="title_hint_vpn_settings">VPN lijst</string>
+    <string name="title_hint_vpn_settings">VPN-lijst</string>
     <string name="title_hint_notifications">Geen meldingsrechten</string>
     <string name="title_hint_notifications_remark">Meldingsrechten zijn vereist voor (account) meldingen. Meldingen voor nieuwe berichten kunnen worden uitgeschakeld in de instellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaties nog steeds ingeschakeld</string>

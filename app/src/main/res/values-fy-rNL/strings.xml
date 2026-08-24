@@ -1619,7 +1619,9 @@ Berjochten wurde ophelle sa gau as de e-mailserver se ôfleverje kin en bewarje 
     <string name="title_charset_auto">Automatysk</string>
     <string name="title_alternative_text">Platte tekst lade</string>
     <string name="title_alternative_html">HTML lade</string>
+    <string name="title_no_openpgp">OpenPGP-provider net fûn</string>
     <string name="title_no_openpgp_remark">PGP-end-to-end-fersifering moat earst konfigurearre wurde</string>
+    <string name="title_user_interaction">Nei OpenPGP-provider oerdrage</string>
     <string name="title_padlock">Brûk it hingslot om it berjocht te ûntsiferjen</string>
     <string name="title_signed_data">Ferifiearje de hantekening om de berjochttekst te toanen</string>
     <string name="title_not_encrypted">Berjocht is net ûndertekene of fersifere</string>
@@ -2002,6 +2004,7 @@ By it ferstjoeren fan in berjocht wurdt de ôfbylding fan de selektearre lokaasj
     <string name="title_hint_folder_sync">Om batterij- en netwurkgebrûk te beheinen sille net alle mappen en net alle berjochten standert syngronisearre wurde</string>
     <string name="title_hint_airplane">Fleantúchmodus is ynskeakele</string>
     <string name="title_hint_vpn_active">VPN aktyf</string>
+    <string name="title_hint_vpn_settings">VPN-list</string>
     <string name="title_hint_notifications">Gjin meldingsrjochten</string>
     <string name="title_hint_notifications_remark">Meldingsrjochten binne fereaske foar (account)meldingen. Meldingen foar nije berjochten kinne útskeakele wurde yn de ynstellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaasjes noch hieltyd ynskeakele</string>

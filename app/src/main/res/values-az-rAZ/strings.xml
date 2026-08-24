@@ -9,9 +9,9 @@
     <string name="app_data_loss">Bütün verilər itə bilər</string>
     <string name="app_continue">Yenə də davam edilsin</string>
     <string name="app_exit">Çıxmaq üçün yenidən \'geri\'yə basın</string>
-    <string name="app_cake">Anbar sahəsi yetərsizdir</string>
-    <string name="app_cake_remaining">Cihazda qalan anbar sahəsi: %1$s</string>
-    <string name="app_cake_required">Tələb olunan minimum anbar sahəsi: %1$s</string>
+    <string name="app_cake">Depo sahəsi yetərsizdir</string>
+    <string name="app_cake_remaining">Cihazda qalan depo sahəsi: %1$s</string>
+    <string name="app_cake_required">Tələb olunan minimum depo sahəsi: %1$s</string>
     <string name="app_updated">Son güncəlləmə: %1$s</string>
     <string name="app_download">%1$s üzərindən endirildi</string>
     <string name="app_error">Əksər xəta mesajları, xarici səbəblərə (şəbəkə, server və s.) görə baş verir və ya yanlış, çox vaxt standart olmayan, konfiqurasiyadan qaynaqlanır. Mənfi bir rəy vermək belə problemləri həll etmir. Dəstək tələb etmək, hər zaman daha təsirli olur.</string>
@@ -227,7 +227,7 @@
     <string name="title_setup_no_inbox">Gələn qutusu tapılmadı</string>
     <string name="title_setup_advanced_protection">Qabaqcıl qoruma proqramına qoşulanda, üçüncü tərəf e-poçt tətbiqi istifadə etməyiniz mümkünsüz olur. Bu, Google tərəfindən tətbiq edilən bir məhdudiyyətdir.</string>
     <string name="title_setup_quick_success">Bir hesab uğurla əlavə edildi</string>
-    <string name="title_setup_quick_no_sent">Göndərilən mesa qovluğu seçilmədi. Göndərilən mesajlar saxlanılmaya bilər.</string>
+    <string name="title_setup_quick_no_sent">Göndərilən mesa qovluğu seçilmədi. Göndərilən mesajlar depolanmaya bilər.</string>
     <string name="title_setup_quick_configure">Ada, rəngə, sürüşdürmə əməliyyatlarına və s. düzəliş etmək üçün</string>
     <string name="title_setup_manage">İdarə et</string>
     <string name="title_setup_grant">İcazə ver</string>
@@ -407,13 +407,13 @@
     <string name="title_advanced_check_blocklist">Göndərənin domen adının spam əngəlləmə siyahısında mövcudluğunu yoxla</string>
     <string name="title_advanced_use_blocklist">Əngəllənənlər siyahısındakı domenlərdən gələn mesajları spam qovluğuna köçürt</string>
     <string name="title_advanced_use_blocklist_pop3">Əngəllilər siyahısındakı domenlərdən gələn mesajları ötür (yalnız POP3)</string>
-    <string name="title_advanced_tune_keep_alive">Canlı saxlama aralığını avtomatik köklə</string>
+    <string name="title_advanced_tune_keep_alive">Canlı tutma aralığını avtomatik ayarla</string>
     <string name="title_advanced_blocklist_warning">Əngəlləmə siyahıları mükəmməl deyil və spam-dan daha çoxunu əngəlləyə bilər!</string>
     <string name="title_advanced_keyboard">Klaviaturanı ilkin olaraq göstər</string>
     <string name="title_advanced_keyboard_margin">Klaviaturanın üzərinə bir haşiyə əlavə edin</string>
     <string name="title_advanced_keyboard_no_fullscreen">Tam ekran klaviaturanı əngəllə</string>
     <string name="title_advanced_suggest_names">Ad və e-poçt ünvanlarını istifadə et</string>
-    <string name="title_advanced_suggest_local">Daxili anbarda saxlanılan kontaktları təklif et</string>
+    <string name="title_advanced_suggest_local">Daxili olaraq depolanan kontaktları təklif et</string>
     <string name="title_advanced_suggest_sent">Göndərilən mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_received">Alınan mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_frequently">Təklif edilən ünvanları istifadə tezliyinə görə sırala</string>
@@ -525,7 +525,7 @@
     <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
     <string name="title_advanced_nav_hide_message">Görüntü ayarlarında bu seçimi təkrar fəallaşdıra bilərsiniz</string>
     <string name="title_advanced_nav_last_sync">Naviqasiya menyusunda son sinxronlaşdırma vaxtını göstər</string>
-    <string name="title_advanced_nav_message_count">Naviqasiya menyusunda daxili anbarda saxlanılmış mesaj sayını göstər</string>
+    <string name="title_advanced_nav_message_count">Naviqasiya menyusunda daxili olaraq depolanmış mesaj sayını göstər</string>
     <string name="title_advanced_nav_unseen">Naviqasiya menyusunda oxunmamış mesajların sayını göstər</string>
     <string name="title_advanced_nav_unseen_drafts">Naviqasiya menyusunda oxunmamış qaralamaların sayını göstər</string>
     <string name="title_advanced_nav_pinned_count">Sancaqlanmış naviqasiya menyusunda oxunmamış mesajların sayını göstər</string>
@@ -867,7 +867,7 @@
     <string name="title_advanced_unseen_hint">Bəzi provayderlər bunu düzgün dəstəkləmir, bu da ya heç bir mesajın sinxronlaşdırılmamasına, ya da bütün mesajların sinxronlaşdırılmasına səbəb ola bilər</string>
     <string name="title_advanced_data_usage">Bu, yüksək veri istifadəsinə səbəb ola bilər!</string>
     <string name="title_advanced_deleted_unseen">Sıradan çıxarılanda, oxunmamış mesajlar həmişəlik cihazda qalacaq</string>
-    <string name="title_advanced_sync_kept_hint">Bu, xüsusilə cihazda həddən artıq mesaj saxlanıldığı zaman ekstra veri transferi edir və daha çox batareya enerjisi sərf edir</string>
+    <string name="title_advanced_sync_kept_hint">Bu, xüsusilə cihazda çox sayda mesaj depolandıqda, əlavə veri transferinə və daha çox batareya enerjisi sərfiyyatına səbəb olacaq.</string>
     <string name="title_advanced_gmail_thread_hint">Bu, yalnız yeni gələn mesajlara tətbiq olunur və mövcud qrupları zədələyə bilər</string>
     <string name="title_advanced_subject_threading_hint">Yalnız son %1$d saat ərzində alınan mesajlar</string>
     <string name="title_advanced_outlook_categories_hint">Outlook kateqoriyaları yalnız gətirilə bilər və Outlook IMAP server məhdudiyyətlərinə görə avtomatik yenilənə bilməz</string>
@@ -896,7 +896,7 @@
     <string name="title_advanced_metered_hint">Ümumiyyətlə ölçülmüş bağlantılar, mobil və ya ödənişli Wi-Fi bağlantılarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçimin sıradan çıxarılması, mobil internet bağlantılarında mesajların göndərilməsini və alınmasını dayandıracaq</string>
     <string name="title_advanced_rlah_hint">AB daxilində roaminqdə olmadığını hesab et</string>
-    <string name="title_advanced_usage_hint">Bu, batareya, veri və anbar sahəsi istifadəsini artıracaq</string>
+    <string name="title_advanced_usage_hint">Bu, batareya, veri və depo sahəsi istifadəsini artıracaq</string>
     <string name="title_advanced_plain_hint">Bunu fəallaşdırmaq veri istifadəsini məhdudlaşdıracaq, ancaq mesajlar stil və təsvir olmadan görünəcək</string>
     <string name="title_advanced_plain_remark">Düz mətn hissəsi həmişə tam mesajı ehtiva etmir!</string>
     <string name="title_advanced_tcp_keep_alive_hint">Bunu fəallaşdırmaq, bəzi cihazlarda bağlantı problemlərinə və batareya istifadəsinin artmasına səbəb ola bilər</string>
@@ -967,10 +967,10 @@
     <string name="title_advanced_notify_sensitive_hint">Android ayarlarında həssas bildirişlərin sıradan çıxarılmasını tələb edir</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyası bildiriş qruplaşdırmasını dəstəkləmir</string>
     <string name="title_advanced_notify_no_channels">Bu Android versiyası bildiriş kanallarını dəstəkləmir</string>
-    <string name="title_advanced_fts_hint">Bunu fəallaşdırmaq, axtarış performansını yaxşılaşdırır, ancaq batareya və anbar sahəsinin istifadəsini də artırır</string>
+    <string name="title_advanced_fts_hint">Bunu fəallaşdırmaq, axtarış performansını yaxşılaşdırır, ancaq batareya və depo sahəsinin istifadəsini də artırır</string>
     <string name="title_advanced_english_hint">Bu, tətbiqi yenidən başladacaq</string>
     <string name="title_advanced_experiments_hint">Təcrübi xüsusiyyətlərin siyahısı</string>
-    <string name="title_advanced_protocol_hint">Bu, batareya və anbar sahəsi istifadəsini əhəmiyyətli dərəcədə artıracaq!</string>
+    <string name="title_advanced_protocol_hint">Bu, batareya və depo sahəsi istifadəsini əhəmiyyətli dərəcədə artıracaq!</string>
     <string name="title_advanced_debug_hint">Bu, müxtəlif yerlərdə çirkin sazlama məlumatlarını göstərəcək</string>
     <string name="title_advanced_cleanup_attachments_hint">Əllə təmizləmə zamanı, bu, artıq sinxronlaşdırılmayan mesajlardan qoşmaları çıxaracaq</string>
     <string name="title_advanced_cleanup_hint">Bu, bütün müvəqqəti faylları siləcək</string>
@@ -1118,7 +1118,7 @@
     <string name="title_sign_key">İmza açarı: %1$s</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_backoff_until">Xətadan sonra %1$s tarixinə qədər gözlənilir</string>
-    <string name="title_storage_quota">Server anbar istifadəsi: %1$s/%2$s</string>
+    <string name="title_storage_quota">Server depolama istifadəsi: %1$s/%2$s</string>
     <string name="title_pop_support">POP3 protokolu yalnız gələn qutusundakı mesajları endirə və silə bilər. Mesajları oxundu olaraq işarələmək, spam olaraq bildirmək, daşımaq və sair mümkün deyil. Mümkün olduqda IMAP protokolunu istifadə etməyi düşünün.</string>
     <string name="title_pop_sent">Cihazınız itsə və ya oğurlansa, göndərilən mesajlar itə bilər.</string>
     <string name="title_pop_warning">Əgər POP3 serveri UIDL əmrini dəstəkləmirsə, veri istifadəsi yüksək ola bilər. Ona görə də, aşağıdakı anket tezliyini buna görə nizamlayın.</string>
@@ -1144,10 +1144,10 @@
     <string name="title_synchronize_more">Daha çox mesaj yüklə</string>
     <string name="title_synchronize_more_hint">Bu, köhnə mesajların tək bir endirilməsi ilə nəticələnəcək, buna görə də gündəlik istifadə üçün daha çox batareya istifadəsi ilə nəticələnməyəcək</string>
     <string name="title_synchronize_more_hint2">
-        Mesajlar, e-poçt serverinin çatdıra biləcəyi qədər sürətli gətiriləcək və saxlaya və indeksləyə biləcəyi qədər sürətli saxlayacaq.
-        Limitləyici faktor adətən cihazın daxili anbar sahəsinin sürətidir.
+        Mesajlar, e-poçt serverinin çatdıra biləcəyi qədər sürətli gətiriləcək və cihazın depolaya və indeksləyə biləcəyi qədər sürətli saxlayacaq.
+        Limitləyici faktor adətən cihazın daxili depolama sahəsinin sürətidir.
     </string>
-    <string name="title_synchronize_more_hint3">Zəhmət olmasa yadda saxlayın ki, cihazınızın anbarında çox sayda (on min və ya daha çox) mesaj saxlamaq gecikmələrə səbəb ola bilər. Çünki daxili anbar sahəsi sonsuz sürətə malik deyil.</string>
+    <string name="title_synchronize_more_hint3">Lütfən, nəzərə alın ki, cihazınızda çox sayda (on min və ya daha çox) mesaj depolamaq gecikmələrə səbəb ola bilər, çünki daxili depolama sahəsinin sürəti sonsuz deyil.</string>
     <string name="title_synchronize_enabled">Sinxronlaşdırma</string>
     <string name="title_synchronize_batch_enable">Sinxronlaşdırmanı fəallaşdır</string>
     <string name="title_synchronize_batch_disable">Sinxronlaşdırmanı sıradan çıxart</string>
@@ -1295,7 +1295,7 @@
     <string name="title_new_message">Yeni mesaj</string>
     <string name="title_editasnew">Yeni kimi düzəliş et</string>
     <string name="title_edit_notes">Daxili notlara düzəliş et</string>
-    <string name="title_edit_notes_remark">Daxili notlar poçt serverində saxlanılmmır və buna görə də yalnız bu cihazdakı bu tətbiqdə əlçatandır</string>
+    <string name="title_edit_notes_remark">Daxili notlar poçt serverində saxlanılmır və buna görə də yalnız bu cihazdakı bu tətbiqdə əlçatandır</string>
     <string name="title_create_rule">Qayda yarat &#8230;</string>
     <string name="title_full_screen">Tam ekran</string>
     <string name="title_force_light">Məcburi açıq tema</string>
@@ -1395,7 +1395,7 @@
     <string name="title_no_viewer_search">Tətbiq axtar</string>
     <string name="title_no_recorder">Uyğun bir səsyazan tətbiq yoxdur</string>
     <string name="title_no_camera">Uyğun bir kamera tətbiqi yoxdur</string>
-    <string name="title_no_saf">Anbar erişim çərçivəsi mövcud deyil</string>
+    <string name="title_no_saf">Depo erişim çərçivəsi mövcud deyil</string>
     <string name="title_no_stream">FairEmail-in bu faylı birbaşa oxumaq icazəsi yoxdur</string>
     <string name="title_no_stream_help">Bu, bir çox müasir fayl menecer tətbiqi ilə faylı seçərək və ya faylları oxuma icazəsi verərək həll edilə bilər</string>
     <string name="title_no_permissions">Faylı seçmək üçün istifadə olunan tətbiq, faylı oxumaq icazəsi vermədi</string>
@@ -1630,7 +1630,9 @@
     <string name="title_charset_auto">Avtomatik</string>
     <string name="title_alternative_text">Düz mətni yüklə</string>
     <string name="title_alternative_html">HTML-i yüklə</string>
+    <string name="title_no_openpgp">OpenPGP provayderi tapılmadı</string>
     <string name="title_no_openpgp_remark">Əvvəlcə \"PGB bir ucdan digərinə qədər şifrələmə\" konfiqurasiya edilməlidir</string>
+    <string name="title_user_interaction">OpenPGP provayderinə transfer edilir</string>
     <string name="title_padlock">Mesajın şifrəsini açmaq üçün asma kilid istifadə et</string>
     <string name="title_signed_data">Mesaj mətnini göstərmək üçün imzanı doğrula</string>
     <string name="title_not_encrypted">Mesaj imzalı və ya şifrələnmiş deyil</string>
@@ -2014,6 +2016,7 @@
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq sinxronlaşdırılmayacaq</string>
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
     <string name="title_hint_vpn_active">VPN aktivdir</string>
+    <string name="title_hint_vpn_settings">VPN siyahısı</string>
     <string name="title_hint_notifications">Bildiriş icazəsi yoxdur</string>
     <string name="title_hint_notifications_remark">(Hesab) xəbərdarlıqları üçün bildiriş icazələri tələb olunur. Yeni mesajlar üçün bildirişlər ayarlarında söndürülə bilər.</string>
     <string name="title_hint_battery_optimizations">Batareya optimallaşdırma hələ də fəaldır</string>
@@ -2031,7 +2034,7 @@
     </string>
     <string name="title_hint_important">Vacib</string>
     <string name="title_hint_sync">Mesajların endirilməsi provayderinizin sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq bir az vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
-    <string name="title_hint_sync_note">İlkin olaraq, anbar sahəsini, batareya və veri istifadəsini məhdudlaşdırmaq üçün bütün mesajlar endirilmir. Bunu, qovluq siyahınızda bir qovluğa uzun basaraq və \"Daha çox mesaj yüklə\"ni seçərək dəyişdirə bilərsiniz.</string>
+    <string name="title_hint_sync_note">İlkin olaraq, depolama sahəsini, batareya və veri istifadəsini məhdudlaşdırmaq üçün bütün mesajlar endirilmir. Bunu, qovluq siyahınızda bir qovluğa uzun basaraq və \"Daha çox mesaj yüklə\"ni seçərək dəyişdirə bilərsiniz.</string>
     <string name="title_hint_battery">FairEmail ilkin olaraq həmişə mesajları aldığı üçün, Android \"FairEmail\"in həmişə aktiv olduğunu bildirəcək. Buna görə də, FairEmail həmişə batareyanın enerjisini istehlak edirmiş kimi görünür, ancaq əslində bu belə deyil.</string>
     <string name="title_hint_reformat">İlkin olaraq, FairEmail, mesajları məxfilik və təhlükəsizlik səbəbinə görə yenidən format edir. Orijinal mesaja baxmaq üçün, mesaj mətninin üstündəki \"tam ekran\" nişanına toxunun.</string>
     <string name="title_hint_design">Dizayn qəsdən diqqəti yayındırmır, lakin yüksək dərəcədə funksional saxlayır. Görünüşü özəlləşdirmək üçün bir neçə seçim var, ancaq hər kəsi eyni anda xoşbəxt etməyin mümkün olmadığını anlamağınızı istəyirik.</string>
