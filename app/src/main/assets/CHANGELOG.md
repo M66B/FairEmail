@@ -30,6 +30,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2332 2026-08-24
+
+* Fixed reformatted view for Android 6
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2331 2026-08-22
 
 * Improved support for [PGPony](https://github.com/norsehorse-dev/PGPonyAndroid) as an alternative to [OpenKeychain](https://github.com/open-keychain/open-keychain)
