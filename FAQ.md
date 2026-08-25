@@ -627,7 +627,7 @@ This can be caused by using an incorrect host name, so first double-check the ho
 Please see the documentation of the email provider about the right host name.
 Sometimes the right host name is in the error message.
 
-Another possible cause is [Certificate transparency](https://github.com/appmattus/certificatetransparency) failing, so try disabling it in the connection settings tab page.
+~~Another possible cause is [Certificate transparency](https://github.com/appmattus/certificatetransparency) failing, so try disabling it in the connection settings tab page.~~
 
 You should try to fix this by contacting your provider or by getting a valid security certificate
 because invalid security certificates are insecure and allow [man-in-the-middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
@@ -648,6 +648,7 @@ This will "pin" the server certificate to prevent man-in-the-middle attacks.
 
 Note that older Android versions might not recognize newer certification authorities like Let’s Encrypt causing connections to be considered insecure,
 see also [here](https://developer.android.com/training/articles/security-ssl).
+In such cases, you can install the required root/intermediate certificates, for example, the often used [Let's encrypt root certificates](https://letsencrypt.org/ca/certificates/).
 
 <br />
 
