@@ -6409,6 +6409,9 @@ public class FragmentMessages extends FragmentBase
         new SimpleTask<Boolean>() {
             @Override
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                if (prefs.getBoolean("lan_dismissed", false))
+                    return false;
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.CINNAMON_BUN)
                     return false;
                 if (Helper.hasPermission(context, Manifest.permission.ACCESS_LOCAL_NETWORK))
@@ -6455,6 +6458,14 @@ public class FragmentMessages extends FragmentBase
                                     .putExtra("tab", "connection"));
                     }
                 });
+                if (BuildConfig.PLAY_STORE_RELEASE)
+                    snackbar.addCallback(new Snackbar.Callback() {
+                        @Override
+                        public void onDismissed(Snackbar sb, int event) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(sb.getContext());
+                            prefs.edit().putBoolean("lan_dismissed", true).apply();
+                        }
+                    });
                 snackbar.show();
             }
 
