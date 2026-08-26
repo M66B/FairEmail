@@ -68,7 +68,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
-import android.os.OperationCanceledException;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
@@ -153,14 +152,21 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Encoding;
 import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.asn1.ASN1SequenceParser;
+import org.bouncycastle.asn1.ASN1StreamParser;
 import org.bouncycastle.asn1.cms.Attribute;
 import org.bouncycastle.asn1.cms.AttributeTable;
 import org.bouncycastle.asn1.cms.CMSAttributes;
+import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
+import org.bouncycastle.asn1.cms.ContentInfoParser;
 import org.bouncycastle.asn1.cms.Time;
+import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
+import org.bouncycastle.cms.CMSAuthEnvelopedDataParser;
 import org.bouncycastle.cms.CMSEnvelopedDataParser;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSProcessable;
@@ -169,11 +175,13 @@ import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSTypedData;
 import org.bouncycastle.cms.PKIXRecipientId;
 import org.bouncycastle.cms.RecipientInformation;
+import org.bouncycastle.cms.RecipientInformationStore;
 import org.bouncycastle.cms.SignerId;
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
+import org.bouncycastle.cms.jcajce.JceKeyTransAuthEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
 import org.bouncycastle.operator.DefaultAlgorithmNameFinder;
@@ -10603,17 +10611,46 @@ public class FragmentMessages extends FragmentBase
                     if (input == null)
                         throw new IllegalArgumentException("Encrypted message missing");
 
+                    // Do not trust only the smime-type MIME parameter: it is a hint and
+                    // is not retained in EntityAttachment.type. Detect the actual CMS
+                    // content type from the ContentInfo OID.
+                    ASN1ObjectIdentifier contentType = getCmsContentType(input);
+                    boolean authEnveloped = CMSObjectIdentifiers.authEnvelopedData.equals(contentType);
+
+                    if (!authEnveloped && !CMSObjectIdentifiers.envelopedData.equals(contentType))
+                        throw new CMSException("Unsupported encrypted CMS content type: " + contentType);
+
                     int count = -1;
                     boolean decoded = false;
                     Throwable last = null;
                     while (!decoded)
                         try (FileInputStream fis = new FileInputStream(input)) {
-                            // Create parser
-                            CMSEnvelopedDataParser envelopedData = new CMSEnvelopedDataParser(fis);
+                            // AuthEnvelopedData uses an AEAD-capable parser and recipient.
+                            RecipientInformationStore recipientStore;
+                            AlgorithmIdentifier contentAlgorithm;
+                            String contentAlgorithmOid;
+                            String parserClass;
+
+                            JceKeyTransRecipient recipient;
+                            if (authEnveloped) {
+                                CMSAuthEnvelopedDataParser authData = new CMSAuthEnvelopedDataParser(fis);
+                                recipientStore = authData.getRecipientInfos();
+                                contentAlgorithm = authData.getEncryptionAlgOID();
+                                contentAlgorithmOid = authData.getEncAlgOID();
+                                parserClass = authData.getClass().getName();
+                                recipient = new JceKeyTransAuthEnvelopedRecipient(privkey);
+                            } else {
+                                CMSEnvelopedDataParser envelopedData = new CMSEnvelopedDataParser(fis);
+                                recipientStore = envelopedData.getRecipientInfos();
+                                contentAlgorithm = envelopedData.getContentEncryptionAlgorithm();
+                                contentAlgorithmOid = envelopedData.getEncryptionAlgOID();
+                                parserClass = envelopedData.getClass().getName();
+                                recipient = new JceKeyTransEnvelopedRecipient(privkey);
+                            }
 
                             // Get recipient info
-                            JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(privkey);
-                            Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients(); // KeyTransRecipientInformation
+                            Collection<RecipientInformation> recipients =
+                                    recipientStore.getRecipients(); // KeyTransRecipientInformation
 
                             EntityLog.log(context, "s/mime private key" +
                                     " algo=" + privkey.getAlgorithm() +
@@ -10644,14 +10681,15 @@ public class FragmentMessages extends FragmentBase
                             String malgo;
                             try {
                                 DefaultAlgorithmNameFinder af = new DefaultAlgorithmNameFinder();
-                                malgo = af.getAlgorithmName(envelopedData.getContentEncryptionAlgorithm());
+                                malgo = af.getAlgorithmName(contentAlgorithm);
                             } catch (Throwable ex) {
                                 Log.e(ex);
-                                malgo = envelopedData.getEncryptionAlgOID();
+                                malgo = contentAlgorithmOid;
                             }
                             EntityLog.log(context, "s/mime message" +
+                                    " type=" + contentType +
                                     " algo=" + malgo +
-                                    " class=" + envelopedData.getClass());
+                                    " class=" + parserClass);
 
                             // Find recipient
                             if (count < 0) {
@@ -10936,6 +10974,20 @@ public class FragmentMessages extends FragmentBase
                             .show();
                 else
                     Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+
+            private ASN1ObjectIdentifier getCmsContentType(File file)
+                    throws IOException, CMSException {
+                try (InputStream is =
+                             new BufferedInputStream(new FileInputStream(file))) {
+                    ASN1Encodable object = new ASN1StreamParser(is).readObject();
+                    if (!(object instanceof ASN1SequenceParser))
+                        throw new CMSException("Invalid CMS ContentInfo");
+
+                    ContentInfoParser contentInfo =
+                            new ContentInfoParser((ASN1SequenceParser) object);
+                    return contentInfo.getContentType();
+                }
             }
 
             private void decodeMessage(Context context, InputStream is, EntityMessage message, Bundle args) throws MessagingException, IOException {

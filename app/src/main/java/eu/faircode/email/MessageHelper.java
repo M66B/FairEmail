@@ -5271,6 +5271,10 @@ public class MessageHelper {
                     if ("enveloped-data".equalsIgnoreCase(smimeType)) {
                         getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
                         return parts;
+                    } else if ("authEnveloped-data".equalsIgnoreCase(smimeType) ||
+                            "auth-enveloped-data".equalsIgnoreCase(smimeType)) {
+                        getMessageParts(null, part, parts, EntityAttachment.SMIME_MESSAGE);
+                        return parts;
                     } else if ("signed-data".equalsIgnoreCase(smimeType)) {
                         getMessageParts(null, part, parts, EntityAttachment.SMIME_SIGNED_DATA);
                         return parts;
