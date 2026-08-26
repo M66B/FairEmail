@@ -1186,9 +1186,7 @@ Please see [here](https://support.google.com/pixelphone/answer/2844832?hl=en) ho
 
 The use of expired keys, inline encrypted/signed messages and hardware security tokens is not supported.
 
-If you are looking for a free (test) S/MIME certificate, see [here](http://kb.mozillazine.org/Getting_an_SMIME_certificate) for the options.
-Please be sure to [read this first](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219)
-if you want to request an S/MIME Actalis certificate.
+If you want a free S/MIME certificate, [see here](https://acme.castle.cloud/)
 
 Posteo offers cheap certificates, [see here](https://posteo.de/blog/neu-bei-posteo-smime-zertifikate-erstellen-und-sofort-nutzen) (German).
 
@@ -1208,13 +1206,13 @@ You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 <br />
 
-*Planck Security* (formerly: *pretty Easy privacy* or p≡p)
+~~*Planck Security* (formerly: *pretty Easy privacy* or p≡p)~~
 
-There is still no approved standard for p≡p and not many people are using it.
+~~There is still no approved standard for p≡p and not many people are using it.~~
 
-However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p.
-Also, FairEmail understands incoming p≡p messages since version 1.1519,
-so the encrypted subject will be shown and the embedded message text will be shown more nicely.
+~~However, FairEmail can send and receive PGP encrypted messages, which are compatible with p≡p.~~
+~~Also, FairEmail understands incoming p≡p messages since version 1.1519,~~
+~~so the encrypted subject will be shown and the embedded message text will be shown more nicely.~~
 
 <br />
 
