@@ -313,11 +313,15 @@ public class FragmentAccount extends FragmentBase {
         spProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemid) {
+                Context context = adapterView.getContext();
                 EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
+                if (context == null || provider == null)
+                    return;
+
                 tvGmailHint.setVisibility(
                         auth == AUTH_TYPE_PASSWORD && "gmail".equals(provider.id)
                                 ? View.VISIBLE : View.GONE);
-                tvDocumentation.setText(provider.documentation == null ? null : HtmlHelper.fromHtml(provider.documentation.toString(), view.getContext()));
+                tvDocumentation.setText(provider.documentation == null ? null : HtmlHelper.fromHtml(provider.documentation.toString(), context));
                 tvDocumentation.setVisibility(provider.documentation == null ? View.GONE : View.VISIBLE);
                 grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpCalendar.setVisibility(position > 0 && !BuildConfig.PLAY_STORE_RELEASE ? View.VISIBLE : View.GONE);
