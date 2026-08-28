@@ -80,6 +80,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private EditText etOpenAi;
     private TextInputLayout tilOpenAi;
     private EditText etOpenAiModel;
+    private EditText etOpenAiMaxTokens;
     private SwitchCompat swOpenMultiModal;
     private TextView tvOpenAiTemperature;
     private SeekBar sbOpenAiTemperature;
@@ -156,6 +157,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         etOpenAi = view.findViewById(R.id.etOpenAi);
         tilOpenAi = view.findViewById(R.id.tilOpenAi);
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
+        etOpenAiMaxTokens = view.findViewById(R.id.etOpenAiMaxTokens);
         swOpenMultiModal = view.findViewById(R.id.swOpenMultiModal);
         tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
         sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
@@ -427,6 +429,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("openai_enabled", checked).apply();
                 etOpenAiModel.setEnabled(checked);
+                etOpenAiMaxTokens.setEnabled(checked);
                 swOpenMultiModal.setEnabled(checked);
                 sbOpenAiTemperature.setEnabled(checked);
                 etOpenAiSummarize.setEnabled(checked);
@@ -507,6 +510,27 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                     prefs.edit().remove("openai_model").apply();
                 else
                     prefs.edit().putString("openai_model", model).apply();
+            }
+        });
+
+        etOpenAiMaxTokens.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Integer max_tokens = Helper.parseInt(s.toString().trim());
+                if (max_tokens == null)
+                    prefs.edit().remove("openai_max_tokens").apply();
+                else
+                    prefs.edit().putInt("openai_max_tokens", max_tokens).apply();
             }
         });
 
@@ -863,6 +887,9 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
             etOpenAiModel.setText(prefs.getString("openai_model", null));
             etOpenAiModel.setEnabled(swOpenAi.isChecked());
+
+            int max_tokens = prefs.getInt("openai_max_tokens", 0);
+            etOpenAiMaxTokens.setText(max_tokens > 0 ? Integer.toString(max_tokens) : "");
 
             swOpenMultiModal.setChecked(prefs.getBoolean("openai_multimodal", false));
             swOpenMultiModal.setEnabled(swOpenAi.isChecked());

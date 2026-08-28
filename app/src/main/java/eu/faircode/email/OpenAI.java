@@ -116,6 +116,9 @@ public class OpenAI {
     }
 
     static Message[] completeChat(Context context, String model, Message[] messages, Float temperature, int n) throws JSONException, IOException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int max_tokens = prefs.getInt("openai_max_tokens", 0);
+
         // https://platform.openai.com/docs/guides/chat/introduction
         // https://platform.openai.com/docs/api-reference/chat/create
         JSONArray jmessages = new JSONArray();
@@ -146,6 +149,8 @@ public class OpenAI {
 
         JSONObject jquestion = new JSONObject();
         jquestion.put("model", model);
+        if (max_tokens > 0)
+            jquestion.put("max_tokens", max_tokens);
         jquestion.put("messages", jmessages);
         if (temperature != null)
             jquestion.put("temperature", temperature);

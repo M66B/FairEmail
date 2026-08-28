@@ -667,6 +667,28 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvOpenAiModel" />
 
+                <TextView
+                    android:id="@+id/tvOpenAiMaxTokens"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_openai_max_tokens"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etOpenAiModel" />
+
+                <EditText
+                    android:id="@+id/etOpenAiMaxTokens"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOpenAiMaxTokens" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swOpenMultiModal"
                     android:layout_width="0dp"
@@ -677,7 +699,7 @@
                     android:text="@string/title_advanced_multi_modal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etOpenAiModel"
+                    app:layout_constraintTop_toBottomOf="@id/etOpenAiMaxTokens"
                     app:switchPadding="12dp" />
 
                 <TextView

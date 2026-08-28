@@ -932,6 +932,7 @@
     <string name="title_advanced_send">\'Send\' integration</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) integration</string>
     <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_max_tokens">Maximum tokens (leave blank for unlimited)</string>
     <string name="title_advanced_openai_temperature">Temperature: %1$s</string>
     <string name="title_advanced_openai_moderation">Content moderation</string>
     <string name="title_advanced_gemini">Gemini integration</string>
