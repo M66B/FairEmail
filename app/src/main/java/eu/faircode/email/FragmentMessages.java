@@ -232,6 +232,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -10488,11 +10489,23 @@ public class FragmentMessages extends FragmentBase
                                                     boolean found = false;
                                                     String issuer = (c.getIssuerDN() == null ? "" : c.getIssuerDN().getName());
                                                     EntityCertificate record = EntityCertificate.from(c, true, issuer);
-                                                    for (EntityCertificate ec : ecs)
-                                                        if (ec.fingerprint.equals(record.fingerprint)) {
-                                                            found = true;
-                                                            break;
-                                                        }
+
+                                                    Enumeration<String> aliases = ks.aliases();
+                                                    while (aliases.hasMoreElements()) {
+                                                        Certificate certificate = ks.getCertificate(aliases.nextElement());
+                                                        if (certificate instanceof X509Certificate)
+                                                            if (EntityCertificate.sameCaKey(c, (X509Certificate) certificate)) {
+                                                                found = true;
+                                                                break;
+                                                            }
+                                                    }
+
+                                                    if (!found)
+                                                        for (EntityCertificate ec : ecs)
+                                                            if (ec.fingerprint.equals(record.fingerprint)) {
+                                                                found = true;
+                                                                break;
+                                                            }
 
                                                     if (!found) {
                                                         Log.i("Storing certificate subject=" + record.subject);

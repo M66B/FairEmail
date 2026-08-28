@@ -234,6 +234,11 @@ public class EntityCertificate {
         return certificate.getSubjectX500Principal().getName(X500Principal.RFC2253);
     }
 
+    static boolean sameCaKey(X509Certificate a, X509Certificate b) {
+        return (a.getSubjectX500Principal().equals(b.getSubjectX500Principal()) &&
+                Arrays.equals(a.getPublicKey().getEncoded(), b.getPublicKey().getEncoded()));
+    }
+
     static List<String> getEmailAddresses(X509Certificate certificate) {
         List<String> result = new ArrayList<>();
 
