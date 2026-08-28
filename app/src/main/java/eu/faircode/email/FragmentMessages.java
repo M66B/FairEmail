@@ -177,6 +177,7 @@ import org.bouncycastle.cms.KeyAgreeRecipientInformation;
 import org.bouncycastle.cms.KeyTransRecipientInformation;
 import org.bouncycastle.cms.PKIXRecipientId;
 import org.bouncycastle.cms.Recipient;
+import org.bouncycastle.cms.RecipientId;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.RecipientInformationStore;
 import org.bouncycastle.cms.SignerId;
@@ -186,9 +187,11 @@ import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyAgreeAuthEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyAgreeEnvelopedRecipient;
+import org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientId;
 import org.bouncycastle.cms.jcajce.JceKeyTransAuthEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
+import org.bouncycastle.cms.jcajce.JceKeyTransRecipientId;
 import org.bouncycastle.operator.DefaultAlgorithmNameFinder;
 import org.bouncycastle.util.Store;
 import org.json.JSONException;
@@ -10666,7 +10669,7 @@ public class FragmentMessages extends FragmentBase
 
                             // Get recipient info
                             Collection<RecipientInformation> recipients =
-                                    recipientStore.getRecipients(); // KeyTransRecipientInformation
+                                    recipientStore.getRecipients(); // KeyTrans, KeyAgree, or another recipient type
 
                             EntityLog.log(context, "s/mime private key" +
                                     " algo=" + privkey.getAlgorithm() +
@@ -10680,12 +10683,16 @@ public class FragmentMessages extends FragmentBase
                                     Log.e(ex);
                                     algo = recipientInfo.getKeyEncryptionAlgOID();
                                 }
-                                String serial;
+                                String serial = null;
                                 try {
-                                    PKIXRecipientId recipientId = (PKIXRecipientId) recipientInfo.getRID();
-                                    serial = recipientId.getSerialNumber().toString();
+                                    RecipientId rid = recipientInfo.getRID();
+                                    if (rid instanceof PKIXRecipientId) {
+                                        BigInteger value = ((PKIXRecipientId) rid).getSerialNumber();
+                                        if (value != null)
+                                            serial = value.toString();
+                                    }
                                 } catch (Throwable ex) {
-                                    serial = null;
+                                    Log.e(ex);
                                 }
                                 EntityLog.log(context, "s/mime recipient" +
                                         " algo=" + algo +
@@ -10708,26 +10715,24 @@ public class FragmentMessages extends FragmentBase
 
                             // Find recipient
                             if (count < 0) {
-                                BigInteger serialno = chain[0].getSerialNumber();
-                                for (RecipientInformation recipientInfo : recipients) {
-                                    // KeyTransRecipientId or KeyAgreeRecipientId
-                                    PKIXRecipientId recipientId = (PKIXRecipientId) recipientInfo.getRID();
-                                    if (serialno != null && serialno.equals(recipientId.getSerialNumber())) {
-                                        try {
-                                            Recipient recipient = createRecipient(recipientInfo, authEnveloped, privkey);
-                                            InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
+                                RecipientInformation recipientInfo = recipientStore.get(new JceKeyTransRecipientId(chain[0]));
+                                if (recipientInfo == null)
+                                    recipientInfo = recipientStore.get(new JceKeyAgreeRecipientId(chain[0]));
+                                if (recipientInfo != null) {
+                                    try {
+                                        Recipient recipient = createRecipient(recipientInfo, authEnveloped, privkey);
+                                        try (InputStream is = recipientInfo.getContentStream(recipient).getContentStream()) {
                                             decodeMessage(context, is, message, args);
-                                            decoded = true;
-                                            Log.i("Encryption algo=" + malgo);
-                                            args.putString("algo", malgo);
-                                        } catch (CMSException ex) {
-                                            Log.w(ex);
-                                            last = ex;
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                            last = ex;
                                         }
-                                        break; // only one try
+                                        decoded = true;
+                                        Log.i("Encryption algo=" + malgo);
+                                        args.putString("algo", malgo);
+                                    } catch (CMSException ex) {
+                                        Log.w(ex);
+                                        last = ex;
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                        last = ex;
                                     }
                                 }
                             } else {
@@ -10736,10 +10741,10 @@ public class FragmentMessages extends FragmentBase
                                     RecipientInformation recipientInfo = list.get(count);
                                     try {
                                         Recipient recipient = createRecipient(recipientInfo, authEnveloped, privkey);
-                                        InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
-                                        decodeMessage(context, is, message, args);
+                                        try (InputStream is = recipientInfo.getContentStream(recipient).getContentStream()) {
+                                            decodeMessage(context, is, message, args);
+                                        }
                                         decoded = true;
-                                        break;
                                     } catch (CMSException ex) {
                                         Log.w(ex);
                                         last = ex;
