@@ -1313,6 +1313,8 @@ public class EntityRule {
     }
 
     private boolean onActionAutomation(Context context, EntityMessage message, JSONObject jargs, String html) {
+        Intent automation;
+
         InternetAddress iaddr =
                 (message.from == null || message.from.length == 0
                         ? null : ((InternetAddress) message.from[0]));
@@ -1321,16 +1323,36 @@ public class EntityRule {
         DateFormat DTF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         DTF.setTimeZone(java.util.TimeZone.getTimeZone("Zulu"));
 
+        if (html == null && message.content) {
+            File file = message.getFile(context);
+            try {
+                html = Helper.readText(file);
+            } catch (IOException ex) {
+                Log.e(ex);
+            }
+        }
+
         String text = HtmlHelper.getFullText(context, html);
         String preview = HtmlHelper.getPreview(text);
 
-        Intent automation = new Intent(ACTION_AUTOMATION);
-        automation.putExtra(EXTRA_RULE, name);
-        automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
-        automation.putExtra(EXTRA_SENDER, iaddr == null ? null : iaddr.getAddress());
-        automation.putExtra(EXTRA_NAME, iaddr == null ? null : iaddr.getPersonal());
-        automation.putExtra(EXTRA_SUBJECT, message.subject);
-        automation.putExtra(EXTRA_PREVIEW, preview);
+        boolean gb = jargs.optBoolean("gadgetbridge");
+        if (gb) {
+            // https://gadgetbridge.org/internals/automations/intents/#send-a-custom-notification
+            automation = new Intent("nodomain.freeyourgadget.gadgetbridge.command.DEBUG_SEND_NOTIFICATION");
+            automation.putExtra("type", "GENERIC_EMAIL");
+            automation.putExtra("sender", iaddr == null ? null : MessageHelper.formatAddresses(new InternetAddress[]{iaddr}));
+            automation.putExtra("subject", message.subject);
+            automation.putExtra("body", TextUtils.isEmpty(preview) ? "-" : preview);
+            //automation.setPackage("nodomain.freeyourgadget.gadgetbridge");
+        } else {
+            automation = new Intent(ACTION_AUTOMATION);
+            automation.putExtra(EXTRA_RULE, name);
+            automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
+            automation.putExtra(EXTRA_SENDER, iaddr == null ? null : iaddr.getAddress());
+            automation.putExtra(EXTRA_NAME, iaddr == null ? null : iaddr.getPersonal());
+            automation.putExtra(EXTRA_SUBJECT, message.subject);
+            automation.putExtra(EXTRA_PREVIEW, preview);
+        }
 
         List<String> extras = Log.getExtras(automation.getExtras());
         EntityLog.log(context, EntityLog.Type.Rules, message,

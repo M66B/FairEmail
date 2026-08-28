@@ -180,6 +180,8 @@ public class FragmentRule extends FragmentBase {
 
     private TextView tvAutomation;
 
+    private CheckBox cbGadgetBridge;
+
     private EditText etNotes;
     private ViewButtonColor btnColorNotes;
 
@@ -393,6 +395,8 @@ public class FragmentRule extends FragmentBase {
         etAlarmDuration = view.findViewById(R.id.etAlarmDuration);
 
         tvAutomation = view.findViewById(R.id.tvAutomation);
+
+        cbGadgetBridge = view.findViewById(R.id.cbGadgetBridge);
 
         etNotes = view.findViewById(R.id.etNotes);
         btnColorNotes = view.findViewById(R.id.btnColorNotes);
@@ -972,6 +976,7 @@ public class FragmentRule extends FragmentBase {
         grpTts.setVisibility(View.GONE);
         grpSound.setVisibility(View.GONE);
         grpAutomation.setVisibility(View.GONE);
+        cbGadgetBridge.setVisibility(View.GONE);
         grpDelete.setVisibility(View.GONE);
         grpLocalOnly.setVisibility(View.GONE);
         grpNotes.setVisibility(View.GONE);
@@ -1518,6 +1523,10 @@ public class FragmentRule extends FragmentBase {
                                     etAlarmDuration.setText(duration == 0 ? null : Integer.toString(duration));
                                     break;
 
+                                case EntityRule.TYPE_AUTOMATION:
+                                    cbGadgetBridge.setChecked(jaction.optBoolean("gadgetbridge"));
+                                    break;
+
                                 case EntityRule.TYPE_NOTES:
                                     etNotes.setText(jaction.getString("notes"));
                                     btnColorNotes.setColor(
@@ -1591,6 +1600,7 @@ public class FragmentRule extends FragmentBase {
         grpTts.setVisibility(type == EntityRule.TYPE_TTS ? View.VISIBLE : View.GONE);
         grpSound.setVisibility(type == EntityRule.TYPE_SOUND ? View.VISIBLE : View.GONE);
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
+        cbGadgetBridge.setVisibility(type == EntityRule.TYPE_AUTOMATION && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         grpDelete.setVisibility(type == EntityRule.TYPE_DELETE ? View.VISIBLE : View.GONE);
         grpLocalOnly.setVisibility(type == EntityRule.TYPE_LOCAL_ONLY ? View.VISIBLE : View.GONE);
         grpNotes.setVisibility(type == EntityRule.TYPE_NOTES ? View.VISIBLE : View.GONE);
@@ -1962,6 +1972,10 @@ public class FragmentRule extends FragmentBase {
                         } catch (NumberFormatException ex) {
                             Log.e(ex);
                         }
+                    break;
+
+                case EntityRule.TYPE_AUTOMATION:
+                    jaction.put("gadgetbridge", cbGadgetBridge.isChecked());
                     break;
 
                 case EntityRule.TYPE_NOTES:

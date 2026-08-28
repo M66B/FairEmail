@@ -2204,6 +2204,7 @@
     <string name="title_rule_answer_missing">Template missing</string>
     <string name="title_rule_keyword_missing">Keyword missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
+    <string name="title_rule_automation_gadgetbridge" translatable="false">GadgetBridge</string>
     <string name="title_rule_notes_missing">Local notes missing</string>
     <string name="title_rule_url_missing">URL missing or invalid</string>
     <string name="title_rule_delete_hint">Permanent deletion is irreversible, so make sure the rule conditions are correct!</string>
