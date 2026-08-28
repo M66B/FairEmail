@@ -173,7 +173,10 @@ import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSTypedData;
+import org.bouncycastle.cms.KeyAgreeRecipientInformation;
+import org.bouncycastle.cms.KeyTransRecipientInformation;
 import org.bouncycastle.cms.PKIXRecipientId;
+import org.bouncycastle.cms.Recipient;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.RecipientInformationStore;
 import org.bouncycastle.cms.SignerId;
@@ -181,6 +184,8 @@ import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
+import org.bouncycastle.cms.jcajce.JceKeyAgreeAuthEnvelopedRecipient;
+import org.bouncycastle.cms.jcajce.JceKeyAgreeEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransAuthEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
@@ -10645,21 +10650,18 @@ public class FragmentMessages extends FragmentBase
                             String contentAlgorithmOid;
                             String parserClass;
 
-                            JceKeyTransRecipient recipient;
                             if (authEnveloped) {
                                 CMSAuthEnvelopedDataParser parser = new CMSAuthEnvelopedDataParser(fis);
                                 recipientStore = parser.getRecipientInfos();
                                 contentAlgorithm = parser.getEncryptionAlgOID();
                                 contentAlgorithmOid = parser.getEncAlgOID();
                                 parserClass = parser.getClass().getName();
-                                recipient = new JceKeyTransAuthEnvelopedRecipient(privkey);
                             } else {
                                 CMSEnvelopedDataParser parser = new CMSEnvelopedDataParser(fis);
                                 recipientStore = parser.getRecipientInfos();
                                 contentAlgorithm = parser.getContentEncryptionAlgorithm();
                                 contentAlgorithmOid = parser.getEncryptionAlgOID();
                                 parserClass = parser.getClass().getName();
-                                recipient = new JceKeyTransEnvelopedRecipient(privkey);
                             }
 
                             // Get recipient info
@@ -10668,8 +10670,7 @@ public class FragmentMessages extends FragmentBase
 
                             EntityLog.log(context, "s/mime private key" +
                                     " algo=" + privkey.getAlgorithm() +
-                                    " serial=" + chain[0].getSerialNumber() +
-                                    " class=" + recipient.getClass());
+                                    " serial=" + chain[0].getSerialNumber());
                             for (RecipientInformation recipientInfo : recipients) {
                                 String algo;
                                 try {
@@ -10713,6 +10714,7 @@ public class FragmentMessages extends FragmentBase
                                     PKIXRecipientId recipientId = (PKIXRecipientId) recipientInfo.getRID();
                                     if (serialno != null && serialno.equals(recipientId.getSerialNumber())) {
                                         try {
+                                            Recipient recipient = createRecipient(recipientInfo, authEnveloped, privkey);
                                             InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
                                             decodeMessage(context, is, message, args);
                                             decoded = true;
@@ -10722,9 +10724,6 @@ public class FragmentMessages extends FragmentBase
                                             Log.w(ex);
                                             last = ex;
                                         } catch (Throwable ex) {
-                                            // java.lang.ClassCastException: org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient cannot be cast to org.bouncycastle.cms.KeyAgreeRecipient
-                                            //    at org.bouncycastle.cms.KeyAgreeRecipientInformation.getRecipientOperator(Unknown Source:1)
-                                            //    at org.bouncycastle.cms.RecipientInformation.getContentStream(Unknown Source:0)
                                             Log.e(ex);
                                             last = ex;
                                         }
@@ -10736,6 +10735,7 @@ public class FragmentMessages extends FragmentBase
                                 if (count < list.size()) {
                                     RecipientInformation recipientInfo = list.get(count);
                                     try {
+                                        Recipient recipient = createRecipient(recipientInfo, authEnveloped, privkey);
                                         InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
                                         decodeMessage(context, is, message, args);
                                         decoded = true;
@@ -10744,9 +10744,6 @@ public class FragmentMessages extends FragmentBase
                                         Log.w(ex);
                                         last = ex;
                                     } catch (Throwable ex) {
-                                        // java.lang.ClassCastException: org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient cannot be cast to org.bouncycastle.cms.KeyAgreeRecipient
-                                        //    at org.bouncycastle.cms.KeyAgreeRecipientInformation.getRecipientOperator(Unknown Source:1)
-                                        //    at org.bouncycastle.cms.RecipientInformation.getContentStream(Unknown Source:0)
                                         Log.e(ex);
                                         last = ex;
                                     }
@@ -11000,6 +10997,20 @@ public class FragmentMessages extends FragmentBase
                 }
             }
 
+            private static Recipient createRecipient(RecipientInformation info, boolean authEnveloped, PrivateKey privateKey) throws CMSException {
+                if (info instanceof KeyTransRecipientInformation)
+                    return (authEnveloped
+                            ? new JceKeyTransAuthEnvelopedRecipient(privateKey)
+                            : new JceKeyTransEnvelopedRecipient(privateKey));
+
+                if (info instanceof KeyAgreeRecipientInformation)
+                    return (authEnveloped
+                            ? new JceKeyAgreeAuthEnvelopedRecipient(privateKey)
+                            : new JceKeyAgreeEnvelopedRecipient(privateKey));
+
+                throw new CMSException("Unsupported recipient type: " + info.getClass().getName());
+            }
+
             private void decodeMessage(Context context, InputStream is, EntityMessage message, Bundle args) throws MessagingException, IOException {
                 int type = args.getInt("type");
                 String alias = args.getString("alias");
@@ -11012,6 +11023,11 @@ public class FragmentMessages extends FragmentBase
                 MessageHelper helper = new MessageHelper(imessage, context);
                 MessageHelper.MessageParts parts = helper.getMessageParts();
                 String protect_subject = parts.getProtectedSubject();
+
+                // Ensure stream is read to the end to check AEAD tag
+                byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                while (is.read(buffer) != -1)
+                    ;
 
                 // Write decrypted body
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
