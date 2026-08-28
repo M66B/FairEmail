@@ -10628,9 +10628,10 @@ public class FragmentMessages extends FragmentBase
                     // is not retained in EntityAttachment.type. Detect the actual CMS
                     // content type from the ContentInfo OID.
                     ASN1ObjectIdentifier contentType = getCmsContentType(input);
+                    boolean envelopedData = CMSObjectIdentifiers.envelopedData.equals(contentType);
                     boolean authEnveloped = CMSObjectIdentifiers.authEnvelopedData.equals(contentType);
 
-                    if (!authEnveloped && !CMSObjectIdentifiers.envelopedData.equals(contentType))
+                    if (!envelopedData && !authEnveloped)
                         throw new CMSException("Unsupported encrypted CMS content type: " + contentType);
 
                     int count = -1;
@@ -10646,18 +10647,18 @@ public class FragmentMessages extends FragmentBase
 
                             JceKeyTransRecipient recipient;
                             if (authEnveloped) {
-                                CMSAuthEnvelopedDataParser authData = new CMSAuthEnvelopedDataParser(fis);
-                                recipientStore = authData.getRecipientInfos();
-                                contentAlgorithm = authData.getEncryptionAlgOID();
-                                contentAlgorithmOid = authData.getEncAlgOID();
-                                parserClass = authData.getClass().getName();
+                                CMSAuthEnvelopedDataParser parser = new CMSAuthEnvelopedDataParser(fis);
+                                recipientStore = parser.getRecipientInfos();
+                                contentAlgorithm = parser.getEncryptionAlgOID();
+                                contentAlgorithmOid = parser.getEncAlgOID();
+                                parserClass = parser.getClass().getName();
                                 recipient = new JceKeyTransAuthEnvelopedRecipient(privkey);
                             } else {
-                                CMSEnvelopedDataParser envelopedData = new CMSEnvelopedDataParser(fis);
-                                recipientStore = envelopedData.getRecipientInfos();
-                                contentAlgorithm = envelopedData.getContentEncryptionAlgorithm();
-                                contentAlgorithmOid = envelopedData.getEncryptionAlgOID();
-                                parserClass = envelopedData.getClass().getName();
+                                CMSEnvelopedDataParser parser = new CMSEnvelopedDataParser(fis);
+                                recipientStore = parser.getRecipientInfos();
+                                contentAlgorithm = parser.getContentEncryptionAlgorithm();
+                                contentAlgorithmOid = parser.getEncryptionAlgOID();
+                                parserClass = parser.getClass().getName();
                                 recipient = new JceKeyTransEnvelopedRecipient(privkey);
                             }
 
@@ -10989,16 +10990,12 @@ public class FragmentMessages extends FragmentBase
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
 
-            private ASN1ObjectIdentifier getCmsContentType(File file)
-                    throws IOException, CMSException {
-                try (InputStream is =
-                             new BufferedInputStream(new FileInputStream(file))) {
+            private ASN1ObjectIdentifier getCmsContentType(File file) throws IOException, CMSException {
+                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                     ASN1Encodable object = new ASN1StreamParser(is).readObject();
                     if (!(object instanceof ASN1SequenceParser))
                         throw new CMSException("Invalid CMS ContentInfo");
-
-                    ContentInfoParser contentInfo =
-                            new ContentInfoParser((ASN1SequenceParser) object);
+                    ContentInfoParser contentInfo = new ContentInfoParser((ASN1SequenceParser) object);
                     return contentInfo.getContentType();
                 }
             }
