@@ -115,7 +115,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             "deepl_enabled",
             "vt_enabled",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_model", "openai_multimodal", "openai_temperature", "openai_summarize", "openai_answer", "openai_system",
+            "openai_enabled", "openai_uri", "openai_model", "openai_max_tokens", "openai_multimodal", "openai_temperature", "openai_summarize", "openai_answer", "openai_system",
             "gemini_enabled", "gemini_uri", "gemini_model", "gemini_temperature", "gemini_summarize", "gemini_answer"
     ));
 
@@ -880,6 +880,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                 "openai_uri".equals(key) ||
                 "openai_apikey".equals(key) ||
                 "openai_model".equals(key) ||
+                "openai_max_tokens".equals(key) ||
                 "openai_summarize".equals(key) ||
                 "openai_answer".equals(key) ||
                 "openai_system".equals(key) ||
