@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2026 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,6 +41,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 import androidx.preference.PreferenceManager;
@@ -80,6 +83,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private EditText etOpenAi;
     private TextInputLayout tilOpenAi;
     private EditText etOpenAiModel;
+    private ImageButton ibOpenAiModel;
     private EditText etOpenAiMaxTokens;
     private SwitchCompat swOpenMultiModal;
     private TextView tvOpenAiTemperature;
@@ -157,6 +161,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         etOpenAi = view.findViewById(R.id.etOpenAi);
         tilOpenAi = view.findViewById(R.id.tilOpenAi);
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
+        ibOpenAiModel = view.findViewById(R.id.ibOpenAiModel);
         etOpenAiMaxTokens = view.findViewById(R.id.etOpenAiMaxTokens);
         swOpenMultiModal = view.findViewById(R.id.swOpenMultiModal);
         tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
@@ -429,6 +434,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("openai_enabled", checked).apply();
                 etOpenAiModel.setEnabled(checked);
+                ibOpenAiModel.setEnabled(checked);
                 etOpenAiMaxTokens.setEnabled(checked);
                 swOpenMultiModal.setEnabled(checked);
                 sbOpenAiTemperature.setEnabled(checked);
@@ -510,6 +516,50 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                     prefs.edit().remove("openai_model").apply();
                 else
                     prefs.edit().putString("openai_model", model).apply();
+            }
+        });
+
+        ibOpenAiModel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<List<String>>() {
+                    @Override
+                    protected List<String> onExecute(Context context, Bundle args) throws Throwable {
+                        return AI.getModelList(context);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<String> data) {
+                        String current = prefs.getString("openai_model", null);
+
+                        CharSequence[] models = new CharSequence[data.size()];
+                        int selected = -1;
+                        for (int i = 0; i < data.size(); i++) {
+                            String model = data.get(i);
+                            models[i] = model;
+                            if (current != null && current.equals(model))
+                                selected = i;
+                        }
+
+                        new AlertDialog.Builder(v.getContext())
+                                .setIcon(R.drawable.twotone_search_24)
+                                .setTitle(R.string.title_advanced_openai_model)
+                                .setSingleChoiceItems(models, selected, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        String model = models[which].toString();
+                                        etOpenAiModel.setText(model);
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                    }
+                }.execute(FragmentOptionsIntegrations.this, new Bundle(), "ai:models");
             }
         });
 

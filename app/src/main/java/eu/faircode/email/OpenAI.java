@@ -169,6 +169,17 @@ public class OpenAI {
         return choices;
     }
 
+    static List<String> getModelList(Context context) throws JSONException, IOException {
+        JSONObject jresponse = call(context, "GET", "models", null);
+        List<String> models = new ArrayList<>();
+        JSONArray data = jresponse.getJSONArray("data");
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject item = data.getJSONObject(i);
+            models.add(item.getString("id"));
+        }
+        return models;
+    }
+
     private static String getUri(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String endpoint = prefs.getString("openai_uri", BuildConfig.OPENAI_ENDPOINT);

@@ -35,6 +35,7 @@ import org.jsoup.nodes.Document;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AI {
@@ -242,5 +243,14 @@ public class AI {
         String html = Markdown.toHtml(sb.toString(), context);
         Document doc = HtmlHelper.sanitizeView(context, JsoupEx.parse(html), false);
         return HtmlHelper.fromDocument(context, doc, null, null);
+    }
+
+    static List<String> getModelList(Context context) throws JSONException, IOException {
+        if (OpenAI.isAvailable(context)) {
+            List<String> models = OpenAI.getModelList(context);
+            Collections.sort(models);
+            return models;
+        } else
+            return new ArrayList<>();
     }
 }
