@@ -524,6 +524,16 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             public void onClick(View v) {
                 new SimpleTask<List<String>>() {
                     @Override
+                    protected void onPreExecute(Bundle args) {
+                        ibOpenAiModel.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        ibOpenAiModel.setEnabled(true);
+                    }
+
+                    @Override
                     protected List<String> onExecute(Context context, Bundle args) throws Throwable {
                         return AI.getModelList(context);
                     }
