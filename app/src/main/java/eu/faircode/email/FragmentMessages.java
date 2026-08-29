@@ -6441,8 +6441,22 @@ public class FragmentMessages extends FragmentBase
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean gmx_checked = prefs.getBoolean("gmx_checked", false);
-
         if (gmx_checked)
+            return false;
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.DAY_OF_MONTH, 24);
+        cal.set(Calendar.MONTH, Calendar.SEPTEMBER);
+        cal.set(Calendar.YEAR, 2026);
+        cal.add(Calendar.MONTH, 1); // One month more
+        long at = cal.getTimeInMillis();
+
+        long now = new Date().getTime();
+        if (at < now)
             return false;
 
         new SimpleTask<List<EntityAccount>>() {
