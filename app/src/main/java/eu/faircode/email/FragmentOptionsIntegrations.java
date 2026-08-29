@@ -558,6 +558,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(FragmentOptionsIntegrations.this, ex);
                     }
                 }.execute(FragmentOptionsIntegrations.this, new Bundle(), "ai:models");
             }
