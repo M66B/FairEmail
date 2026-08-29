@@ -6488,7 +6488,8 @@ public class FragmentMessages extends FragmentBase
                     public void onClick(View v) {
                         snackbar.dismiss();
                         prefs.edit().putBoolean("gmx_checked", true).apply();
-                        Helper.view(v.getContext(), Uri.parse(Helper.SUPPORT_URI), true);
+                        Uri uri = Uri.parse(Helper.SUPPORT_URI).buildUpon().appendQueryParameter("tag", "GMX").build();
+                        Helper.view(v.getContext(), uri, true);
                     }
                 });
                 snackbar.addCallback(new Snackbar.Callback() {
