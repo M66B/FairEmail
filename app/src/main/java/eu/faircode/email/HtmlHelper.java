@@ -98,7 +98,6 @@ import org.w3c.css.sac.Selector;
 import org.w3c.dom.css.CSSRule;
 import org.w3c.dom.css.CSSRuleList;
 import org.w3c.dom.css.CSSStyleSheet;
-import org.w3c.dom.css.CSSValue;
 import org.w3c.dom.stylesheets.MediaList;
 
 import java.io.ByteArrayInputStream;
