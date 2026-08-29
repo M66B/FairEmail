@@ -60,7 +60,7 @@ public class OpenAI {
     static final String CONTENT_TEXT = "text";
     static final String CONTENT_IMAGE = "image_url";
 
-    private static final int TIMEOUT = 45; // seconds
+    private static final int TIMEOUT = 20; // seconds
     private static final int SCALE2PIXELS = 1440; // medium
 
     static boolean isAvailable(Context context) {
