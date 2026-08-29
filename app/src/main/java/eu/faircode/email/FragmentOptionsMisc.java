@@ -353,7 +353,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "outlook_last_checked", "outlook_checked",
             "send_archive",
             "compose_hide_attachments", "view_show_inline",
-            "lan_dismissed"
+            "lan_dismissed",
+            "gmx_checked"
     };
 
     @Override

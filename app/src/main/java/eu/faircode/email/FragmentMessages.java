@@ -5919,10 +5919,11 @@ public class FragmentMessages extends FragmentBase
                 if (!checkReporting())
                     if (!checkReview())
                         if (!checkFingerprint())
-                            if (!checkGmail())
-                                if (!checkOutlook())
-                                    if (!checkLan())
-                                        ;
+                            if (true || !checkGmail())
+                                if (true || !checkOutlook())
+                                    if (!checkGMX())
+                                        if (!checkLan())
+                                            ;
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "notifications_reminder");
@@ -6088,6 +6089,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkRedmiNote() {
+        Log.i("Check Redmi");
+
         if (!Helper.isRedmiNote())
             return false;
 
@@ -6111,6 +6114,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkDoze() {
+        Log.i("Check doze");
+
         if (viewType != AdapterMessage.ViewType.UNIFIED)
             return false;
 
@@ -6143,6 +6148,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkReporting() {
+        Log.i("Check reporting");
+
         if (viewType != AdapterMessage.ViewType.UNIFIED || true)
             return false;
 
@@ -6171,6 +6178,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkReview() {
+        Log.i("Check review");
+
         if (viewType != AdapterMessage.ViewType.UNIFIED)
             return false;
 
@@ -6218,6 +6227,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkFingerprint() {
+        Log.i("Check fingerprint");
+
         if (Helper.hasValidFingerprint(getContext()))
             return false;
 
@@ -6246,6 +6257,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkGmail() {
+        Log.i("Check Gmail");
+
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.getBoolean("gmail_checked", false))
@@ -6331,6 +6344,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkOutlook() {
+        Log.i("Check Outlook");
+
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         long outlook_last_checked = prefs.getLong("outlook_last_checked", 0);
@@ -6418,10 +6433,71 @@ public class FragmentMessages extends FragmentBase
             }
         }.execute(this, new Bundle(), "outlook:check");
 
-        return false;
+        return true;
+    }
+
+    private boolean checkGMX() {
+        Log.i("Check GMX");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean gmx_checked = prefs.getBoolean("gmx_checked", false);
+
+        if (gmx_checked)
+            return false;
+
+        new SimpleTask<List<EntityAccount>>() {
+            @Override
+            protected List<EntityAccount> onExecute(Context context, Bundle args) throws Throwable {
+                DB db = DB.getInstance(context);
+                return db.account().getSynchronizingAccounts(null);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                boolean has = false;
+                if (accounts != null)
+                    for (EntityAccount account : accounts)
+                        if (account.isGMX()) {
+                            has = true;
+                            break;
+                        }
+
+                if (!has) {
+                    prefs.edit().putBoolean("gmx_checked", true).apply();
+                    return;
+                }
+
+                final Snackbar snackbar = Helper.setSnackbarOptions(Snackbar.make(view, R.string.title_check_gmx, Snackbar.LENGTH_INDEFINITE));
+                Helper.setSnackbarLines(snackbar, 5);
+                snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                        prefs.edit().putBoolean("gmx_checked", true).apply();
+                        Helper.view(v.getContext(), Uri.parse(Helper.SUPPORT_URI), true);
+                    }
+                });
+                snackbar.addCallback(new Snackbar.Callback() {
+                    @Override
+                    public void onDismissed(Snackbar transientBottomBar, int event) {
+                        prefs.edit().putBoolean("gmx_checked", true).apply();
+                    }
+                });
+                snackbar.show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.e(ex);
+            }
+        }.execute(this, new Bundle(), "gmx:check");
+
+        return true;
     }
 
     private boolean checkLan() {
+        Log.i("Check LAN");
+
         new SimpleTask<Boolean>() {
             @Override
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {

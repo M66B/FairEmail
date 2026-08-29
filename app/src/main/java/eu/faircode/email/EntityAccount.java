@@ -226,6 +226,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return "imap.mail.me.com".equalsIgnoreCase(host);
     }
 
+    boolean isGMX() {
+        return (host != null && host.toLowerCase(Locale.ROOT).contains(".gmx."));
+    }
+
     boolean isTransient(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = prefs.getBoolean("enabled", true);
