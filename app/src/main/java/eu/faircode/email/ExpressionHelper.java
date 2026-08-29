@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -120,6 +121,8 @@ public class ExpressionHelper {
 
         ContainsOperator oContains = new ContainsOperator(false);
         ContainsOperator oMatches = new ContainsOperator(true);
+        StartsWithOperator oStartsWith = new StartsWithOperator(false);
+        StartsWithOperator oEndsWith = new StartsWithOperator(true);
 
         ExpressionConfiguration configuration = ExpressionConfiguration.defaultConfiguration();
 
@@ -137,6 +140,8 @@ public class ExpressionHelper {
 
         configuration.getOperatorDictionary().addOperator("Contains", oContains);
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
+        configuration.getOperatorDictionary().addOperator("StartsWith", oStartsWith);
+        configuration.getOperatorDictionary().addOperator("EndsWith", oEndsWith);
 
         Expression expression = new Expression(eval, configuration)
                 .with("received", message == null ? null : message.received)
@@ -583,6 +588,54 @@ public class ExpressionHelper {
 
             Log.i("EXPR " + operands[0] + (regex ? " MATCHES " : " CONTAINS ") + operands[1] +
                     " regex=" + regex + " result=" + result);
+
+            return expression.convertValue(result);
+        }
+    }
+
+    @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
+    public static class StartsWithOperator extends AbstractOperator {
+        private final boolean end;
+
+        StartsWithOperator(boolean end) {
+            this.end = end;
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token operatorToken, EvaluationValue... operands) {
+            boolean result = false;
+
+            try {
+                if (operands.length == 2) {
+                    List<EvaluationValue> array;
+                    if (operands[1].getDataType() == EvaluationValue.DataType.ARRAY)
+                        array = operands[0].getArrayValue();
+                    else
+                        array = Arrays.asList(operands[0]);
+
+                    String condition = operands[1].getStringValue();
+                    if (!TextUtils.isEmpty(condition))
+                        condition = condition.toLowerCase(Locale.ROOT);
+
+                    if (array != null && !array.isEmpty() && !TextUtils.isEmpty(condition))
+                        for (EvaluationValue item : array) {
+                            String value = item.getStringValue();
+                            if (!TextUtils.isEmpty(value)) {
+                                value = value.toLowerCase(Locale.ROOT);
+                                if (this.end ? value.endsWith(condition) : value.startsWith(condition)) {
+                                    result = true;
+                                    break;
+                                }
+                            }
+                        }
+                }
+            } catch (Throwable ex) {
+                Log.e("EXPR", ex);
+            }
+
+            Log.i("EXPR " + operands[0] + (end ? " ENDSWITH " : " STARTSWITH ") + operands[1] +
+                    " end=" + this.end + " result=" + result);
 
             return expression.convertValue(result);
         }
