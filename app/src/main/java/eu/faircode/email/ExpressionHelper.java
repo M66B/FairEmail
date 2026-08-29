@@ -563,7 +563,7 @@ public class ExpressionHelper {
             try {
                 if (operands.length == 2) {
                     List<EvaluationValue> array;
-                    if (operands[1].getDataType() == EvaluationValue.DataType.ARRAY)
+                    if (operands[0].getDataType() == EvaluationValue.DataType.ARRAY)
                         array = operands[0].getArrayValue();
                     else
                         array = Arrays.asList(operands[0]);
@@ -609,7 +609,7 @@ public class ExpressionHelper {
             try {
                 if (operands.length == 2) {
                     List<EvaluationValue> array;
-                    if (operands[1].getDataType() == EvaluationValue.DataType.ARRAY)
+                    if (operands[0].getDataType() == EvaluationValue.DataType.ARRAY)
                         array = operands[0].getArrayValue();
                     else
                         array = Arrays.asList(operands[0]);
