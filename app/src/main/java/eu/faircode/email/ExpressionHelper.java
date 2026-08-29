@@ -37,6 +37,7 @@ import com.ezylang.evalex.operators.InfixOperator;
 import com.ezylang.evalex.parser.ASTNode;
 import com.ezylang.evalex.parser.ParseException;
 import com.ezylang.evalex.parser.Token;
+import com.jayway.jsonpath.JsonPath;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -123,6 +124,7 @@ public class ExpressionHelper {
         ContainsOperator oMatches = new ContainsOperator(true);
         StartsWithOperator oStartsWith = new StartsWithOperator(false);
         StartsWithOperator oEndsWith = new StartsWithOperator(true);
+        JPathOperator oJPath = new JPathOperator();
 
         ExpressionConfiguration configuration = ExpressionConfiguration.defaultConfiguration();
 
@@ -142,6 +144,7 @@ public class ExpressionHelper {
         configuration.getOperatorDictionary().addOperator("Matches", oMatches);
         configuration.getOperatorDictionary().addOperator("StartsWith", oStartsWith);
         configuration.getOperatorDictionary().addOperator("EndsWith", oEndsWith);
+        configuration.getOperatorDictionary().addOperator("JPath", oJPath);
 
         Expression expression = new Expression(eval, configuration)
                 .with("received", message == null ? null : message.received)
@@ -636,6 +639,46 @@ public class ExpressionHelper {
 
             Log.i("EXPR " + operands[0] + (end ? " ENDSWITH " : " STARTSWITH ") + operands[1] +
                     " end=" + this.end + " result=" + result);
+
+            return expression.convertValue(result);
+        }
+    }
+
+    @InfixOperator(precedence = OPERATOR_PRECEDENCE_COMPARISON)
+    public static class JPathOperator extends AbstractOperator {
+        JPathOperator() {
+        }
+
+        @Override
+        public EvaluationValue evaluate(
+                Expression expression, Token operatorToken, EvaluationValue... operands) {
+            String result = null;
+
+            try {
+                if (operands.length == 2) {
+                    List<EvaluationValue> array;
+                    if (operands[0].getDataType() == EvaluationValue.DataType.ARRAY)
+                        array = operands[0].getArrayValue();
+                    else
+                        array = Arrays.asList(operands[0]);
+
+                    String path = operands[1].getStringValue();
+
+                    if (array != null && !array.isEmpty() && !TextUtils.isEmpty(path))
+                        for (EvaluationValue item : array) {
+                            String value = item.getStringValue();
+                            if (!TextUtils.isEmpty(value)) {
+                                result = JsonPath.read(value, path);
+                                break;
+                            }
+                        }
+                }
+            } catch (Throwable ex) {
+                Log.e("EXPR", ex);
+            }
+
+            Log.i("EXPR " + operands[0] + "JSONPATH" + operands[1] +
+                    " result=" + result);
 
             return expression.convertValue(result);
         }
