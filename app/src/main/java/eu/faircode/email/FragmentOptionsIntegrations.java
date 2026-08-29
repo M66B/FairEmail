@@ -851,7 +851,10 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         cardVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         cardSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         cardOpenAi.setVisibility(TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT) ? View.GONE : View.VISIBLE);
-        cardGemini.setVisibility(TextUtils.isEmpty(BuildConfig.GEMINI_ENDPOINT) ? View.GONE : View.VISIBLE);
+        String gemini_apikey = prefs.getString("gemini_apikey", null);
+        cardGemini.setVisibility(TextUtils.isEmpty(BuildConfig.GEMINI_ENDPOINT)
+                || TextUtils.isEmpty(gemini_apikey)
+                ? View.GONE : View.VISIBLE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

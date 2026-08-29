@@ -1144,6 +1144,22 @@ public class ApplicationEx extends Application
             editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);
 
+        if (prefs.getBoolean("gemini_enabled", false)) {
+            editor.putBoolean("openai_enabled", true)
+                    .putString("openai_apikey", prefs.getString("gemini_apikey", null))
+                    .putString("openai_uri", "https://generativelanguage.googleapis.com/v1beta/openai/")
+                    .putString("openai_model", "models/" + prefs.getString("gemini_model", Gemini.DEFAULT_MODEL))
+                    .remove("openai_max_tokens")
+                    .putBoolean("openai_multimodal", false)
+                    .putFloat("openai_temperature", prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE))
+                    .putString("openai_summarize", prefs.getString("gemini_summarize", Gemini.DEFAULT_SUMMARY_PROMPT))
+                    .putString("openai_answer", prefs.getString("gemini_answer", Gemini.DEFAULT_ANSWER_PROMPT))
+                    .remove("openai_system")
+
+                    .putBoolean("gemini_enabled", false)
+                    .remove("gemini_apikey");
+        }
+
         int last_sdk = prefs.getInt("last_sdk", Build.VERSION.SDK_INT);
         if (Helper.isAndroid15() && last_sdk <= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
             editor.remove("setup_reminder");
