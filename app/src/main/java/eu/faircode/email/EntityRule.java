@@ -1690,6 +1690,7 @@ public class EntityRule {
             return false;
 
         if (!this.async && this.id != null) {
+            message.notifying = EntityMessage.NOTIFYING_RULE_PENDING;
             EntityOperation.queue(context, message, EntityOperation.RULE, this.id, browsed);
             return true;
         }

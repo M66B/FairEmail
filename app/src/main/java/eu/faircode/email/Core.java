@@ -5131,7 +5131,10 @@ class Core {
                         }
                 }
             } finally {
-                db.message().setMessageNotifying(message.id, 0);
+                if (message.notifying == EntityMessage.NOTIFYING_RULE_PENDING)
+                    message.notifying = EntityMessage.NOTIFYING_IGNORE;
+                else
+                    db.message().setMessageNotifying(message.id, 0);
             }
 
             reportNewMessage(context, account, folder, message);

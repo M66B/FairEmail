@@ -97,6 +97,7 @@ public class EntityMessage implements Serializable {
     static final String TABLE_NAME = "message";
 
     static final int NOTIFYING_IGNORE = -2;
+    static final int NOTIFYING_RULE_PENDING = -3;
 
     static final Integer ENCRYPT_NONE = 0;
     static final Integer PGP_SIGNENCRYPT = 1;
