@@ -6427,6 +6427,14 @@ Basically, an outgoing message is either in the draft messages folder, the outbo
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq204)
 
+**From version 1.2333 you should use the OpenAI integration with this URI: https://generativelanguage.googleapis.com/v1beta/openai/**
+
+The instructions below are basically still valid, though.
+
+An existing configuration will automatically be migrated.
+
+<br>
+
 Gemini can only be used if configured and enabled.
 
 **Note that using Gemini is not free (anymore) !**
