@@ -30,6 +30,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Added support for S/MIME [auth-enveloped-data](https://www.rfc-editor.org/info/rfc5083/)
+* Added three new operators to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+* Updated gradle to version 9.7.1
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2332 2026-08-24
 
 * Fixed reformatted view for Android 6

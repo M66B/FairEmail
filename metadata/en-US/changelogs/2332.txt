@@ -30,6 +30,12 @@ Elopteryx
 
 Next version (Work in progress)
 
+* Added support for S/MIME auth-enveloped-data
+* Added three new operators to expression conditions
+* Updated gradle to version 9.7.1
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2332 2026-08-24
 
 * Fixed reformatted view for Android 6
