@@ -343,6 +343,7 @@ De foutmelding \'User is authenticated but not connected\' betekent meestal dat 
     <string name="title_check_gmail_password">Sommige van uw Gmail-accounts werken mogelijk niet meer na 30 mei 2022</string>
     <string name="title_check_outlook_oauth">Uw Outlook accounts zullen blijven werken na 16 september 2024</string>
     <string name="title_check_outlook_password">Sommige van uw Outlook/Hotmail/Live accounts zullen na 16 september 2024 niet meer werken</string>
+    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">U moet uw GMX-account voor 24 september 2026 bijwerken met een app-wachtwoord.</string>
     <string name="title_advanced_hint_title">Meer geavanceerde opties</string>
     <string name="title_advanced_hint_message">        U navigeert naar de meer geavanceerde opties.        Alle opties hebben vaak gebruikte standaardwaarden die je niet hoeft te wijzigen tenzij je een andere voorkeur hebt.
     </string>
@@ -815,6 +816,7 @@ De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslag
     <string name="title_advanced_send">\'Send\' integratie</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) integratie</string>
     <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">Maximum aantal tokens (laat leeg voor onbeperkt)</string>
     <string name="title_advanced_openai_temperature">Temperatuur: %1$s</string>
     <string name="title_advanced_openai_moderation">Inhoudsmatiging</string>
     <string name="title_advanced_gemini">Gemini integratie</string>

@@ -333,6 +333,7 @@
     <string name="title_check_gmail_password">您的部分 Gmail 账户可能会在 2022 年 5 月 30 日之后不可使用</string>
     <string name="title_check_outlook_oauth">你的 Outlook 账户在2024 年9月16日之后将继续工作</string>
     <string name="title_check_outlook_password">您的一些Outlook/Hotmail/Live 账户在2024年9月16日后将停止工作</string>
+    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">您必须在2026年9月24日之前使用应用密码更新您的 GMX 账户。</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">
         您正在前往更多的高级选项        所有选项默认使用常用的标准值，若有特别偏好则可更改。
@@ -813,6 +814,7 @@
     <string name="title_advanced_send">Send 集成</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) 集成</string>
     <string name="title_advanced_openai_model">模型</string>
+    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">最大令牌数(留空为无限制)</string>
     <string name="title_advanced_openai_temperature">温度：%1$s</string>
     <string name="title_advanced_openai_moderation">内容审核</string>
     <string name="title_advanced_gemini">Gemini 集成</string>

@@ -37,13 +37,11 @@
     <plurals name="page_conversation">
         <item quantity="one">דיון</item>
         <item quantity="two">דיונים</item>
-        <item quantity="many">דיונים</item>
         <item quantity="other">דיונים</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="one">הודעה</item>
         <item quantity="two">הודעות</item>
-        <item quantity="many">הודעות</item>
         <item quantity="other">הודעות</item>
     </plurals>
     <string name="page_folders">תיקיות</string>
@@ -56,55 +54,46 @@
     <plurals name="title_notification_synchronizing">
         <item quantity="one">חשבון במעקב</item>
         <item quantity="two">%1$d חשבונות במעקב</item>
-        <item quantity="many">%1$d חשבונות במעקב</item>
         <item quantity="other">%1$d חשבונות במעקב</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">פעולה ממתינה</item>
         <item quantity="two">%1$d פעולות ממתינות</item>
-        <item quantity="many">%1$d פעולות ממתינות</item>
         <item quantity="other">%1$d פעולות ממתינות</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">הודעה חדשה</item>
         <item quantity="two">%1$d הודעות חדשות</item>
-        <item quantity="many">%1$d הודעות חדשות</item>
         <item quantity="other">%1$d הודעות חדשות</item>
     </plurals>
     <plurals name="title_notification_unsent">
         <item quantity="one">הודעה ממתינה לשליחה</item>
         <item quantity="two">%1$d הודעות ממתינות לשליחה</item>
-        <item quantity="many">%1$d הודעות ממתינות לשליחה</item>
         <item quantity="other">%1$d הודעות ממתינות לשליחה</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">חדשה</item>
         <item quantity="two">%1$d חדשות</item>
-        <item quantity="many">%1$d חדשות</item>
         <item quantity="other">%1$d חדשות</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">להעביר הודעה?</item>
         <item quantity="two">להעביר %1$d הודעות?</item>
-        <item quantity="many">להעביר %1$d הודעות?</item>
         <item quantity="other">להעביר %1$d הודעות?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">למחוק את ההודעה לצמיתות?</item>
         <item quantity="two">למחוק %1$d הודעות לצמיתות?</item>
-        <item quantity="many">למחוק %1$d הודעות לצמיתות?</item>
         <item quantity="other">למחוק %1$d הודעות לצמיתות?</item>
     </plurals>
     <plurals name="title_attachments">
         <item quantity="one">קובץ מצורף</item>
         <item quantity="two">%1$d קבצים מצורפים</item>
-        <item quantity="many">%1$d קבצים מצורפים</item>
         <item quantity="other">%1$d קבצים מצורפים</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">להתייחס אל ההודעה כספאם?</item>
         <item quantity="two">האם לסמן %1$d הודעות כדואר זבל?</item>
-        <item quantity="many">להתייחס אל %1$d ההודעות כספאם?</item>
         <item quantity="other">להתייחס אל %1$d ההודעות כספאם?</item>
     </plurals>
     <string name="title_ask_spam_who">להתייחס להודעה מאת %1$s כספאם?</string>
@@ -127,19 +116,16 @@
     <plurals name="title_ask_block_sender">
         <item quantity="one">לחסום את מוען ההודעה?</item>
         <item quantity="two">לחסום את מוען %1$s ההודעות?</item>
-        <item quantity="many">לחסום את מוען %1$s ההודעות?</item>
         <item quantity="other">לחסום את מוען %1$s ההודעות?</item>
     </plurals>
     <plurals name="title_hours">
         <item quantity="one">שעה</item>
         <item quantity="two">שעתיים</item>
-        <item quantity="many">%1$s שעות</item>
         <item quantity="other">%1$s שעות</item>
     </plurals>
     <plurals name="title_days">
         <item quantity="one">יום</item>
         <item quantity="two">יומיים</item>
-        <item quantity="many">%1$s ימים</item>
         <item quantity="other">%1$s ימים</item>
     </plurals>
     <string name="title_junk_filter">להשתמש במסנן ספאם מקומי</string>
@@ -2243,7 +2229,6 @@
     <plurals name="title_accessibility_messages">
         <item quantity="one">הודעה</item>
         <item quantity="two">%1$d הודעות</item>
-        <item quantity="many">%1$d הודעות</item>
         <item quantity="other">%1$d הודעות</item>
     </plurals>
     <string name="title_accessibility_accounts">חשבונות</string>

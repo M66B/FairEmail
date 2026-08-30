@@ -14,7 +14,7 @@
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
     <string name="app_download">Descarregada via: %1$s</string>
-    <string name="app_error">A maioria das mensagens de erro tem causas externas (rede, servidor, etc.) ou é causada por uma configuração incorreta, muitas vezes fora do padrão. Uma avaliação negativa não resolve estes problemas. Solicitar apoio é quase sempre mais eficaz.</string>
+    <string name="app_error">A maioria das mensagens de erro têm causas externas (rede, servidor, etc.) ou são causadas por uma configuração incorreta, muitas vezes fora do padrão. Uma avaliação negativa não resolve estes problemas. Solicitar apoio é quase sempre mais eficaz.</string>
     <string name="app_motd">
         Com o Android 14/15 beta, notificações de \'App not responding\' ocorrem ocasionalmente.
         A Google está trabalhando numa correção.
@@ -82,10 +82,10 @@
         <item quantity="other">%1$d anexos</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Definir %1$d mensagem como indesejada?</item>
-        <item quantity="other">Definir %1$d mensagens como indesejadas?</item>
+        <item quantity="one">Definir %1$d mensagem como spam?</item>
+        <item quantity="other">Definir %1$d mensagens como spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Definir a mensagem de %1$s como indesejada?</string>
+    <string name="title_ask_spam_who">Definir mensagem de %1$s como spam?</string>
     <string name="title_junk_hint">O seu fornecedor de correio electrónico é responsável por filtrar o ‘spam’. Uma aplicação de correio eletrónico não possui toda a informação necessária para o fazer de forma confiável.</string>
     <string name="title_junk_pop_hint">
         Mensagens de remetentes bloqueados não serão transferidas.
@@ -123,7 +123,7 @@
     <string name="title_notification_waiting">A aguardar por ligação válida à Internet</string>
     <string name="title_notification_idle">Ausente</string>
     <string name="title_notification_failed">A conta \'%1$s\' falhou</string>
-    <string name="title_notification_alert">Alerta de servidor: \'%1$s\'</string>
+    <string name="title_notification_alert">Alerta do servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_retry">O envio será testado de novo quando a sua ligação à Internet mudar ou quando puxar para baixo na caixa de saída</string>
     <string name="title_notification_sending_failed">Falha ao enviar para %1$s</string>
@@ -347,6 +347,7 @@ O erro \'User is authenticated but not connected\' significa principalmente que 
     <string name="title_check_gmail_password">Algumas das suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
     <string name="title_check_outlook_oauth">As suas contas do Outlook, continuarão a funcionar após 16 de setembro de 2024</string>
     <string name="title_check_outlook_password">Algumas das suas contas do Outlook/Hotmail/Live podem deixar de funcionar após 16 de Setembro de 2024</string>
+    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">Precisa de atualizar a sua conta GMX com uma palavra-passe de aplicação antes de 24 de setembro de 2026.</string>
     <string name="title_advanced_hint_title">Mais opções avançadas</string>
     <string name="title_advanced_hint_message">Está a navegar para as opções mais avançadas.        Todas as opções têm valores padrão geralmente utilizados que podem ser alterados se tiver uma preferência diferente.
     </string>
@@ -823,6 +824,7 @@ Não precisará da maioria das opções e, como algumas opções são bastante e
     <string name="title_advanced_send">\'Send\' integração</string>
     <string name="title_advanced_openai">Integração OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modelo</string>
+    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">Número máximo de tokens (deixar em branco para ilimitado)</string>
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderação de conteúdo</string>
     <string name="title_advanced_gemini">Integração Gemini</string>

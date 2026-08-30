@@ -1618,7 +1618,9 @@
     <string name="title_charset_auto">Automatikus</string>
     <string name="title_alternative_text">Egyszerű szöveg betöltése</string>
     <string name="title_alternative_html">HTML betöltése</string>
+    <string name="title_no_openpgp">OpenPGP szolgáltató nem található</string>
     <string name="title_no_openpgp_remark">A PGP végpontok közti titkosítást először be kell állítani</string>
+    <string name="title_user_interaction">Átküldés az OpenPGP szolgáltatóhoz</string>
     <string name="title_padlock">A lakat érintésével titkosítja az üzenetet</string>
     <string name="title_signed_data">Hitelesítse az aláírást az üzenetszöveg megjelenítéséhez</string>
     <string name="title_not_encrypted">Az üzenet nincs aláírva vagy titkosítva</string>
@@ -2002,6 +2004,7 @@
     <string name="title_hint_folder_sync">Az akkumulátor- és hálózathasználat limitálása érdekében nem minden mappa és üzenet lesz szinkronizálva alapértelmezésként</string>
     <string name="title_hint_airplane">Repülő üzemmód bekapcsolva</string>
     <string name="title_hint_vpn_active">VPN aktív</string>
+    <string name="title_hint_vpn_settings">VPN lista</string>
     <string name="title_hint_notifications">Nincs értesítési engedély</string>
     <string name="title_hint_notifications_remark">Az értesítések engedélyezése szükséges a (fiók) riasztásokhoz is. Az új üzenet értesítések kikapcsolhatók a beállításokban.</string>
     <string name="title_hint_battery_optimizations">Az akku-optimalizáció még mindig be van kapcsolva</string>

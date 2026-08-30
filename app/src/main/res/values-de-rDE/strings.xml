@@ -348,6 +348,7 @@
     <string name="title_check_gmail_password">Einige Ihrer Gmail-Konten funktionieren möglicherweise nicht mehr nach dem 30. Mai 2022</string>
     <string name="title_check_outlook_oauth">Ihre Outlook-Konten werden auch nach dem 16. September 2024 weiterhin funktionieren</string>
     <string name="title_check_outlook_password">Einige Ihrer Outlook-/Hotmail-/Live-Konten funktionieren nach dem 16. September 2024 möglicherweise nicht mehr</string>
+    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">Sie müssen Ihr GMX-Konto vor dem 24. September 2026 mit einem App-Passwort aktualisieren.</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
     <string name="title_advanced_hint_message">
         Sie navigieren zu den erweiterten Optionen.

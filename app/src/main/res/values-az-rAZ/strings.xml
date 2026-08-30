@@ -194,8 +194,8 @@
     <string name="title_setup_pop3">POP3 hesabı</string>
     <string name="title_setup_oauth_permission">E-poçt provayderi, \"OAuth\"u yalnız Play Store və GitHub versiyaları üçün təsdiqlədi</string>
     <string name="title_setup_gmail_support">Google hesablarının səlahiyyətləndirilməsi, Android tətbiq imzalarını yoxladığı üçün yalnız Play Store və GitHub versiyalarında işləyəcək</string>
-    <string name="title_setup_gmail_rationale">Zəhmət olmasa bir hesab seçmək və adınızı oxumaq üçün icazə verin</string>
-    <string name="title_setup_gmail_permissions">Google, sizdən bütün e-poçtlarınızı oxumaq (sizə mesajları göstərmək üçün), tərtib etmək (qaralama mesajlarını saxlamaq üçün), göndərmək və daimi silmək üçün icazə istəyəcək. FairEmail, açıq icazəniz olmadan mesajlarınızı heç vaxt silməyəcək. Mesajlarınıza sizdən başqa heç kəs erişə bilməz.</string>
+    <string name="title_setup_gmail_rationale">Lütfən bir hesab seçmək və adınızı oxumaq üçün izin verin</string>
+    <string name="title_setup_gmail_permissions">Google, sizdən bütün e-poçtlarınızı oxumaq (sizə mesajları göstərmək üçün), tərtib etmək (qaralama mesajlarını saxlamaq üçün), göndərmək və daimi silmək üçün izin istəyəcək. FairEmail, açıq razılığınız olmadan mesajlarınızı heç vaxt silməyəcək. Mesajlarınıza sizdən başqa heç kəs erişə bilməz.</string>
     <string name="title_setup_gmail_login">Chrome bir hesabda giriş edibsə, yeni hesab yalnız Android üzərindən əlavə edilə bilər. Chrome sinxr. ayarları vasitəsilə Chrome-dan çıxış edilərək bunun qarşısı alına bilər.</string>
     <string name="title_setup_gmail_max">\"Maksimum sayda hesaba daxil olmusunuz\" xəta mesajını aldıqda, brauzerin bütün Google hesablarından çıxış etməlisiniz.</string>
     <string name="title_setup_outlook_hint">Ləqəb ünvanı halında, Office 365 sehrbazı istifadə edilməlidir.</string>
@@ -231,17 +231,17 @@
     <string name="title_setup_quick_configure">Ada, rəngə, sürüşdürmə əməliyyatlarına və s. düzəliş etmək üçün</string>
     <string name="title_setup_manage">İdarə et</string>
     <string name="title_setup_grant">İcazə ver</string>
-    <string name="title_setup_grant_again">Lazımi icazələri ver</string>
+    <string name="title_setup_grant_again">Lazımi izinləri ver</string>
     <string name="title_setup_exchange_support">Microsoft Exchange dəstəklənir?</string>
     <string name="title_setup_identity_what">Kimlik nədir?</string>
     <string name="title_setup_free">Bu tətbiq ödənişsizdir?</string>
-    <string name="title_setup_permissions">Verilən icazələr</string>
+    <string name="title_setup_permissions">Verilən izinlər</string>
     <string name="title_setup_permissions_remark">Kontakt məlumatlarına erişim (ixtiyari)</string>
     <string name="title_setup_permissions_calendar">Dəvətləri saxlamaq üçün (ixtiyari)</string>
-    <string name="title_setup_permissions_explanation">Kontakt icazələri, kontakt məlumatlarının axtarışı və kontakt təklifi üçün tələb olunur</string>
+    <string name="title_setup_permissions_explanation">Kontakt izinləri, kontakt məlumatlarının axtarışı və kontakt təklifi üçün tələb olunur</string>
     <string name="title_setup_permissions_notify">Yeni mesaj bildirişlərini göstərmək üçün (ixtiyari)</string>
-    <string name="title_setup_permissions_notify_explanation">Bildiriş icazələri vəziyyət sətrində yeni mesajların bildirişlərini göstərmək üçün tələb olunur</string>
-    <string name="title_setup_permission_why">Hansı icazələrə ehtiyac var və nə üçün?</string>
+    <string name="title_setup_permissions_notify_explanation">Bildiriş izinləri, status çubuğunda yeni mesajların bildirişlərini göstərmək üçün tələb olunur</string>
+    <string name="title_setup_permission_why">Hansı izinlərə ehtiyac var və nə üçün?</string>
     <string name="title_setup_permission_import_contacts">Kontaktları necə daxilə köçürə bilərəm?</string>
     <string name="title_setup_import_graph_contact">Outlook kontaktları</string>
     <string name="title_setup_import_graph_new">Yeni kontaktlar: %1$s</string>
@@ -271,7 +271,7 @@
     <string name="title_setup_error">Xəta</string>
     <string name="title_setup_manual_setup">Əllə quraşdır</string>
     <string name="title_setup_pop">POP3 istifadə et (tövsiyə edilmir)</string>
-    <string name="title_setup_recent">Çoxlu e-poçt müştəriləri üçün \'güncəl\'i istifadə et</string>
+    <string name="title_setup_recent">Çoxlu e-poçt istəkçiləri üçün \'güncəl\'i istifadə et</string>
     <string name="title_setup_configuring">Konfiqurasiya edilir &#8230;</string>
     <string name="title_setup_app_password">Bir tətbiq parolu istifadə etməyiniz lazım gələ bilər</string>
     <string name="title_setup_extra">Ekstra</string>
@@ -498,7 +498,7 @@
     <string name="title_advanced_open_safe">Yalnız güvənli bağlantıları aç</string>
     <string name="title_advanced_http_redirect">Bağlantının təkrar yönləndirilməsinə icazə ver</string>
     <string name="title_advanced_bouncy_castle">\"Bouncy Castle\"ın güvənlik socket provayderini istifadə et (JSSE)</string>
-    <string name="title_advanced_local_network">Lokal şəbəkə icazələri</string>
+    <string name="title_advanced_local_network">Lokal şəbəkə izinləri</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
     <string name="title_advanced_caption_general">Ümumi</string>
     <string name="title_advanced_caption_navigation">Hərəkət</string>
@@ -729,7 +729,7 @@
     <string name="title_advanced_sound">Bildiriş səsini seç</string>
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirişləri üçün ekranı qısa aç</string>
     <string name="title_advanced_notifications_background">Mesajları sinxronlaşdırmaq üçün arxaplan xidməti istifadə et</string>
-    <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
+    <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq status çubuğu bildirişini tələb etmir</string>
     <string name="title_advanced_rate_limit">Yeni mesajların bildiriş səslərini məhdudlaşdır:</string>
     <string name="title_advanced_confirm_links">Keçidlərin açılmasını təsdiqlə</string>
     <string name="title_advanced_confirm_files">Fayllara baxışı təsdiqlə</string>
@@ -780,7 +780,7 @@
     <string name="title_advanced_import_pgp">Açarı daxilə köçür</string>
     <string name="title_advanced_sign_algo">İmza alqoritmi</string>
     <string name="title_advanced_encrypt_algo">Şifrələmə alqoritmi</string>
-    <string name="title_advanced_remark_algo">        Zəhmət olmasa yadda saxlayın ki, bütün e-poçt müştəriləri (client) bütün alqoritmləri dəstəkləmir.
+    <string name="title_advanced_remark_algo">        Zəhmət olmasa yadda saxlayın ki, bütün e-poçt istəkçiləri bütün alqoritmləri dəstəkləmir.
         İlkin alqoritmlər, çox vaxt SHA256 və AES128-i dəstəkləyir.
     </string>
     <string name="title_advanced_check_certificate">Göndərəndə ictimai açarları yoxla</string>
@@ -931,7 +931,7 @@
     <string name="compressed">Sayca %2$s fayldan çox və ya həcmi %3$s-dan çox olsa sıxışdırılmış faylların məzmunları (%1$s) göstərilməyəcək</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha dəqiq görüntüləyəcək, ancaq gecikmə yaşana bilər</string>
     <string name="title_advanced_default_folder_hint">
-        Android, tətbiqin buna ehtiyacı olmasa belə, seçilmiş qovluğa erişmək üçün icazə istəyə bilər.
+        Android, tətbiqin buna ehtiyacı olmasa belə, seçilmiş qovluğa erişmək üçün izin istəyə bilər.
         İlkin qovluğu (adətən \"Endirmə\" qovluğu olur) bərpa etmək üçün seçim dialoqunu ləğv edə bilərsiniz.
     </string>
     <string name="title_advanced_restore_on_launch_hint">Başladıcı ikonu ilə yenidən başladıldığı zaman mümkün olduqda son tətbiq statusunu bərpa et</string>
@@ -1029,7 +1029,7 @@
     <string name="title_account_gmail">Gmail hesabının güvənli sinxronlaşdırılması üçün mümkün olduqca Gmail cəld quraşdırma sehrbazı istifadə edilməlidir</string>
     <string name="title_domain">Domen adı</string>
     <string name="title_autoconfig">Ayarları al</string>
-    <string name="title_lan_required">Lokal şəbəkə icazələri tələb olunur</string>
+    <string name="title_lan_required">Lokal şəbəkə izinləri tələb olunur</string>
     <string name="title_aliases">Ləqəblər</string>
     <string name="title_provider">Provayder</string>
     <string name="title_custom">Xüsusi</string>
@@ -1050,7 +1050,7 @@
     <string name="title_password_storage">Parollar necə saxlanılır?</string>
     <string name="title_case_sensitive">İstifadəçi adları və parollar adətən böyük-kiçik hərflərə həssasdır</string>
     <string name="title_login_before_send">Göndərməzdən əvvəl al</string>
-    <string name="title_client_certificate">Müştəri sertifikatı</string>
+    <string name="title_client_certificate">İstəkçi sertifikatı</string>
     <string name="title_no_key_selected">Açar seçilməyib və ya açar mövcud deyil</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Host adı əvəzinə lokal IP ünvanı istifadə et</string>
@@ -1098,7 +1098,7 @@
     <string name="title_no_junk_folder">Bu hesab üçün seçilən heç bir spam qovluğu yoxdur</string>
     <string name="title_default_composable">İlkin e-poçt ünvanı, üstünlük verilən hesabın üstünlük verilən kimliyi tərəfindən müəyyən edilir</string>
     <string name="title_no_composable">E-poçtların göndərilməsi, bir kimliyin konfiqurasiya edilməsini və hesab ayarlarında bir qaralama qovluğunun seçilməsini tələb edir</string>
-    <string name="title_no_standard">Bu provayder özəl bir e-poçt protokolu istifadə edir və buna görə də üçüncü tərəf e-poçt müştərilərini istifadə etmək mümkün deyil</string>
+    <string name="title_no_standard">Bu provayder özəl bir e-poçt protokolu istifadə edir və buna görə də üçüncü tərəf e-poçt istəkçilərini istifadə etmək mümkün deyil</string>
     <string name="title_no_idle">Bu provayder ani mesajları dəstəkləmir. Bu, yeni mesajların alınmasını gecikdirəcək və batareyanın istifadəsini artıracaq.</string>
     <string name="title_no_utf8">Bu provayder UTF-8 dəstəkləmir</string>
     <string name="title_no_sync">%1$s tarixindən bəri sinxronlaşdırma xətaları</string>
@@ -1396,9 +1396,9 @@
     <string name="title_no_recorder">Uyğun bir səsyazan tətbiq yoxdur</string>
     <string name="title_no_camera">Uyğun bir kamera tətbiqi yoxdur</string>
     <string name="title_no_saf">Depo erişim çərçivəsi mövcud deyil</string>
-    <string name="title_no_stream">FairEmail-in bu faylı birbaşa oxumaq icazəsi yoxdur</string>
-    <string name="title_no_stream_help">Bu, bir çox müasir fayl menecer tətbiqi ilə faylı seçərək və ya faylları oxuma icazəsi verərək həll edilə bilər</string>
-    <string name="title_no_permissions">Faylı seçmək üçün istifadə olunan tətbiq, faylı oxumaq icazəsi vermədi</string>
+    <string name="title_no_stream">FairEmail-in bu faylı birbaşa oxumaq izni yoxdur</string>
+    <string name="title_no_stream_help">Bu problem, bir çox müasir fayl meneceri tətbiqi ilə faylı seçərək və ya faylları oxuma iznini verərək həll edilə bilər</string>
+    <string name="title_no_permissions">Faylı seçmək üçün istifadə olunan tətbiq, faylı oxumaq iznini vermədi</string>
     <string name="title_no_internet">Uyğun bir internet bağlantısı yoxdur</string>
     <string name="title_no_connection">Bir və ya bir neçə hesabla bağlantı qurulur &#8230;</string>
     <string name="title_no_folder">Qovluq mövcud deyil</string>
@@ -1588,7 +1588,7 @@
     <string name="title_send_plain_text">Yalnız düz mətn</string>
     <string name="title_send_dsn">Vəziyyət hesabatı</string>
     <string name="title_send_receipt">Bildirişi tələb et</string>
-    <string name="title_send_receipt_remark">Əksər provayderlər və e-poçt müştəriləri, bildiriş tələblərinə əhəmiyyət vermir</string>
+    <string name="title_send_receipt_remark">Əksər provayderlər və e-poçt istəkçiləri, bildiriş tələblərini yox sayır</string>
     <string name="title_vt_unknown">Bu fayl hələ ki, VirusTotal tərəfindən bilinmir</string>
     <string name="title_vt_summary">%1$s virus skaneri bu faylı zərərli olaraq bildirir</string>
     <string name="title_vt_report">Tam hesabat</string>
@@ -1606,7 +1606,7 @@
     <string name="title_attachment_keywords">əlavə edildi, qoşma, qoşmalar, daxil edildi</string>
     <string name="title_attachment_reminder">Bir qoşma əlavə etmək istəyirsiniz?</string>
     <string name="title_attachment_warning">Potensial təhlükə: %1$s</string>
-    <string name="title_attachment_filename">Digər bəzi e-poçt müştəriləri (client), 60 simvoldan uzun fayl adlarını emal edə bilmir</string>
+    <string name="title_attachment_filename">Digər bəzi e-poçt istəkçiləri, 60 simvoldan uzun fayl adlarını emal edə bilmir</string>
     <string name="title_plain_reminder">Bütün formatlama itəcək</string>
     <string name="title_dsn_reminder">Sərt sıçrayışlar, orijinal göndərənin e-poçt nüfuzuna zərər verir!</string>
     <string name="title_size_reminder">Mesaj (%1$s) server limitindən (%2$s) böyükdür</string>
@@ -2017,8 +2017,8 @@
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
     <string name="title_hint_vpn_active">VPN aktivdir</string>
     <string name="title_hint_vpn_settings">VPN siyahısı</string>
-    <string name="title_hint_notifications">Bildiriş icazəsi yoxdur</string>
-    <string name="title_hint_notifications_remark">(Hesab) xəbərdarlıqları üçün bildiriş icazələri tələb olunur. Yeni mesajlar üçün bildirişlər ayarlarında söndürülə bilər.</string>
+    <string name="title_hint_notifications">Bildiriş izni yoxdur</string>
+    <string name="title_hint_notifications_remark">(Hesab) xəbərdarlıqları üçün bildiriş izinləri tələb olunur. Yeni mesajlar üçün bildirişlər ayarlarında söndürülə bilər.</string>
     <string name="title_hint_battery_optimizations">Batareya optimallaşdırma hələ də fəaldır</string>
     <string name="title_hint_data_saver">Veri qənaəti fəal olsa, tətbiq arxaplanda sinxronlaşdırıla bilməyəcək və bağlantı xətaları baş verə bilər.</string>
     <string name="title_hint_vpn">E-poçt serverləri bəzən VPN üzərindən gələn bağlantıları əngəlləyir. Belə bir halda yalnız e-poçt provayderi bunu həll edə bilər.</string>
@@ -2028,8 +2028,8 @@
     <string name="title_hint_outbox">Göndərməni ləğv etmək üçün sola və ya sağa sürüşdürün</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>
     <string name="title_hint_message_junk">
-        Bir e-poçt müştərisi (client) mesajları əsasən e-poçt serverində göstərir.
-        Spam poçtların filtrlənməsinə e-poçt serveri cavabdehdir, e-poçt müştərisi (client) yox.
+        Bir e-poçt istəkçisi mesajları əsasən e-poçt serverində göstərir.
+        Spam poçtların filtrlənməsinə e-poçt serveri cavabdehdir, e-poçt istəkçisi yox.
         Əgər həddindən artıq spam poçt alırsınızsa, lütfən e-poçt provayderinizlə əlaqə saxlayın və tətbiqi günahlandırmayın!
     </string>
     <string name="title_hint_important">Vacib</string>

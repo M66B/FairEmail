@@ -1233,6 +1233,7 @@ Android можа запытаць дазвол на доступ да выбра
     <string name="title_show_flagged">Паказаць колькасць пазначаных паведамленняў</string>
     <string name="title_subscribed_only">Толькі падпісаныя</string>
     <string name="title_sort_unread_atop">Сартаваць, непрачытаныя зверху</string>
+    <string name="title_sort_sync">Сартаваць паводле сінхранізацыі</string>
     <string name="title_search_folder">Знайсці папку</string>
     <string name="title_apply_to_all">Ужыць да ўсіх</string>
     <string name="title_edit_account_name">Рэдагаваць імя ўліковага запісу</string>
@@ -1655,7 +1656,9 @@ Android можа запытаць дазвол на доступ да выбра
     <string name="title_charset_auto">Аўтаматычна</string>
     <string name="title_alternative_text">Загрузіць звычайны тэкст</string>
     <string name="title_alternative_html">Загрузіць HTML</string>
+    <string name="title_no_openpgp">Правайдар OpenPGP не знойдзены</string>
     <string name="title_no_openpgp_remark">Спачатку неабходна наладзіць скразное шыфраванне PGP</string>
+    <string name="title_user_interaction">Пераход да правайдара OpenPGP</string>
     <string name="title_padlock">Выкарыстоўваць замок для расшыфроўкі паведамлення</string>
     <string name="title_signed_data">Для паказу тэксту паведамлення правяраць подпіс</string>
     <string name="title_not_encrypted">Паведамленне не падпісана і не зашыфравана</string>
@@ -2037,6 +2040,7 @@ Android можа запытаць дазвол на доступ да выбра
     <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
     <string name="title_hint_airplane">Рэжым палёту ўключаны</string>
     <string name="title_hint_vpn_active">VPN уключаны</string>
+    <string name="title_hint_vpn_settings">Спіс VPN</string>
     <string name="title_hint_notifications">Няма дазволаў на апавяшчэнні</string>
     <string name="title_hint_notifications_remark">Дазволы на апавяшчэнні таксама патрабуюцца для папярэджанняў (для ўліковага запісу). Апавяшчэнні аб новых паведамленнях можна адключыць у наладах.</string>
     <string name="title_hint_battery_optimizations">Аптцміўацыя батарэі ўсё яшчэ ўключана</string>

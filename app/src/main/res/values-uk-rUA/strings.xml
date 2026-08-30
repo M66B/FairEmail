@@ -376,6 +376,7 @@
     <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть перестати працювати після 30 травня 2022 року</string>
     <string name="title_check_outlook_oauth">Ваші облікові записи Outlook будуть продовжувати працювати після 16 вересня 2024 року</string>
     <string name="title_check_outlook_password">Деякі ваші облікові записи Outlook/Hotmail/Live перестануть працювати після 16 вересня 2024 року</string>
+    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">Вам необхідно до 24 вересня 2026 року оновити обліковий запис GMX, вказавши пароль для застосунків.</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
@@ -853,6 +854,7 @@
     <string name="title_advanced_send">Інтеграція з Send</string>
     <string name="title_advanced_openai">Інтеграція з OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Модель</string>
+    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">Максимальна кількість токенів (залиште порожнім для необмеженої)</string>
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модерація вмісту</string>
     <string name="title_advanced_gemini">Інтеграція з Gemini</string>
@@ -1074,6 +1076,7 @@
     <string name="title_notify_remark">Ви можете ввімкнути цю функцію для сповіщень в певному обліковому записі</string>
     <string name="title_port">Номер порту</string>
     <string name="title_user">Ім\'я користувача</string>
+    <string name="title_user_hint">Як правило, основна адреса електронної пошти</string>
     <string name="title_password">Пароль</string>
     <string name="title_password_storage">Як зберігаються паролі?</string>
     <string name="title_case_sensitive">Імена користувачів і паролі зазвичай чутливі до регістру</string>

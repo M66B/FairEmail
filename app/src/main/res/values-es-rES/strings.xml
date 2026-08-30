@@ -345,6 +345,7 @@
     <string name="title_check_gmail_password">Algunas de sus cuentas de Gmail podrían dejar de funcionar después del 30 de Mayo de 2022</string>
     <string name="title_check_outlook_oauth">Tus cuentas de Outlook continuarán funcionando después del 16 de septiembre de 2024</string>
     <string name="title_check_outlook_password">Algunas de sus cuentas de Outlook/Hotmail/Live dejarán de funcionar después del 16 de septiembre de 2024</string>
+    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">Debe actualizar su cuenta GMX con una contraseña de aplicación antes del 24 de septiembre de 2026.</string>
     <string name="title_advanced_hint_title">Opciones más avanzadas</string>
     <string name="title_advanced_hint_message">        Está navegando a las opciones más avanzadas.        Todas las opciones tienen por defecto valores estándar, que no necesitan ser modificados a menos que así lo prefiera.
     </string>
@@ -820,6 +821,7 @@
     <string name="title_advanced_send">Integración con \'Enviar\'</string>
     <string name="title_advanced_openai">Integración con OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modelo</string>
+    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">Tokens máximos (dejar en blanco para ilimitado)</string>
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderación de contenido</string>
     <string name="title_advanced_gemini">Integración con Gemini</string>
