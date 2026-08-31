@@ -249,7 +249,7 @@ public class ServiceExternal extends ServiceBase {
         ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
     }
 
-    private static void rule(Context context, Intent intent) throws IOException, JSONException, MessagingException {
+    private static void rule(Context context, Intent intent) throws Throwable {
         String accountName = intent.getStringExtra("account");
         String ruleName = intent.getStringExtra("rule");
 

@@ -1201,7 +1201,7 @@ public class FragmentFolders extends FragmentBase {
             }
 
             @Override
-            protected Integer onExecute(Context context, Bundle args) throws JSONException, MessagingException, IOException {
+            protected Integer onExecute(Context context, Bundle args) throws Throwable {
                 long fid = args.getLong("id");
 
                 DB db = DB.getInstance(context);

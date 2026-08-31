@@ -218,25 +218,28 @@ public class EntityRule {
 
     static int run(Context context, List<EntityRule> rules,
                    EntityMessage message, boolean browsed, List<Header> headers, String html)
-            throws JSONException, MessagingException, IOException {
+            throws Throwable {
         int applied = 0;
 
         List<String> stopped = new ArrayList<>();
-        for (EntityRule rule : rules) {
-            if (rule.group != null && stopped.contains(rule.group))
-                continue;
-            if (rule.matches(context, message, headers, html)) {
-                if (rule.execute(context, message, browsed, html))
-                    applied++;
-                if (rule.stop)
-                    if (rule.group == null)
-                        break;
-                    else {
-                        if (!stopped.contains(rule.group))
-                            stopped.add(rule.group);
-                    }
+        for (EntityRule rule : rules)
+            try {
+                if (rule.group != null && stopped.contains(rule.group))
+                    continue;
+                if (rule.matches(context, message, headers, html)) {
+                    if (rule.execute(context, message, browsed, html))
+                        applied++;
+                    if (rule.stop)
+                        if (rule.group == null)
+                            break;
+                        else {
+                            if (!stopped.contains(rule.group))
+                                stopped.add(rule.group);
+                        }
+                }
+            } catch (Throwable ex) {
+                throw new Throwable(rule.name, ex);
             }
-        }
 
         return applied;
     }
