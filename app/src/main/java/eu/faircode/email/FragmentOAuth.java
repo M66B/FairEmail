@@ -133,6 +133,7 @@ public class FragmentOAuth extends FragmentBase {
     private TextView tvGmailLoginHint;
     private TextView tvGmailLoginMax;
     private TextView tvOutlookHint;
+    private TextView tvOutlookPasskeyHint;
 
     private TextView tvError;
     private TextView tvOfficeAuthHint;
@@ -196,6 +197,7 @@ public class FragmentOAuth extends FragmentBase {
         tvGmailLoginHint = view.findViewById(R.id.tvGmailLoginHint);
         tvGmailLoginMax = view.findViewById(R.id.tvGmailLoginMax);
         tvOutlookHint = view.findViewById(R.id.tvOutlookHint);
+        tvOutlookPasskeyHint = view.findViewById(R.id.tvOutlookPasskeyHint);
 
         tvError = view.findViewById(R.id.tvError);
         tvOfficeAuthHint = view.findViewById(R.id.tvOfficeAuthHint);
@@ -317,6 +319,8 @@ public class FragmentOAuth extends FragmentBase {
             }
         });
 
+        boolean isOutlook = ("office365".equals(id) || "office365pcke".equals(id) || "outlookgraph".equals(id) || "outlook".equals(id));
+
         // Initialize
         tvTitle.setText(getString(R.string.title_setup_oauth_rationale, name));
         etName.setVisibility(askAccount ? View.VISIBLE : View.GONE);
@@ -330,6 +334,7 @@ public class FragmentOAuth extends FragmentBase {
         tvGmailLoginHint.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         tvGmailLoginMax.setVisibility("gmail".equals(id) ? View.VISIBLE : View.GONE);
         tvOutlookHint.setVisibility("outlookgraph".equals(id) ? View.VISIBLE : View.GONE);
+        tvOutlookPasskeyHint.setVisibility(isOutlook ? View.VISIBLE : View.GONE);
         hideError();
 
         etName.setText(personal);
