@@ -238,7 +238,7 @@ public class EntityRule {
                         }
                 }
             } catch (Throwable ex) {
-                throw new Throwable(rule.name, ex);
+                throw new Throwable("Rule '" + rule.name + "'", ex);
             }
 
         return applied;
