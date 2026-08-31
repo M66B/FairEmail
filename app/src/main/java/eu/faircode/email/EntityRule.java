@@ -56,6 +56,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -1703,8 +1704,10 @@ public class EntityRule {
                     message.preview = preview;
             }
         } catch (Throwable ex) {
-            message.error = Log.formatThrowable(ex);
-            db.message().setMessageError(message.id, message.error);
+            if (!(ex instanceof UnknownHostException)) {
+                message.error = Log.formatThrowable(ex);
+                db.message().setMessageError(message.id, message.error);
+            }
             return false;
         }
 
