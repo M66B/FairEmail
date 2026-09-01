@@ -200,6 +200,7 @@
     <string name="title_setup_gmail_login">Se o Chrome estiver conectado a uma conta, uma nova conta só poderá ser adicionada através do Android. Isso pode ser evitado saindo do Chrome através das configurações de sincronização do Chrome.</string>
     <string name="title_setup_gmail_max">No caso da mensagem de erro \"Você está conectado ao número máximo de contas\", você precisa sair no navegador de todas as contas do Google.</string>
     <string name="title_setup_outlook_hint">No caso de um endereço de alias, o assistente do Office 365 provavelmente deverá ser usado.</string>
+    <string name="title_setup_outlook_passkey_hint">A Microsoft pode solicitar que você configure uma chave de acesso. Isso é menos simples em um dispositivo móvel, portanto considere pular ou cancelar esta etapa opcional.</string>
     <string name="title_setup_outlook_modern">Devido a mudanças nas políticas de segurança da Microsoft, a partir de 16 de setembro de 2024, apenas o assistente Outlook/Hotmail/Live funcionará.</string>
     <string name="title_setup_gmail_on_device">Por que eu preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Eu quero autorizar uma conta com uma senha ao invés de uma conta no dispositivo</string>
@@ -346,6 +347,7 @@
     <string name="title_check_gmail_password">Algumas de suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
     <string name="title_check_outlook_oauth">Suas contas do Outlook continuarão funcionando após 16 de setembro de 2024</string>
     <string name="title_check_outlook_password">Algumas de suas contas Outlook/Hotmail/Live deixarão de funcionar após 16 de setembro de 2024</string>
+    <string name="title_check_gmx">Você deve atualizar sua conta GMX com uma senha de aplicativo antes de 24 de setembro de 2026.</string>
     <string name="title_advanced_hint_title">Opções mais avançadas</string>
     <string name="title_advanced_hint_message">        Você está navegando para as opções mais avançadas.        Todas as opções têm comumente usados valores padrão, que você não precisa mudar a menos que você tenha uma preferência diferente.
     </string>
@@ -822,6 +824,7 @@
     <string name="title_advanced_send">Integração com \'Send\'</string>
     <string name="title_advanced_openai">Integração com OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modelo</string>
+    <string name="title_advanced_openai_max_tokens">Máximo de tokens (deixe em branco para ilimitado)</string>
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderação de conteúdo</string>
     <string name="title_advanced_gemini">Integração com Gemini</string>

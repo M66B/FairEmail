@@ -213,6 +213,7 @@
     <string name="title_setup_gmail_login">אם נכנסת לחשבון ב־Chrome אפשר להוסיף חשבון חדש רק דרך Android. אפשר להימנע מזה על ידי יציאה מהחשבון ב־Chrome דרך הגדרות הסנכרון של Chrome.</string>
     <string name="title_setup_gmail_max">אם מופיעה הודעת השגיאה „נכנסת לכמות המרבית של חשבונות”, יש להוציא את הדפדפן מכל חשבונות Google.</string>
     <string name="title_setup_outlook_hint">אם זאת כתובת כינוי, עדיף להשתמש באשף Office 365.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft עלולים לבקש ממך להגדיר מפתח גישה. זה פחות נגיש במכשירים ניידים, לכם כדאי לדלג או לבטל את שלב הרשות הזה.</string>
     <string name="title_setup_outlook_modern">עקב שינויים במדיניות האבטחה של Microsoft, החל מ־16 בספטמבר, 2024, רק אשף Outlook/Hotmail/Live יפעל.</string>
     <string name="title_setup_gmail_on_device">מדוע עלי לבחור בחשבון שכבר מחובר במכשיר?</string>
     <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה במקום חשבון פנימי במכשיר</string>
@@ -359,6 +360,7 @@
     <string name="title_check_gmail_password">חלק מחשבונות ה־Gmail שלך כנראה יפסיקו לעבוד אחרי 30 במאי 2022</string>
     <string name="title_check_outlook_oauth">חשבונות ה־Outlook שלך ימשיכו לעבוד גם אחרי 16 בספטמבר 2024</string>
     <string name="title_check_outlook_password">חלק מחשבונות ה־Outlook/Hotmail/Live שלך יפסיקו לעבוד אחרי 16 בספטמבר 2024</string>
+    <string name="title_check_gmx">יש לעדכן את חשבון ה־GMX שלך כדי להגדיר לו סיסמת יישום לפני 24 בספטמבר, 2026.</string>
     <string name="title_advanced_hint_title">אפשרויות יותר מתקדמות</string>
     <string name="title_advanced_hint_message">        בחרת לנווט אל האפשרויות המתקדמות יותר.
         כל האפשרויות מוגדרות לפי ערכים מקובלים, שאין צורך לשנות אותם אלא אם כן יש לך העדפות שונות.
@@ -837,6 +839,7 @@
     <string name="title_advanced_send">שילוב מול ‚Send’</string>
     <string name="title_advanced_openai">שילוב מול OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">דגם</string>
+    <string name="title_advanced_openai_max_tokens">כמות אסימונים מרבית (להשאיר ריק כדי לא להגביל)</string>
     <string name="title_advanced_openai_temperature">טמפרטורה: %1$s</string>
     <string name="title_advanced_openai_moderation">ניהול תוכן</string>
     <string name="title_advanced_gemini">שילוב מול Gemini</string>

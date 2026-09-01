@@ -176,6 +176,7 @@
     <string name="title_setup_oauth_permission">سرویس دهنده ی ایمیل OAuth را فقط برای نسخه پلی استور و گیت هاب تایید کرده</string>
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های پلی استور و گیت هاب مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
+    <string name="title_setup_outlook_passkey_hint">ممکن است مایکروسافت از شما بخواهد یک Passkey تنظیم کنید. این کار در دستگاه تلفن همراه به این سادگی نیست، بنابراین می‌توانید از این مرحله اختیاری صرف نظر یا آن را لغو کنید.</string>
     <string name="title_setup_gmail_on_device">چرا لازم است که یک حساب روی دستگاه انتخاب کنم؟</string>
     <string name="title_setup_gmail_password">می‌خواهم به جای حسابی روی دستگاه، به یک حساب با رمز عبور اجازه بدهم</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>
@@ -309,6 +310,7 @@
     <string name="title_check_gmail_password">تعدادی از حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، ممکن است از کار بیافتند</string>
     <string name="title_check_outlook_oauth">حساب‌های آوت‌لوک شما پس از ۱۶ سپتامبر ۲۰۲۴ همچنان کار خواهند کرد</string>
     <string name="title_check_outlook_password">تعدادی از حساب‌های آوت‌لوک/هات‌میل/لایو شما پس از ۱۶ سپتامبر ۲۰۲۴ از کار خواهند افتاد</string>
+    <string name="title_check_gmx">شما باید حساب جی‌ام‌اکس خود را با یک رمز ویژه اپلیکیشن تا پیش از ۲۴ سپتامبر ۲۰۲۶ به روز رسانی کنید.</string>
     <string name="title_advanced_hint_title">گزینه‌های پیشرفته بیشتر</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
@@ -650,6 +652,7 @@
     <string name="title_advanced_integrations_inert">یکپارچه‌سازی که پیکربندی نشده است کاملا بی‌اثر است. از هیچ کتابخانه شخص ثالثی برای جلوگیری از ردیابی و تجزیه و تحلیل استفاده نمی‌شود.</string>
     <string name="title_advanced_lt">یکپارچگی ابزارهای زبانی</string>
     <string name="title_advanced_lt_description">نمایش پاپ‌آپ همراه با شرح مشکل</string>
+    <string name="title_advanced_openai_max_tokens">بیشینه توکن‌ها (اگر نامحدود است، خالی بگذارید)</string>
     <string name="title_advanced_multi_modal">چند وجهی</string>
     <string name="title_advanced_summarize_prompt">خلاصه کردن</string>
     <string name="title_advanced_system_instructions">دستورالعمل‌های سیستم</string>
@@ -1567,6 +1570,7 @@
     <string name="title_widget_separator_lines">نمایش خطوط جدا کننده</string>
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
     <string name="title_widget_count_top">نمایش تعداد خوانده نشده‌ها در بالا</string>
+    <string name="title_widget_subject_lines">بیشینه تعداد خطوط عنوان</string>
     <string name="title_widget_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_widget_account_name">نمایش نام حساب کاربری</string>
     <string name="title_widget_caption">نمایش عنوان</string>
@@ -1760,7 +1764,7 @@
     </string-array>
     <string-array name="undoNames">
         <item>خاموش</item>
-        <item>1.25 s</item>
+        <item>۱.۲۵ ثانیه</item>
         <item>2.5 s</item>
         <item>5 s</item>
         <item>7.5 s</item>

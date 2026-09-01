@@ -186,6 +186,7 @@
     <string name="title_setup_gmail_login">如果 Chrome 登录到 Google 账户，那么只能通过 Android 添加一个新账户。 通过 Chrome 同步设置退出 Chrome 账户登录可以避免这种情况。</string>
     <string name="title_setup_gmail_max">如果出现错误消息“您登录的账号数已达上限”，您需要从浏览器登出所有 Google 账号。</string>
     <string name="title_setup_outlook_hint">对于别名地址，也许应使用 Office 365 向导。</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft 可能要求您设置通行密钥。这在移动设备上不那么简单，所以考虑跳过或取消此可选步骤。</string>
     <string name="title_setup_outlook_modern">由于微软的安全政策发生变化，从2024年9月16日起，只有Outlook/Hotmail/Live 向导才能正常工作。</string>
     <string name="title_setup_gmail_on_device">为什么我需要选择设备上账户？</string>
     <string name="title_setup_gmail_password">我想使用密码而不是设备上的帐户进行授权</string>
@@ -333,7 +334,7 @@
     <string name="title_check_gmail_password">您的部分 Gmail 账户可能会在 2022 年 5 月 30 日之后不可使用</string>
     <string name="title_check_outlook_oauth">你的 Outlook 账户在2024 年9月16日之后将继续工作</string>
     <string name="title_check_outlook_password">您的一些Outlook/Hotmail/Live 账户在2024年9月16日后将停止工作</string>
-    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">您必须在2026年9月24日之前使用应用密码更新您的 GMX 账户。</string>
+    <string name="title_check_gmx">您必须在2026年9月24日之前使用应用密码更新您的 GMX 账户。</string>
     <string name="title_advanced_hint_title">更多高级选项</string>
     <string name="title_advanced_hint_message">
         您正在前往更多的高级选项        所有选项默认使用常用的标准值，若有特别偏好则可更改。
@@ -814,7 +815,7 @@
     <string name="title_advanced_send">Send 集成</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) 集成</string>
     <string name="title_advanced_openai_model">模型</string>
-    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">最大令牌数(留空为无限制)</string>
+    <string name="title_advanced_openai_max_tokens">最大令牌数(留空为无限制)</string>
     <string name="title_advanced_openai_temperature">温度：%1$s</string>
     <string name="title_advanced_openai_moderation">内容审核</string>
     <string name="title_advanced_gemini">Gemini 集成</string>

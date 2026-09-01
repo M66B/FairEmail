@@ -229,6 +229,7 @@
     <string name="title_setup_gmail_login">Якщо Chrome увійшов до облікового запису, то новий обліковий запис можна додавати лише через Android. Цього можна уникнути, виходячи з Chrome за допомогою налаштувань синхронізації Chrome.</string>
     <string name="title_setup_gmail_max">У випадку повідомлення про помилку \"Ви ввійшли з досягненням максимальної кількості одночасних авторизацій для облікового запису\", Вам потрібно вийти з браузера з усіх облікових записів Google.</string>
     <string name="title_setup_outlook_hint">У разі використання адреси-псевдоніма, ймовірно слід скористатись майстром Office 365.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft може попросити вас налаштувати ключ доступу. На мобільному пристрої це зробити не так просто, тому рекомендуємо пропустити або скасувати цей необов’язковий крок.</string>
     <string name="title_setup_outlook_modern">Через зміни в політиці безпеки Microsoft, починаючи з 16 вересня 2024 року, працюватиме лише майстер Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Навіщо мені обрати обліковий запис на пристрої?</string>
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
@@ -376,7 +377,7 @@
     <string name="title_check_gmail_password">Деякі ваші облікові записи Gmail можуть перестати працювати після 30 травня 2022 року</string>
     <string name="title_check_outlook_oauth">Ваші облікові записи Outlook будуть продовжувати працювати після 16 вересня 2024 року</string>
     <string name="title_check_outlook_password">Деякі ваші облікові записи Outlook/Hotmail/Live перестануть працювати після 16 вересня 2024 року</string>
-    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">Вам необхідно до 24 вересня 2026 року оновити обліковий запис GMX, вказавши пароль для застосунків.</string>
+    <string name="title_check_gmx">Вам необхідно до 24 вересня 2026 року оновити обліковий запис GMX, вказавши пароль для застосунків.</string>
     <string name="title_advanced_hint_title">Розширенні налаштування</string>
     <string name="title_advanced_hint_message">        Ви переходите до більш розширених параметрів.        Всі параметри мають загальновизнані стандартні значення, які не треба змінювати, якщо ви не маєте інших уподобань.
     </string>
@@ -854,7 +855,7 @@
     <string name="title_advanced_send">Інтеграція з Send</string>
     <string name="title_advanced_openai">Інтеграція з OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Модель</string>
-    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">Максимальна кількість токенів (залиште порожнім для необмеженої)</string>
+    <string name="title_advanced_openai_max_tokens">Максимальна кількість токенів (залиште порожнім для необмеженої)</string>
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модерація вмісту</string>
     <string name="title_advanced_gemini">Інтеграція з Gemini</string>

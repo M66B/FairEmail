@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_login">Er Chrome logget ind på en konto, kan en ny konto kun tilføjes via Android. Dette kan undgås ved at logge ud af Chrome via dens synkindstillinger.</string>
     <string name="title_setup_gmail_max">I tilfælde af fejlmeddelelsen \"Du er logget ind på det maksimale antal konti\", skal der logges ud på alle Google-konti i browseren.</string>
     <string name="title_setup_outlook_hint">I tilfælde af en aliasadresse bør Office 365-guiden sandsynligvis anvendes.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft kan bede brugeren oprette en Passkey. Dette er mindre ligetil på en mobilenhed, så overvej at overspringe eller annullere dette valgfrie trin.</string>
     <string name="title_setup_outlook_modern">Pr. 16. september 2024 vil kun guiden til Outlook/Hotmail/Live fungere grundet ændringer i Microsofts sikkerhedspolitikker.</string>
     <string name="title_setup_gmail_on_device">Hvorfor skal der vælges en enhedsbaseret konto?</string>
     <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode i stedet for en enhedskonto</string>
@@ -345,6 +346,7 @@
     <string name="title_check_gmail_password">Visse Gmail-konti kan ophøre med at fungere efter 3005-22</string>
     <string name="title_check_outlook_oauth">Aktuelle Outlook-konti vil fortsat fungere efter 16. sept. 2024</string>
     <string name="title_check_outlook_password">Visse eksisterende Outlook-/Hotmail-/Live-konti ophører med at fungere efter 16. sep. 2024</string>
+    <string name="title_check_gmx">Den aktuelle GMX-konto skal opdateres med en app-adgangskode inden 24. september 2026.</string>
     <string name="title_advanced_hint_title">Flere avancerede indstillinger</string>
     <string name="title_advanced_hint_message">        De mere avancerede indstillinger tilgås nu.
         Alle valgmuligheder har alm. brugte standardværdier, som kun behøver ændring ifm. en evt. anden præference.
@@ -822,6 +824,7 @@
     <string name="title_advanced_send">\'Send\'-integration</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT)-integration</string>
     <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_max_tokens">Maksimum tokener (lad være tomt for ubegrænset)</string>
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Indholdsmoderering</string>
     <string name="title_advanced_gemini">Gemini-integration</string>

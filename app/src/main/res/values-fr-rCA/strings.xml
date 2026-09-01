@@ -200,6 +200,7 @@
     <string name="title_setup_gmail_login">Si Chrome est connecté à un compte, un nouveau compte ne peut être ajouté que via Android. Ceci peut être évité en vous déconnectant de Chrome via les paramètres de synchronisation de Chrome.</string>
     <string name="title_setup_gmail_max">En cas de message d\'erreur \"Vous êtes connecté au nombre maximum de comptes\", vous devez vous déconnecter de tous les comptes Google dans le navigateur.</string>
     <string name="title_setup_outlook_hint">Dans le cas d\'une adresse alias, l\'assistant Office 365 devrait probablement être utilisé.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft peut vous demander de configurer une clé d\'accès (passkey). Ceci n\'est pas simple sur un appareil mobile, alors pensez à éviter ou annuler cette étape facultative.</string>
     <string name="title_setup_outlook_modern">En raison de changements dans les politiques de sécurité de Microsoft, à partir du 16 septembre 2024, seul l\'assistant Outlook/Hotmail/Live fonctionnera.</string>
     <string name="title_setup_gmail_on_device">Pourquoi dois-je sélectionner un compte présent sur mon appareil ?</string>
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe au lieu d\'un compte de l\'appareil</string>
@@ -347,7 +348,7 @@
     <string name="title_check_gmail_password">Certains de vos comptes Gmail peuvent cesser de fonctionner après le 30 mai 2022</string>
     <string name="title_check_outlook_oauth">Vos comptes Outlook continueront de fonctionner après le 16 septembre 2024</string>
     <string name="title_check_outlook_password">Certains de vos comptes Outlook/Hotmail/Live cesseront de fonctionner après le 16 septembre 2024</string>
-    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">Vous devez mettre à jour votre compte GMX avec un mot de passe d\'application avant le 24 septembre 2026.</string>
+    <string name="title_check_gmx">Vous devez mettre à jour votre compte GMX avec un mot de passe d\'application avant le 24 septembre 2026.</string>
     <string name="title_advanced_hint_title">Paramètres avancés</string>
     <string name="title_advanced_hint_message">
         Vous parcourez les paramètres avancés.
@@ -829,7 +830,7 @@
     <string name="title_advanced_send">Intégration de Send</string>
     <string name="title_advanced_openai">Intégration de OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modèle</string>
-    <string name="title_advanced_openai_max_tokens" comment="title_advanced_openai_max_tokens This is an option title related to AI">Nombre maximum de jetons (laisser vide pour illimité)</string>
+    <string name="title_advanced_openai_max_tokens">Nombre maximum de jetons (laisser vide pour illimité)</string>
     <string name="title_advanced_openai_temperature">Aléa: %1$s</string>
     <string name="title_advanced_openai_moderation">Modération du contenu</string>
     <string name="title_advanced_gemini">Intégration de Gemini</string>
@@ -881,7 +882,7 @@
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l’utilisation des données et de la pile mais désactivera également la mise à jour de la liste des dossiers</string>
     <string name="title_advanced_poll_folders_hint">Synchroniser périodiquement la liste des dossiers suite à la connexion à un compte</string>
     <string name="title_advanced_check_authentication_hint">Ceci contrôlera les résultats de l\'authentification DKIM, SPF et DMARC effectuée par le serveur de messagerie</string>
-    <string name="title_advanced_check_tls_hint">Ceci affichera un bouclier vert seulement si un message a été acheminé en toute sécurité par tous les serveurs</string>
+    <string name="title_advanced_check_tls_hint">Ceci affichera un bouclier vert seulement si le message a été acheminé en toute sécurité par tous les serveurs</string>
     <string name="title_advanced_check_reply_hint">Ceci vérifiera si le nom de domaine de l\'expéditeur et celui de l\'adresse de réponse sont les mêmes</string>
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_sync_delay_hint">Ceci ralentira la synchronisation des messages</string>

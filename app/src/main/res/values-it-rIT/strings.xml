@@ -200,6 +200,7 @@
     <string name="title_setup_gmail_login">Se Chrome è connesso a un account, si può aggiungere un nuovo account solo tramite Android. Ciò si può evitare disconnettendosi da Chrome tramite le impostazioni di sincronizzazione di Chrome.</string>
     <string name="title_setup_gmail_max">In caso di messaggio d\'errore «Sei connesso al numero massimo di account», è necessario disconnettere il browser da tutti gli account Google.</string>
     <string name="title_setup_outlook_hint">Nel caso di un indirizzo alias, si dovrebbe probabilmente usare la procedura guidata Office 365.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft potrebbe chiederti di impostare una passkey. Poiché è meno semplice da fare su un dispositivo mobile, considera di saltare o annullare questo passaggio opzionale.</string>
     <string name="title_setup_outlook_modern">A causa dei cambiamenti nelle politiche di sicurezza di Microsoft, dal 16 settembre 2024 funzionerà solo la procedura guidata Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Perché è necessario selezionare un profilo presente sul dispositivo?</string>
     <string name="title_setup_gmail_password">Desidero autorizzare un account con una password, invece di un account su dispositivo</string>
@@ -346,6 +347,7 @@
     <string name="title_check_gmail_password">Alcuni degli account Gmail potrebbero smettere di funzionare dopo il 30 Maggio 2022</string>
     <string name="title_check_outlook_oauth">I propri account Outlook continueranno a funzionare dopo il 16 settembre 2024</string>
     <string name="title_check_outlook_password">Alcuni dei propri account Outlook, Hotmail, Live smetteranno di funzionare dopo il 16 settembre 2024</string>
+    <string name="title_check_gmx">Devi aggiornare il tuo account GMX con una password dell\'app prima del 24 settembre 2026.</string>
     <string name="title_advanced_hint_title">Opzioni più avanzate</string>
     <string name="title_advanced_hint_message">
         Stai entrando nelle opzioni più avanzate.
@@ -827,6 +829,7 @@
     <string name="title_advanced_send">Integrazione di «Send»</string>
     <string name="title_advanced_openai">Integrazione di OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modello</string>
+    <string name="title_advanced_openai_max_tokens">Numero massimo di token (lasciare vuoto per illimitato)</string>
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderazione dei contenuti</string>
     <string name="title_advanced_gemini">Integrazione di Gemini</string>

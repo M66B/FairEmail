@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_login">Ha be van jelentkezve a Chrome-ban, akkor új fiókot csak az Androidban adhat hozzá. Mindez elkerülhető, ha a Chrome szinkronizálási beállításainál kijelentkezik.</string>
     <string name="title_setup_gmail_max">A \"Bejelentkezések száma elérte a maximumot\" hibaüzenet esetén a böngészőben jelentkezzen ki az összes Google fiókból.</string>
     <string name="title_setup_outlook_hint">Alias cím esetén valószínűleg az Office 365 varázslóját érdemes használni.</string>
+    <string name="title_setup_outlook_passkey_hint">A Microsoft azonosítókulcs létrehozását kérheti öntől. Mivel ez nem egyszerű mobil eszközön, fontolja meg ezen opcionális lépés kihagyását, elvetését.</string>
     <string name="title_setup_outlook_modern">A Microsoft biztonsági eljárásainak változása miatt 2024 szeptember 16-tól csak az Outlook/Hotmail/Live varázslók fognak működni.</string>
     <string name="title_setup_gmail_on_device">Miért kell egy fiókot kiválasztanom az eszközön?</string>
     <string name="title_setup_gmail_password">Jelszóval védett fiókot hozok létre az eszköz fiókjával történő összekapcsolás helyett</string>
@@ -344,6 +345,7 @@
     <string name="title_check_gmail_password">Előfordulhat, hogy némely Gmail fiókja nem fog működni 2022. május 30-a után</string>
     <string name="title_check_outlook_oauth">Outlook fiókjai 2024. szeptember 16-a után is működni fognak</string>
     <string name="title_check_outlook_password">Egyes Outlook/Hotmail/Live fiókjai nem fognak működni 2024. szeptember 16. után</string>
+    <string name="title_check_gmx">Frissítenie kell GMX fiókját, applikáció jelszót beállítva, 2026 szeptember 24-e előtt.</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>
@@ -818,6 +820,7 @@
     <string name="title_advanced_send">\"Send\" integráció</string>
     <string name="title_advanced_openai">Az OpenAI (ChatGPT) integrációja</string>
     <string name="title_advanced_openai_model">Modell</string>
+    <string name="title_advanced_openai_max_tokens">Tokenek maximális száma (üresen hagyva korlátlan)</string>
     <string name="title_advanced_openai_temperature">Hőmérséklet: %1$s</string>
     <string name="title_advanced_openai_moderation">Tartalom moderálása</string>
     <string name="title_advanced_gemini">Gemini integráció</string>

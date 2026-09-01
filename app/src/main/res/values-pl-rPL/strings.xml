@@ -227,6 +227,7 @@
     <string name="title_setup_gmail_login">Jeśli Chrome jest zalogowany do konta, nowe konto można dodać tylko przez Androida. Można tego uniknąć wylogowując się z Chrome poprzez ustawienia synchronizacji Chrome.</string>
     <string name="title_setup_gmail_max">W przypadku komunikatu o błędzie \"Zalogowano się do maksymalnej liczby kont\", musisz wylogować się przeglądarką ze wszystkich kont Google.</string>
     <string name="title_setup_outlook_hint">W przypadku aliasu należy prawdopodobnie użyć kreatora Office 365.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft może poprosić o skonfigurowanie klucza dostępu. Jest to trudniejsze na urządzeniu mobilnym, więc rozważ pominięcie lub anulowanie tego opcjonalnego kroku.</string>
     <string name="title_setup_outlook_modern">Z powodu zmiany w polityce bezpieczeństwa Microsoftu, od 16 września 2024 r. tylko kreator Outlook/Hotmail/Live będzie działać.</string>
     <string name="title_setup_gmail_on_device">Dlaczego muszę wybrać konto na urządzeniu?</string>
     <string name="title_setup_gmail_password">Chcę autoryzować konto za pomocą hasła zamiast konta na urządzeniu</string>
@@ -373,6 +374,7 @@
     <string name="title_check_gmail_password">Niektóre z Twoich kont Gmail mogą przestać działać po 30 maja 2022</string>
     <string name="title_check_outlook_oauth">Twoje konta Outlook będą nadal działać po 16 września 2024</string>
     <string name="title_check_outlook_password">Niektóre Twoje konta Outlook/Hotmail/Live przestaną działać po 16 września 2024 r.</string>
+    <string name="title_check_gmx">Musisz zaktualizować swoje konto GMX, dodając hasło aplikacji przed 24 września 2026 r.</string>
     <string name="title_advanced_hint_title">Ustawienia zaawansowane</string>
     <string name="title_advanced_hint_message">        Przechodzisz do bardziej zaawansowanych opcji.         Wszystkie opcje mają powszechnie używane wartości standardowe, których nie trzeba zmieniać, chyba że masz inne preferencje.
     </string>
@@ -847,6 +849,7 @@ Nie musisz być tutaj, aby skonfigurować konto. W tym celu skorzystaj z przycis
     <string name="title_advanced_send">Integracja \'Send\'</string>
     <string name="title_advanced_openai">Integracja OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_max_tokens">Maksymalna liczba tokenów (pozostaw puste pole dla nieograniczonej wartości)</string>
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Kontrola treści</string>
     <string name="title_advanced_gemini">Integracja z Gemini</string>

@@ -201,6 +201,7 @@
     <string name="title_setup_gmail_login">Wenn Chrome bei einem Konto angemeldet ist, kann ein neues Konto nur über Android hinzugefügt werden. Dies kann vermieden werden, indem Sie sich über die Chrome-Synchronisationseinstellungen bei Chrome abmelden.</string>
     <string name="title_setup_gmail_max">Im Falle der Fehlermeldung »Sie sind bei der maximalen Anzahl an Konten angemeldet« müssen Sie den Browser von allen Google-Konten abmelden.</string>
     <string name="title_setup_outlook_hint">Bei einer Alias-Adresse sollten Sie möglicherweise den Assistenten für Office 365 verwenden.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft fordert Sie möglicherweise auf, einen Passkey einzurichten. Auf einem Mobilgerät ist dies etwas umständlicher; Sie können diesen optionalen Schritt daher überspringen oder abbrechen.</string>
     <string name="title_setup_outlook_modern">Ab dem 16. September 2024 wird nur noch der Assistent für Outlook/Hotmail/Live funktionieren. Grund dafür sind Änderungen an den Sicherheitsrichtlinien von Microsoft.</string>
     <string name="title_setup_gmail_on_device">Warum muss ich ein Konto auf dem Gerät auswählen?</string>
     <string name="title_setup_gmail_password">Ich möchte ein Gmail-Konto mit einem eigenen App-Passwort anstatt über das geräteinterne Google-Konto autorisieren</string>
@@ -348,7 +349,7 @@
     <string name="title_check_gmail_password">Einige Ihrer Gmail-Konten funktionieren möglicherweise nicht mehr nach dem 30. Mai 2022</string>
     <string name="title_check_outlook_oauth">Ihre Outlook-Konten werden auch nach dem 16. September 2024 weiterhin funktionieren</string>
     <string name="title_check_outlook_password">Einige Ihrer Outlook-/Hotmail-/Live-Konten funktionieren nach dem 16. September 2024 möglicherweise nicht mehr</string>
-    <string name="title_check_gmx" comment="title_check_gmx This is a notice message">Sie müssen Ihr GMX-Konto vor dem 24. September 2026 mit einem App-Passwort aktualisieren.</string>
+    <string name="title_check_gmx">Sie müssen Ihr GMX-Konto vor dem 24. September 2026 mit einem App-Passwort aktualisieren.</string>
     <string name="title_advanced_hint_title">Erweiterte Optionen</string>
     <string name="title_advanced_hint_message">
         Sie navigieren zu den erweiterten Optionen.
@@ -830,6 +831,7 @@
     <string name="title_advanced_send">Send-Integration</string>
     <string name="title_advanced_openai">Integration von OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modell</string>
+    <string name="title_advanced_openai_max_tokens">Maximale Anzahl an Token (für unbegrenzte Anzahl leer lassen)</string>
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderation von Inhalten</string>
     <string name="title_advanced_gemini">Gemini-Integration</string>

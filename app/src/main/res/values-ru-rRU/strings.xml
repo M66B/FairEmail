@@ -227,6 +227,7 @@
     <string name="title_setup_gmail_login">Если в Chrome выполнен вход в учётную запись, новую учётную запись можно добавить только через Android. Этого можно избежать, выйдя из учётной записи в Chrome через его настройки синхронизации.</string>
     <string name="title_setup_gmail_max">В случае появления сообщения об ошибке \"Вы вошли в максимальное количество учётных записей\", необходимр выйти в браузере из всех учётных записей Google.</string>
     <string name="title_setup_outlook_hint">При использовании псевдонима адреса следует воспользоваться мастером Office 365.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft может предложить настроить ключ доступа. На мобильном устройстве это сделать сложнее, поэтому рекомендуется пропустить или отменить данный необязательный шаг.</string>
     <string name="title_setup_outlook_modern">Из-за изменений в политике безопасности Microsoft с 16 сентября 2024 года будет работать только мастер Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Зачем выбирать учётную запись на устройстве?</string>
     <string name="title_setup_gmail_password">Я хочу авторизовать учётную запись паролем вместо учётной записи на устройстве</string>
@@ -373,6 +374,7 @@
     <string name="title_check_gmail_password">Некоторые из ваших учётных записей Gmail могут перестать работать после 30 мая 2022 года</string>
     <string name="title_check_outlook_oauth">Ваши учётные записи Outlook будут работать после 16 сентября 2024 года</string>
     <string name="title_check_outlook_password">Некоторые из ваших учётных записей Outlook/Hotmail/Live перестанут работать после 16 сентября 2024 года</string>
+    <string name="title_check_gmx">Необходимо добавить пароль приложения в аккаунт GMX до 24 сентября 2026 года.</string>
     <string name="title_advanced_hint_title">Настройки для опытных</string>
     <string name="title_advanced_hint_message">        Вы переходите к настройкам для опытных пользователей.
         Все параметры обычно имеют стандартные значения, которые можно изменить, если у вас есть другие предпочтения.    </string>
@@ -849,6 +851,7 @@
     <string name="title_advanced_send">Интеграция с Send</string>
     <string name="title_advanced_openai">Интеграция с OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Модель</string>
+    <string name="title_advanced_openai_max_tokens">Максимальное количество токенов (пусто — без ограничения)</string>
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модерация содержания</string>
     <string name="title_advanced_gemini">Интеграция с Gemini</string>
