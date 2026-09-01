@@ -55,9 +55,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Check with Lint
-      run: ./gradlew lintGithubRelease
+      run: ./gradlew --no-daemon --max-workers=1 --no-build-cache --no-configuration-cache lintGithubRelease
     - name: Build with Gradle
-      run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease
+      run: ./gradlew --no-daemon --max-workers=1 --no-build-cache --no-configuration-cache assembleGithubRelease assembleLargeRelease assemblePlayRelease
     #https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
     #https://github.com/actions/attest-build-provenance
     - name: Generate artifact attestation
