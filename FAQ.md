@@ -240,8 +240,9 @@ Most apps store their data in the cloud instead of on the device, which is why t
 * &#x274C; ~~POP3 folders~~
 * &#x2705; ~~Bottom action bar~~
 * &#10067; [SMTP Require TLS Option](https://datatracker.ietf.org/doc/html/rfc8689)
+* &#10067; [Header Protection for Cryptographically Protected Email](https://datatracker.ietf.org/doc/rfc9788/)
 * &#10067; [Unobtrusive End-to-End Email Signatures](https://datatracker.ietf.org/doc/draft-ietf-mailmaint-unobtrusive-signatures/)
-* &#10067; [OAuth for Thundermail](https://github.com/thunderbird/thunderbird-accounts/issues/1124)
+* &#10067; ~~[OAuth for Thundermail](https://github.com/thunderbird/thunderbird-accounts/issues/1124)~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
