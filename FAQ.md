@@ -3026,8 +3026,8 @@ The following extra operators are available:
 
 * *contains* (string/array of strings contains substring)
 * *matches* (string/array of strings matches regex)
-* *startswith* / *endswith* (string/array of strings starting or ending with a string; since version 1.2233)
-* *jpath* (string/array of JSON strings matching the [specified path](https://github.com/json-path/jsonpath); since version 1.2233)
+* *startswith* / *endswith* (string/array of strings starting or ending with a string; since version 1.2333)
+* *jpath* (string/array of JSON strings matching the [specified path](https://github.com/json-path/jsonpath); since version 1.2333)
 
 The following extra functions are available:
 
