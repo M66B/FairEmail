@@ -207,6 +207,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swUid;
     private SwitchCompat swExpunge;
     private SwitchCompat swUidExpunge;
+    private SwitchCompat swExpungeTrash;
     private SwitchCompat swImapCompress;
     private SwitchCompat swAuthPlain;
     private SwitchCompat swAuthLogin;
@@ -309,7 +310,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "viewport_height",
             "ignore_formatted_size",
             "show_recent",
-            "use_modseq", "preamble", "uid_command", "perform_expunge", "uid_expunge",
+            "use_modseq", "preamble", "uid_command", "perform_expunge", "uid_expunge", "expunge_trash",
             "imap_compress", "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top", "forget_top",
             "keep_alive_poll", "empty_pool", "idle_done", "fast_fetch",
             "max_backoff_power", "logarithmic_backoff",
@@ -484,6 +485,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swUid = view.findViewById(R.id.swUid);
         swExpunge = view.findViewById(R.id.swExpunge);
         swUidExpunge = view.findViewById(R.id.swUidExpunge);
+        swExpungeTrash = view.findViewById(R.id.swExpungeTrash);
         swImapCompress = view.findViewById(R.id.swImapCompress);
         swAuthPlain = view.findViewById(R.id.swAuthPlain);
         swAuthLogin = view.findViewById(R.id.swAuthLogin);
@@ -1537,6 +1539,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("uid_expunge", checked).apply();
                 ServiceSynchronize.reload(compoundButton.getContext(), null, true, "uid_expunge");
+            }
+        });
+
+        swExpungeTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("expunge_trash", checked).apply();
             }
         });
 
@@ -2642,6 +2651,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swUid.setChecked(prefs.getBoolean("uid_command", false));
             swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
             swUidExpunge.setChecked(prefs.getBoolean("uid_expunge", false));
+            swExpungeTrash.setChecked(prefs.getBoolean("expunge_trash", false));
             swImapCompress.setChecked(prefs.getBoolean("imap_compress", true));
             swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
             swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
