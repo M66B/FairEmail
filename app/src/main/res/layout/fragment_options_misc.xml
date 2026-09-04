@@ -1481,20 +1481,6 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swExpungeTrash"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableStart="@drawable/twotone_warning_24"
-                    android:drawablePadding="6dp"
-                    android:text="@string/title_advanced_expunge_trash"
-                    app:drawableTint="?attr/colorWarning"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swUidExpunge"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swImapCompress"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1503,7 +1489,7 @@
                     android:text="@string/title_advanced_imap_compress"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swExpungeTrash"
+                    app:layout_constraintTop_toBottomOf="@id/swUidExpunge"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

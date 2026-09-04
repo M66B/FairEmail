@@ -1454,9 +1454,6 @@ class Core {
         // Move message
         DB db = DB.getInstance(context);
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean expunge_trash = pref.getBoolean("expunge_trash", false);
-
         // Get arguments
         long id = jargs.getLong(0);
         boolean seen = jargs.optBoolean(1);
@@ -1621,7 +1618,7 @@ class Core {
                             ex.getCause().getMessage().contains("[EXPUNGEISSUED]")))
                         throw ex;
                 }
-            else if (!expunge_trash || !EntityFolder.TRASH.equals(target.type))
+            else
                 ifolder.copyMessages(map.keySet().toArray(new Message[0]), itarget);
         }
 
