@@ -1940,7 +1940,8 @@ public class DebugHelper {
                                         Helper.humanReadableByteCount(total - unalloc),
                                         Helper.humanReadableByteCount(total)));
                             }
-                    } catch (IOException ex) {
+                    } catch (Throwable ex) {
+                        // java.lang.ClassCastException: sun.nio.fs.LinuxFileStore cannot be cast to j$.nio.file.FileStore
                         size += write(os, String.format("%s\r\n", ex));
                     }
                     size += write(os, "\r\n");
