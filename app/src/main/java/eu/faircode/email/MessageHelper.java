@@ -870,6 +870,9 @@ public class MessageHelper {
                 String email = ((InternetAddress) from).getAddress();
                 String user = UriHelper.getEmailUser(email);
                 String domain = UriHelper.getEmailDomain(email);
+                Pair<String, String> extra = getExtra(email, message.extra);
+                if (extra.second != null)
+                    email = extra.second;
                 address = address
                         .replace("$from$", email)
                         .replace("$user$", user)
