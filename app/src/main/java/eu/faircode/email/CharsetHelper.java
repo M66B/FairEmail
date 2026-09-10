@@ -92,7 +92,7 @@ public class CharsetHelper {
         }
     }
 
-    static boolean isUTF8(byte[] octets) {
+    public static boolean isUTF8(byte[] octets) {
         return isValid(octets, StandardCharsets.UTF_8);
     }
 
