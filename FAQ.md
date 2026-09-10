@@ -2381,6 +2381,11 @@ or by Android not supporting older protocols anymore, like SSLv3 and TLSv1.
 The error '*Handshake failed ... UNSUPPORTED_PROTOCOL ...*' means that the email server and Android do not have a common SSL/TLS protocol or a common cipher.
 The cipher set the server offers might be limited or the server might support the old (and insecure) SSL protocols only.
 
+The error '*... TLSV1_ALERT_ACCESS_DENIED ...*' means that the email server actively blocks the connection for some reason (only the email provider knows).
+With mobile data: try enabling flight mode for 10-15 minutes.
+With Wi-Fi: try turning off your modem/router for 15-20 minutes.
+Mostly this results in a new network address, often solving issues like this.
+
 The error '*javax.net.ssl.SSLHandshakeException: Read error: ... CERT_LENGTH_MISMATCH*' means that there is something wrong with the email server setup.
 Try to switch to port 993 (IMAP) or 465 (SMTP) with SSL/TLS.
 
