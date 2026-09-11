@@ -241,6 +241,23 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
                     break;
 
                 case MotionEvent.ACTION_UP:
+                    boolean result = super.onTouchEvent(event);
+
+                    ClipImageSpan span = getClipImageSpan(event.getX(), event.getY());
+                    if (span != null) {
+                        Editable edit = getText();
+                        if (edit != null) {
+                            int start = edit.getSpanStart(span);
+                            int end = edit.getSpanEnd(span);
+                            if (start >= 0 && end > start)
+                                setSelection(start);
+                        }
+                    }
+
+                    dragDownX = 0;
+                    dragDownY = 0;
+                    return result;
+
                 case MotionEvent.ACTION_CANCEL:
                     dragDownX = 0;
                     dragDownY = 0;
@@ -251,6 +268,55 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
             Log.w(ex);
             return true;
         }
+    }
+
+    @Nullable
+    private ClipImageSpan getClipImageSpan(float x, float y) {
+        Editable edit = getText();
+        Layout layout = getLayout();
+        if (edit == null || layout == null || layout.getLineCount() == 0)
+            return null;
+
+        int line = layout.getLineForVertical((int) (y - getTotalPaddingTop() + getScrollY()));
+        line = Math.max(0, Math.min(line, layout.getLineCount() - 1));
+
+        float horizontal = x - getTotalPaddingLeft() + getScrollX();
+        ClipImageSpan[] spans = edit.getSpans(0, edit.length(), ClipImageSpan.class);
+
+        for (ClipImageSpan span : spans) {
+            int start = edit.getSpanStart(span);
+            int end = edit.getSpanEnd(span);
+
+            if (start < 0 || end <= start)
+                continue;
+
+            if (layout.getLineForOffset(start) != line)
+                continue;
+
+            float startX = layout.getPrimaryHorizontal(start);
+            Drawable drawable = span.getDrawable();
+            if (drawable == null)
+                continue;
+
+            float width = drawable.getBounds().width();
+            if (width <= 0)
+                width = drawable.getIntrinsicWidth();
+
+            float left;
+            float right;
+            if (layout.getParagraphDirection(line) == Layout.DIR_RIGHT_TO_LEFT) {
+                left = startX - width;
+                right = startX;
+            } else {
+                left = startX;
+                right = startX + width;
+            }
+
+            if (horizontal >= left && horizontal <= right)
+                return span;
+        }
+
+        return null;
     }
 
     @Override
