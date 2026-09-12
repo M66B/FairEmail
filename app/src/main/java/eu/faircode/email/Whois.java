@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2026 by Marcel Bokhorst (M66B)
 */
 
+import android.text.TextUtils;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -57,9 +59,13 @@ public class Whois {
     private static String getServer(String domain) throws IOException {
         String iana = get(domain, WHOIS_IANA);
         for (String line : iana.split("\\r?\\n"))
-            if (line.startsWith(WHOIS_PREFIX))
-                return line.substring(WHOIS_PREFIX.length()).trim();
+            if (line.startsWith(WHOIS_PREFIX)) {
+                String server = line.substring(WHOIS_PREFIX.length()).trim();
+                if (!TextUtils.isEmpty(server))
+                    return server;
+            }
         Log.w(iana);
-        throw new UnknownHostException("whois server unknown " + domain);
+        throw new UnknownHostException("No WHOIS server available for " + domain);
+
     }
 }
