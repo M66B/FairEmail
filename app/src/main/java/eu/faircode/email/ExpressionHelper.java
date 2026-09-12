@@ -85,15 +85,40 @@ public class ExpressionHelper {
             return null;
         String eval = jcondition.getString("expression");
 
-        List<String> to = new ArrayList<>();
-        if (message != null && message.to != null)
-            for (Address a : message.to)
-                to.add(MessageHelper.formatAddresses(new Address[]{a}));
+        List<String> return_path = new ArrayList<>();
+        if (message != null && message.return_path != null)
+            for (Address a : message.return_path)
+                return_path.add(MessageHelper.formatAddresses(new Address[]{a}));
+
+        List<String> submitter = new ArrayList<>();
+        if (message != null && message.submitter != null)
+            for (Address a : message.submitter)
+                submitter.add(MessageHelper.formatAddresses(new Address[]{a}));
 
         List<String> from = new ArrayList<>();
         if (message != null && message.from != null)
             for (Address a : message.from)
                 from.add(MessageHelper.formatAddresses(new Address[]{a}));
+
+        List<String> to = new ArrayList<>();
+        if (message != null && message.to != null)
+            for (Address a : message.to)
+                to.add(MessageHelper.formatAddresses(new Address[]{a}));
+
+        List<String> cc = new ArrayList<>();
+        if (message != null && message.cc != null)
+            for (Address a : message.cc)
+                cc.add(MessageHelper.formatAddresses(new Address[]{a}));
+
+        List<String> bcc = new ArrayList<>();
+        if (message != null && message.bcc != null)
+            for (Address a : message.bcc)
+                bcc.add(MessageHelper.formatAddresses(new Address[]{a}));
+
+        List<String> replyto = new ArrayList<>();
+        if (message != null && message.reply != null)
+            for (Address a : message.reply)
+                replyto.add(MessageHelper.formatAddresses(new Address[]{a}));
 
         if (html == null && message != null && message.content)
             try {
@@ -148,8 +173,13 @@ public class ExpressionHelper {
 
         Expression expression = new Expression(eval, configuration)
                 .with("received", message == null ? null : message.received)
-                .with("to", to)
+                .with("return_path", return_path)
+                .with("submitter", submitter)
                 .with("from", from)
+                .with("to", to)
+                .with("cc", cc)
+                .with("bcc", bcc)
+                .with("replyto", replyto)
                 .with("subject", message == null ? null : message.subject)
                 .with("text", doc == null ? null : doc.text());
 

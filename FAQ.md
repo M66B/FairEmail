@@ -3021,8 +3021,12 @@ Commonly used are && (=and) and || (=or).
 The following extra variables are available:
 
 * *received* (long, unix epoch in milliseconds; since version 1.2179)
+* *submitter* (array of strings, sent on behalf of; since version 1.2234)
 * *from* (array of strings)
 * *to* (array of strings)
+* *cc* (array of strings; since version 1.2234)
+* *bcc* (array of strings; since version 1.2234)
+* *replyto* (array of strings; since version 1.2234)
 * *subject* (string)
 * *text* (string)
 * *hasAttachments* (boolean; deprecated, use function *attachments()* instead)
