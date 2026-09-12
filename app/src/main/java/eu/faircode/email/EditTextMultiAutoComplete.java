@@ -345,8 +345,9 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
             Helper.performHapticFeedback(this, HapticFeedbackConstants.CONFIRM);
 
-            String text = edit.subSequence(start, end).toString();
-            DragState state = new DragState(this, span, start, end, text);
+            int tokenEnd = getTokenEnd(edit, end);
+            String text = edit.subSequence(start, tokenEnd).toString();
+            DragState state = new DragState(this, span, start, end, tokenEnd, text);
             ClipData data = ClipData.newPlainText("FairEmail recipient", text);
             View.DragShadowBuilder shadow = new ChipDragShadowBuilder(span);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
@@ -589,34 +590,37 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
             Editable edit = getText();
             Layout layout = getLayout();
             if (edit == null || layout == null)
-                return false;
+                return true;
 
             int target = getDropOffset(layout, x, y);
             if (target < 0)
-                return false;
+                return true;
 
             target = resolveDropBoundary(edit, target, state.span);
 
             int sourceStart = state.start;
-            int sourceEnd = state.end;
+            int sourceEnd = state.tokenEnd;
             if (this == state.source && target >= sourceStart && target <= sourceEnd)
-                return false;
-
-            String text = state.text;
-            int insertLength = text.length();
+                return true;
 
             Editable source = state.source.getText();
             source.removeSpan(state.span);
             source.delete(sourceStart, sourceEnd);
-            state.source.invalidate();
-            state.source.post(state.source.update);
+            if (this != state.source) {
+                state.source.invalidate();
+                state.source.post(state.source.update);
+            }
             if (this == state.source && target > sourceEnd)
                 target -= sourceEnd - sourceStart;
 
             target = Math.max(0, Math.min(target, edit.length()));
             target = resolveDropBoundary(edit, target, null);
+
+            String text = state.text;
+            int insertLength = text.length();
+            int spanLength = state.end - state.start;
             edit.insert(target, text);
-            edit.setSpan(state.span, target, target + insertLength, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            edit.setSpan(state.span, target, target + spanLength, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             setSelection(target + insertLength);
             invalidate();
             post(update);
@@ -624,8 +628,15 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
             return true;
         } catch (Throwable ex) {
             Log.e(ex);
-            return false;
+            return true;
         }
+    }
+
+    private static int getTokenEnd(Editable edit, int end) {
+        int tokenEnd = end;
+        while (tokenEnd < edit.length() && edit.charAt(tokenEnd) == ' ')
+            tokenEnd++;
+        return tokenEnd;
     }
 
     private int getDropOffset(Layout layout, float x, float y) {
@@ -648,13 +659,17 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
             if (start < 0 || end <= start)
                 continue;
 
-            if (target > start && target < end) {
-                int middle = start + (end - start) / 2;
-                return (target < middle ? start : end);
+            int tokenEnd = getTokenEnd(edit, end);
+            if (target > start && target < tokenEnd) {
+                int middle = start + (tokenEnd - start) / 2;
+                return (target < middle ? start : tokenEnd);
             }
 
-            if (target == start || target == end)
-                return target;
+            if (target == start)
+                return start;
+
+            if (target == end || target == tokenEnd)
+                return tokenEnd;
         }
 
         return target;
@@ -681,13 +696,15 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         final ClipImageSpan span;
         final int start;
         final int end;
+        final int tokenEnd;
         final String text;
 
-        DragState(EditTextMultiAutoComplete source, ClipImageSpan span, int start, int end, String text) {
+        DragState(EditTextMultiAutoComplete source, ClipImageSpan span, int start, int end, int tokenEnd, String text) {
             this.source = source;
             this.span = span;
             this.start = start;
             this.end = end;
+            this.tokenEnd = tokenEnd;
             this.text = text;
         }
     }
