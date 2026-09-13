@@ -63,7 +63,7 @@ import javax.mail.internet.InternetHeaders;
 
 public class ExpressionHelper {
     private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
-            "received", "to", "from", "subject", "text", "hasAttachments"
+            "received", "return_path", "submitter", "from", "to", "cc", "bcc", "subject", "replyto", "text", "hasAttachments"
     ));
 
     static void check(Expression expression) throws ParseException {

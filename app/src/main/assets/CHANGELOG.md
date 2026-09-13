@@ -30,6 +30,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+* Fixed all reported issues
+* Added drag and drop to address bubbles
+* Added *submitter*, *cc*, *bcc* and *replyto* to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+
 ### 1.2333 2026-09-01
 
 * Added support for S/MIME [auth-enveloped-data](https://www.rfc-editor.org/info/rfc5083/)
