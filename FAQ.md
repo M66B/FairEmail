@@ -4580,6 +4580,10 @@ so you cannot use FairEmail or any other email client to access OnMail, except f
 
 Update: OnMail is gone.
 
+**Atomic Mail** uses a proprietary email protocol
+and [does not directly support IMAP](https://atomicmail.io/support),
+so you cannot use FairEmail or any other email email client to access Atomic Mail.
+
 <br />
 
 <a name="faq130"></a>

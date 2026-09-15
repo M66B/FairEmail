@@ -138,7 +138,8 @@ public class EmailProvider implements Parcelable {
             "skiff.com",
             "tildamail.com",
             "criptext.com",
-            "onmail.com"
+            "onmail.com",
+            "atomicmail.io"
     ));
 
     private EmailProvider() {
