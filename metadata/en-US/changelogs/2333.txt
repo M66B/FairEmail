@@ -32,7 +32,7 @@ Next version (Work in progress)
 
 * Fixed all reported issues
 * Added drag and drop to address bubbles
-* Added *submitter*, *cc*, *bcc* and *replyto* to expression conditions
+* Added *via*, *submitter*, *cc*, *bcc* and *replyto* to expression conditions
 
 1.2333 2026-09-01
 

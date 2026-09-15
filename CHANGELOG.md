@@ -32,7 +32,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Fixed all reported issues
 * Added drag and drop to address bubbles
-* Added *submitter*, *cc*, *bcc* and *replyto* to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+* Added *via*, *submitter*, *cc*, *bcc* and *replyto* to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
 
 ### 1.2333 2026-09-01
 

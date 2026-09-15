@@ -63,7 +63,7 @@ import javax.mail.internet.InternetHeaders;
 
 public class ExpressionHelper {
     private static final List<String> EXPR_VARIABLES = Collections.unmodifiableList(Arrays.asList(
-            "received", "return_path", "submitter", "from", "to", "cc", "bcc", "subject", "replyto", "text", "hasAttachments"
+            "received", "return_path", "via", "submitter", "from", "to", "cc", "bcc", "subject", "replyto", "text", "hasAttachments"
     ));
 
     static void check(Expression expression) throws ParseException {
@@ -89,6 +89,16 @@ public class ExpressionHelper {
         if (message != null && message.return_path != null)
             for (Address a : message.return_path)
                 return_path.add(MessageHelper.formatAddresses(new Address[]{a}));
+
+        List<String> via = new ArrayList<>();
+        if (message != null && message.identity != null) try {
+            DB db = DB.getInstance(context);
+            EntityIdentity identity = db.identity().getIdentity(message.id);
+            if (identity != null)
+                via.add(MessageHelper.formatAddresses(new Address[]{new InternetAddress(identity.email, identity.name)}));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         List<String> submitter = new ArrayList<>();
         if (message != null && message.submitter != null)
@@ -174,6 +184,7 @@ public class ExpressionHelper {
         Expression expression = new Expression(eval, configuration)
                 .with("received", message == null ? null : message.received)
                 .with("return_path", return_path)
+                .with("via", via)
                 .with("submitter", submitter)
                 .with("from", from)
                 .with("to", to)

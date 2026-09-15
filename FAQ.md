@@ -3021,6 +3021,7 @@ Commonly used are && (=and) and || (=or).
 The following extra variables are available:
 
 * *received* (long, unix epoch in milliseconds; since version 1.2179)
+* *via* (array of strings, [matched identity](#faq34); since version 1.2234)
 * *submitter* (array of strings, sent on behalf of; since version 1.2234)
 * *from* (array of strings)
 * *to* (array of strings)
