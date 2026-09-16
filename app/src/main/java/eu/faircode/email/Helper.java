@@ -223,7 +223,7 @@ public class Helper {
     static final String PACKAGE_WEBVIEW = "https://play.google.com/store/apps/details?id=com.google.android.webview";
     static final String PRIVACY_URI = "https://email.faircode.eu/privacy/";
     static final String TUTORIALS_URI = "https://github.com/M66B/FairEmail/tree/master/tutorials#main";
-    static final String FAQ_BASE_URI = "https://m66b.github.io/FairEmail/";
+    static final String FAQ_BASE_URI = "https://github.com/M66B/FairEmail/blob/master/FAQ.md";
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
     static final String BIMI_PRIVACY_URI = "https://datatracker.ietf.org/doc/html/draft-brotman-ietf-bimi-guidance-03#section-7.4";
