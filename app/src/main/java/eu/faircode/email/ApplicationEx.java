@@ -1145,10 +1145,11 @@ public class ApplicationEx extends Application
         editor.putInt("version", BuildConfig.VERSION_CODE);
 
         if (prefs.getBoolean("gemini_enabled", false)) {
+            // https://ai.google.dev/gemini-api/docs/openai
             editor.putBoolean("openai_enabled", true)
                     .putString("openai_apikey", prefs.getString("gemini_apikey", null))
                     .putString("openai_uri", "https://generativelanguage.googleapis.com/v1beta/openai/")
-                    .putString("openai_model", "models/" + prefs.getString("gemini_model", Gemini.DEFAULT_MODEL))
+                    .putString("openai_model", prefs.getString("gemini_model", Gemini.DEFAULT_MODEL).replace("models/", ""))
                     .remove("openai_max_tokens")
                     .putBoolean("openai_multimodal", false)
                     .putFloat("openai_temperature", prefs.getFloat("gemini_temperature", Gemini.DEFAULT_TEMPERATURE))
