@@ -30,6 +30,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2335 2026-09-16
+
+* Changed FAQ base URI because Microsoft incorrectly blocks [https://m66b.github.io/FairEmail/](https://m66b.github.io/FairEmail/)
+
 ### 1.2334 2026-09-16
 
 * Fixed all reported issues
@@ -46,7 +50,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
-### 1.2332 2026-08-24
+### 1.2332 2026-08-24 *
 
 * Fixed reformatted view for Android 6
 * Small improvements and minor bug fixes
