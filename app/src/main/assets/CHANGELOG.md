@@ -30,6 +30,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2336 2026-09-17
+
+* Fixed bugs in new features
+* Small improvements and minor bug fixes
+
 ### 1.2335 2026-09-16
 
 * Changed FAQ base URI because Microsoft incorrectly blocks [https://m66b.github.io/FairEmail/](https://m66b.github.io/FairEmail/)
