@@ -157,6 +157,7 @@ Related questions:
 * Search suggestions causes the keyboard losing focus on Android 12L.
 * ~~[A bug](https://techcommunity.microsoft.com/t5/outlook/outlook-office-365-imap-idle-is-broken/m-p/3616242) in the Outlook IMAP server causes delayed new message notifications.~~
 * Updating the Material You colors sometimes require restarting the app / the device, which is caused by [a bug](https://issuetracker.google.com/issues/386671298) in the Android WebView.
+* MiniDNS does't process CNAME's in TSLA records [yet](https://github.com/MiniDNS/minidns/issues/140).
 
 <a name="redmi"></a>
 <a name="realme"></a>
