@@ -1709,10 +1709,10 @@ public class EntityRule {
             message.error = Log.formatThrowable(ex);
             db.message().setMessageError(message.id, message.error);
             return false;
+        } finally {
+            db.message().setMessageContent(message.id, message.content, message.language, message.plain_only, message.preview, message.warning);
+            db.message().setMessageNotifying(message.id, 0);
         }
-
-        db.message().setMessageContent(message.id, message.content, message.language, message.plain_only, message.preview, message.warning);
-        db.message().setMessageNotifying(message.id, 0);
 
         return true;
     }
