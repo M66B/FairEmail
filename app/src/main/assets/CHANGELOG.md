@@ -8,7 +8,7 @@ People keep asking me to add new, often exotic, features to the app, to whom I o
 Both groups of people leave bad reviews for this, which is frustrating, also because there are already enough bad reviews for the wrong reasons
 (email server problems, which unfortunately happen too often, etc.).
 The main problem is that more features now make more people unhappy than happy.
-Therefore, [the rules for new features](https://m66b.github.io/FairEmail/#get-support) will be strictly followed from today.
+Therefore, [the rules for new features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#get-support) will be strictly followed from today.
 
 No worries, the app will [continue to be maintained](https://github.com/M66B/FairEmail/commits/) and supported as usual.
 
@@ -38,14 +38,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Fixed all reported issues
 * Added drag and drop to address bubbles
-* Added *via*, *submitter*, *cc*, *bcc* and *replyto* to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+* Added *via*, *submitter*, *cc*, *bcc* and *replyto* to [expression conditions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#expression_conditions)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2333 2026-09-01
 
 * Added support for S/MIME [auth-enveloped-data](https://www.rfc-editor.org/info/rfc5083/)
-* Added three new operators to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+* Added three new operators to [expression conditions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#expression_conditions)
 * Updated gradle to version 9.7.1
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
@@ -64,7 +64,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2330 2026-08-20
 
-* Added message language to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+* Added message language to [expression conditions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#expression_conditions)
 * Updated [Jsoup](https://jsoup.org/news/) to version 1.23.1
 * Updated [EvalEx](https://github.com/ezylang/EvalEx/releases) to version 3.7.0
 * Updated [BouncyCastle](https://www.bouncycastle.org/news/) to version 1.85
@@ -101,9 +101,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2326 2026-07-21
 
-* Added helpers to grant [local network permission](https://m66b.github.io/FairEmail/#faq210)
+* Added helpers to grant [local network permission](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq210)
 * Added [type="cite"](https://bugzilla.mozilla.org/show_bug.cgi?id=183219#c50) to blockquotes
-* Added placeholders to reply-to, and default CC and BCC addresses, see [the FAQ](https://m66b.github.io/FairEmail/#faq9)
+* Added placeholders to reply-to, and default CC and BCC addresses, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq9)
 * Enabled [Certificate Transparency](https://en.wikipedia.org/wiki/Certificate_Transparency) for non Play Store builds
 * Fixed character set for sending text files in some cases
 * Small improvements and minor bug fixes
@@ -448,7 +448,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### 1.2278 2025-06-05
 
 * Added option to limit the width only when resizing images
-* Added support for separate S/MIME sign/encrypt certificates, see [the FAQ](https://m66b.github.io/FairEmail/#faq12) for details
+* Added support for separate S/MIME sign/encrypt certificates, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq12) for details
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
@@ -574,7 +574,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2261 2025-01-30
 
-* Released [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions) as non-experimental
+* Released [expression conditions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#expression_conditions) as non-experimental
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
@@ -679,7 +679,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2246 2024-11-13
 
-* Added fast *forward to*, see [the FAQ](https://m66b.github.io/FairEmail/#faq125)
+* Added fast *forward to*, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq125)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
@@ -701,7 +701,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2243 2024-11-01
 
-* Added AI interference to [expression conditions](https://m66b.github.io/FairEmail/#faq71)
+* Added AI interference to [expression conditions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
@@ -940,7 +940,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### 1.2209 - 2024-07-03
 
 * Added account images (avatars)
-* Added APK file attestation, see [the FAQ](https://m66b.github.io/FairEmail/#faq205)
+* Added APK file attestation, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq205)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
@@ -1140,7 +1140,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2180 - 2024-05-13
 
-* Improved [Gemini](https://m66b.github.io/FairEmail/#faq204) integration
+* Improved [Gemini](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq204) integration
 * Performance improvements
 * Small improvements and minor bug fixes
 * Updated [NDK](https://developer.android.com/ndk/)
@@ -1150,7 +1150,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### 1.2179 - 2024-05-08
 
 * Added option to change "AI" summarize prompt
-* Added expression condition functions, see [the FAQ](https://m66b.github.io/FairEmail/#faq71)
+* Added expression condition functions, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71)
 * Small improvements and minor bug fixes
 * Updated build tools
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
@@ -1190,7 +1190,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2174 - 2024-04-19
 
-* Added expression conditions to rules, see [the FAQ](https://m66b.github.io/FairEmail/#faq71)
+* Added expression conditions to rules, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq71)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
@@ -1219,7 +1219,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2171 - 2024-03-30
 
-* Added [Gemini](https://m66b.github.io/FairEmail/#faq204) integration
+* Added [Gemini](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq204) integration
 * Added answer button to buttons configuration
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)

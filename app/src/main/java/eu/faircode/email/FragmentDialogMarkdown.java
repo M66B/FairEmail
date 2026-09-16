@@ -113,10 +113,7 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
 
                 markdown = markdown
                         .replace("/FAQ.md#FAQ", "/FAQ.md#faq")
-                        .replace("/FAQ.md#user-content-faq", "/FAQ.md#faq")
-                        .replace(
-                                "https://github.com/M66B/FairEmail/blob/master/FAQ.md",
-                                "https://m66b.github.io/FairEmail/");
+                        .replace("/FAQ.md#user-content-faq", "/FAQ.md#faq");
 
                 Markwon markwon = Markwon.builder(context)
                         .usePlugin(HtmlPlugin.create())

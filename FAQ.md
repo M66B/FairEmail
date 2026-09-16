@@ -2,7 +2,7 @@
 
 # FairEmail support
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md)
 
 &#x1F1EC;&#x1F1E7; If you have a question, please check the following frequently asked questions first.
 [At the bottom](#get-support),
@@ -45,7 +45,7 @@ Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for t
 
 <h2><a name="authorizing-accounts"></a>Configuring accounts</h2>
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23authorizing-accounts)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23authorizing-accounts)
 
 In most cases, the quick setup wizard will be able to automatically identify the correct configuration.
 
@@ -107,7 +107,7 @@ Related questions:
 
 ## How to ...?
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23howto)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23howto)
 
 * Change the account name: (Main) Settings, tap Manual setup, tap Accounts, tap account
 * Change the swipe left/right target: (Main) Settings, tab page Behavior, Set swipe actions (*)
@@ -135,7 +135,7 @@ Related questions:
 
 <h2><a name="known-problems"></a>Known problems</h2>
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23known-problems)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23known-problems)
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
@@ -169,7 +169,7 @@ Related questions:
 
 **Xiaomi Redmi / Realme / OnePlus / Oppo / Sony / Motorola**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23redmi)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23redmi)
 
 On some Xiaomi Redmi (Note) devices, some Realme devices, some OnePlus devices, some Oppo devices, some Samsung devices, some Sony (Xperia) devices, some Motorola devices, and possibly other devices running Android 12 or 13,
 the database occasionally gets corrupted, especially after installing an update,
@@ -204,7 +204,7 @@ Most apps store their data in the cloud instead of on the device, which is why t
 
 <h2><a name="planned-features"></a>Planned features</h2>
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23planned-features)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23planned-features)
 
 * &#x2705; ~~Synchronize on demand (manual)~~
 * &#x2705; ~~Semi-automatic encryption~~
@@ -250,7 +250,7 @@ Anything on this list is in random order and *might* be added in the near future
 
 <h2><a name="frequently-asked-questions"></a>Frequently Asked Questions</h2>
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23frequently-asked-questions)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23frequently-asked-questions)
 
 * [(1) Which permissions are needed and why?](#faq1)
 * [(2) Why is there a permanent notification shown?](#faq2)
@@ -466,7 +466,7 @@ Anything on this list is in random order and *might* be added in the near future
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq1)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq1)
 
 The following Android permissions are **required**:
 
@@ -535,7 +535,7 @@ only suggesting contacts won't work without contacts permission.
 <a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq2)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq2)
 
 *If you came here by clicking on the "monitoring" notification, you should know that the next click will open the unified inbox.*
 
@@ -572,7 +572,7 @@ For your privacy this is not a nice solution ...
 <a name="faq3"></a>
 **(3) What are operations and why are they pending?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq3)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq3)
 
 The low priority status bar notification shows the number of pending operations, which can be:
 
@@ -610,7 +610,7 @@ See also [this FAQ](#faq16).
 <a name="faq4"></a>
 **(4) How can I use an invalid security certificate / empty password / plain text connection?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq4)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq4)
 
 <!-- **Since version 1.2137:
 Due to [Google's Play Store policies](https://support.google.com/faqs/answer/6346016),
@@ -688,7 +688,7 @@ If you enable insecure connections, you should connect via private, trusted netw
 <a name="faq5"></a>
 **(5) How can I customize the message view?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq5)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq5)
 
 In the three dot overflow menu you can enable or disable or select:
 
@@ -726,7 +726,7 @@ Some people ask:
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq6)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq6)
 
 **FairEmail fully supports OAuth through the quick setup wizard and will continue to work after May 30, please see below what to do if you used your account password to set up an account.**
 
@@ -849,7 +849,7 @@ and [here](https://support.google.com/mail/accounts/answer/78754) for troublesho
 <a name="faq7"></a>
 **(7) Why are sent messages not appearing (immediately) in the sent folder?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq7)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq7)
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder.
 This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
@@ -872,7 +872,7 @@ Note that this will result in extra internet traffic.
 <a name="faq8"></a>
 **(8) Can I use a Microsoft Exchange account?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq8)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq8)
 
 Firstly, Exchange *protocol* (EWS) is not the same as Exchange *server* or Exchange *account*.
 
@@ -904,7 +904,7 @@ Please see [this FAQ](#faq111) about OAuth support.
 <a name="faq9"></a>
 **(9) What are identities / how do I add an alias / configure a default CC or BCC address?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq9)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq9)
 
 Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
@@ -949,7 +949,7 @@ See [this FAQ](#faq33) on editing the username of email addresses.
 <a name="faq10"></a>
 **~~(10) What does 'UIDPLUS not supported' mean?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq10)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq10)
 
 ~~The error message *UIDPLUS not supported* means that your email provider does not provide the IMAP [UIDPLUS extension](https://tools.ietf.org/html/rfc4315).
 This IMAP extension is required to implement two way synchronization, which is not an optional feature.
@@ -960,7 +960,7 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 <a name="faq11"></a>
 **~~(11) Why is POP not supported?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq11)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq11)
 
 POP3 is supported!
 
@@ -983,7 +983,7 @@ POP3 is supported!
 <a name="faq12"></a>
 **(12) How does encryption/decryption work?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq12)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq12)
 
 Communication with email servers is always encrypted, unless you explicitly turned this off.
 This question is about optional end-to-end encryption with PGP or S/MIME.
@@ -1224,7 +1224,7 @@ S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations ar
 <a name="faq13"></a>
 **(13) How does search on device/server work?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq13)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq13)
 
 You can start searching for messages on sender (from), recipient (to, cc, bcc), subject, keywords or message text by using the magnify glass in the action bar of a folder.
 You can also search from any app by selecting *Search email* in the copy/paste popup menu.
@@ -1344,7 +1344,7 @@ Using the search index is a pro feature.
 <a name="faq14"></a>
 **(14) How can I set up an Outlook / Live / Hotmail account?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq14)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq14)
 
 <br />
 
@@ -1474,7 +1474,7 @@ For setting up an Office 365 account, please see [this FAQ](#faq156).
 <a name="faq15"></a>
 **(15) Why does the message text keep loading?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq15)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq15)
 
 The message header and message body are fetched separately from the server.
 The message text of larger messages is not being pre-fetched on metered connections and will be fetched on demand on expanding a message.
@@ -1495,7 +1495,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 <a name="faq16"></a>
 **(16) Why are messages not being synchronized?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq16)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq16)
 
 Synchronization problems are seldom the fault of the app, but are almost always caused by internet connectivity or email server problems.
 The first thing to check is whether battery optimizations are **disabled** via setup step 3 in the main settings screen.
@@ -1536,7 +1536,7 @@ This is described in [this FAQ](#faq123).
 <a name="faq17"></a>
 **~~(17) Why does manual synchronize not work?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq17)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq17)
 
 ~~If the *Synchronize now* menu is dimmed, there is no connection to the account.~~
 
@@ -1547,7 +1547,7 @@ This is described in [this FAQ](#faq123).
 <a name="faq18"></a>
 **(18) Why is the message preview not always shown?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq18)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq18)
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet.
 See also [this FAQ](#faq15).
@@ -1557,7 +1557,7 @@ See also [this FAQ](#faq15).
 <a name="faq19"></a>
 **(19) Why are the pro features so expensive?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq19)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq19)
 
 **FairEmail is basically free to use** and only some advanced features need to be purchased.
 
@@ -1593,7 +1593,7 @@ For this reason there won't be discounts either.
 <a name="faq20"></a>
 **(20) Can I get a refund?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq20)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq20)
 
 If a purchased pro feature doesn't work as intended
 and this isn't caused by a problem in the free features
@@ -1608,7 +1608,7 @@ and I expect that you take responsibility for informing yourself of what you are
 <a name="faq21"></a>
 **(21) How do I enable the notification light?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq21)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq21)
 
 Before Android 8 Oreo: there is an advanced option in the notification settings of the app for this.
 
@@ -1632,7 +1632,7 @@ this is not a feasible solution for FairEmail because it would result in an unma
 <a name="faq22"></a>
 **(22) What does account/folder error ... mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq22)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq22)
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 
@@ -1852,7 +1852,7 @@ When in doubt, you can ask for [support](#get-support).
 <a name="faq23"></a>
 **(23) Why do I get alert ...?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq23)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq23)
 
 *General*
 
@@ -1893,7 +1893,7 @@ which means that effectively only half of the folder connections are available. 
 <a name="faq24"></a>
 **(24) What is browse messages on the server?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq24)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq24)
 
 Browse messages on the server will fetch messages from the email server in real time
 when you reach the end of the list of synchronized messages, even when the folder is set to not synchronize.
@@ -1904,7 +1904,7 @@ You can disable this feature in the advanced account settings.
 <a name="faq25"></a>
 **(25) Why can't I select/open/save an image, attachment or a file?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq25)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq25)
 
 When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*,
 the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present.
@@ -1948,7 +1948,7 @@ OneDrive doesn't support *view*, only *share*, which means that if you want to o
 <a name="faq26"></a>
 **(26) Can I help to translate FairEmail in my own language?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq26)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq26)
 
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email).
 Registration is free.
@@ -1961,7 +1961,7 @@ please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
 <a name="faq27"></a>
 **(27) How can I distinguish between embedded and external images?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq27)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq27)
 
 External image:
 
@@ -1982,7 +1982,7 @@ Note that downloading external images from a remote server can be used to record
 <a name="faq28"></a>
 **(28) How can I manage status bar notifications?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq28)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq28)
 
 In the notification settings you'll find a button *Manage notifications* to directly navigate to the Android notifications settings for FairEmail.
 
@@ -2011,7 +2011,7 @@ See [this FAQ](#faq21) if your device has a notification light.
 <a name="faq29"></a>
 **(29) How can I get new message notifications for other folders?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq29)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq29)
 
 Just long press a folder, select *Edit properties*,
 and enable either *Show in unified inbox*
@@ -2023,7 +2023,7 @@ and tap *Save*.
 <a name="faq30"></a>
 **(30) How can I use the provided quick settings?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq30)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq30)
 
 There are quick settings (settings tiles) available to:
 
@@ -2041,7 +2041,7 @@ Note that not all devices (manufacturers) support settings tiles, for example, R
 <a name="faq31"></a>
 **(31) How can I use the provided shortcuts?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq31)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq31)
 
 There are shortcuts available to compose a new message to a favorite contact.
 
@@ -2056,7 +2056,7 @@ by long pressing a folder in the folder list of an account and selecting *Add sh
 <a name="faq32"></a>
 **(32) How can I check if reading email is really safe?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq32)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq32)
 
 You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for this.
 
@@ -2065,7 +2065,7 @@ You can use the [Email Privacy Tester](https://www.emailprivacytester.com/) for 
 <a name="faq33"></a>
 **(33) Why are edited sender addresses not working?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq33)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq33)
 
 Most providers accept validated addresses only when sending messages to prevent spam.
 
@@ -2085,7 +2085,7 @@ Note that this is independent of receiving messages.
 <a name="faq34"></a>
 **(34) How are identities matched?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq34)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq34)
 
 Matched identities are used to select the correct (matched) identity when replying to a message.
 
@@ -2150,7 +2150,7 @@ Setting identity colors is a pro feature.
 <a name="faq35"></a>
 **(35) Why should I be careful with viewing images, attachments, the original message, and opening links?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq35)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq35)
 
 Viewing remotely stored images (see also [this FAQ](#faq27)) and opening links might not only tell the sender that you have seen the message,
 but will also leak your IP address.
@@ -2179,7 +2179,7 @@ You might need to reset the questions via a button in the miscellaneous-settings
 <a name="faq36"></a>
 **(36) How are settings files encrypted?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq36)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq36)
 
 Short version: AES 256 bit
 
@@ -2200,7 +2200,7 @@ Long version:
 <a name="faq37"></a>
 **(37) How are passwords stored?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq37)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq37)
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption),
 so all data, including usernames, passwords, messages, etc, is stored encrypted.
@@ -2214,7 +2214,7 @@ consider to use [user profiles](https://www.howtogeek.com/333484/how-to-set-up-m
 <a name="faq39"></a>
 **(39) How can I reduce the battery usage of FairEmail?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq39)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq39)
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
 **Confusingly, *app usage* is not the same as *battery usage* and is not even directly related to battery usage!**
@@ -2322,7 +2322,7 @@ However, the app can only receive push notifications if the email server sends t
 <a name="faq40"></a>
 **(40) How can I reduce the data usage of FairEmail?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq40)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq40)
 
 You can reduce the data usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
@@ -2351,7 +2351,7 @@ In case of POP3, you can reduce the maximum number of messages to download.
 <a name="faq41"></a>
 **(41) How can I fix the error 'Handshake failed'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq41)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq41)
 
 There are several possible causes, so please read to the end of this answer.
 
@@ -2405,7 +2405,7 @@ You can use [this website](https://ssl-tools.net/mailservers) or [this website](
 <a name="faq42"></a>
 **(42) Can you add a new provider to the list of providers?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq42)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq42)
 
 If the provider is used by more than a few people, yes, with pleasure.
 
@@ -2441,7 +2441,7 @@ See below about how to contact me.
 <a name="faq43"></a>
 **(43) Can you show the original ...?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq43)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq43)
 
 Show original, shows the original message as the sender has sent it, including original fonts, colors, margins, etc.
 FairEmail does and will not alter this in any way,
@@ -2453,7 +2453,7 @@ which will *attempt* to make small text more readable.
 <a name="faq44"></a>
 **~~(44) Can you show contact photos / identicons in the sent folder?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq44)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq44)
 
 ~~Contact photos and identicons are always shown for the sender because this is necessary for conversation threads.~~
 ~~Getting contact photos for both the sender and receiver is not really an option because getting contact photo is an expensive operation.~~
@@ -2463,7 +2463,7 @@ which will *attempt* to make small text more readable.
 <a name="faq45"></a>
 **(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq45)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq45)
 
 You'll get the message *This key is not available. To use it, you must import it as one of your own!*
 when trying to decrypt a message with a public key. To fix this you'll need to import the private key.
@@ -2473,7 +2473,7 @@ when trying to decrypt a message with a public key. To fix this you'll need to i
 <a name="faq46"></a>
 **(46) Why does the message list keep refreshing?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq46)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq46)
 
 If you see a 'spinner' at the top of the message list, the folder is still being synchronized with the remote server.
 You can see the progress of the synchronization in the folder list. See the legend in the navigation menu about what the icons and numbers mean.
@@ -2486,7 +2486,7 @@ Note that you shouldn't set the number of days to synchronize messages to more t
 <a name="faq47"></a>
 **(47) How do I solve the error 'No primary account or no drafts folder'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq47)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq47)
 
 You'll get the error message *No primary account or no drafts folder* when trying to compose a message
 while there is no account set to be the primary account or when there is no drafts folder selected for the primary account.
@@ -2504,7 +2504,7 @@ Please see [this FAQ](#faq141) for some more information.
 <a name="faq48"></a>
 **~~(48) How do I solve the error 'No primary account or no archive folder'?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq48)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq48)
 
 ~~You'll get the error message *No primary account or no archive folder* when searching for messages from another app.
 FairEmail needs to know where to search,
@@ -2515,7 +2515,7 @@ so you'll need to select one account to be the primary account and/or you'll nee
 <a name="faq49"></a>
 **(49) How do I fix 'An outdated app sent a file path instead of a file stream'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq49)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq49)
 
 You likely selected or sent an attachment or image with an outdated file manager
 or an outdated app which assumes all apps still have storage permissions.
@@ -2535,7 +2535,7 @@ and [what Google writes about it](https://developer.android.com/training/secure-
 <a name="faq50"></a>
 **(50) Can you add an option to synchronize all messages?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq50)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq50)
 
 You can synchronize more or even all messages by long pressing a folder (inbox) in the folder list of an account (tap on the account name in the navigation menu)
 and selecting *Synchronize more* in the popup menu.
@@ -2545,7 +2545,7 @@ and selecting *Synchronize more* in the popup menu.
 <a name="faq51"></a>
 **(51) How are folders sorted?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq51)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq51)
 
 Folders are first sorted on account order (by default on account name)
 and within an account with special, system folders on top, followed by folders set to synchronize.
@@ -2561,7 +2561,7 @@ can be used to manually order the folders.
 <a name="faq52"></a>
 **(52) Why does it take some time to reconnect to an account?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq52)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq52)
 
 There is no reliable way to know if an account connection was terminated gracefully or forcefully.
 Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems
@@ -2575,7 +2575,7 @@ You can long press *Settings* in the navigation menu to reconnect immediately.
 <a name="faq53"></a>
 **(53) Can you stick the message action bar to the top/bottom?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq53)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq53)
 
 The message action bar works on a single message and the bottom action bar works on all the messages in the conversation.
 Since there is often more than one message in a conversation, this is not possible.
@@ -2591,7 +2591,7 @@ This has a lot of advantages, but the also causes the need for message specific 
 <a name="faq54"></a>
 **~~(54) How do I use a namespace prefix?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq54)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq54)
 
 ~~A namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.~~
 
@@ -2608,7 +2608,7 @@ This has a lot of advantages, but the also causes the need for message specific 
 <a name="faq55"></a>
 **(55) How can I mark all messages as read / move or delete all messages?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq55)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq55)
 
 You can use multiple select for this.
 Long press the first message, don't lift your finger and slide down to the last message.
@@ -2619,7 +2619,7 @@ Then use the three dot action button to execute the desired action.
 <a name="faq56"></a>
 **(56) Can you add support for JMAP?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq56)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq56)
 
 There are almost no providers offering the [JMAP](https://jmap.io/) protocol,
 so it is not worth a lot of effort to add support for this to FairEmail.
@@ -2631,7 +2631,7 @@ Moreover, the only available [Java JMAP library](https://codeberg.org/iNPUTmice/
 <a name="faq57"></a>
 **(57) Can I use HTML in signatures?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq57)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq57)
 
 Yes, you can use [HTML](https://en.wikipedia.org/wiki/HTML).
 In the signature editor you can switch to HTML mode via the three-dots menu.
@@ -2665,7 +2665,7 @@ so it is better to resize images with an image editor first.
 <a name="faq58"></a>
 **(58) What does an open/closed email icon mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq58)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq58)
 
 The email icon in the folder list can be open (outlined) or closed (solid):
 
@@ -2682,7 +2682,7 @@ Message bodies and attachments are downloaded by default.
 <a name="faq59"></a>
 **(59) Can original messages be opened in the browser?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq59)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq59)
 
 For security reasons the files with the original message texts are not accessible to other apps, so this is not possible.
 In theory the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) could be used to share these files,
@@ -2693,7 +2693,7 @@ but even Google's Chrome cannot handle this.
 <a name="faq60"></a>
 **(60) Did you know ...?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq60)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq60)
 
 * Did you know that starred messages can be synchronized/kept always? (this can be enabled in the receive settings)
 * Did you know that you can long press the 'write message' icon to go to the drafts folder?
@@ -2730,7 +2730,7 @@ but even Google's Chrome cannot handle this.
 <a name="faq61"></a>
 **(61) Why are some messages shown dimmed?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq61)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq61)
 
 Messages shown dimmed (grayed) are locally moved messages for which the move is not confirmed by the server yet.
 This can happen when there is no connection to the server or the account (yet).
@@ -2748,7 +2748,7 @@ Pending [operations](#faq3) are shown in the operations view accessible from the
 <a name="faq62"></a>
 **(62) Which authentication methods are supported?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq62)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq62)
 
 The following authentication methods are supported and used in this order:
 
@@ -2773,7 +2773,7 @@ by [all supported Android versions](https://developer.android.com/training/artic
 <a name="faq63"></a>
 **(63) How are images resized for displaying on screens?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq63)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq63)
 
 You can add images to a message in two ways:
 
@@ -2799,7 +2799,7 @@ Automatically resizing of inline and/or attached images and the maximum target i
 <a name="faq64"></a>
 **~~(64) Can you add custom actions for swipe left/right?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq64)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq64)
 
 ~~The most natural thing to do when swiping a list entry left or right is to remove the entry from the list.~~
 ~~The most natural action in the context of an email app is moving the message out of the folder to another folder.~~
@@ -2820,7 +2820,7 @@ Automatically resizing of inline and/or attached images and the maximum target i
 <a name="faq65"></a>
 **(65) Why are some attachments shown dimmed?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq65)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq65)
 
 Inline (image) attachments are shown dimmed.
 [Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically,
@@ -2832,7 +2832,7 @@ FairEmail shows all attachment types. To distinguish inline and regular attachme
 <a name="faq66"></a>
 **(66) Is FairEmail available in the Google Play Family Library?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq66)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq66)
 
 "*You can't share in-app purchases and free apps with your family members.*"
 
@@ -2846,7 +2846,7 @@ In other words, only subscriptions can be shared and since there is no subscript
 <a name="faq67"></a>
 **(67) How can I snooze conversations?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq67)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq67)
 
 Multiple select one of more conversations (long press to start multiple selecting), tap the three dot button and select *Snooze ...*.
 Alternatively, in the expanded message view use *Snooze ...* in the message three-dots 'more' menu or the time-lapse action in the bottom action bar.
@@ -2870,7 +2870,7 @@ Third party apps do not have access to the Gmail snoozed messages folder.
 <a name="faq68"></a>
 **~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq68)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq68)
 
 ~~Adobe Acrobat reader and Microsoft apps still expects full access to all stored files,~~
 ~~while apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) since Android KitKat (2013)~~
@@ -2885,7 +2885,7 @@ Third party apps do not have access to the Gmail snoozed messages folder.
 <a name="faq69"></a>
 **(69) Can you add auto scroll up on new message?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq69)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq69)
 
 The message list is automatically scrolled up when navigating from a new message notification or after a manual refresh.
 Always automatically scrolling up on arrival of new messages would interfere with your own scrolling,
@@ -2896,7 +2896,7 @@ but if you like you can enable this in the settings.
 <a name="faq70"></a>
 **(70) When will messages be auto expanded?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq70)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq70)
 
 When navigation to a conversation one message will be auto expanded when:
 
@@ -2921,7 +2921,7 @@ Messages will automatically be marked read on expanding, unless this was disable
 <a name="faq71"></a>
 **(71) How do I use rules?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq71)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq71)
 
 You can edit rules by long pressing a folder in the folder list of an account (tap the account name in the navigation/side menu).
 
@@ -3295,7 +3295,7 @@ Using rules is a pro feature.
 <a name="faq72"></a>
 **(72) What are primary accounts/identities?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq72)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq72)
 
 The primary account is used when the account is ambiguous, for example when starting a new draft from the unified inbox.
 
@@ -3313,7 +3313,7 @@ You can go to the list of accounts via *Manual setup and account options* in the
 <a name="faq73"></a>
 **(73) Is moving messages across accounts safe/efficient?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq73)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq73)
 
 Moving messages across accounts is safe because the raw, original messages will be downloaded and moved
 and because the source messages will be deleted only after the target messages have been added
@@ -3326,7 +3326,7 @@ else FairEmail needs to connect to the folder(s) for each message.
 <a name="faq74"></a>
 **(74) Why do I see duplicate messages?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq74)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq74)
 
 Some providers, notably Gmail, list all messages in all folders, except trashed messages, in the archive (all messages) folder too.
 FairEmail shows all these messages in a non obtrusive way to indicate that these messages are in fact the same message.
@@ -3339,7 +3339,7 @@ This means that messages with multiple labels will be shown multiple times as we
 <a name="faq75"></a>
 **(75) Can you make an iOS, Windows, Linux, etc version?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq75)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq75)
 
 A lot of knowledge and experience is required to successfully develop an app for a specific platform,
 which is why I develop apps for Android only.
@@ -3351,7 +3351,7 @@ You can install FairEmail on recent Windows versions, though, see [here](#faq185
 <a name="faq76"></a>
 **(76) What does 'Clear local messages' do?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq76)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq76)
 
 The folder menu *Clear local messages* removes messages from the device which are present on the server too.
 It does not delete messages from the server.
@@ -3362,7 +3362,7 @@ This can be useful after changing the folder settings to not download the messag
 <a name="faq77"></a>
 **(77) Why are messages sometimes shown with a small delay?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq77)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq77)
 
 Depending on the speed of your device (processor speed and maybe even more memory speed) messages might be displayed with a small delay.
 FairEmail is designed to dynamically handle a large number of messages without running out of memory.
@@ -3383,7 +3383,7 @@ so there is little room for performance improvements.
 <a name="faq78"></a>
 **(78) How do I use schedules?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq78)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq78)
 
 In the receive settings you can enable scheduling and set a time period and the days of the week *when* messages should be *received*.
 
@@ -3496,7 +3496,7 @@ Scheduling is a pro feature.
 <a name="faq79"></a>
 **(79) How do I use synchronize on demand (manual)?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq79)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq79)
 
 Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time.
 If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings.
@@ -3515,7 +3515,7 @@ You'll likely want to disabled [browse on server](#faq24) too.
 <a name="faq80"></a>
 **~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq80)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq80)
 
 ~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~
 ~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
@@ -3527,7 +3527,7 @@ You'll likely want to disabled [browse on server](#faq24) too.
 <a name="faq81"></a>
 **(81) Can you make the background of the original message view dark in dark themes?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq81)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq81)
 
 The original message view will use a dark background when using a dark theme for Android version 10 and later.
 
@@ -3540,7 +3540,7 @@ The original message view will use a dark background when using a dark theme for
 <a name="faq82"></a>
 **(82) What is a tracking image?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq82)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq82)
 
 Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image is.
 In short, companies, organizations and even governments use tracking images to see if and when you opened a message.
@@ -3558,7 +3558,7 @@ Automatic recognition of tracking images can be disabled in the privacy-settings
 <a name="faq84"></a>
 **(84) What are local contacts for?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq84)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq84)
 
 Local contact information is based on names and addresses found in incoming and outgoing messages.
 
@@ -3578,7 +3578,7 @@ You can change this in the send settings.
 <a name="faq85"></a>
 **(85) Why is an identity not available?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq85)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq85)
 
 An identity is available for sending a new message or replying or forwarding an existing message only if:
 
@@ -3593,7 +3593,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <a name="faq86"></a>
 **~~(86) What are 'extra privacy features'?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq86)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq86)
 
 ~~The advanced option *extra privacy features* enables:~~
 
@@ -3605,7 +3605,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <a name="faq87"></a>
 **(87) What does 'invalid credentials' mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq87)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq87)
 
 The error message *invalid credentials* means either that the user name and/or password is incorrect,
 for example because the password was changed or expired, or that the account authorization has expired, for example due to logging out.
@@ -3624,7 +3624,7 @@ So, try to disable all VPN based apps or allow this address.
 <a name="faq88"></a>
 **(88) How can I use a Yahoo/AT&T, AOL or Sky account?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq88)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq88)
 
 A Yahoo account can only be configured using the quick setup wizard (=OAuth).
 Yahoo no longer allows users to log in using just an (app) password to access email.
@@ -3667,7 +3667,7 @@ Navigation menu (left side menu) ⟶ "Settings" ⟶ "Manual setup and account op
 <a name="faq89"></a>
 **(89) How can I send plain text only messages?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq89)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq89)
 
 By default FairEmail sends each message both as plain text and as HTML formatted text because almost every receiver expects formatted messages these days.
 If you want/need to send plain text only messages, you can enable this in the send options.
@@ -3679,7 +3679,7 @@ If you disabled the send dialog, you can long press the *Send* button to show it
 <a name="faq90"></a>
 **(90) Why are some texts linked while not being a link?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq90)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq90)
 
 FairEmail will automatically link not linked web links (http and https) and not linked email addresses (mailto) for your convenience.
 However, texts and links are not easily distinguished,
@@ -3697,7 +3697,7 @@ Note that original messages are shown exactly as they are, which means also that
 <a name="faq91"></a>
 **~~(91) Can you add periodical synchronization to save battery power?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq91)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq91)
 
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~
 ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
@@ -3709,7 +3709,7 @@ Note that original messages are shown exactly as they are, which means also that
 <a name="faq92"></a>
 **(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq92)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq92)
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers,
@@ -3787,7 +3787,7 @@ The sender might use [this tool](https://www.mail-tester.com/) to check authenti
 <a name="faq93"></a>
 **(93) Can you allow installation/data storage on external storage media (sdcard)?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq93)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq93)
 
 FairEmail uses services and alarms, provides widgets and listens for the boot completed event to be started on device start,
 so it is not possible to store the app on external storage media, like an sdcard.
@@ -3822,7 +3822,7 @@ You can change these settings by long pressing a folder in the folder list and s
 <a name="faq94"></a>
 **(94) What does the red/orange stripe at the end of the header mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq94)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq94)
 
 The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed.
 See also [this FAQ](#faq92).
@@ -3832,7 +3832,7 @@ See also [this FAQ](#faq92).
 <a name="faq95"></a>
 **(95) Why are not all apps shown when selecting an attachment or image?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq95)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq95)
 
 For privacy and security reasons FairEmail does not have permissions to directly access files,
 instead the Storage Access Framework, available and recommended since Android 4.4 KitKat (released in 2013), is used to select files.
@@ -3853,7 +3853,7 @@ See also [this FAQ](#faq25).
 <a name="faq96"></a>
 **(96) Where can I find the IMAP and SMTP settings?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq96)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq96)
 
 The IMAP settings are part of the (custom) account settings and the SMTP settings are part of the identity settings.
 
@@ -3862,7 +3862,7 @@ The IMAP settings are part of the (custom) account settings and the SMTP setting
 <a name="faq97"></a>
 **(97) What is 'cleanup'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq97)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq97)
 
 About each four hours FairEmail runs a cleanup job that:
 
@@ -3879,7 +3879,7 @@ Note that the cleanup job will only run when the synchronize service is active.
 <a name="faq98"></a>
 **(98) Why can I still pick contacts after revoking contacts permissions?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq98)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq98)
 
 After revoking contacts permissions Android does not allow FairEmail access to your contacts anymore.
 However, picking contacts is delegated to and done by Android and not by FairEmail, so this will still be possible without contacts permissions.
@@ -3889,7 +3889,7 @@ However, picking contacts is delegated to and done by Android and not by FairEma
 <a name="faq99"></a>
 **(99) What should I know about Markdown?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq99)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq99)
 
 FairEmail provides common text formatting (bold, italic, underline, text size and color, etc.) via a toolbar that appears after selecting some text.
 
@@ -3905,7 +3905,7 @@ Markdown is an experimental feature.
 <a name="faq100"></a>
 **(100) How can I synchronize Gmail categories?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq100)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq100)
 
 You can synchronize Gmail categories by creating filters to label categorized messages:
 
@@ -3934,7 +3934,7 @@ and you can long press the folders to enable synchronization.
 <a name="faq101"></a>
 **(101) What does the blue/orange dot at the bottom of the conversations mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq101)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq101)
 
 The dot shows the relative position of the conversation in the message list.
 The dot will be show orange when the conversation is the first or last in the message list, else it will be blue.
@@ -3947,7 +3947,7 @@ The dot is disabled by default and can be enabled with the display settings *Sho
 <a name="faq102"></a>
 **(102) How can I enable auto rotation of images?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq102)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq102)
 
 Images will automatically be rotated when automatic resizing of images is enabled in the settings (enabled by default).
 However, automatic rotating depends on the [Exif](https://en.wikipedia.org/wiki/Exif) information to be present and to be correct,
@@ -3960,7 +3960,7 @@ Note that only [JPEG](https://en.wikipedia.org/wiki/JPEG) and [PNG](https://en.w
 <a name="faq104"></a>
 **~~(104) What do I need to know about error reporting?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq104)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq104)
 
 Error reporting with Bugsnag was removed in version 1.2273.
 
@@ -3981,7 +3981,7 @@ Error reports have helped to find otherwise hard to find bugs and therefore impr
 <a name="faq105"></a>
 **(105) How does the roam-like-at-home option work?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq105)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq105)
 
 FairEmail will check if the country code of the SIM card and the country code of the network
 are in the [EU roam-like-at-home countries](https://en.wikipedia.org/wiki/European_Union_roaming_regulations#Territorial_extent)
@@ -3994,7 +3994,7 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <a name="faq106"></a>
 **(106) Which launchers can show a badge count with the number of unread messages?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq106)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq106)
 
 **Because badge counters are not supported by Android as released by Google, there are fewer and fewer devices that support badge counters.**
 
@@ -4047,7 +4047,7 @@ The number of new, unread messages will be in an integer "*count*" parameter.
 <a name="faq107"></a>
 **(107) How do I use colored stars?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq107)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq107)
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message),
 by long pressing a star in a conversation or automatically by using [rules](#faq71).
@@ -4064,7 +4064,7 @@ However, not all servers support IMAP keywords and besides that there are no sta
 <a name="faq108"></a>
 **~~(108) Can you add permanently delete messages from any folder?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq108)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq108)
 
 ~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~
 ~~You can permanently delete messages from the trash folder.~~
@@ -4075,7 +4075,7 @@ However, not all servers support IMAP keywords and besides that there are no sta
 <a name="faq109"></a>
 **~~(109) Why is 'select account' available in official versions only?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq109)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq109)
 
 ~~Using *select account* to select and authorize Google accounts require special permission from Google for security and privacy reasons.~~
 ~~This special permission can only be acquired for apps a developer manages and is responsible for.~~
@@ -4096,7 +4096,7 @@ However, not all servers support IMAP keywords and besides that there are no sta
 <a name="faq110"></a>
 **(110) Why are (some) messages empty and/or attachments corrupt?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq110)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq110)
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software.
 Older Microsoft Exchange software is known to cause this problem.
@@ -4114,7 +4114,7 @@ Disabling *Partial fetch* will result in more memory usage.
 <a name="faq111"></a>
 **(111) Is OAuth supported?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq111)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq111)
 
 OAuth for Gmail is supported via the quick setup wizard.
 ~~The Android account manager will be used to fetch and refresh OAuth tokens for selected on-device accounts.~~
@@ -4143,7 +4143,7 @@ After importing, you can use the quick setup wizard to configure an account.
 <a name="faq112"></a>
 **(112) Which email provider do you recommend?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq112)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq112)
 
 FairEmail is an email client only, so you need to bring your own email address.
 Note that this is clearly mentioned in the app description.
@@ -4166,7 +4166,7 @@ Using your own (custom) domain name, which is supported by most email providers,
 <a name="faq113"></a>
 **(113) How does biometric authentication work?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq113)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq113)
 
 If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the settings screen.
 When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running.
@@ -4184,7 +4184,7 @@ Biometric authentication is a pro feature.
 <a name="faq114"></a>
 **(114) Can you add an import for the settings of other email apps?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq114)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq114)
 
 The format of the settings files of most other email apps is not documented, so this is difficult.
 Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break.
@@ -4198,7 +4198,7 @@ Moreover, setting up an account/identity with the quick setup wizard is simple, 
 <a name="faq115"></a>
 **~~(115) Can you add email address chips?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq115)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq115)
 
 ~~Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited,~~
 ~~which is quite inconvenient when you made a typo in an email address.~~
@@ -4215,7 +4215,7 @@ Moreover, setting up an account/identity with the quick setup wizard is simple, 
 <a name="faq116"></a>
 **~~(116) How can I show images in messages from trusted senders by default?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq116)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq116)
 
 ~~You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.~~
 
@@ -4228,7 +4228,7 @@ Moreover, setting up an account/identity with the quick setup wizard is simple, 
 <a name="faq117"></a>
 **(117) How can I restore a purchase (on another device) ?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq117)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq117)
 
 Firstly, a purchase will be available on all devices logged into the same Google account,
 *if* (this is important!) the app is installed via the same Google account too.
@@ -4278,7 +4278,7 @@ mentioning the email address of the Google account used for the purchase.
 <a name="faq118"></a>
 **(118) What does 'Remove tracking parameters' exactly?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq118)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq118)
 
 Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
 
@@ -4287,7 +4287,7 @@ Checking *Remove tracking parameters* will remove all [UTM parameters](https://e
 <a name="faq119"></a>
 **~~(119) Can you add colors to the unified inbox widget?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq119)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq119)
 
 ~~The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.~~
 ~~This way the widget will nicely blend in, while still being properly readable.~~
@@ -4301,7 +4301,7 @@ Due to Android limitations it is not possible to dynamically set the opacity of 
 <a name="faq120"></a>
 **(120) Why are new message notifications not removed on opening the app?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq120)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq120)
 
 New message notifications will be removed on swiping notifications away or on marking the associated messages read.
 Opening the app will not remove new message notifications.
@@ -4318,7 +4318,7 @@ See [this FAQ](#faq70) about when messages in a conversation will be auto expand
 <a name="faq121"></a>
 **(121) How are messages grouped into a conversation?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq121)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq121)
 
 By default FairEmail groups messages in conversations. This can be turned of in the display settings.
 
@@ -4331,7 +4331,7 @@ because this could result in grouping unrelated messages and would be at the exp
 <a name="faq122"></a>
 **~~(122) Why is the recipient name/email address show with a warning color?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq122)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq122)
 
 ~~The recipient name and/or email address in the addresses section will be shown in a warning color~~
 ~~when the sender domain name and the domain name of the *to* address do not match.~~
@@ -4342,7 +4342,7 @@ because this could result in grouping unrelated messages and would be at the exp
 <a name="faq123"></a>
 **(123) What will happen when FairEmail cannot connect to an email server?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq123)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq123)
 
 If FairEmail cannot connect to an email server to synchronize messages,
 for example, if the internet connection is bad or a firewall or a VPN is blocking or aborting the connection,
@@ -4372,7 +4372,7 @@ In this case you can pull down the outbox to try again.
 <a name="faq124"></a>
 **(124) Why do I get 'Message too large or too complex to display'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq124)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq124)
 
 The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message.
 Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
@@ -4382,7 +4382,7 @@ Reformatting and displaying such messages will take too long. You can try to use
 <a name="faq125"></a>
 **(125) What are the current experimental features?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq125)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq125)
 
 Experimental features can be enabled in the miscellaneous-settings tab page.
 
@@ -4489,7 +4489,7 @@ Display a basic image editor when tapping an inserted image.
 <a name="faq126"></a>
 **(126) Can message previews be sent to my smartwatch?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq126)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq126)
 
 FairEmail fetches a message in two steps:
 
@@ -4529,7 +4529,7 @@ The workaround is to disable this notification, see [this FAQ](#faq2).
 <a name="faq127"></a>
 **(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq127)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq127)
 
 The error *... Syntactically invalid HELO argument(s) ...* means that the SMTP server rejected the local IP address or host name.
 You can likely fix this error by enabling or disabling the advanced identity option *Use local IP address instead of host name*.
@@ -4539,7 +4539,7 @@ You can likely fix this error by enabling or disabling the advanced identity opt
 <a name="faq128"></a>
 **(128) How can I reset asked questions, for example to show images?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq128)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq128)
 
 You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
 
@@ -4548,7 +4548,7 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 <a name="faq129"></a>
 **(129) Are ProtonMail, Tutanota, etc supported?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq129)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq129)
 
 **ProtonMail** uses a proprietary email protocol
 and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/),
@@ -4589,7 +4589,7 @@ so you cannot use FairEmail or any other email email client to access Atomic Mai
 <a name="faq130"></a>
 **(130) What does message error ... mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq130)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq130)
 
 If you don't understand an error, please [contact me](https://contact.faircode.eu/?product=fairemailsupport) for support.
 
@@ -4613,7 +4613,7 @@ Please see [here](#faq22) for other error messages.
 <a name="faq131"></a>
 **(131) Can you change the direction for swiping to previous/next message?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq131)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq131)
 
 If you read from left to right, swiping to the left will show the next message.
 Similarly, if you read from right to left, swiping to the right will show the next message.
@@ -4627,7 +4627,7 @@ Anyway, there is a behavior setting to reverse the swipe direction.
 <a name="faq132"></a>
 **(132) Why are new message notifications silent?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq132)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq132)
 
 Notifications are silent by default on some MIUI versions.
 Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
@@ -4644,7 +4644,7 @@ Android might rate limit the notification sound, which can cause some new messag
 <a name="faq133"></a>
 **(133) Why is ActiveSync &trade; not supported?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq133)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq133)
 
 The Microsoft Exchange ActiveSync &trade; protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and Microsoft doesn't give out licenses anymore.
 Therefore, it isn't possible to support ActiveSync &trade; anymore.
@@ -4658,7 +4658,7 @@ that non-standard protocols, like Microsoft Exchange Web Services &trade; and Mi
 <a name="faq134"></a>
 **(134) Can you add leave messages on the server?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq134)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq134)
 
 *POP3*
 
@@ -4691,7 +4691,7 @@ There is a button in the behavior settings to quickly configure the swipe left a
 <a name="faq135"></a>
 **(135) Why are trashed messages and drafts shown in conversations?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq135)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq135)
 
 Individual messages will rarely be trashed and mostly this happens by accident.
 Showing trashed messages in conversations makes it easier to find them back.
@@ -4707,7 +4707,7 @@ It is easy to read through the received messages before continuing to write the 
 <a name="faq136"></a>
 **(136) How can I delete an account/identity/folder?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq136)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq136)
 
 Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 
@@ -4722,7 +4722,7 @@ In the three-dots overflow menu at the top right there is an item to delete the 
 <a name="faq137"></a>
 **(137) How can I reset 'Don't ask again'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq137)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq137)
 
 You can reset all questions set to be not asked again in the miscellaneous settings.
 
@@ -4731,7 +4731,7 @@ You can reset all questions set to be not asked again in the miscellaneous setti
 <a name="faq138"></a>
 **(138) Can you add calendar/contact/tasks/notes management?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq138)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq138)
 
 Calendar, contact, task and note management can better be done by a separate, specialized app.
 Note that FairEmail is a specialized email app, not an office suite.
@@ -4756,7 +4756,7 @@ Note that FairEmail does support replying to calendar invites (a pro feature) an
 <a name="faq139"></a>
 **(139) How do I fix 'User is authenticated but not connected'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq139)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq139)
 
 <br>
 
@@ -4826,7 +4826,7 @@ Background: this error happens if logging in to an account succeeded (with OAuth
 <a name="faq140"></a>
 **(140) Why does the message text contain strange characters?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq140)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq140)
 
 Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software.
 FairEmail will assume [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)
@@ -4839,7 +4839,7 @@ so this cannot be fixed by FairEmail. The right action is to complain to the sen
 <a name="faq141"></a>
 **(141) How can I fix 'A drafts folder is required to send messages'?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq141)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq141)
 
 To store draft messages a drafts folder is required.
 In most cases FairEmail will automatically select the drafts folders on adding an account
@@ -4862,7 +4862,7 @@ Quick link for Gmail (will work on a desktop computer only): [https://mail.googl
 <a name="faq142"></a>
 **(142) How can I store sent messages in the inbox?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq142)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq142)
 
 Generally, it is not a good idea to store sent messages in the inbox because this is hard to undo and could be incompatible with other email clients.
 
@@ -4881,7 +4881,7 @@ or set a default CC or BCC address in the advanced identity settings (via the ma
 <a name="faq143"></a>
 **~~(143) Can you add a trash folder for POP3 accounts?~~**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq143)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq143)
 
 [POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) is a very limited protocol.
 Basically only messages can be downloaded and deleted from the inbox.
@@ -4900,7 +4900,7 @@ Note that trashing a message will permanently remove it from the server and that
 <a name="faq144"></a>
 **(144) How can I record voice notes?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq144)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq144)
 
 To record voice notes you can press this icon in the bottom action bar of the message composer:
 
@@ -4919,7 +4919,7 @@ Voice notes will automatically be attached.
 <a name="faq145"></a>
 **(145) How can I set a notification sound for an account, folder, sender or condition?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq145)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq145)
 
 **Note that Android 16 always groups notifications, which is a choice of Google and something the app can't change.**
 **Android 16 also [removed notification icon theming](https://www.reddit.com/r/android_beta/comments/1ks3nc5/android_16_qpr1_beta_1_removed_notification_icon/), which means account colors won't be shown anymore.**
@@ -4963,7 +4963,7 @@ Setting a notification sound for an account, folder or sender requires Android 8
 <a name="faq146"></a>
 **(146) How can I fix incorrect message times?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq146)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq146)
 
 Since the sent date/time is optional and can be manipulated by the sender, FairEmail uses the server received date/time by default.
 
@@ -4981,7 +4981,7 @@ To solve this, long press the folder(s) in the folder list and select *Delete lo
 <a name="faq147"></a>
 **(147) What should I know about third party versions?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq147)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq147)
 
 You likely came here because you are using a third-party build of FairEmail.
 
@@ -5029,7 +5029,7 @@ Instead, you can check the integrity of an APK file produced by a GitHub workflo
 <a name="faq148"></a>
 **(148) How can I use an Apple iCloud account?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq148)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq148)
 
 There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider).
 If needed you can find the right settings [here](https://support.apple.com/en-us/HT202304) to manually set up an account.
@@ -5045,7 +5045,7 @@ If you want to create an alias address, first configure the main account, and af
 <a name="faq149"></a>
 **(149) How does the unread message count widget work?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq149)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq149)
 
 The unread message count widget shows the number of unread messages either for all accounts or for a selected account,
 but only for the folders for which new message notifications are enabled.
@@ -5061,7 +5061,7 @@ Tapping on the notification will synchronize all folders for which synchronizati
 <a name="faq150"></a>
 **(150) Can you add cancelling calendar invites?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq150)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq150)
 
 Cancelling calendar invites (removing calendar events) requires write calendar permission,
 which will result in effectively granting permission to read and write *all* calendar events of *all* calendars.
@@ -5077,7 +5077,7 @@ Unfortunately, there exists no intent to delete existing calendar events.
 <a name="faq151"></a>
 **(151) Can you add backup/restore of messages?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq151)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq151)
 
 An email client is meant to read and write messages, not to back up and restore messages.
 In other words, an email client is a viewer for messages on an email server, and not a backup tool.
@@ -5104,7 +5104,7 @@ Note that in case of IMAP, all messages on your device are also on the email ser
 <a name="faq152"></a>
 **(152) How can I insert a contact group?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq152)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq152)
 
 You can insert the email addresses of all contacts in a contact group via the three dots menu of the message composer.
 You can also long press the person-add icon at the end of the to/cc/bcc/field.
@@ -5119,7 +5119,7 @@ If you want to send newsletters to many people, you should use a transaction ema
 <a name="faq153"></a>
 **(153) Why does permanently deleting Gmail message not work?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq153)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq153)
 
 ~~You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on a desktop browser to make it work:~~
 
@@ -5150,7 +5150,7 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 <a name="faq154"></a>
 **(154) Is there support for favicons as contact photos?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq154)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq154)
 
 Yes, favicons can be enabled in the display-settings tab page.
 
@@ -5179,7 +5179,7 @@ https://favicon.yandex.net/favicon/{domain}
 <a name="faq155"></a>
 **(155) What is a winmail.dat file?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq155)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq155)
 
 A *winmail.dat* file is sent by an incorrectly configured Outlook client.
 It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
@@ -5195,7 +5195,7 @@ You can view it with for example the Android app [Letter Opener](https://play.go
 <a name="faq156"></a>
 **(156) How can I set up an Office 365 account?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq156)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq156)
 
 An Office 365 account can be set up via the quick setup wizard and selecting *Office 365 (OAuth)*.
 
@@ -5211,7 +5211,7 @@ Please [see here](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-i
 <a name="faq157"></a>
 **(157) How can I set up an Free.fr account?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq157)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq157)
 
 Veuillez [voir ici](https://free.fr/assistance/597.html) pour les instructions.
 
@@ -5228,7 +5228,7 @@ Veuillez [voir ici](http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/confi
 <a name="faq158"></a>
 **(158) Which camera / audio recorder do you recommend?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq158)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq158)
 
 To take photos and to record audio a camera and an audio recorder app are needed.
 The following apps are open source cameras and audio recorders:
@@ -5248,7 +5248,7 @@ Oddly, most audio recorders seem not to support this standard Android action.
 <a name="faq159"></a>
 **(159) What are Disconnect's tracker protection lists?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq159)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq159)
 
 Please see [here](https://disconnect.me/trackerprotection) for more information about Disconnect's tracker protection lists.
 For the last updates, please [see here](https://github.com/disconnectme/disconnect-tracking-protection/commits).
@@ -5279,7 +5279,7 @@ please see [here](https://github.com/disconnectme/disconnect-tracking-protection
 <a name="faq160"></a>
 **(160) Can you add permanent deletion of messages without confirmation?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq160)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq160)
 
 Permanent deletion means that messages will *irreversibly* be lost, and to prevent this from happening accidentally, this always needs to be confirmed.
 Even with a confirmation, some very angry people who lost some of their messages through their own fault contacted me, which was a rather unpleasant experience :-(
@@ -5306,7 +5306,7 @@ In the debug panel, it is also possible to disable permanent delete confirmation
 <a name="faq161"></a>
 **(161) Can you add a setting to change the primary and accent color?***
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq161)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq161)
 
 If I could, I would add a setting to select the primary and accent color right away,
 but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
@@ -5316,7 +5316,7 @@ but unfortunately Android themes are fixed, see for example [here](https://stack
 <a name="faq162"></a>
 **(162) Is IMAP NOTIFY supported?***
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq162)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq162)
 
 Yes, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) has been supported since version 1.1413.
 
@@ -5333,7 +5333,7 @@ Synchronization for subscribed folders can therefore be disable, saving folder c
 <a name="faq163"></a>
 **(163) What is message classification?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq163)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq163)
 
 *This is an experimental feature!*
 
@@ -5403,7 +5403,7 @@ Message classification is a pro feature, except for the spam folder.
 <a name="faq164"></a>
 **(164) Can you add customizable themes?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq164)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq164)
 
 Unfortunately, Android [does not support](https://stackoverflow.com/a/26511725/1794097) dynamic themes,
 which means all themes need [to be predefined](https://github.com/M66B/FairEmail/blob/master/app/src/main/res/values/styles.xml).
@@ -5433,7 +5433,7 @@ the average color of the galaxies of the universe as perceived from the Earth
 <a name="faq165"></a>
 **(165) Is Android Auto supported?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq165)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq165)
 
 Yes, Android Auto is supported, but only with the GitHub version of the app
 because Google rejected the application of FairEmail for this reason:
@@ -5460,7 +5460,7 @@ The developers guide is [here](https://developer.android.com/training/cars/messa
 <a name="faq166"></a>
 **(166) Can I snooze a message across multiple devices?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq166)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq166)
 
 First of all, there is no standard for snoozing messages, so all snooze implementations are custom solutions.
 
@@ -5479,7 +5479,7 @@ Deleting messages from the server and restoring them later could result in losin
 <a name="faq167"></a>
 **(167) How can I use DeepL?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq167)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq167)
 
 DeepL offers free translation of 500,000 characters (~100,000 words; ~250 pages) every month.
 
@@ -5514,7 +5514,7 @@ It can't be financed with a one-time purchase by a fraction of a percent of the 
 <a name="faq168"></a>
 **(168) What is a spam block list?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq168)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq168)
 
 A spam block list is basically a list of domain names which have been used to send spam or to spread malware.
 
@@ -5550,7 +5550,7 @@ Since version 1.1627 it is possible to enable/disable individual blocklists in t
 <a name="faq169"></a>
 **(169) Why does the app not start automatically?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq169)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq169)
 
 FairEmail requests Android to start the app when the device starts up.
 Obviously, this depends on Android as the app cannot start itself.
@@ -5565,7 +5565,7 @@ For example for Huawei/EMUI, please [see here](https://dontkillmyapp.com/huawei)
 <a name="faq170"></a>
 **(170) Why can't folders be created with POP3?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq170)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq170)
 
 The POP3 protocol has commands to download and delete messages from the inbox only.
 There are no commands to access any other folder.
@@ -5602,7 +5602,7 @@ If your email provider only offers POP3 access, tell them the POP3 protocol is 4
 <a name="faq171"></a>
 **(171) How can I delete a contact?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq171)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq171)
 
 A contact can be stored in the Android address book or in the local contact database.
 
@@ -5621,7 +5621,7 @@ When a contact is stored in the local contact database, you can delete it like t
 <a name="faq172"></a>
 **(172) How can I import contacts?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq172)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq172)
 
 Like most Android apps, FairEmail consults the Android address book for contact information.
 
@@ -5651,7 +5651,7 @@ Related questions:
 <a name="faq173"></a>
 **(173) What is the difference between Play store / GitHub / F-Droid version?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq173)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq173)
 
 * The Play Store version does not support Android Auto, see [this FAQ](#faq165) for more information
 * The Play Store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in this Android version of Amazon
@@ -5687,7 +5687,7 @@ which may be necessary when more than 10-20 accounts are configured.
 <a name="faq174"></a>
 **(174) Is auto discovery supported?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq174)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq174)
 
 Yes, multiple methods of auto discovery are available.
 
@@ -5715,7 +5715,7 @@ There is no auto discovery for POP3.
 <a name="faq175"></a>
 **(175) Why should battery optimizations be disabled?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq175)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq175)
 
 If battery optimizations are enabled ([Doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)),
 Android will stop the app when it is running in the background, resulting in no more messages being sent and received in the background anymore.
@@ -5727,7 +5727,7 @@ Manufacturers also tweak Android rather often to stop apps in the background for
 <a name="faq176"></a>
 **(176) When will a message be considered safely transported?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq176)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq176)
 
 If the receive option *Check transport layer security (TLS)* is enabled,
 a green shield will be shown only if a message was transported securely by all servers.
@@ -5763,7 +5763,7 @@ Received: brown.elm.relay.mailchannels.net (brown.elm.relay.mailchannels.net. [2
 <a name="faq177"></a>
 **(177) What does 'Sensitivity' mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq177)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq177)
 
 The sensitivity of a message indicates the confidentiality of a message.
 
@@ -5780,7 +5780,7 @@ The sensitivity indication is sent as [a message header](https://datatracker.iet
 <a name="faq178"></a>
 **(178) Why are widgets not updating?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq178)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq178)
 
 Apps provide the layout and data for widgets on demand, but the homescreen app/launcher manages all widgets, with a little help from Android.
 
@@ -5792,7 +5792,7 @@ Please see [this video](https://www.youtube.com/watch?v=ywQrYJ6rtnM) about how t
 <a name="faq179"></a>
 **(179) What are reply templates?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq179)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq179)
 
 Reply templates are predefined answer texts. They can be defined via the main navigation menu (left side menu).
 
@@ -5822,7 +5822,7 @@ Since version 1.2068 it is possible to send a template message with an intent:
 <a name="faq180"></a>
 **(180) How do I use LanguageTool?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq180)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq180)
 
 LanguageTool integration needs to be enabled in the integration settings.
 
@@ -5845,7 +5845,7 @@ You can long press text to select a word, and add it to or remove it from the pe
 <a name="faq181"></a>
 **(181) How do I use VirusTotal?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq181)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq181)
 
 VirusTotal integration needs to be enabled in the integration settings and an API key needs to be entered.
 To get an API key, you'll need to sign up via the [VirusTotal website](https://www.virustotal.com/).
@@ -5863,7 +5863,7 @@ This feature was added in version 1.1942 and is available in non Play store vers
 <a name="faq182"></a>
 **(182) How can I select how a link should be opened?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq182)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq182)
 
 When clicking on a link, by default, a confirmation dialog will be shown.
 The available browser(s) will be listed and if a browser supports [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/), it will be listed twice,
@@ -5893,7 +5893,7 @@ Please see [this FAQ](#faq35) on why you should be careful when opening links.
 <a name="faq183"></a>
 **(183) How do I use Send?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq183)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq183)
 
 [Send](https://github.com/timvisee/send) is designed as temporary end-to-end encrypted file storage.
 Only people with a link to a file can download and decrypt a file.
@@ -5913,7 +5913,7 @@ Send is only available in non-Play Store versions of the app (since version 1.19
 <a name="faq184"></a>
 **(184) How do I password protect content?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq184)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq184)
 
 Password protected content is a simple, yet secure form of end-to-end encryption that requires no configuration.
 
@@ -5948,7 +5948,7 @@ Sending protected content is a pro feature, decrypting protected content is a fr
 <a name="faq185"></a>
 **(185) Can I install FairEmail on Windows?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq185)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq185)
 
 **Starting March 5, 2025, Windows Subsystem for Android™ and the Amazon Appstore are no longer available in the Microsoft Store.**
 
@@ -5976,7 +5976,7 @@ Amazon never responded to an issue reported about this.
 <a name="faq186"></a>
 **(186) How can I let the app auto store iCalendar invitations?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq186)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq186)
 
 * Install the [GitHub version](https://github.com/M66B/FairEmail/releases) of the app
 * Grant permissions via setup step 2 of the main settings screen
@@ -6003,7 +6003,7 @@ This is a pro feature.
 <a name="faq187"></a>
 **(187) Are colored stars synchronized across devices?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq187)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq187)
 
 Colored stars can't be stored on email servers because email protocols do not support this.
 In other words, the color of stars is stored on your device only, and won't be synchronized across devices.
@@ -6013,7 +6013,7 @@ In other words, the color of stars is stored on your device only, and won't be s
 <a name="faq188"></a>
 **(188) Why is Google backup disabled?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq188)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq188)
 
 ~~Google backup is disabled to prevent privacy-sensitive information, like account credentials and email addresses,~~
 ~~from [automatically being sent to Google](https://developer.android.com/guide/topics/data/autobackup).~~
@@ -6032,7 +6032,7 @@ In other words, the color of stars is stored on your device only, and won't be s
 <a name="faq189"></a>
 **(189) What is cloud sync?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq189)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq189)
 
 Cloud sync is meant to synchronize configuration data across devices.
 It can be used to restore configuration data onto a new device too.
@@ -6070,7 +6070,7 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 <a name="faq190"></a>
 **(190) How do I use OpenAI (ChatGPT)?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq190)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq190)
 
 OpenAI can only be used if configured and enabled.
 
@@ -6174,7 +6174,7 @@ This feature is experimental and requires version 1.2053 or later for the GitHub
 <a name="faq191"></a>
 **(191) How do I download and keep older messages on my device?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq191)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq191)
 
 You can download and keep older messages in the unified inbox folders by using *Fetch more messages* in the three-dots overflow menu of the start screen.
 For other folders, you can long press the folder in the folder list of the account (tap on the account name in the navigation menu = left side menu).
@@ -6201,7 +6201,7 @@ which is why there is a separate sync and keep window, and why the app checks me
 <a name="faq192"></a>
 **(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq192)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq192)
 
 This error message means that the app didn't receive a response from the email server of your email provider.
 The email server might not be responding, for example because it is offline for maintenance, or the response might not arrive, for example due to internet connectivity issues.
@@ -6216,7 +6216,7 @@ Email servers often block connections via a VPN, and in general from foreign cou
 <a name="faq193"></a>
 **(193) How can I import Outlook contacts?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq193)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq193)
 
 If there are one or more Outlook or Office 365 accounts configured,
 there will be a button in the main settings screen in setup step 2 to download Outlook contacts (since version 1.2076).
@@ -6235,7 +6235,7 @@ If you are looking to synchronize your Outlook contacts with the Android address
 <a name="faq194"></a>
 **(194) How can I set up automatic deletion of old messages?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq194)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq194)
 
 To set up automatic deletion of old messages:
 
@@ -6262,7 +6262,7 @@ You can also pull down the messages list of any folder to sync it, and repeat th
 <a name="faq195"></a>
 **(195) Why are all messages in the archive folder of Gmail?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq195)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq195)
 
 The Gmail server stores all messages, except the messages in the draft, sent, trash and spam messages folder in the all messages' folder (=archive folder).
 FairEmail is an email client, which basically displays what is on the email server, and therefore it will show these messages too.
@@ -6276,7 +6276,7 @@ This has advantages, though, because it makes searching in all messages easier.
 <a name="faq196"></a>
 **(196) Can you add empty trash on leaving the app?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq196)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq196)
 
 Besides that leaving an app is an ambiguous action, automatically deleting trashed messages is a risky action because deleted messages can't be restored anymore.
 A message could accidentally be trashed, and you could switch to another app, which could be interpreted as leaving the app, and the message would be gone forever.
@@ -6295,7 +6295,7 @@ Note that the reference time is the time the message was first stored on the dev
 <a name="faq197"></a>
 **(197) How can I print a message?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq197)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq197)
 
 You can print a message, both to a PDF or a printer, by tapping on the horizontal three-dots button just above the message text near the left side.
 You might need to tap on the '>' button to show the message actions again.
@@ -6313,7 +6313,7 @@ A message is printed as-is, which means that the sender of the message determine
 <a name="faq198"></a>
 **(198) Can you add spell checking?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq198)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq198)
 
 Spell checking should be provided by the keyboard app for all other apps.
 Sometimes, particularly on ChromeOS, spell checking needs to be enabled in the settings.
@@ -6325,7 +6325,7 @@ That said, LanguageTool, which can be enabled in the integration-settings tab, i
 <a name="faq199"></a>
 **(199) Can you add proxy support?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq199)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq199)
 
 In fact, (HTTP, HTTPS, SOCKS) proxy support was removed because it is not possible to let an app proxy DNS requests,
 or in other words, an in-app proxy will always leak host names and therefore give a false sense of security.
@@ -6340,7 +6340,7 @@ Please note that if you want to use a .onion address, you will need to disable p
 <a name="faq200"></a>
 **(200) How can I use Adguard to remove tracking parameters?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq200)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq200)
 
 To use [Adguard](https://adguard.com/) to remove tracking parameters from links:
 
@@ -6357,7 +6357,7 @@ visible as a short delay between tapping on a link and the link confirmation dia
 <a name="faq201"></a>
 **(201) What is certificate transparency?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq201)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq201)
 
 **Since version 1.2326 Certificate Transparency [as provided by Android 16 and later](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary) is always enabled in non Play Store builds**
 
@@ -6377,7 +6377,7 @@ FairEmail uses [this library](https://github.com/appmattus/certificatetransparen
 <a name="faq202"></a>
 **(202) What is DNSSEC and what is DANE?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq202)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq202)
 
 Please see [this Wikipedia article](https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions) about what DNSSEC is.
 
@@ -6416,7 +6416,7 @@ You can report issues [here](https://github.com/MiniDNS/minidns/issues).
 <a name="faq203"></a>
 **(203) Where is my sent message?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq203)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq203)
 
 When you write a message, it will be stored in the draft messages folder.
 
@@ -6440,7 +6440,7 @@ Basically, an outgoing message is either in the draft messages folder, the outbo
 <a name="faq204"></a>
 **(204) How do I use Gemini?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq204)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq204)
 
 **From version 1.2333 you should use the OpenAI integration with this URI: https://generativelanguage.googleapis.com/v1beta/openai/**
 
@@ -6479,7 +6479,7 @@ This feature is experimental and requires version 1.2171 or later for the GitHub
 <a name="faq205"></a>
 **(205) How do I check the integrity of an APK file?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq205)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq205)
 
 "*Artifact attestations enable you to create unfalsifiable provenance and integrity guarantees for the software you build.*
 *In turn, people who consume your software can verify where and how your software was built.*"
@@ -6504,7 +6504,7 @@ Attestation of APK files is available from version 1.2209.
 <a name="faq206"></a>
 **(206) How can I move or copy messages from one account to another?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq206)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq206)
 
 There are two options for this:
 
@@ -6518,7 +6518,7 @@ To copy a message to another account, long press the target folder.
 <a name="faq207"></a>
 **(207) What does 'Authentication failed' mean?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq207)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq207)
 
 Basically, '*Authentication failed*', or similar, means that the email server of your email provider doesn't accept the login (anymore).
 
@@ -6550,7 +6550,7 @@ So, please take care you use the correct host name when manually configuring an 
 <a name="faq208"></a>
 **(208) What does 'about:blank#blocked' mean when I click on a link?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq208)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq208)
 
 If you get '*about:blank#blocked*' when you click on a link, for some reason the installed browser has blocked the link.
 
@@ -6563,7 +6563,7 @@ You can probably workaround this by switching back to the reformatted message vi
 <a name="faq209"></a>
 **(209) Why is using a VPN often problematic?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq209)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq209)
 
 When you use a VPN, you share one network address with many people and not all those people will always behave nicely.
 Email servers often automatically block network addresses (IP addresses) when abuse is detected, for example when someone tries to send spam messages.
@@ -6575,7 +6575,7 @@ This is also why the app warns against using a VPN.
 <a name="faq210"></a>
 **(210) Why is local network permission needed?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq210)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23faq210)
 
 Since Android 17, [local network permission](https://developer.android.com/privacy-and-security/local-network-permission) is required for local network access (LAN access):
 
@@ -6598,7 +6598,7 @@ Added in version 1.2325.
 
 <h2><a name="get-support"></a>Get support</h2>
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23get-support)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FFAQ.md%23get-support)
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 

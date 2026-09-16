@@ -50,7 +50,7 @@ FairEmail **does not** send account information and message data elsewhere than 
 FairEmail **does not** allow other apps access to message data without your approval.
 
 FairEmail **does not** require unnecessary permissions.
-For more information on permissions, see [this FAQ](https://m66b.github.io/FairEmail/#faq1).
+For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq1).
 
 FairEmail **does** use modern and secure transport protocols by default.
 
@@ -60,7 +60,7 @@ FairEmail **does** follow the recommendations of [this EFF article](https://www.
 
 FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/FairEmail/blob/master/LICENSE).
 
-Error reporting via Bugsnag **is opt-in**, see [here](https://m66b.github.io/FairEmail/#faq104) for more information.
+Error reporting via Bugsnag **is opt-in**, see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq104) for more information.
 
 FairEmail **adheres** to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
 including the [Limited Use requirements](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes).
@@ -258,13 +258,13 @@ The sub-processors are:
 #### V. Permissions
 
 The app only requests permissions that are necessary for the expected behavior of an email app.
-For more information on permissions, see [this FAQ](https://m66b.github.io/FairEmail/#faq1).
+For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq1).
 
 #### VI. Logging
 
 The app does not send any log entries to the data processor by default.
 The error reporting system utilizes Bugsnag and is disabled by default.
-See [this FAQ](https://m66b.github.io/FairEmail/#faq104) for more information.
+See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq104) for more information.
 
 #### VII. Legal basis
 
