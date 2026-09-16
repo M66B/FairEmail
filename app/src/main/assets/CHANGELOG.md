@@ -30,9 +30,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2334 2026-09-16
+
 * Fixed all reported issues
 * Added drag and drop to address bubbles
 * Added *via*, *submitter*, *cc*, *bcc* and *replyto* to [expression conditions](https://m66b.github.io/FairEmail/#expression_conditions)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2333 2026-09-01
 
