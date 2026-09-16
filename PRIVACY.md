@@ -11,7 +11,7 @@
 
 This privacy policy will be updated as needed, such as when there are changes in the app or when regulations or laws change.
 
-Last update: **June 2, 2024**
+Last update: **September 16, 2026**
 
 <br />
 
