@@ -93,7 +93,7 @@ public class ExpressionHelper {
         List<String> via = new ArrayList<>();
         if (message != null && message.identity != null) try {
             DB db = DB.getInstance(context);
-            EntityIdentity identity = db.identity().getIdentity(message.id);
+            EntityIdentity identity = db.identity().getIdentity(message.identity);
             if (identity != null)
                 via.add(MessageHelper.formatAddresses(new Address[]{new InternetAddress(identity.email, identity.name)}));
         } catch (Throwable ex) {
