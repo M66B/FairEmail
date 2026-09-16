@@ -1144,7 +1144,8 @@ public class ApplicationEx extends Application
             editor.putInt("previous_version", version);
         editor.putInt("version", BuildConfig.VERSION_CODE);
 
-        if (prefs.getBoolean("gemini_enabled", false)) {
+        if (prefs.getBoolean("gemini_enabled", false) &&
+                TextUtils.isEmpty(prefs.getString("openai_apikey", null))) {
             // https://ai.google.dev/gemini-api/docs/openai
             editor.putBoolean("openai_enabled", true)
                     .putString("openai_apikey", prefs.getString("gemini_apikey", null))
