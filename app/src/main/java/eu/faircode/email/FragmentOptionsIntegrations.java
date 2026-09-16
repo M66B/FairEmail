@@ -952,6 +952,8 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
             etOpenAiModel.setText(prefs.getString("openai_model", null));
             etOpenAiModel.setEnabled(swOpenAi.isChecked());
+            ibOpenAiModel.setEnabled(swOpenAi.isChecked());
+            etOpenAiMaxTokens.setEnabled(swOpenAi.isChecked());
 
             int max_tokens = prefs.getInt("openai_max_tokens", 0);
             etOpenAiMaxTokens.setText(max_tokens > 0 ? Integer.toString(max_tokens) : "");
