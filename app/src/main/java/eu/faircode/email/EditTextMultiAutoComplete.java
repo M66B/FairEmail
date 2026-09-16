@@ -603,25 +603,28 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
             if (this == state.source && target >= sourceStart && target <= sourceEnd)
                 return true;
 
-            Editable source = state.source.getText();
-            source.removeSpan(state.span);
-            source.delete(sourceStart, sourceEnd);
-            if (this != state.source) {
-                state.source.invalidate();
-                state.source.post(state.source.update);
+            try {
+                Editable source = state.source.getText();
+                source.removeSpan(state.span);
+                source.delete(sourceStart, sourceEnd);
+                if (this != state.source) {
+                    state.source.invalidate();
+                    state.source.post(state.source.update);
+                }
+                if (this == state.source && target > sourceEnd)
+                    target -= sourceEnd - sourceStart;
+
+                target = Math.max(0, Math.min(target, edit.length()));
+                target = resolveDropBoundary(edit, target, null);
+            } finally {
+                String text = state.text;
+                int insertLength = text.length();
+                int spanLength = state.end - state.start;
+                edit.insert(target, text);
+                edit.setSpan(state.span, target, target + spanLength, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                setSelection(target + insertLength);
             }
-            if (this == state.source && target > sourceEnd)
-                target -= sourceEnd - sourceStart;
 
-            target = Math.max(0, Math.min(target, edit.length()));
-            target = resolveDropBoundary(edit, target, null);
-
-            String text = state.text;
-            int insertLength = text.length();
-            int spanLength = state.end - state.start;
-            edit.insert(target, text);
-            edit.setSpan(state.span, target, target + spanLength, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            setSelection(target + insertLength);
             invalidate();
             post(update);
 
