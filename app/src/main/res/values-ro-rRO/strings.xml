@@ -213,6 +213,7 @@
     <string name="title_setup_gmail_login">Dacă Chrome este conectat la un cont, un nou cont poate fi adăugat doar prin Android. Acest lucru poate fi evitat prin deconectarea de la Chrome prin intermediul setărilor de sincronizare Chrome.</string>
     <string name="title_setup_gmail_max">În cazul în care apare mesajul de eroare \"V-ați conectat la numărul maxim de conturi\", trebuie să vă deconectați din browser de la toate conturile Google.</string>
     <string name="title_setup_outlook_hint">În cazul unei adrese alias, probabil ar trebui folosit expertul Office 365.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft vă poate cere să configurați o Passkey. Acest lucru este mai puțin simplu pe un dispozitiv mobil, așa că luați în considerare omiterea sau anularea acestui pas opțional.</string>
     <string name="title_setup_outlook_modern">Din cauza modificărilor politicilor de securitate ale Microsoft, începând cu 16 septembrie 2024, doar asistentul Outlook/Hotmail/Live va funcționa.</string>
     <string name="title_setup_gmail_on_device">De ce trebuie să selectez un cont pe dispozitiv?</string>
     <string name="title_setup_gmail_password">Vreau să autorizez un cont cu o parolă în loc de un cont pe dispozitiv</string>
@@ -359,6 +360,7 @@
     <string name="title_check_gmail_password">Este posibil ca unele dintre conturile tale de Gmail să nu mai funcționeze după 30 mai 2022</string>
     <string name="title_check_outlook_oauth">Conturile dvs. Outlook vor continua să funcționeze după 16 septembrie 2024</string>
     <string name="title_check_outlook_password">Unele dintre conturile dvs. Outlook/Hotmail/Live nu vor mai funcționa după 16 septembrie 2024</string>
+    <string name="title_check_gmx">Trebuie să vă actualizați contul GMX cu o parolă de aplicație înainte de 24 septembrie 2026.</string>
     <string name="title_advanced_hint_title">Opțiuni și mai avansate</string>
     <string name="title_advanced_hint_message">        Navigați la opțiunile mai avansate.        Toate opțiunile au utilizat în mod obișnuit valori standard, pe care nu trebuie să o schimbați decât dacă aveți o preferință diferită.
     </string>
@@ -834,6 +836,7 @@
     <string name="title_advanced_send">Integrarea \'Trimite\'</string>
     <string name="title_advanced_openai">Integrarea OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_max_tokens">Număr maxim de token-uri (lăsaţi necompletat pentru nelimitat)</string>
     <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderarea conținutului</string>
     <string name="title_advanced_gemini">Integrarea Gemini</string>
@@ -1040,6 +1043,7 @@
     <string name="title_account_gmail">Pentru sincronizarea fiabilă a unui cont Google, asistentul de configurare rapidă Gmail trebuie utilizat ori de câte ori este posibil</string>
     <string name="title_domain">Nume domeniu</string>
     <string name="title_autoconfig">Obține setări</string>
+    <string name="title_lan_required">Permisiunea de rețea locală este necesară</string>
     <string name="title_aliases">Aliasuri</string>
     <string name="title_provider">Furnizor</string>
     <string name="title_custom">Personalizat</string>
@@ -1055,6 +1059,7 @@
     <string name="title_notify_remark">Puteți activa aceasta pentru notificări specifice contului</string>
     <string name="title_port">Număr port</string>
     <string name="title_user">Nume utilizator</string>
+    <string name="title_user_hint">De obicei adresa principală de e-mail</string>
     <string name="title_password">Parolă</string>
     <string name="title_password_storage">Cum sunt stocate parolele?</string>
     <string name="title_case_sensitive">Numele de utilizator și parolele sunt de obicei sensibile la majuscule</string>
@@ -1215,6 +1220,7 @@
     <string name="title_show_flagged">Arată numărul de mesaje cu stea</string>
     <string name="title_subscribed_only">Doar abonat</string>
     <string name="title_sort_unread_atop">Sortează necitite în partea de sus</string>
+    <string name="title_sort_sync">Sortează după sincronizare</string>
     <string name="title_search_folder">Căutare folder</string>
     <string name="title_apply_to_all">Aplică la toate</string>
     <string name="title_edit_account_name">Editează numele contului</string>
@@ -1349,6 +1355,7 @@
     <string name="title_quick_actions_snooze">Amână</string>
     <string name="title_quick_actions_clear">Ștergeți selecția după acțiune</string>
     <string name="title_trash">Gunoi</string>
+    <string name="title_trash_conversation">Șterge conversația</string>
     <string name="title_trash_selection">Selecție gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
     <string name="title_copy_to">Copiază în &#8230;</string>
@@ -1634,7 +1641,9 @@
     <string name="title_charset_auto">Automat</string>
     <string name="title_alternative_text">Încărcați text simplu</string>
     <string name="title_alternative_html">Încărcați HTML</string>
+    <string name="title_no_openpgp">Furnizorul OpenPGP nu a fost găsit</string>
     <string name="title_no_openpgp_remark">Criptarea în ambele părți trebuie să fie configurată mai întâi</string>
+    <string name="title_user_interaction">Transferul către furnizorul OpenPGP</string>
     <string name="title_padlock">Folosiți lacătul pentru a decripta mesajul</string>
     <string name="title_signed_data">Verificați semnătura pentru a afișa textul mesajului</string>
     <string name="title_not_encrypted">Mesajul nu este semnat sau criptat</string>
@@ -2017,6 +2026,7 @@
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_airplane">Modul Avion este activat</string>
     <string name="title_hint_vpn_active">VPN activ</string>
+    <string name="title_hint_vpn_settings">Listă VPN</string>
     <string name="title_hint_notifications">Nu există permisiuni de notificare</string>
     <string name="title_hint_notifications_remark">Permisiunile de notificare sunt necesare și pentru alerte (cont). Notificările pentru mesaje noi pot fi dezactivate în setări.</string>
     <string name="title_hint_battery_optimizations">Optimizările bateriei sunt încă activate</string>

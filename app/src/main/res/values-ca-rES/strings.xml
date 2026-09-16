@@ -15,6 +15,11 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="app_cake_required">Emmagatzematge mínim necessari: %1$s</string>
     <string name="app_updated">Darrera actualització: %1$s</string>
     <string name="app_download">Descarregat de: %1$s</string>
+    <string name="app_error">Molts missatges d\'error venen per causes externes (xarxa, servidor, etc.) o són provocades per una configuració, sovint no estàndard, incorrecta. Una ressenya dolenta no solucionarà els problemes. Si demaneu suport, sempre serà més efectiu.</string>
+    <string name="app_motd">
+Amb Android 14/15 beta, de vegades apareix la notificació \'App not responding\'
+Google està treballant per solucionar-ho.
+Si us plau, no culpeu l\'aplicació d\'aquest problema d\'Android!    </string>
     <string name="channel_service">Seguiment</string>
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Correu electrònic</string>
@@ -64,6 +69,10 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         <item quantity="one">%1$d nou</item>
         <item quantity="other">%1$d noves</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Moure %1$d missatge?</item>
+        <item quantity="other">Moure %1$d missatges?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Esborrar el missatge %1$d per sempre?</item>
         <item quantity="other">Esborrar els missatges %1$d per sempre?</item>
@@ -87,6 +96,9 @@ Ambdues opcions es poden desactivar si es desitja.</string>
         Bloquejar un domini de remitent fa servir normes de filtre, que és una funció pro.
     </string>
     <string name="title_blocked_senders">Remitents bloquejats</string>
+    <string name="title_unblock_all">Desbloquejar-los tots</string>
+    <string name="title_unblock_all_remark">Això restablirà totes les llistes i opcions que podrien provocar el bloqueig dels remitents</string>
+    <string name="title_unblock_all_hint">Tingueu en compte que l\'aplicació no pot impedir que el servidor de correu mogui els missatges a la carpeta de correu brossa!</string>
     <string name="title_junk_filter">Utilitza el filtre local d\'SPAM</string>
     <string name="title_junk_filter_hint">Açò pot incrementar l\'ús de bateria i marcar missatges com a correu brossa incorrectament</string>
     <string name="title_junk_blocklist">Fes servir llistes de bloqueig de correu brossa</string>

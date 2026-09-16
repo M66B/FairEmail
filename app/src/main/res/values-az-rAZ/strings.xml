@@ -199,6 +199,7 @@
     <string name="title_setup_gmail_login">Chrome bir hesabda giriş edibsə, yeni hesab yalnız Android üzərindən əlavə edilə bilər. Chrome sinxr. ayarları vasitəsilə Chrome-dan çıxış edilərək bunun qarşısı alına bilər.</string>
     <string name="title_setup_gmail_max">\"Maksimum sayda hesaba daxil olmusunuz\" xəta mesajını aldıqda, brauzerin bütün Google hesablarından çıxış etməlisiniz.</string>
     <string name="title_setup_outlook_hint">Ləqəb ünvanı halında, Office 365 sehrbazı istifadə edilməlidir.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft sizdən Keçid açarı qurmağınızı istəyə bilər. Mobil cihazda bu proses bir qədər mürəkkəb ola bilər, ona görə bu addımı ötürməyi və ya ləğv etməyi seçə bilərsiniz.</string>
     <string name="title_setup_outlook_modern">Microsoft-un təhlükəsizlik siyasətlərindəki dəyişikliklərə görə 16 sentyabr 2024-cü ildən etibarən yalnız Outlook/Hotmail/Live sehrbazları işləyəcək.</string>
     <string name="title_setup_gmail_on_device">Niyə bir cihaz hesabı seçməliyəm?</string>
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
@@ -346,6 +347,7 @@
     <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
     <string name="title_check_outlook_oauth">Outlook hesablarınız 16 Sentyabr 2024-cü il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_outlook_password">Outlook/Hotmail/Live hesablarınızdan bəziləri 16 sentyabr 2024-cü il tarixindən etibarən işləməyi dayandıracaq</string>
+    <string name="title_check_gmx">24 sentyabr 2026-cı il tarixindən əvvəl GMX hesabınızı bir parol ilə güncəlləməlisiniz.</string>
     <string name="title_advanced_hint_title">Daha çox qabaqcıl seçimlər</string>
     <string name="title_advanced_hint_message">        Daha qabaqcıl seçimlərə gedirsiniz.
         Bütün seçimlər, fərqli bir tərcihiniz olmadığı müddətcə dəyişdirməyinizə ehtiyac olmayan və geniş istifadə olunan standart dəyərlərə sahibdir.
@@ -592,7 +594,7 @@
     <string name="title_advanced_preview_italic">Mesaj önbaxışını \"italic\" göstər</string>
     <string name="title_advanced_preview_lines">Önbaxış sətir sayı</string>
     <string name="title_advanced_align_header">Açar sözləri, önbaxış mətnlərini və qeydləri şaquli hizala</string>
-    <string name="title_advanced_addresses">Ünvan təfsilatlarını ilkin olaraq göstər</string>
+    <string name="title_advanced_addresses">Ünvan ayrıntılarını ilkin olaraq göstər</string>
     <string name="title_advanced_hide_attachments">Qoşmaları ilkin olaraq yığcamlaşdır</string>
     <string name="title_advanced_unzip">Sıxışdırılmış qoşmaların məzmunlarını göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
@@ -824,6 +826,7 @@
     <string name="title_advanced_send">\'Send\' inteqrasiyası</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) inteqrasiyası</string>
     <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_max_tokens">Maksimum token (limitsiz üçün boş buraxın)</string>
     <string name="title_advanced_openai_temperature">Hərarət: %1$s</string>
     <string name="title_advanced_openai_moderation">Məzmun moderasiyası</string>
     <string name="title_advanced_gemini">Gemini inteqrasiyası</string>
@@ -943,7 +946,7 @@
     <string name="title_advanced_bcc_hint">Ünvan göstərilməyəcək, ancaq göndərişə əlavə ediləcək</string>
     <string name="title_advanced_envelope_from_hint">Bu ünvan SMTP MAIL FROM üçün istifadə ediləcək</string>
     <string name="title_advanced_internal_hint">Başqa bir domenə göndəriləndə bir xəbərdarlıq olacaq</string>
-    <string name="title_advanced_uri">Seçilmiş kontaktın detalları vCard qoşmaları üçün istifadə olunacaq</string>
+    <string name="title_advanced_uri">Seçilmiş kontaktın ayrıntıları vCard qoşmaları üçün istifadə olunacaq</string>
     <string name="title_advanced_e2e_encryption">Bir ucdan digər uca kimi şifrələmə üçün seçimlər</string>
     <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, məxfiliyiniz üçün zərərli ola bilər</string>
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
@@ -2164,7 +2167,7 @@
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>
     <string name="title_debug_info_issue">Problem açıqlaması (tələb olunur)</string>
-    <string name="title_debug_info_issue_remark">Problemin təxmini müddəti, tam xəta mesajı və sair kimi detallar vacibdir</string>
+    <string name="title_debug_info_issue_remark">Problemin təxmini müddəti, tam xəta mesajı və sair kimi ayrıntılar vacibdir</string>
     <string name="title_debug_info_contact">Təzəlikcə bu problemlə bağlı əlaqə saxladıq</string>
     <string name="title_debug_info_send">Dərhal göndər</string>
     <string name="title_debug_info_send_remark">Normalda sazlama məlumatı əvvəlcə qaralama mesajı olaraq saxlanılır, beləliklə nəyin göndəriləcəyini seçə bilərsiniz</string>

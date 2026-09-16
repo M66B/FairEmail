@@ -198,7 +198,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_gmail_login">Als Chrome is aangemeld bij een account, kan een nieuwe account alleen via Android worden toegevoegd. Dit kan worden voorkomen door uit te loggen uit Chrome via de Chrome synchronisatie-instellingen.</string>
     <string name="title_setup_gmail_max">In het geval van de foutmelding \"U bent aangemeld bij het maximale aantal accounts\", moet de browser worden uitgelogd van alle Google-accounts.</string>
     <string name="title_setup_outlook_hint">In het geval van een alias adres moet waarschijnlijk de Office 365 wizard worden gebruikt.</string>
-    <string name="title_setup_outlook_passkey_hint">Microsoft vraagt ​​je mogelijk om een ​​toegangssleutel (Passkey) in te stellen. Dit is op een mobiel apparaat minder eenvoudig, dus overweeg om deze optionele stap over te slaan of te annuleren.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft vraagt u mogelijk om een ​​toegangssleutel (Passkey) in te stellen. Dit is op een mobiel apparaat minder eenvoudig, dus overweeg om deze optionele stap over te slaan of te annuleren.</string>
     <string name="title_setup_outlook_modern">Door wijzigingen in het beveiligingsbeleid van Microsoft werkt vanaf 16 september 2024 alleen nog de wizard Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Waarom moet ik een account op het apparaat selecteren?</string>
     <string name="title_setup_gmail_password">Ik wil een account autoriseren met een wachtwoord in plaats van een account op het apparaat</string>
