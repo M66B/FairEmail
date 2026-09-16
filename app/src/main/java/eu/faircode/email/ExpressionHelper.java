@@ -37,7 +37,9 @@ import com.ezylang.evalex.operators.InfixOperator;
 import com.ezylang.evalex.parser.ASTNode;
 import com.ezylang.evalex.parser.ParseException;
 import com.ezylang.evalex.parser.Token;
+import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.Option;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -705,11 +707,15 @@ public class ExpressionHelper {
 
                     String path = operands[1].getStringValue();
 
+                    Configuration jconfig = Configuration.defaultConfiguration()
+                            .addOptions(Option.ALWAYS_RETURN_LIST);
                     if (array != null && !array.isEmpty() && !TextUtils.isEmpty(path))
                         for (EvaluationValue item : array) {
                             String value = item.getStringValue();
                             if (!TextUtils.isEmpty(value)) {
-                                result = JsonPath.read(value, path);
+                                result = JsonPath.using(jconfig)
+                                        .parse(value)
+                                        .read(path);
                                 break;
                             }
                         }
