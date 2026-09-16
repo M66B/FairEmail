@@ -600,6 +600,10 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
             int sourceStart = state.start;
             int sourceEnd = state.tokenEnd;
+
+            if (sourceStart > state.source.length() || sourceEnd > state.source.length())
+                return true;
+
             if (this == state.source && target >= sourceStart && target <= sourceEnd)
                 return true;
 
