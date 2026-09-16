@@ -150,7 +150,7 @@ public class OpenAI {
         JSONObject jquestion = new JSONObject();
         jquestion.put("model", model);
         if (max_tokens > 0)
-            jquestion.put("max_tokens", max_tokens);
+            jquestion.put("max_completion_tokens", max_tokens);
         jquestion.put("messages", jmessages);
         if (temperature != null)
             jquestion.put("temperature", temperature);
