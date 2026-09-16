@@ -379,6 +379,16 @@ public class FragmentOAuth extends FragmentBase {
                 String name = etName.getText().toString().trim();
                 String email = etEmail.getText().toString().trim();
 
+                if (EntityAccount.isTestAccount(email)) {
+                    EntityAccount.createTestUser(this, email, new Runnable() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    });
+                    return;
+                }
+
                 if (TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(getString(R.string.title_no_name));
 

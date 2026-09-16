@@ -26,9 +26,11 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -561,6 +563,66 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 return collator.compare(name1, name2);
             }
         };
+    }
+
+    static boolean isTestAccount(String user) {
+        return (user != null && user.endsWith("@demo.faircode.eu"));
+    }
+
+    static EntityAccount getTestAccount(String user) {
+        EntityAccount account = new EntityAccount();
+        account.name = "Test account";
+        account.host = "";
+        account.port = 0;
+        account.encryption = 0;
+        account.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+        account.user = user;
+        account.password = "";
+        account.synchronize = false;
+        account.primary = false;
+        return account;
+    }
+
+    static void createTestUser(Fragment fragment, String user, Runnable ready) {
+        Bundle args = new Bundle();
+        args.putString("user", user);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                String user = args.getString("user");
+                boolean sync = "test2".equals(UriHelper.getEmailUser(user));
+                DB db = DB.getInstance(context);
+                EntityAccount account = EntityAccount.getTestAccount(user);
+                account.synchronize = sync;
+                account.id = db.account().insertAccount(account);
+                if (sync) {
+                    EntityFolder folder = new EntityFolder();
+                    folder.account = account.id;
+                    folder.name = "Inbox";
+                    folder.type = EntityFolder.INBOX;
+                    folder.synchronize = false;
+                    folder.sync_days = EntityFolder.DEFAULT_SYNC;
+                    folder.keep_days = EntityFolder.DEFAULT_KEEP;
+                    db.folder().insertFolder(folder);
+
+                    folder.name = context.getString(R.string.title_folder_local_drafts);
+                    folder.type = EntityFolder.DRAFTS;
+                    folder.local = true;
+                    db.folder().insertFolder(folder);
+                }
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ready.run();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+            }
+        }.execute(fragment, args, "dummy");
     }
 
     @NonNull

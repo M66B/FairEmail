@@ -792,6 +792,16 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void onCheck() {
+        if (EntityAccount.isTestAccount(etUser.getText().toString())) {
+            EntityAccount.createTestUser(this, etUser.getText().toString(), new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            });
+            return;
+        }
+
         int encryption;
         if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls)
             encryption = EmailService.ENCRYPTION_STARTTLS;

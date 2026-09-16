@@ -21,9 +21,12 @@ package eu.faircode.email;
 
 import static androidx.room.ForeignKey.CASCADE;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -453,6 +456,49 @@ public class EntityIdentity {
 
     String getDisplayName() {
         return (display == null ? name : display);
+    }
+
+    static EntityIdentity getTestAccount(Long account, String user) {
+        EntityIdentity identity = new EntityIdentity();
+        identity.account = account;
+        identity.name = "Test identity";
+        identity.email = user;
+        identity.host = "";
+        identity.port = 0;
+        identity.encryption = 0;
+        identity.auth_type = ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+        identity.user = user;
+        identity.password = "";
+        identity.synchronize = true;
+        identity.primary = false;
+        return identity;
+    }
+
+    static void createTestUser(Fragment fragment, long account, String user, Runnable ready) {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+        args.putString("user", user);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long account = args.getLong("account");
+                String user = args.getString("user");
+                DB db = DB.getInstance(context);
+                EntityIdentity identity = EntityIdentity.getTestAccount(account, user);
+                identity.id = db.identity().insertIdentity(identity);
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ready.run();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+            }
+        }.execute(fragment, args, "dummy");
     }
 
     @NonNull

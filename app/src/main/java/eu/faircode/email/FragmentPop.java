@@ -473,6 +473,16 @@ public class FragmentPop extends FragmentBase {
     }
 
     private void onSave(boolean should) {
+        if (EntityAccount.isTestAccount(etUser.getText().toString())) {
+            EntityAccount.createTestUser(this, etUser.getText().toString(), new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            });
+            return;
+        }
+
         Bundle args = new Bundle();
         args.putLong("id", id);
 

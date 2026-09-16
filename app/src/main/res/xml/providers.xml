@@ -864,7 +864,7 @@
             starttls="false" /-->
         <!-- No OAuth/POP3 support -->
         <oauth
-            askAccount="false"
+            askAccount="true"
             authorizationEndpoint="https://oauth.mail.ru/login"
             clientId="ce54d27dc1574b3a8b50e6789cd1a44a"
             clientSecret="5f1525783e1d4defb3bc9c2c4b7d0c54"

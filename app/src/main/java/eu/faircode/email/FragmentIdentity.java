@@ -785,6 +785,16 @@ public class FragmentIdentity extends FragmentBase {
     private void onSave(boolean should) {
         EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
 
+        if (account != null && EntityAccount.isTestAccount(etUser.getText().toString())) {
+            EntityIdentity.createTestUser(this, account.id, etUser.getText().toString(), new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            });
+            return;
+        }
+
         String name = etName.getText().toString();
         if (TextUtils.isEmpty(name)) {
             CharSequence hint = etName.getHint();

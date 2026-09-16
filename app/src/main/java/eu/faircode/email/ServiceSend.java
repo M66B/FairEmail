@@ -672,6 +672,11 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             throw new IllegalArgumentException("Message body missing");
 
         EntityAccount account = db.account().getAccount(message.account);
+        if (EntityAccount.isTestAccount(account.user)){
+            db.operation().deleteOperation(operation.id);
+            db.message().deleteMessage(message.id);
+            return;
+        }
 
         EntityIdentity ident = db.identity().getIdentity(message.identity);
         if (ident == null)
