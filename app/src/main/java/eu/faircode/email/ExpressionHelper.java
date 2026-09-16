@@ -693,7 +693,7 @@ public class ExpressionHelper {
         @Override
         public EvaluationValue evaluate(
                 Expression expression, Token operatorToken, EvaluationValue... operands) {
-            String result = null;
+            Object result = null;
 
             try {
                 if (operands.length == 2) {
