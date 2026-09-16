@@ -865,16 +865,12 @@ public class MessageHelper {
 
     static String replacePlaceholders(String address, EntityMessage message, EntityIdentity identity) throws UnsupportedEncodingException {
         if (hasPlaceholder(address)) {
-            Address from = getFrom(message, identity);
-            if (from instanceof InternetAddress) {
-                String email = ((InternetAddress) from).getAddress();
+            if (message.from != null &&
+                    message.from.length == 1 &&
+                    message.from[0] instanceof InternetAddress) {
+                String email = ((InternetAddress) message.from[0]).getAddress();
                 String user = UriHelper.getEmailUser(email);
                 String domain = UriHelper.getEmailDomain(email);
-                if (message.extra != null) {
-                    Pair<String, String> extra = getExtra(email, message.extra);
-                    if (extra.second != null)
-                        email = extra.second;
-                }
                 address = address
                         .replace("$from$", email)
                         .replace("$user$", user)
