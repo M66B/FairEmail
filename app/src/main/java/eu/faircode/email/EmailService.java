@@ -908,49 +908,46 @@ public class EmailService implements AutoCloseable {
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             iservice = isession.getStore(protocol);
-            if (!EntityAccount.isTestUser(user))
-                iservice.connect(address.getHostAddress(), port, user, null);
+            iservice.connect(address.getHostAddress(), port, user, null);
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol) || "gimaps".equals(protocol)) {
             iservice = isession.getStore(protocol);
             if (listener != null)
                 ((IMAPStore) iservice).addStoreListener(listener);
-            if (!EntityAccount.isTestUser(user)) {
-                iservice.connect(address.getHostAddress(), port, user, null);
+            iservice.connect(address.getHostAddress(), port, user, null);
 
-                // https://www.ietf.org/rfc/rfc2971.txt
-                IMAPStore istore = (IMAPStore) getStore();
-                if (istore.hasCapability("ID"))
-                    try {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean client_id = prefs.getBoolean("client_id", true);
-                        Map<String, String> sid = istore.id(client_id ? getId(context) : null);
-                        if (sid != null) {
-                            Map<String, String> crumb = new HashMap<>();
-                            for (String key : sid.keySet()) {
-                                crumb.put(key, sid.get(key));
-                                EntityLog.log(context, EntityLog.Type.Protocol, "Server " + key + "=" + sid.get(key));
-                            }
-                            Log.breadcrumb("server", crumb);
+            // https://www.ietf.org/rfc/rfc2971.txt
+            IMAPStore istore = (IMAPStore) getStore();
+            if (istore.hasCapability("ID"))
+                try {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean client_id = prefs.getBoolean("client_id", true);
+                    Map<String, String> sid = istore.id(client_id ? getId(context) : null);
+                    if (sid != null) {
+                        Map<String, String> crumb = new HashMap<>();
+                        for (String key : sid.keySet()) {
+                            crumb.put(key, sid.get(key));
+                            EntityLog.log(context, EntityLog.Type.Protocol, "Server " + key + "=" + sid.get(key));
                         }
-                    } catch (MessagingException ex) {
-                        Log.w(ex);
-                        // Check for 'User is authenticated but not connected'
-                        if (require_id)
-                            throw ex;
+                        Log.breadcrumb("server", crumb);
                     }
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                    // Check for 'User is authenticated but not connected'
+                    if (require_id)
+                        throw ex;
+                }
 
-                // Verizon
-                // https://senders.yahooinc.com/developer/documentation/#imap-modes-limited
-                // https://www.ietf.org/archive/id/draft-melnikov-imap-uidonly-00.html
-                // https://answers.microsoft.com/en-us/outlook_com/forum/all/why-is-an-imap-inbox-only-displaying-10000-items/6d15de5f-9047-4b41-9b58-1d8345bbd002
-                if (false && istore.hasCapability("X-UIDONLY") && istore.hasCapability("ENABLE"))
-                    try {
-                        istore.enable("X-UIDONLY");
-                    } catch (ProtocolException ex) {
-                        Log.e(ex);
-                    }
-            }
+            // Verizon
+            // https://senders.yahooinc.com/developer/documentation/#imap-modes-limited
+            // https://www.ietf.org/archive/id/draft-melnikov-imap-uidonly-00.html
+            // https://answers.microsoft.com/en-us/outlook_com/forum/all/why-is-an-imap-inbox-only-displaying-10000-items/6d15de5f-9047-4b41-9b58-1d8345bbd002
+            if (false && istore.hasCapability("X-UIDONLY") && istore.hasCapability("ENABLE"))
+                try {
+                    istore.enable("X-UIDONLY");
+                } catch (ProtocolException ex) {
+                    Log.e(ex);
+                }
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
             // https://tools.ietf.org/html/rfc5321#section-4.1.3
@@ -962,23 +959,22 @@ public class EmailService implements AutoCloseable {
             Log.i("Using localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
 
             iservice = isession.getTransport(protocol);
-            if (!EntityAccount.isTestUser(user))
-                try {
-                    iservice.connect(address.getHostAddress(), port, user, null);
-                } catch (MessagingException ex) {
-                    if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
-                        properties.put("mail." + protocol + ".localhost", useip ? hdomain : haddr);
-                        Log.i("Fallback localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
-                        try {
-                            iservice.connect(address.getHostAddress(), port, user, null);
-                        } catch (MessagingException ex1) {
-                            if (ConnectionHelper.isSyntacticallyInvalid(ex1))
-                                Log.e("Used localhost=" + haddr + "/" + hdomain);
-                            throw ex1;
-                        }
-                    } else
-                        throw ex;
-                }
+            try {
+                iservice.connect(address.getHostAddress(), port, user, null);
+            } catch (MessagingException ex) {
+                if (ehlo == null && ConnectionHelper.isSyntacticallyInvalid(ex)) {
+                    properties.put("mail." + protocol + ".localhost", useip ? hdomain : haddr);
+                    Log.i("Fallback localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
+                    try {
+                        iservice.connect(address.getHostAddress(), port, user, null);
+                    } catch (MessagingException ex1) {
+                        if (ConnectionHelper.isSyntacticallyInvalid(ex1))
+                            Log.e("Used localhost=" + haddr + "/" + hdomain);
+                        throw ex1;
+                    }
+                } else
+                    throw ex;
+            }
         } else
             throw new NoSuchProviderException(protocol);
     }

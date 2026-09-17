@@ -116,6 +116,13 @@ public class EntityOperation {
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
 
+        EntityAccount account = db.account().getAccount(message.account);
+        if (account != null && account.isTestAccount()) {
+            if (DELETE.equals(name) || SEND.equals(name))
+                db.message().deleteMessage(message.id);
+            return;
+        }
+
         try {
             JSONArray jargs = new JSONArray();
             for (Object value : values)
@@ -124,7 +131,6 @@ public class EntityOperation {
             if (SEEN.equals(name)) {
                 boolean seen = jargs.getBoolean(0);
                 boolean ignore = jargs.optBoolean(1, true);
-                EntityAccount account = db.account().getAccount(message.account);
                 for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
                     if ((account != null && !account.isGmail() && !account.isWebDe()) &&
                             !Objects.equals(message.id, similar.id) &&
@@ -141,7 +147,6 @@ public class EntityOperation {
             } else if (FLAG.equals(name)) {
                 boolean flagged = jargs.getBoolean(0);
                 Integer color = (jargs.length() > 1 && !jargs.isNull(1) ? jargs.getInt(1) : null);
-                EntityAccount account = db.account().getAccount(message.id);
                 for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
                     if ((account != null && !account.isGmail()) &&
                             !Objects.equals(message.id, similar.id) &&
@@ -164,7 +169,6 @@ public class EntityOperation {
                 return;
 
             } else if (ANSWERED.equals(name)) {
-                EntityAccount account = db.account().getAccount(message.id);
                 for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
                     if ((account != null && !account.isGmail()) &&
                             !Objects.equals(message.id, similar.id) &&
@@ -206,7 +210,6 @@ public class EntityOperation {
                                 DB.Converters.fromStringArray(fkeywords.toArray(new String[0])));
                     }
                 } else {
-                    EntityAccount account = db.account().getAccount(message.account);
                     if (account != null && account.protocol == EntityAccount.TYPE_POP) {
                         EntityFolder folder = db.folder().getFolder(message.folder);
                         if (folder != null) {
@@ -320,7 +323,6 @@ public class EntityOperation {
                                 " auto read=" + autoread + " flag=" + autounflag + " importance=" + reset_importance);
 
                 if (autoread || autounflag || reset_importance) {
-                    EntityAccount account = db.account().getAccount(message.account);
                     for (EntityMessage similar : db.message().getMessagesBySimilarity(message.account, message.id, message.msgid, message.hash)) {
                         if ((account != null && !account.isGmail()) &&
                                 !Objects.equals(message.id, similar.id) &&
@@ -343,7 +345,6 @@ public class EntityOperation {
 
                 boolean premove = true;
                 if (source.account.equals(target.account)) {
-                    EntityAccount account = db.account().getAccount(message.account);
                     if (account != null && account.isGmail()) {
                         if (EntityFolder.ARCHIVE.equals(source.type) &&
                                 !(EntityFolder.SENT.equals(target.type) ||
@@ -539,8 +540,6 @@ public class EntityOperation {
             } else if (DELETE.equals(name)) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-
-                EntityAccount account = db.account().getAccount(message.account);
 
                 if (perform_expunge ||
                         account == null ||

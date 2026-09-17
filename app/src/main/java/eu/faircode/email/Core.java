@@ -167,11 +167,6 @@ class Core {
             State state, long serial)
             throws JSONException, FolderClosedException {
         try {
-            if (EntityAccount.isTestUser(account.user)) {
-                ops.clear();
-                return;
-            }
-
             Log.i(folder.name + " start process");
 
             Store istore = iservice.getStore();

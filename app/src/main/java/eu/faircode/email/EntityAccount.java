@@ -565,6 +565,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
         };
     }
 
+    boolean isTestAccount() {
+        return isTestUser(this.user);
+    }
+
     static boolean isTestUser(String user) {
         return (user != null && user.endsWith("@demo.faircode.eu"));
     }
