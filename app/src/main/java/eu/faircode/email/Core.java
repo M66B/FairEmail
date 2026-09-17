@@ -167,7 +167,7 @@ class Core {
             State state, long serial)
             throws JSONException, FolderClosedException {
         try {
-            if (EntityAccount.isTestAccount(account.user)) {
+            if (EntityAccount.isTestUser(account.user)) {
                 ops.clear();
                 return;
             }

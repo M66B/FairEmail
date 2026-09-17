@@ -458,7 +458,7 @@ public class EntityIdentity {
         return (display == null ? name : display);
     }
 
-    static EntityIdentity getTestAccount(Long account, String user) {
+    static EntityIdentity getTestIdentity(Long account, String user) {
         EntityIdentity identity = new EntityIdentity();
         identity.account = account;
         identity.name = "Test identity";
@@ -474,7 +474,7 @@ public class EntityIdentity {
         return identity;
     }
 
-    static void createTestUser(Fragment fragment, long account, String user, Runnable ready) {
+    static void createTestIdentity(Fragment fragment, long account, String user, Runnable ready) {
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putString("user", user);
@@ -485,7 +485,7 @@ public class EntityIdentity {
                 long account = args.getLong("account");
                 String user = args.getString("user");
                 DB db = DB.getInstance(context);
-                EntityIdentity identity = EntityIdentity.getTestAccount(account, user);
+                EntityIdentity identity = EntityIdentity.getTestIdentity(account, user);
                 identity.id = db.identity().insertIdentity(identity);
                 return null;
             }

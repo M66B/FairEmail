@@ -565,7 +565,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         };
     }
 
-    static boolean isTestAccount(String user) {
+    static boolean isTestUser(String user) {
         return (user != null && user.endsWith("@demo.faircode.eu"));
     }
 
@@ -583,7 +583,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return account;
     }
 
-    static void createTestUser(Fragment fragment, String user, Runnable ready) {
+    static void createTestAccount(Fragment fragment, String user, Runnable ready) {
         Bundle args = new Bundle();
         args.putString("user", user);
 

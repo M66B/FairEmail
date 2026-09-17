@@ -908,14 +908,14 @@ public class EmailService implements AutoCloseable {
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             iservice = isession.getStore(protocol);
-            if (!EntityAccount.isTestAccount(user))
+            if (!EntityAccount.isTestUser(user))
                 iservice.connect(address.getHostAddress(), port, user, null);
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol) || "gimaps".equals(protocol)) {
             iservice = isession.getStore(protocol);
             if (listener != null)
                 ((IMAPStore) iservice).addStoreListener(listener);
-            if (!EntityAccount.isTestAccount(user)) {
+            if (!EntityAccount.isTestUser(user)) {
                 iservice.connect(address.getHostAddress(), port, user, null);
 
                 // https://www.ietf.org/rfc/rfc2971.txt
@@ -962,7 +962,7 @@ public class EmailService implements AutoCloseable {
             Log.i("Using localhost=" + properties.getProperty("mail." + protocol + ".localhost"));
 
             iservice = isession.getTransport(protocol);
-            if (!EntityAccount.isTestAccount(user))
+            if (!EntityAccount.isTestUser(user))
                 try {
                     iservice.connect(address.getHostAddress(), port, user, null);
                 } catch (MessagingException ex) {
