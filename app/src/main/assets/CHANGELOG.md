@@ -30,7 +30,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
-### 1.2336 2026-09-17
+### 1.2337 2026-09-16
+
+* Added demo accounts to comply with Play Store policies
+
+### 1.2336 2026-09-16
 
 * Fixed bugs in new features
 * Small improvements and minor bug fixes
