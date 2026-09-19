@@ -231,7 +231,7 @@
     <string name="title_setup_documentation">Please see your email provider\'s documentation for the correct email server configuration</string>
     <string name="title_setup_account_remark">Receive email</string>
     <string name="title_setup_identity_remark">Send email</string>
-    <string name="title_setup_account_identity_hint">You can configure the name, color and swipe actions in the account settings, and configure a signature in the identity settings</string>
+    <string name="title_setup_account_identity_hint">You can configure a name, color, and swipe actions in the account settings, and configure a signature and default CC or BCC addresses in the identity settings.</string>
     <string name="title_setup_accounts">Accounts</string>
     <string name="title_setup_identities">Identities</string>
     <string name="title_setup_gmail" translatable="false">Gmail</string>
