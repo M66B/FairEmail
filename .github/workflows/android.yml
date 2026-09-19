@@ -57,7 +57,7 @@ jobs:
     - name: Check with Lint
       run: ./gradlew --no-daemon --max-workers=1 --no-build-cache --no-configuration-cache lintGithubRelease
     - name: Build with Gradle
-      run: ./gradlew --no-daemon --max-workers=1 --no-build-cache --no-configuration-cache assembleGithubRelease assembleLargeRelease assemblePlayRelease
+      run: ./gradlew --no-daemon --max-workers=1 -XX:ActiveProcessorCount=1 --no-build-cache --no-configuration-cache assembleGithubRelease assembleLargeRelease assemblePlayRelease
     #https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
     #https://github.com/actions/attest-build-provenance
     - name: Generate artifact attestation
