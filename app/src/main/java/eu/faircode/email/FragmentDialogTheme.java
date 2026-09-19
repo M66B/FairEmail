@@ -71,6 +71,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean solarized = (checkedId == R.id.rbThemeSolarized);
         boolean blank = (checkedId == R.id.rbThemeBlank);
         boolean bw = (checkedId == R.id.rbThemeBlackOrWhite);
+        boolean bandw = (checkedId == R.id.rbThemeBlackAndWhite);
         boolean mono = (checkedId == R.id.rbThemeYouMono);
         boolean you = (checkedId == R.id.rbThemeYou || mono);
         boolean colored = (grey || bw || solarized || you ||
@@ -88,7 +89,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
 
         swBlack.setEnabled(colored && !grey && !bw && !solarized && optionId != R.id.rbThemeLight);
-        swBeige.setEnabled(cards && optionId != R.id.rbThemeDark);
+        swBeige.setEnabled(cards && !bandw && !solarized && optionId != R.id.rbThemeDark);
 
         swHtmlLight.setEnabled(colored ? optionId != R.id.rbThemeLight : !blank);
         swComposerLight.setEnabled(colored ? optionId != R.id.rbThemeLight : !blank);
