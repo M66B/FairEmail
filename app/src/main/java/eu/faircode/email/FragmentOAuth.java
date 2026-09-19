@@ -379,7 +379,7 @@ public class FragmentOAuth extends FragmentBase {
                 String name = etName.getText().toString().trim();
                 String email = etEmail.getText().toString().trim();
 
-                if (EntityAccount.isTestUser(email)) {
+                if (EntityAccount.isTestUser(getContext(), email)) {
                     EntityAccount.createTestAccount(this, email, new Runnable() {
                         @Override
                         public void run() {

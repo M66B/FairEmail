@@ -792,7 +792,7 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void onCheck() {
-        if (EntityAccount.isTestUser(etUser.getText().toString())) {
+        if (EntityAccount.isTestUser(getContext(), etUser.getText().toString())) {
             EntityAccount.createTestAccount(this, etUser.getText().toString(), new Runnable() {
                 @Override
                 public void run() {

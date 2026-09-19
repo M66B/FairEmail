@@ -425,7 +425,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         EntityAccount account = db.account().getAccount(browsable.account);
-        if (account == null || account.protocol != EntityAccount.TYPE_IMAP || account.isTestAccount())
+        if (account == null || account.protocol != EntityAccount.TYPE_IMAP || account.isTestAccount(context))
             return 0;
 
         if (criteria == null) {

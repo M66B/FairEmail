@@ -458,8 +458,8 @@ public class EntityIdentity {
         return (display == null ? name : display);
     }
 
-    boolean isTestIdentity() {
-        return EntityAccount.isTestUser(this.user);
+    boolean isTestIdentity(Context context) {
+        return EntityAccount.isTestUser(context, this.user);
     }
 
     static EntityIdentity getTestIdentity(Long account, String user) {

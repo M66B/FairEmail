@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -565,12 +566,27 @@ public class EntityAccount extends EntityOrder implements Serializable {
         };
     }
 
-    boolean isTestAccount() {
-        return isTestUser(this.user);
+    boolean isTestAccount(Context context) {
+        return isTestUser(context, this.user);
     }
 
-    static boolean isTestUser(String user) {
-        return (user != null && user.endsWith("@demo.faircode.eu"));
+    private static final String DEMO_DOMAIN_SHA256 = "6aa5aef252c27578aa36a14b06d3ba612fe39d054705a7282c77ee78ce276fc4";
+
+    static boolean isTestUser(Context context, String user) {
+        String domain = UriHelper.getEmailDomain(user);
+        if (TextUtils.isEmpty(domain))
+            return false;
+        try {
+            boolean demo = DEMO_DOMAIN_SHA256.equals(Helper.sha256(domain));
+            if (demo && context != null) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                prefs.edit().putBoolean("pro", true).apply();
+            }
+            return demo;
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static EntityAccount getTestAccount(String user) {

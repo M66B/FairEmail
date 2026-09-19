@@ -785,7 +785,7 @@ public class FragmentIdentity extends FragmentBase {
     private void onSave(boolean should) {
         EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
 
-        if (account != null && EntityAccount.isTestUser(etUser.getText().toString())) {
+        if (account != null && EntityAccount.isTestUser(getContext(), etUser.getText().toString())) {
             EntityIdentity.createTestIdentity(this, account.id, etUser.getText().toString(), new Runnable() {
                 @Override
                 public void run() {

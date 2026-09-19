@@ -1631,7 +1631,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         final PowerManager.WakeLock wlMessage = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id + ".message");
 
-        if (account != null && account.isTestAccount())
+        if (account != null && account.isTestAccount(this))
             return;
 
         long start = new Date().getTime();

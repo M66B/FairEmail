@@ -117,7 +117,7 @@ public class EntityOperation {
         DB db = DB.getInstance(context);
 
         EntityAccount account = db.account().getAccount(message.account);
-        if (account != null && account.isTestAccount()) {
+        if (account != null && account.isTestAccount(context)) {
             if (DELETE.equals(name) || SEND.equals(name))
                 db.message().deleteMessage(message.id);
             return;
