@@ -55,6 +55,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private RadioGroup rgThemeOptions;
     private TextView tvSystem;
     private SwitchCompat swBlack;
+    private SwitchCompat swBeige;
     private SwitchCompat swHtmlLight;
     private SwitchCompat swComposerLight;
     private Button btnMore;
@@ -62,6 +63,9 @@ public class FragmentDialogTheme extends FragmentDialogBase {
     private Group grpDebug;
 
     private void eval() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean cards = prefs.getBoolean("cards", true);
+
         int checkedId = rgTheme.getCheckedRadioButtonId();
         boolean grey = (checkedId == R.id.rbThemeGrey);
         boolean solarized = (checkedId == R.id.rbThemeSolarized);
@@ -84,6 +88,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         tvSystem.setEnabled(colored && optionId == R.id.rbThemeSystem);
 
         swBlack.setEnabled(colored && !grey && !bw && !solarized && optionId != R.id.rbThemeLight);
+        swBeige.setEnabled(cards && optionId != R.id.rbThemeDark);
 
         swHtmlLight.setEnabled(colored ? optionId != R.id.rbThemeLight : !blank);
         swComposerLight.setEnabled(colored ? optionId != R.id.rbThemeLight : !blank);
@@ -111,6 +116,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         rgThemeOptions = dview.findViewById(R.id.rgThemeOptions);
         tvSystem = dview.findViewById(R.id.tvSystem);
         swBlack = dview.findViewById(R.id.swBlack);
+        swBeige = dview.findViewById(R.id.swBeige);
         swHtmlLight = dview.findViewById(R.id.swHtmlLight);
         swComposerLight = dview.findViewById(R.id.swComposerLight);
         btnMore = dview.findViewById(R.id.btnMore);
@@ -156,6 +162,13 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             }
         });
 
+        swBeige.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                eval();
+            }
+        });
+
         boolean reversed =
                 (theme.contains("reversed") ||
                         theme.startsWith("orange_blue") ||
@@ -164,6 +177,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean dark = (theme.endsWith("dark") || theme.equals("black"));
         boolean system = (theme.endsWith("system") || theme.endsWith("system_black"));
         boolean black = (!"black".equals(theme) && theme.endsWith("black"));
+        boolean beige = prefs.getBoolean("beige", true);
 
         swReverse.setChecked(reversed);
 
@@ -175,6 +189,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
             rgThemeOptions.check(R.id.rbThemeLight);
 
         swBlack.setChecked(black);
+        swBeige.setChecked(beige);
         swHtmlLight.setChecked(default_light);
         swComposerLight.setChecked(composer_light);
 
@@ -380,6 +395,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
                                                 (black ? "_black" : dark ? "_dark" : "_light")).apply();
                         }
 
+                        editor.putBoolean("beige", swBeige.isChecked());
                         editor.putBoolean("default_light", swHtmlLight.isChecked());
                         editor.putBoolean("composer_light", swComposerLight.isChecked());
 
