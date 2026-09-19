@@ -243,6 +243,7 @@
         <item name="colorUnreadHighlight">@color/lightYellowAccent</item>
 
         <item name="colorFabBackground">@color/lightYellowAccent</item>
+        <item name="colorFabForeground">@color/black</item>
 
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/lightPurplePrimary</item>
@@ -335,6 +336,7 @@
         <item name="colorUnreadHighlight">@color/darkYellowAccent</item>
 
         <item name="colorFabBackground">@color/darkYellowAccent</item>
+        <item name="colorFabForeground">@color/black</item>
 
         <item name="colorInfoForeground">@color/white</item>
         <item name="colorInfoBackground">@color/darkPurplePrimary</item>
