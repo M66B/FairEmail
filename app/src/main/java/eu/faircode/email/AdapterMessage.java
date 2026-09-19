@@ -2176,7 +2176,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             List<EntityAttachment> attachments = (attachments_alt
                     ? new ArrayList<>() : properties.getAttachments(message.id));
-            bindAttachments(message, attachments, false);
+            bindAttachments(message, attachments, false, false);
 
             // Actions
             vSeparator.setVisibility(View.VISIBLE);
@@ -2308,7 +2308,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             (inlineImages > lastInlineImages && (show_images || inline)))
                         bindBody(message, false);
 
-                    bindAttachments(message, attachments, true);
+                    bindAttachments(message, attachments, true, true);
 
                     if (!scroll)
                         properties.ready(message.id);
@@ -2354,7 +2354,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
 
                     if (!attachments_alt && bind)
-                        bindAttachments(message, data.attachments, false);
+                        bindAttachments(message, data.attachments, false, false);
 
                     boolean hasInbox = false;
                     boolean hasArchive = false;
@@ -3768,7 +3768,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ? View.VISIBLE : View.INVISIBLE);
         }
 
-        private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments, boolean bind_extras) {
+        private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments,
+                                     boolean bind_extras, boolean bind_media) {
             if (attachments == null)
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
@@ -3848,31 +3849,33 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (calendar != null && bind_extras)
                 bindCalendar(message, calendar);
 
-            int iavailable = 0;
-            List<EntityAttachment> media = new ArrayList<>();
-            if (thumbnails && !EntityFolder.JUNK.equals(message.folderType) && bind_extras) {
-                for (EntityAttachment attachment : attachments) {
-                    String type = attachment.getMimeType();
-                    if ((pdf_preview && attachment.isPDF()) ||
-                            (video_preview && attachment.isVideo()) ||
-                            (audio_preview && attachment.isAudio()) ||
-                            (attachment.isAttachment() && attachment.isImage() &&
-                                    (!"image/svg+xml".equalsIgnoreCase(type) || svg) &&
-                                    (!"image/webp".equalsIgnoreCase(type) || webp))) {
-                        media.add(attachment);
-                        if (attachment.available &&
-                                attachment.isAttachment() && attachment.isImage())
-                            iavailable++;
+            if (bind_media) {
+                int iavailable = 0;
+                List<EntityAttachment> media = new ArrayList<>();
+                if (thumbnails && !EntityFolder.JUNK.equals(message.folderType)) {
+                    for (EntityAttachment attachment : attachments) {
+                        String type = attachment.getMimeType();
+                        if ((pdf_preview && attachment.isPDF()) ||
+                                (video_preview && attachment.isVideo()) ||
+                                (audio_preview && attachment.isAudio()) ||
+                                (attachment.isAttachment() && attachment.isImage() &&
+                                        (!"image/svg+xml".equalsIgnoreCase(type) || svg) &&
+                                        (!"image/webp".equalsIgnoreCase(type) || webp))) {
+                            media.add(attachment);
+                            if (attachment.available &&
+                                    attachment.isAttachment() && attachment.isImage())
+                                iavailable++;
+                        }
                     }
                 }
-            }
-            adapterMedia.set(media);
-            grpMedia.setVisibility(media.size() > 0 ? View.VISIBLE : View.GONE);
+                adapterMedia.set(media);
+                grpMedia.setVisibility(media.size() > 0 ? View.VISIBLE : View.GONE);
 
-            ibStoreMedia.setVisibility(
-                    iavailable > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-                            ? View.VISIBLE : View.GONE);
-            ibShareImages.setVisibility(iavailable > 0 ? View.VISIBLE : View.GONE);
+                ibStoreMedia.setVisibility(
+                        iavailable > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+                                ? View.VISIBLE : View.GONE);
+                ibShareImages.setVisibility(iavailable > 0 ? View.VISIBLE : View.GONE);
+            }
         }
 
         private void bindCalendar(final TupleMessageEx message, EntityAttachment attachment) {
@@ -5738,13 +5741,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean hide_attachments = properties.getValue("hide_attachments", message.id, hide_attachments_default);
             properties.setValue("hide_attachments", message.id, !hide_attachments);
             cowner.restart();
-            bindAttachments(message, properties.getAttachments(message.id), false);
+            bindAttachments(message, properties.getAttachments(message.id), false, true);
         }
 
         private void onShowInlineAttachments(TupleMessageEx message, boolean isChecked) {
             properties.setValue("inline", message.id, isChecked);
             cowner.restart();
-            bindAttachments(message, properties.getAttachments(message.id), false);
+            bindAttachments(message, properties.getAttachments(message.id), false, true);
         }
 
         private void onSaveAttachments(TupleMessageEx message) {
