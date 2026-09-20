@@ -10300,8 +10300,9 @@ public class FragmentMessages extends FragmentBase
                                     args.putString("sigresult", context.getString(R.string.title_signature_none));
                             } else if (sresult == RESULT_VALID_KEY_CONFIRMED || sresult == RESULT_VALID_KEY_UNCONFIRMED) {
                                 List<String> users = sigResult.getConfirmedUserIds();
+                                Log.i("PGP signature users=" + (users == null ? null : TextUtils.join(", ", users)));
                                 String text;
-                                if (users.size() > 0)
+                                if (users != null && users.size() > 0)
                                     text = context.getString(sresult == RESULT_VALID_KEY_UNCONFIRMED
                                                     ? R.string.title_signature_unconfirmed_from
                                                     : R.string.title_signature_valid_from,
