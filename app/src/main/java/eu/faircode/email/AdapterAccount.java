@@ -83,6 +83,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private Fragment parentFragment;
     private boolean settings;
     private boolean compact;
+    private boolean show_users;
     private boolean show_folders;
 
     private Context context;
@@ -295,7 +296,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 if (account.provider != null && (BuildConfig.DEBUG || debug))
                     user.append(" (").append(account.provider).append(')');
                 tvUser.setText(user);
-                tvUser.setVisibility(View.VISIBLE);
+                tvUser.setVisibility(show_users ? View.VISIBLE : View.GONE);
 
                 if ("connected".equals(account.state)) {
                     ivState.setImageResource(R.drawable.twotone_cloud_done_24);
@@ -332,10 +333,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         (account.last_connected == null ? "-" : DTF.format(account.last_connected)) +
                                 (BuildConfig.DEBUG ?
                                         "/" + (account.last_modified == null ? "-" : DTF.format(account.last_modified)) +
-                                                " " + account.poll_interval +
-                                                "/" + account.keep_alive_ok +
-                                                "/" + account.keep_alive_failed +
-                                                "/" + account.keep_alive_succeeded : "")));
+                                        " " + account.poll_interval +
+                                        "/" + account.keep_alive_ok +
+                                        "/" + account.keep_alive_failed +
+                                        "/" + account.keep_alive_succeeded : "")));
 
                 tvBackoff.setText(context.getString(R.string.title_backoff_until,
                         account.backoff_until == null ? "-" : DTF.format(account.backoff_until)));
@@ -951,10 +952,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
     }
 
-    AdapterAccount(final Fragment parentFragment, boolean settings, boolean compact, boolean folders) {
+    AdapterAccount(final Fragment parentFragment, boolean settings, boolean compact, boolean users, boolean folders) {
         this.parentFragment = parentFragment;
         this.settings = settings;
         this.compact = compact;
+        this.show_users = users;
         this.show_folders = folders;
 
         this.context = parentFragment.getContext();
@@ -1052,6 +1054,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     void setCompact(boolean compact) {
         if (this.compact != compact)
             this.compact = compact;
+    }
+
+    void setShowUsers(boolean show_users) {
+        if (this.show_users != show_users)
+            this.show_users = show_users;
     }
 
     void setShowFolders(boolean show_folders) {

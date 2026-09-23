@@ -34,6 +34,12 @@
             app:showAsAction="never" />
 
         <item
+            android:id="@+id/menu_show_users"
+            android:checkable="true"
+            android:title="@string/title_user"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_show_folders"
             android:checkable="true"
             android:title="@string/page_folders"
