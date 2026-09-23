@@ -6805,7 +6805,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean confirm_links = prefs.getBoolean("confirm_links", true);
 
-                    String chost = FragmentDialogOpenLink.getConfirmHost(uri);
+                    String chost = FragmentDialogOpenLink.getConfirmHost(context, uri);
                     boolean confirm_link = (chost == null || prefs.getBoolean(chost + ".confirm_link", true));
                     if (always_confirm || (confirm_links && confirm_link)) {
                         if (parentFragment == null)
