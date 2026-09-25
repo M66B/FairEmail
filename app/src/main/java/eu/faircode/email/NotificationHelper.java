@@ -79,7 +79,7 @@ class NotificationHelper {
     static final int NOTIFICATION_TAGGED = 500;
     static final int NOTIFICATION_TTS = 600;
 
-    private static final int MAX_NOTIFICATION_DISPLAY = 10; // per group
+    private static final int MAX_NOTIFICATION_DISPLAY = 25; // per group
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
     private static final long SCREEN_ON_DURATION = 3000L; // milliseconds
 
