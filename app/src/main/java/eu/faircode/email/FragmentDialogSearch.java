@@ -426,13 +426,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
-        cbSearchDevice.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                prefs.edit().putBoolean("last_search_device", isChecked).apply();
-            }
-        });
-
         ibMore.setImageLevel(1);
 
         if (criteria == null) {
@@ -538,6 +531,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         cbSearchDevice.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_device", isChecked).apply();
                 checkOnDevice.run();
             }
         });
