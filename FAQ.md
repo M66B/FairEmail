@@ -625,6 +625,8 @@ or by installing the GitHub version of the app (as an update) and enabling insec
 *... Invalid security certificate (Can't verify identity of server) ...*<br />
 *... Chain validation failed ... timestamp check failed ... Certificate expired at ...*<br />
 
+**Goneo**: please [see here](https://www.goneo.de/hilfe/email/zertifikatswarnung).
+
 This can be caused by using an incorrect host name, so first double-check the host name in the advanced identity/account settings (tap *Manual setup and account options*).
 Please see the documentation of the email provider about the right host name.
 Sometimes the right host name is in the error message.
