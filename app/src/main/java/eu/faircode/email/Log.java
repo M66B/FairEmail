@@ -1340,9 +1340,7 @@ public class Log {
             return false;
 
         if (ex instanceof IllegalArgumentException &&
-                stack.length > 0 &&
-                "android.widget.SmartSelectSprite".equals(stack[0].getClassName()) &&
-                "startAnimation".equals(stack[0].getMethodName()))
+                "Center point is not inside any of the rectangles!".equals(ex.getMessage()))
             /*
                 java.lang.IllegalArgumentException: Center point is not inside any of the rectangles!
                   at android.widget.SmartSelectSprite.startAnimation(SmartSelectSprite.java:392)
@@ -1355,6 +1353,18 @@ public class Log {
                   at android.os.AsyncTask.access$600(AsyncTask.java:180)
                   at android.os.AsyncTask$InternalHandler.handleMessage(AsyncTask.java:712)
                   at android.os.Handler.dispatchMessage(Handler.java:106)
+
+                java.lang.IllegalArgumentException: Center point is not inside any of the rectangles!
+                    at android.os.Debug$$ExternalSyntheticBUOutline2.m$3(D8$$SyntheticClass:0)
+                    at android.widget.SmartSelectSprite.startAnimation(SmartSelectSprite.java:385)
+                    at android.widget.SelectionActionModeHelper.startSelectionActionModeWithSmartSelectAnimation(SelectionActionModeHelper.java:364)
+                    at android.widget.SelectionActionModeHelper.$r8$lambda$WxwcOVXRkmcO5hEAhdpLDMsPIw4(SelectionActionModeHelper.java:0)
+                    at android.widget.SelectionActionModeHelper$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+                    at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:1054)
+                    at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onTimeOut(SelectionActionModeHelper.java:1060)
+                    at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.$r8$lambda$SB5JBJp0_xCi0h--A-jC5hqpfcI(SelectionActionModeHelper.java:0)
+                    at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+                    at android.os.Handler.handleCallback(Handler.java:1095)
              */
             return false;
 
