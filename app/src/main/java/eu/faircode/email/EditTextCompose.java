@@ -87,6 +87,7 @@ public class EditTextCompose extends FixedEditText {
     private boolean undo_manager;
     private boolean paste_plain;
     private boolean paste_quote;
+    private boolean lastSelected = false;
 
     public EditTextCompose(Context context) {
         super(context);
@@ -567,9 +568,13 @@ public class EditTextCompose extends FixedEditText {
 
     @Override
     protected void onSelectionChanged(int selStart, int selEnd) {
-        super.onSelectionChanged(selStart, selEnd);
-        if (selectionListener != null)
-            selectionListener.onSelected(hasSelection());
+        boolean has = hasSelection();
+        if (has != lastSelected) {
+            lastSelected = has;
+            super.onSelectionChanged(selStart, selEnd);
+            if (selectionListener != null)
+                selectionListener.onSelected(has);
+        }
     }
 
     @Override
