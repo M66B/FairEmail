@@ -43,6 +43,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
@@ -74,6 +75,7 @@ public class FragmentDialogSummarize extends FragmentDialogBase {
 
         float textSize = Helper.getTextSize(context, zoom) * message_zoom / 100f;
         tvSummary.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        tvSummary.setMovementMethod(LinkMovementMethodCompat.getInstance());
 
         ibCopy.setOnClickListener(new View.OnClickListener() {
             @Override
