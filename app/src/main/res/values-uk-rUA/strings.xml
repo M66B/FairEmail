@@ -214,7 +214,7 @@
     <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
     <string name="title_setup_account_remark">Отримання пошти</string>
     <string name="title_setup_identity_remark">Надсилання пошти</string>
-    <string name="title_setup_account_identity_hint">Ви можете налаштувати назву, колір та дії, що виконуватимуться при проведенні пальцем, в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях профілів</string>
+    <string name="title_setup_account_identity_hint">В налаштуваннях облікового запису можна налаштувати назву, колір та дії при змахуванні, а в налаштуваннях профілю — підпис та адреси копії або прихованої копії за замовчуванням.</string>
     <string name="title_setup_accounts">Облікові записи</string>
     <string name="title_setup_identities">Профілі</string>
     <string name="title_setup_google_sign_in">Увійти за допомогою Google</string>
@@ -259,7 +259,7 @@
     <string name="title_setup_advanced_protection">Коли прийнято до програми розширеного захисту – неможливо використати сторонні додатки для роботи з електронною поштою. Це обмеження, накладене Google.</string>
     <string name="title_setup_quick_success">Обліковий запис успішно додано</string>
     <string name="title_setup_quick_no_sent">Тека для надісланих повідомлень не вибрана. Відправлені повідомлення можуть бути не збережені.</string>
-    <string name="title_setup_quick_configure">Щоб відредагувати назву, колір, дії проведення пальцем, і так далі</string>
+    <string name="title_setup_quick_configure">Щоб відредагувати назву, колір, дії при змахуванні тощо</string>
     <string name="title_setup_manage">Керувати</string>
     <string name="title_setup_grant">Надати</string>
     <string name="title_setup_grant_again">Надати необхідні дозволи</string>
@@ -679,7 +679,7 @@
     <string name="title_advanced_pull_all">Синхронізувати всі теки</string>
     <string name="title_advanced_autoscroll">Перейти до самого початку після отримання нових повідомлень</string>
     <string name="title_advanced_double_tap">Подвійне натискання позначатиме повідомлення прочитаним або непрочитаним</string>
-    <string name="title_advanced_swipenav">Перехід до наступної/попередньої розмови проведенням пальцем вліво/вправо</string>
+    <string name="title_advanced_swipenav">Змахніть вліво/вправо для переходу до наступної/попередньої розмови</string>
     <string name="title_advanced_volumenav">Перехід до наступної/попередньої розмови натисканням на кнопки збільшення/зменшення гучності</string>
     <string name="title_advanced_up_down">Використовувати стрілки вгору/вниз для переходу до наступної/попередньої розмови</string>
     <string name="title_advanced_reversed">Зворотній напрямок навігації</string>
@@ -838,7 +838,7 @@
     <string name="title_advanced_class_min_difference">Мінімальна відмінність між класами: %1$s %%</string>
     <string name="title_advanced_show_filtered">Показувати значок фільтру коли правила застосовані</string>
     <string name="title_advanced_haptic_feedback">Вібровідгук на важливі дії</string>
-    <string name="title_advanced_haptic_feedback_swipe">Вібровідгук при проведенні пальцем вліво/вправо</string>
+    <string name="title_advanced_haptic_feedback_swipe">Вібровідгук при змахуванні вліво/вправо</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_integrations_hint">Хмарні сервіси, вказані внизу, не є частиною застосунку. Будь-які платежі потраплять безпосередньо до хмарного сервісу, а не до розробника застосунку.</string>
@@ -1013,9 +1013,9 @@
     <string name="title_create_folder">Створити теку</string>
     <string name="title_create_folder_name">Ім\'я теки</string>
     <string name="title_create_folder_parent">Батьківська тека</string>
-    <string name="title_advanced_swipe_actions">Установити дії на свайп</string>
-    <string name="title_advanced_swipe_actions_hint">Це дозволить встановити свайп вліво та вправо для всіх облікових записів IMAP</string>
-    <string name="title_advanced_swipe_sensitivity">Чутливість для свайпу вліво або вправо</string>
+    <string name="title_advanced_swipe_actions">Установити дії на змахування</string>
+    <string name="title_advanced_swipe_actions_hint">Це дозволить встановити змахування вліво та вправо для всіх облікових записів IMAP</string>
+    <string name="title_advanced_swipe_sensitivity">Чутливість для змахування вліво або вправо</string>
     <string name="title_select">Обрати &#8230;</string>
     <string name="title_identity_name">Ваше ім’я</string>
     <string name="title_identity_email">Ваша електронна адреса</string>
@@ -1055,8 +1055,8 @@
     <string name="title_transparent">Прозорість</string>
     <string name="title_account_ondemand">Синхронізувати вручну</string>
     <string name="title_account_notify">Окремі сповіщення</string>
-    <string name="title_account_left">Свайп вліво</string>
-    <string name="title_account_right">Свайп вправо</string>
+    <string name="title_account_left">Змахування вліво</string>
+    <string name="title_account_right">Зміхування вправо</string>
     <string name="title_account_move">За замовчуванням переміщувати до</string>
     <string name="title_account_gmail">Для надійної синхронізації облікового запису Gmail, слід використовувати за можливості швидке налаштування</string>
     <string name="title_domain">Доменне ім\'я</string>
@@ -2055,9 +2055,9 @@
     <string name="title_hint_vpn">Сервери електронної пошти іноді блокують підключення через VPN. Якщо це станеться, тільки постачальник послуг електронної пошти може розв\'язати цю проблему.</string>
     <string name="title_hint_dismiss">Ви можете відхилити це діалогове вікно, щоб видалити сповіщення.</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
-    <string name="title_hint_message_actions">Проведіть ліворуч для переміщення в кошик; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
-    <string name="title_hint_outbox">Ви можете провести вліво або вправо, щоб скасувати надсилання</string>
-    <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>
+    <string name="title_hint_message_actions">Змахніть ліворуч для переміщення в кошик; змахніть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
+    <string name="title_hint_outbox">Ви можете змахнути вліво або вправо, щоб скасувати надсилання</string>
+    <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши, проведіть вгору або вниз, щоб обрати більше повідомлень</string>
     <string name="title_hint_message_junk">
 Поштовий клієнт лише показує повідомлення, які наявні на поштовому сервері.
 За фільтрацію спаму відповідає саме сервер, а не клієнт.

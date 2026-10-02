@@ -191,7 +191,6 @@
     <string name="title_setup_documentation">Za pravilno nastavitev e-poštnih strežnikov si prosim oglejte dokumentacijo svojega e-poštnega ponudnka.</string>
     <string name="title_setup_account_remark">Prejemanje e-pošte</string>
     <string name="title_setup_identity_remark">Pošiljanje e-pošte</string>
-    <string name="title_setup_account_identity_hint">Ime, barvo in dejanja potegov lahko nastavite v nastavitvah računa, podpis pa v nastavitvah identitete.</string>
     <string name="title_setup_accounts">Računi</string>
     <string name="title_setup_identities">Identitete</string>
     <string name="title_setup_google_sign_in">Prijavi se z Googlom</string>

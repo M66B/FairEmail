@@ -184,7 +184,7 @@
     <string name="title_setup_documentation">Kérjük keresse fel az e-mail szolgáltatójának leírását a korrekt e-mail szerver konfigurációval kapcsolatban</string>
     <string name="title_setup_account_remark">E-mailek fogadása</string>
     <string name="title_setup_identity_remark">E-mailek küldése</string>
-    <string name="title_setup_account_identity_hint">Beállíthatod a nevet, színt és csúsztatási műveleteket a fiókbeállításokban, és konfigurálhatsz egy aláírást az identitási beállításokban</string>
+    <string name="title_setup_account_identity_hint">A nevét, színt, csúsztatási műveleteket a fiók beállításoknal állíthatja be, az aláírást, az alapértelmezett másolatot és titkos másolatot az identitás beállításainál.</string>
     <string name="title_setup_accounts">Fiókok</string>
     <string name="title_setup_identities">Identitások</string>
     <string name="title_setup_google_sign_in">Bejelentkezés Google fiókkal</string>

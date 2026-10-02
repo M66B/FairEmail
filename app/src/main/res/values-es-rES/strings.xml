@@ -184,7 +184,7 @@
     <string name="title_setup_documentation">Por favor vea la documentación de su proveedor de correo electrónico para la correcta configuración del servidor de correo</string>
     <string name="title_setup_account_remark">Recibir correo electrónico</string>
     <string name="title_setup_identity_remark">Enviar correo electrónico</string>
-    <string name="title_setup_account_identity_hint">Puede configurar el nombre, color y acciones de deslizamiento en la configuración de la cuenta, y configurar una firma en los ajustes de identidad</string>
+    <string name="title_setup_account_identity_hint">Puede configurar un nombre, color y acciones de deslizamiento en la configuración de la cuenta, y configurar una firma y direcciones CC o CCO por defecto en la configuración de identidad.</string>
     <string name="title_setup_accounts">Cuentas</string>
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_google_sign_in">Iniciar sesión con Google</string>

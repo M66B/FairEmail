@@ -184,7 +184,6 @@
     <string name="title_setup_documentation">Doğru e-poçt serverinin konfiqurasiyası üçün zəhmət olmasa e-poçt provayderinizin sənədləşdirməsinə baxın</string>
     <string name="title_setup_account_remark">E-poçt alma</string>
     <string name="title_setup_identity_remark">E-poçt göndərmə</string>
-    <string name="title_setup_account_identity_hint">Hesab ayarlarında adı, rəngi və sürüşdürmə əməliyyatlarını konfiqurasiya edə bilərsiniz və kimlik ayarlarında bir imza konfiqurasiya edə bilərsiniz</string>
     <string name="title_setup_accounts">Hesablar</string>
     <string name="title_setup_identities">Kimliklər</string>
     <string name="title_setup_google_sign_in">Google ilə daxil ol</string>

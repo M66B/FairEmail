@@ -198,7 +198,7 @@
     <string name="title_setup_documentation">Molimo da provjerite dokumente od vašeg e-mail provajdera (poslužitelja) za tačno podešavanje e-mail servera</string>
     <string name="title_setup_account_remark">Prijem e-pošte</string>
     <string name="title_setup_identity_remark">Pošalji e-poštu</string>
-    <string name="title_setup_account_identity_hint">Možete podesiti naziv, boju i prevlačenje prstima u postavkama računa, a podešavanje potpisa u postavkama identiteta</string>
+    <string name="title_setup_account_identity_hint">Možete podesiti naziv, boju, radnje prevlačenja u postavkama za račun, kao i potpis i zadane CC i BCC adrese u postavkama identiteta.</string>
     <string name="title_setup_accounts">Računi</string>
     <string name="title_setup_identities">Identiteti</string>
     <string name="title_setup_google_sign_in">Prijavite se preko Google-a</string>

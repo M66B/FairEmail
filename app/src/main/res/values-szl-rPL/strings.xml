@@ -212,7 +212,7 @@
     <string name="title_setup_documentation">Sprawdź dokumentację dostawcy poczty e-mail w celu uzyskania poprawnej konfiguracji serwera e-mail</string>
     <string name="title_setup_account_remark">Odbieranie wiadomości e-mail</string>
     <string name="title_setup_identity_remark">Wysyłanie wiadomości e-mail</string>
-    <string name="title_setup_account_identity_hint">Możesz skonfigurować nazwę, kolor i akcje przesuwania w ustawieniach konta oraz skonfigurować podpis w ustawieniach tożsamości</string>
+    <string name="title_setup_account_identity_hint">W ustawieniach konta można skonfigurować nazwę, kolor oraz gesty przesuwania, a w ustawieniach tożsamości – podpis oraz domyślne adresy w polu „DW” lub „UDW”.</string>
     <string name="title_setup_accounts">Konta</string>
     <string name="title_setup_identities">Tożsamości</string>
     <string name="title_setup_google_sign_in">Zaloguj się poprzez Google</string>
@@ -1695,7 +1695,7 @@ Jest to bezpieczny, sformatowany widok wiadomości.
     <string name="title_search_more">Więcej opcji</string>
     <string name="title_search_use_index">Użyj indeksu wyszukiwania</string>
     <string name="title_search_in_senders">W nadawcach (od)</string>
-    <string name="title_search_in_recipients">W odbiorcach (do, cc)</string>
+    <string name="title_search_in_recipients">W odbiorcach (Do, DW)</string>
     <string name="title_search_in_subject">W temacie</string>
     <string name="title_search_in_keywords">W słowach kluczowych (jeśli obsługiwane)</string>
     <string name="title_search_in_message">W tekście wiadomości</string>
@@ -1872,7 +1872,7 @@ Jest to bezpieczny, sformatowany widok wiadomości.
     <string name="title_rule_forward_to">Przekaż do</string>
     <string name="title_rule_resend">Wyślij ponownie</string>
     <string name="title_rule_attached">Dołącz nieprzetworzony plik wiadomości</string>
-    <string name="title_rule_cc">Odpowiedz na adresy CC</string>
+    <string name="title_rule_cc">Odpowiedz na adresy Dw</string>
     <string name="title_rule_checks">Sprawdzaj automatycznie wysyłane wiadomości, adresy bez odpowiedzi itp.</string>
     <string name="title_rule_with_attachments">Z załącznikami</string>
     <string name="title_rule_answer_remark">Dla każdej konwersacji zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>

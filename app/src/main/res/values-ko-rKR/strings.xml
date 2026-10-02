@@ -171,7 +171,6 @@
     <string name="title_setup_documentation">올바른 이메일 서버 설정을 위해 당신의 이메일 제공업체의 문서를 참고해 주세요.</string>
     <string name="title_setup_account_remark">이메일 수신</string>
     <string name="title_setup_identity_remark">이메일 발신</string>
-    <string name="title_setup_account_identity_hint">계정 설정에서 이름, 색상 및 스와이프 동작을, 사용자 ID 설정에서 서명을 지정할 수 있습니다</string>
     <string name="title_setup_accounts">계정</string>
     <string name="title_setup_identities">ID</string>
     <string name="title_setup_google_sign_in">Google 로그인</string>
@@ -1909,6 +1908,8 @@
     <string name="title_paste_plain">일반 텍스트로 붙여넣기</string>
     <string name="title_undo">되돌리기</string>
     <string name="title_redo">재실행</string>
+    <string name="title_lt_add">단어 추가</string>
+    <string name="title_lt_delete">단어 제거</string>
     <string name="title_add">추가</string>
     <string name="title_browse">연결 프로그램</string>
     <string name="title_info">정보</string>
@@ -1926,8 +1927,11 @@
     <string name="title_clipboard_copy">클립보드에 복사</string>
     <string name="title_clipboard_copied">클립보드에 복사됨</string>
     <string name="title_ask_what">할 일 물어보기</string>
+    <string name="title_no_ask_again">다시 묻지 않음</string>
     <string name="title_no_ask_for_again">%1$s 에 대해 다시 묻지 않음</string>
+    <string name="title_no_show_again">다시 보지 않음</string>
     <string name="title_large_body">이 메시지는 매우 커서 문제가 발생할 수 있습니다!</string>
+    <string name="title_no_charset">미지원 인코딩: %1$s</string>
     <string name="title_1hour">1시간</string>
     <string name="title_1day">1일</string>
     <string name="title_now">지금</string>
@@ -2004,8 +2008,12 @@
     <string name="title_widget_semi_transparent">반투명 배경</string>
     <string name="title_widget_subject_lines">제목의 최대 줄 수</string>
     <string name="title_widget_avatars">연락처 아바타 표시</string>
+    <string name="title_widget_account_name">계정 이름 표시</string>
+    <string name="title_widget_caption">제목 표시</string>
     <string name="title_widget_refresh">메시지 새로고침 버튼 표시</string>
+    <string name="title_widget_compose">새 메시지 작성 버튼 표시</string>
     <string name="title_widget_background">배경 색</string>
+    <string name="title_widget_icon">아이콘 색상</string>
     <string name="title_widget_day_night">시스템의 어두운 테마 설정 사용</string>
     <string name="title_compat_dark">Google은 Android 10 이전 버전에서 다크 모드를 제거했습니다</string>
     <!-- Thunderbird -->
@@ -2044,10 +2052,10 @@
     <string name="title_accessibility_to">받는사람</string>
     <string-array name="pollIntervalNames">
         <item>항상</item>
-        <item>Every minute</item>
-        <item>Every 2 minutes</item>
-        <item>Every 5 minutes</item>
-        <item>Every 10 minutes</item>
+        <item>1분마다</item>
+        <item>2분마다</item>
+        <item>5분마다</item>
+        <item>10분마다</item>
         <item>매 15분</item>
         <item>매 30분</item>
         <item>매시간</item>
@@ -2058,8 +2066,8 @@
     </string-array>
     <string-array name="sendDelayedNames">
         <item>없음</item>
-        <item>5 seconds</item>
-        <item>10 seconds</item>
+        <item>5초</item>
+        <item>10초</item>
         <item>15초</item>
         <item>30초</item>
         <item>1분</item>
@@ -2139,9 +2147,9 @@
         <item>크게</item>
     </string-array>
     <string-array name="spacingNames">
-        <item>Compact</item>
+        <item>좁게</item>
         <item>보통</item>
-        <item>Roomy</item>
+        <item>넓게</item>
     </string-array>
     <string name="title_size_tiny">매우 작음</string>
     <string-array name="receiptNames">
@@ -2209,13 +2217,13 @@
     </string-array>
     <string-array name="accountColorNames">
         <item>없음</item>
-        <item>Stripe</item>
-        <item>Dot</item>
+        <item>줄무늬</item>
+        <item>점</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item>Narrow</item>
+        <item>좁게</item>
         <item>보통</item>
-        <item>Wide</item>
+        <item>넓게</item>
     </string-array>
     <string-array name="contactTypes">
         <item>받는사람</item>

@@ -184,7 +184,6 @@
     <string name="title_setup_documentation">Παρακαλούμε, συμβουλευτείτε τις οδηγίες του παρόχου του ηλ. ταχυδρομείου σας για τη σωστή ρύθμιση του διακομιστή μέιλ</string>
     <string name="title_setup_account_remark">Λήψη μηνυμάτων</string>
     <string name="title_setup_identity_remark">Αποστολή μηνυμάτων</string>
-    <string name="title_setup_account_identity_hint">Μπορείτε να ρυθμίσετε το όνομα, το χρώμα και τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού, και να ρυθμίσετε μία υπογραφή στις ρυθμίσεις ταυτότητας</string>
     <string name="title_setup_accounts">Λογαριασμοί</string>
     <string name="title_setup_identities">Ταυτότητες</string>
     <string name="title_setup_google_sign_in">Σύνδεση μέσω Google</string>

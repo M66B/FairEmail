@@ -183,7 +183,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_documentation">Raadpleeg a.u.b. de documentatie van uw e-mailprovider voor de juiste mailserverconfiguratie</string>
     <string name="title_setup_account_remark">E-mail ontvangen</string>
     <string name="title_setup_identity_remark">E-mail verzenden</string>
-    <string name="title_setup_account_identity_hint">U kunt de naam, kleur en veegacties configureren in de accountinstellingen en een handtekening configureren in de identiteitsinstellingen</string>
+    <string name="title_setup_account_identity_hint">U kunt een naam, kleur en veegacties in de accountinstellingen configureren en een handtekening en standaard Cc- of Bcc-adressen in de identiteitsinstellingen configureren.</string>
     <string name="title_setup_accounts">Accounts</string>
     <string name="title_setup_identities">Identiteiten</string>
     <string name="title_setup_google_sign_in">Log in met Google</string>

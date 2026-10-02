@@ -153,7 +153,6 @@
     <string name="title_setup_documentation">يرجى الاطلاع على وثائق موفر البريد الإلكتروني الخاص بك لتكوين خادم البريد الإلكتروني الصحيح</string>
     <string name="title_setup_account_remark">تلقي البريد الإلكتروني</string>
     <string name="title_setup_identity_remark">ارسل بريد</string>
-    <string name="title_setup_account_identity_hint">يمكنك تكوين الاسم، اللون و إجراءات السحب في إعدادات الحساب، و تكوين توقيع في إعدادات الهوية</string>
     <string name="title_setup_accounts">الحسابات</string>
     <string name="title_setup_identities">الهويات</string>
     <string name="title_setup_google_sign_in">تسجيل الدخول باستخدام جوجل</string>

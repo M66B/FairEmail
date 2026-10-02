@@ -211,7 +211,7 @@
     <string name="title_setup_documentation">Правільную канфігурацыю сервера электроннай пошты глядзіце ў дакументацыі вашага правайдара электроннай пошты</string>
     <string name="title_setup_account_remark">Атрыманне эл. пошты</string>
     <string name="title_setup_identity_remark">Адпраўка эл. пошты</string>
-    <string name="title_setup_account_identity_hint">Вы можаце наладзіць імя, колер і жэсты ў наладах уліковага запісу, а таксама наладзіць подпіс у наладах ідэнтыфікатара</string>
+    <string name="title_setup_account_identity_hint">Вы можаце наладзіць імя, колер і дзеянні пры правядзенні пальцам у наладах уліковага запісу, а таксама наладзіць подпіс і адрасы па змаўчанні для копій або схаваных копій у наладах ідэнтыфікацыі.</string>
     <string name="title_setup_accounts">Уліковыя запісы</string>
     <string name="title_setup_identities">Ідэнтыфікатары</string>
     <string name="title_setup_google_sign_in">Увайсці праз Google</string>
@@ -226,6 +226,7 @@
     <string name="title_setup_gmail_login">Калі ў Chrome выкананы ўваход ва ўліковы запіс, новы ўліковы запіс можна дадаць толькі праз Android. Гэтага можна пазбегнуць, выйшаўшы з уліковага запісу ў Chrome праз налады сінхранізацыі.</string>
     <string name="title_setup_gmail_max">У выпадку з\'яўлення паведамлення пра памылку \"Вы ўвайшлі ў максімальную колькасць уліковых запісаў\", вам неабходна выйсці з усіх уліковых запісаў Google у браўзеры.</string>
     <string name="title_setup_outlook_hint">У выпадку выкарыстання псеўданіма варта выкарыстоўваць майстар Office 365.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft можа папрасіць вас наладзіць пароль. На мабільнай прыладзе гэта не так проста, таму падумайце пра тое, каб прапусціць або адмяніць гэты дадатковы крок.</string>
     <string name="title_setup_outlook_modern">У выніку змяненняў у палітыках бяспекі Microsoft, з 16 верасня 2024 г. будзе працаваць толькі майстар Outlook/Hotmail/Live.</string>
     <string name="title_setup_gmail_on_device">Чаму мне неабходна выбраць уліковы запіс на прыладзе?</string>
     <string name="title_setup_gmail_password">Я хачу аўтарызаваць уліковы запіс з дапамогай пароля замест уліковага запісу на прыладзе</string>
@@ -373,6 +374,7 @@
     <string name="title_check_gmail_password">Некаторыя з вашых уліковых запісаў Gmail могуць перастаць працаваць пасля 30 мая 2022 г.</string>
     <string name="title_check_outlook_oauth">Вашы ўліковыя запісы Outlook працягнуць працаваць пасля 16 верасня 2024 г</string>
     <string name="title_check_outlook_password">Некаторыя з вашых уліковых запісаў Outlook/Hotmail/Live могуць перастаць працаваць пасля 16 верасня 2024 г</string>
+    <string name="title_check_gmx">Вы павінны абнавіць свой уліковы запіс GMX, дадаўшы пароль праграмы, да 24 верасня 2026 года.</string>
     <string name="title_advanced_hint_title">Пашыраныя налады</string>
     <string name="title_advanced_hint_message">        Вы пераходзіце да пашыраных параметраў.
         Усе параметры звычайна маюць стандартныя значэнні, якія вам не трэба мяняць, калі ў вас няма іншых патрабаванняў.
@@ -849,6 +851,7 @@
     <string name="title_advanced_send">Інтэграцыя з \'Send\'</string>
     <string name="title_advanced_openai">Інтэграцыя з OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Мадэль</string>
+    <string name="title_advanced_openai_max_tokens">Максімальная колькасць токенаў (пакіньце пустым, калі абмежаванняў няма)</string>
     <string name="title_advanced_openai_temperature">Тэмпература: %1$s</string>
     <string name="title_advanced_openai_moderation">Мадэрацыя зместу</string>
     <string name="title_advanced_gemini">Інтэграцыя з Gemini</string>

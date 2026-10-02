@@ -151,7 +151,6 @@
     <string name="title_setup_documentation">Vui lòng đọc tài liệu của nhà cung cấp email của bạn để tìm thiết lập máy chủ email đúng</string>
     <string name="title_setup_account_remark">Nhận email</string>
     <string name="title_setup_identity_remark">Gửi email</string>
-    <string name="title_setup_account_identity_hint">Bạn có thể thiết lập tên, màu sắc và các tuỳ chọn vuốt trong cài đặt tài khoản, và thiết lập một chữ ký trong cài đặt danh tính</string>
     <string name="title_setup_accounts">Tài khoản</string>
     <string name="title_setup_identities">Danh tính</string>
     <string name="title_setup_google_sign_in">Đăng nhập bằng Google</string>

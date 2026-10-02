@@ -171,7 +171,6 @@
     <string name="title_setup_documentation">Vennligst les epost-leverandørens dokumentasjon for informasjon om korrekt oppsett av epost-tjener</string>
     <string name="title_setup_account_remark">Motta e-post</string>
     <string name="title_setup_identity_remark">Send epost</string>
-    <string name="title_setup_account_identity_hint">Du kan endre navnet, farger og sveipehandlinger i kontoinnstillingene, og opprette en signatur i identitetsinnstillingene</string>
     <string name="title_setup_accounts">Kontoer</string>
     <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_google_sign_in">Logg inn med Google</string>

@@ -182,7 +182,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_documentation">Doğru e-posta sunucusu yapılandırması için lütfen e-posta sağlayıcınızın belgelerine bakın</string>
     <string name="title_setup_account_remark">E-posta al</string>
     <string name="title_setup_identity_remark">E-posta gönder</string>
-    <string name="title_setup_account_identity_hint">Hesap ayarlarında adı, rengi ve kaydırma eylemlerini yapılandırabilir ve kimlik ayarlarında bir imza yapılandırabilirsiniz</string>
     <string name="title_setup_accounts">Hesaplar</string>
     <string name="title_setup_identities">Kimlikler</string>
     <string name="title_setup_google_sign_in">Google ile giriş yap</string>

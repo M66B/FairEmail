@@ -186,7 +186,7 @@
     <string name="title_setup_documentation">Bitte lesen Sie die Dokumentation Ihres E-Mail-Anbieters für die korrekte Konfiguration des E-Mail-Servers</string>
     <string name="title_setup_account_remark">E-Mail empfangen</string>
     <string name="title_setup_identity_remark">E-Mail senden</string>
-    <string name="title_setup_account_identity_hint">Sie können den Namen, die Farbe und Wischgesten in den Kontoeinstellungen und eine Signatur in den Identitätseinstellungen konfigurieren</string>
+    <string name="title_setup_account_identity_hint">In den Kontoeinstellungen können Sie einen Namen, eine Farbe und Wischgesten festlegen, und in den Identitäts-Einstellungen können Sie eine Signatur sowie Standardadressen für „CC“ oder „BCC“ festlegen.</string>
     <string name="title_setup_accounts">Konten</string>
     <string name="title_setup_identities">Identitäten</string>
     <string name="title_setup_google_sign_in">Mit Google anmelden</string>

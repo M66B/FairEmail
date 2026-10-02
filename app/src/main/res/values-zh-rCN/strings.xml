@@ -171,7 +171,7 @@
     <string name="title_setup_documentation">请查看您的电子邮件提供商的文档以获取正确的电子邮件服务器配置</string>
     <string name="title_setup_account_remark">接收电子邮件</string>
     <string name="title_setup_identity_remark">发送电子邮件</string>
-    <string name="title_setup_account_identity_hint">你可以在账户设置中配置名称、颜色和滑动操作，以及在身份设置中配置签名</string>
+    <string name="title_setup_account_identity_hint">你可以在账户设置中配置名称、颜色和滑动操作，并在身份设置中配置签名和默认 CC 地址或 BCC 地址。</string>
     <string name="title_setup_accounts">账户</string>
     <string name="title_setup_identities">身份</string>
     <string name="title_setup_google_sign_in">使用 Google 账号登录</string>

@@ -185,7 +185,6 @@
     <string name="title_setup_documentation">Palun vaata meiliserveri õiget häälestust oma e-posti pakkuja dokumentatsioonist</string>
     <string name="title_setup_account_remark">Kirja saamine</string>
     <string name="title_setup_identity_remark">Kirja saatmine</string>
-    <string name="title_setup_account_identity_hint">Konto seadetes saad häälestada nime, värvi ja pühkimistegevused ning identiteetide seadetes allkirja</string>
     <string name="title_setup_accounts">Kontod</string>
     <string name="title_setup_identities">Identiteedid</string>
     <string name="title_setup_google_sign_in">Logi sisse Google\'iga</string>

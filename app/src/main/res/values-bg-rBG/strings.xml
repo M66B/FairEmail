@@ -183,7 +183,6 @@
     <string name="title_setup_documentation">Прегледайте документацията на имейл доставчика си за правилна настройки на сървъра</string>
     <string name="title_setup_account_remark">Получаване на е-писмо</string>
     <string name="title_setup_identity_remark">Изпращане на е-писмо</string>
-    <string name="title_setup_account_identity_hint">Може да настроите името, цвета и действията плъзгане в настройките на акаунта, а и настройване на подписа в настройката за самоличност</string>
     <string name="title_setup_accounts">Акаунти</string>
     <string name="title_setup_identities">Самоличности</string>
     <string name="title_setup_google_sign_in">Влизане с помощта на Google</string>

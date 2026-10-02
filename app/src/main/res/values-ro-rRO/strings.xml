@@ -198,7 +198,6 @@
     <string name="title_setup_documentation">Vă rugăm să consultaţi documentaţia furnizorului de e-mail pentru configuraţia corectă a serverului de e-mail</string>
     <string name="title_setup_account_remark">Primire e-mail</string>
     <string name="title_setup_identity_remark">Trimitere e-mail</string>
-    <string name="title_setup_account_identity_hint">Puteți configura numele, culoarea și acțiunile de glisare în setările contului și puteți configura o semnătură în setările de identitate</string>
     <string name="title_setup_accounts">Conturi</string>
     <string name="title_setup_identities">Identități</string>
     <string name="title_setup_google_sign_in">Autentificare cu Google</string>

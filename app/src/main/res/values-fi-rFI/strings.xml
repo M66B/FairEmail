@@ -182,7 +182,6 @@ Viestejä estetyiltä lähettäjiltä ei ladata.
     <string name="title_setup_documentation">Ole hyvä ja katso sähköpostipalveluntarjoajan dokumentaatiosta palvelinasetukset</string>
     <string name="title_setup_account_remark">Vastaanota sähköpostia</string>
     <string name="title_setup_identity_remark">Lähetä sähköpostia</string>
-    <string name="title_setup_account_identity_hint">Voit määrittää nimen, värin ja pyyhkäisytoiminnot tilin asetuksissa ja allekirjoituksen identiteettiasetuksissa</string>
     <string name="title_setup_accounts">Tilit</string>
     <string name="title_setup_identities">Identiteetit</string>
     <string name="title_setup_google_sign_in">Kirjaudu Google-tunnuksella</string>

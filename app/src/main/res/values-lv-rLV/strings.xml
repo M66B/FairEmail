@@ -199,7 +199,6 @@
     <string name="title_setup_documentation">Lūgums apskatīt e-pasta pakalpojuma sniedzēja dokumentāciju, lai iegūtu pareizu e-pasta server konfigurāciju</string>
     <string name="title_setup_account_remark">E-pastu saņemšana</string>
     <string name="title_setup_identity_remark">E-pastu sūtīšana</string>
-    <string name="title_setup_account_identity_hint">Vārdu, krāsu un pavilkšanas darbības var pielāgot konta iestatījumos, un parakstu – identitātes iestatījumos</string>
     <string name="title_setup_accounts">Konti</string>
     <string name="title_setup_identities">Identitātes</string>
     <string name="title_setup_google_sign_in">Pieteikties ar Google</string>

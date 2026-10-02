@@ -182,7 +182,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_documentation">Besjoch de dokumintaasje fan jo e-mailprovider foar de krekte e-mailserverkonfiguraasje.</string>
     <string name="title_setup_account_remark">E-mailberjochten ûntfange</string>
     <string name="title_setup_identity_remark">E-mailberjochten ferstjoere</string>
-    <string name="title_setup_account_identity_hint">Jo kinne de namme, kleur en fei-aksjes ynstelle yn de accountynstellingen en in hantekening ynstelle yn de identiteitsynstellingen.</string>
+    <string name="title_setup_account_identity_hint">Jo kinne in namme, kleur en fei-aksjes yn de accountynstellingen konfigurearje en in hantekening en standert Cc- of Bcc-adressen yn de identiteitsynstellingen konfigurearje.</string>
     <string name="title_setup_accounts">Accounts</string>
     <string name="title_setup_identities">Identiteiten</string>
     <string name="title_setup_google_sign_in">Oanmelde mei Google</string>

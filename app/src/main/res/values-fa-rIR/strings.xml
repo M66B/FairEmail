@@ -165,7 +165,7 @@
     <string name="title_setup_documentation">لطفا به پرونده سرویس دهنده ایمیل خود برای تصحیح کردن پیکربندی سرور مراجعه کنید</string>
     <string name="title_setup_account_remark">دریافت ایمیل</string>
     <string name="title_setup_identity_remark">ارسال ایمیل</string>
-    <string name="title_setup_account_identity_hint">شما می‌توانید نام، رنگ و اقدام کشیدن را در تنظیمات حساب کاربری، و امضای خود را در تنظیمات هویت تنظیم کنید</string>
+    <string name="title_setup_account_identity_hint">شما می‌توانید نام، رنگ و کشیدن به چپ و راست را در تنظیمات حساب، و امضای خود، BCC یا CC پیش‌فرض را در تنظیمات هویت تنظیم کنید.</string>
     <string name="title_setup_accounts">حساب‌ها</string>
     <string name="title_setup_identities">هویت‌ها</string>
     <string name="title_setup_google_sign_in">ورود با گوگل</string>

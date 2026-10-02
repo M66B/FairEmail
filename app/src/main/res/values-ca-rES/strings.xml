@@ -164,7 +164,6 @@ Si us plau, no culpeu l\'aplicació d\'aquest problema d\'Android!    </string>
     <string name="title_setup_documentation">Per favor, revisa la documentació del teu proveïdor de correu per a saber la configuració del servidor correcta</string>
     <string name="title_setup_account_remark">Rebre correu electrònic</string>
     <string name="title_setup_identity_remark">Enviar un correu electrònic</string>
-    <string name="title_setup_account_identity_hint">Pots configurar el nom, color, i accions en lliscar a la configuració del compte, i configurar una signatura en la configuració d\'identitat</string>
     <string name="title_setup_accounts">Comptes</string>
     <string name="title_setup_identities">Identitats</string>
     <string name="title_setup_google_sign_in">Inicia sessió amb Google</string>

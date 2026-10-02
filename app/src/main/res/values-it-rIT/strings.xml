@@ -185,7 +185,7 @@
     <string name="title_setup_documentation">Consultare la documentazione del provider email per la corretta configurazione del server di posta</string>
     <string name="title_setup_account_remark">Ricevi email</string>
     <string name="title_setup_identity_remark">Invia email</string>
-    <string name="title_setup_account_identity_hint">È possibile configurare il nome, il colore e le azioni di scorrimento nelle impostazioni dell\'account e una firma nelle impostazioni dell\'identità</string>
+    <string name="title_setup_account_identity_hint">Nelle impostazioni dell\'account è possibile configurare un nome, un colore e le azioni di scorrimento, mentre nelle impostazioni di identità è possibile configurare una firma e gli indirizzi CC o CCN predefiniti.</string>
     <string name="title_setup_accounts">Account</string>
     <string name="title_setup_identities">Identità</string>
     <string name="title_setup_google_sign_in">Accedi con Google</string>

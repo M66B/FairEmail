@@ -161,7 +161,6 @@
     <string name="title_setup_documentation">Por favor, lea a documentación do seu provedor de correo para coñecer a configuración correcta do servidor</string>
     <string name="title_setup_account_remark">Recibir correo electrónico</string>
     <string name="title_setup_identity_remark">Enviar correo electrónico</string>
-    <string name="title_setup_account_identity_hint">Pode configurar o nome, a cor e as accións de esvarado na configuración das contas, e configurar unha sinatura na configuración de identidade</string>
     <string name="title_setup_accounts">Contas</string>
     <string name="title_setup_identities">Identidades</string>
     <string name="title_setup_google_sign_in">Iniciar sesión con Google</string>

@@ -210,7 +210,6 @@
     <string name="title_setup_documentation">Správne nastavenia servera získate v dokumentácii poskytovateľa služieb elektronickej pošty</string>
     <string name="title_setup_account_remark">Obdržať email</string>
     <string name="title_setup_identity_remark">Odosielanie správ</string>
-    <string name="title_setup_account_identity_hint">Môžete nastaviť meno, farbu a akcie pre potiahnutie v nastaveniach konta, a nastaviť podpis v nastaveniach totožnosti</string>
     <string name="title_setup_accounts">Účty</string>
     <string name="title_setup_identities">Totožnosti</string>
     <string name="title_setup_google_sign_in">Prihlásiť sa s účtom Google</string>

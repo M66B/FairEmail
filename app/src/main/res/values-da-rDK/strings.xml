@@ -184,7 +184,7 @@
     <string name="title_setup_documentation">Tjek e-mailudbyderdokumentationen mht. korrekt e-mailserveropsætning</string>
     <string name="title_setup_account_remark">Modtag e-mail</string>
     <string name="title_setup_identity_remark">Send e-mail</string>
-    <string name="title_setup_account_identity_hint">Navn, farve og stryg-handlinger kan opsættes i kontoindstillingerne, og en signatur kan opsættes i identitetsindstillingerne</string>
+    <string name="title_setup_account_identity_hint">Der kan opsættes navn, farve og strygehandlinger i kontoindstillingerne, samt opsættes signatur og standard CC- eller BCC-adresser i identitetsindstillingerne.</string>
     <string name="title_setup_accounts">Konti</string>
     <string name="title_setup_identities">Identiteter</string>
     <string name="title_setup_google_sign_in">Log ind med Google</string>
