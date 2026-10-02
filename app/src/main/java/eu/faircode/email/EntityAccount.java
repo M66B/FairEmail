@@ -570,7 +570,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return isTestUser(context, this.user);
     }
 
-    private static final String DEMO_DOMAIN_SHA256 = "6aa5aef252c27578aa36a14b06d3ba612fe39d054705a7282c77ee78ce276fc4";
+    private static final String DEMO_DOMAIN_SHA256 = "cc231bd7e945fd101b0066a5ee167e2373c726d2e01b0eeb45eb21a15d28c1ca";
 
     static boolean isTestUser(Context context, String user) {
         String domain = UriHelper.getEmailDomain(user);

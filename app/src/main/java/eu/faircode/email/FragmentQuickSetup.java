@@ -331,6 +331,17 @@ public class FragmentQuickSetup extends FragmentBase {
         String name = etName.getText().toString().trim();
         String email = etEmail.getText().toString().trim();
         String password = tilPassword.getEditText().getText().toString();
+
+        if (EntityAccount.isTestUser(getContext(), email)) {
+            EntityAccount.createTestAccount(this, email, new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            });
+            return;
+        }
+
         String warning = null;
         if (TextUtils.isEmpty(name))
             warning = getString(R.string.title_no_name);
