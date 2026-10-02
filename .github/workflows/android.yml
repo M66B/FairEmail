@@ -52,32 +52,45 @@ jobs:
         gpg -d --passphrase "${PASSWORD}" --batch keystore.properties.asc > keystore.properties
         echo "${{ secrets.LOCAL_PROPERTIES }}" > local.properties.asc
         gpg -d --passphrase "${PASSWORD}" --batch local.properties.asc > local.properties
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
     - name: Check with Lint
       run: ./gradlew --no-daemon --max-workers=1 --no-build-cache --no-configuration-cache lintGithubRelease
+
     - name: Build with Gradle
-      run: ./gradlew --no-daemon --max-workers=1 -XX:ActiveProcessorCount=1 --no-build-cache --no-configuration-cache assembleGithubRelease assembleLargeRelease assemblePlayRelease
+      env:
+        JAVA_TOOL_OPTIONS: "-XX:ActiveProcessorCount=1"
+      run: >-
+        ./gradlew --no-daemon --max-workers=1
+        --no-build-cache --no-configuration-cache
+        assembleGithubRelease assembleLargeRelease assemblePlayRelease
+
     #https://docs.github.com/en/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
     #https://github.com/actions/attest-build-provenance
     - name: Generate artifact attestation
       uses: actions/attest-build-provenance@v4
       with:
         subject-path: 'app/build/outputs/apk/**/release/*.apk'
+
     #- name: Upload to BitBucket
     #  run: |
     #    ./gradlew upload -Ptarget=play-preview-${{ github.event.inputs.branch }}
     #    ./gradlew upload -Ptarget=github-snapshot-${{ github.event.inputs.branch }}
     #    ./gradlew upload -Ptarget=large-snapshot-${{ github.event.inputs.branch }}
     #https://github.com/actions/upload-artifact
+
     - uses: actions/upload-artifact@v6
       with:
         name: Mapping files
         path: app/build/outputs/mapping/**/mapping.txt
+
     - uses: actions/upload-artifact@v6
       with:
         name: Native debug symbols
         path: app/build/outputs/native-debug-symbols/**/native-debug-symbols.zip
+
     - uses: actions/upload-artifact@v6
       with:
         name: APK files
