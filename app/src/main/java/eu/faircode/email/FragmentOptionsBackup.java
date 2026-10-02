@@ -286,10 +286,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
         // Initialize
         Helper.linkPro(tvExportPro);
-        cardCloud.setVisibility(!BuildConfig.PLAY_STORE_RELEASE &&
-                !TextUtils.isEmpty(BuildConfig.CLOUD_URI)
-                ? View.VISIBLE : View.GONE);
         Helper.linkPro(tvCloudPro);
+        update.run();
 
         cbSend.setChecked(prefs.getBoolean("cloud_send", true));
         cbReceive.setChecked(prefs.getBoolean("cloud_receive", false));
@@ -319,7 +317,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         }
     }
 
-    private Runnable update = new RunnableEx("backup") {
+    private final Runnable update = new RunnableEx("backup") {
         @Override
         protected void delegate() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -339,7 +337,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             grpLogin.setVisibility(auth ? View.GONE : View.VISIBLE);
             grpActivate.setVisibility(auth && !activated && !busy ? View.VISIBLE : View.GONE);
             grpLogout.setVisibility(auth ? View.VISIBLE : View.GONE);
-
+            cardCloud.setVisibility(!BuildConfig.PLAY_STORE_RELEASE &&
+                    !TextUtils.isEmpty(BuildConfig.CLOUD_URI) &&
+                    (auth || BuildConfig.DEBUG)
+                    ? View.VISIBLE : View.GONE);
         }
     };
 
