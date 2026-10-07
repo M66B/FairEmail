@@ -298,10 +298,12 @@ public class EditTextCompose extends FixedEditText {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     try {
+                        boolean paste = canPaste(getContext());
+
                         int order = 1000;
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || paste_plain)
+                        if (paste && (Build.VERSION.SDK_INT < Build.VERSION_CODES.O || paste_plain))
                             menu.add(Menu.CATEGORY_SECONDARY, android.R.id.pasteAsPlainText, order++, getTitle(R.string.title_paste_plain));
-                        if (paste_quote)
+                        if (paste && paste_quote)
                             menu.add(Menu.CATEGORY_SECONDARY, R.string.title_paste_as_quote, order++, getTitle(R.string.title_paste_as_quote));
                         if (undo_manager && can(android.R.id.undo))
                             menu.add(Menu.CATEGORY_SECONDARY, R.string.title_undo, order++, getTitle(R.string.title_undo));
@@ -533,6 +535,23 @@ public class EditTextCompose extends FixedEditText {
         }
 
         return Boolean.TRUE.equals(what == android.R.id.redo ? canRedo : canUndo);
+    }
+
+    public static boolean canPaste(Context context) {
+        try {
+            ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
+            if (cbm == null)
+                return false;
+
+            ClipData clip = cbm.getPrimaryClip();
+            if (clip == null || clip.getItemCount() == 0)
+                return false;
+
+            return !TextUtils.isEmpty(clip.getItemAt(0).getText());
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     @Override
