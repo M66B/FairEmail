@@ -4,11 +4,17 @@
 
 ### Notices
 
+<br>
+
 People keep asking me to add new, often exotic, features to the app, to whom I often say "no", and other people complain about too many features.
 Both groups of people leave bad reviews for this, which is frustrating, also because there are already enough bad reviews for the wrong reasons
 (email server problems, which unfortunately happen too often, etc.).
 The main problem is that more features now make more people unhappy than happy.
 Therefore, [the rules for new features](https://github.com/M66B/FairEmail/blob/master/FAQ.md#get-support) will be strictly followed from today.
+
+You can track the development of the average Play Store rating [here](https://email.faircode.eu/status/rating.html).
+Unfortunately, the average rating is consistently dropping, and that is not exactly motivating.
+Server problems are usually the cause of bad reviews.
 
 No worries, the app will [continue to be maintained](https://github.com/M66B/FairEmail/commits/) and supported as usual.
 
