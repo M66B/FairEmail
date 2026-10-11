@@ -6529,8 +6529,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_show_html).setVisible(Helper.hasWebView(context) && message.content);
 
-            boolean popReload = (message.accountProtocol == EntityAccount.TYPE_POP &&
-                    message.accountLeaveOnServer &&
+            boolean popReload = ((Boolean.TRUE.equals(message.raw) ||
+                    (message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveOnServer)) &&
                     EntityFolder.INBOX.equals(message.folderType));
 
             popupMenu.getMenu().findItem(R.id.menu_raw_save).setEnabled(message.uid != null || popReload);
