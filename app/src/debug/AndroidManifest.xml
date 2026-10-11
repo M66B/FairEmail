@@ -229,6 +229,15 @@
                 <data android:scheme="https" />
                 <data android:host="link.fairemail.net" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="mid" />
+            </intent-filter>
         </activity>
 
         <activity

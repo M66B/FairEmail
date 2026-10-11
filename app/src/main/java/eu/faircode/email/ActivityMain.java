@@ -28,6 +28,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -115,6 +119,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
         Intent intent = getIntent();
         Uri data = (intent == null ? null : intent.getData());
+
         if (data != null &&
                 (("message".equals(data.getScheme()) &&
                         ("email.faircode.eu".equals(data.getHost()) ||
@@ -187,6 +192,84 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     // Ignored
                 }
             }.setExecutor(executor).execute(this, args, "message:linked");
+
+            return;
+        }
+
+        // https://www.rfc-editor.org/info/rfc2392/
+        if (data != null && "mid".equals(data.getScheme())) {
+            super.onCreate(savedInstanceState);
+
+            Log.i("MID uri=" + data);
+            Bundle args = new Bundle();
+            args.putParcelable("data", data);
+
+            new SimpleTask<EntityMessage>() {
+                @Override
+                protected EntityMessage onExecute(Context context, Bundle args) {
+                    Uri data = args.getParcelable("data");
+                    String mid = data.getEncodedSchemeSpecificPart();
+                    if (TextUtils.isEmpty(mid))
+                        return null;
+
+                    mid = "<" + Uri.decode(mid.split("/")[0]) + ">";
+
+                    DB db = DB.getInstance(context);
+                    List<EntityMessage> messages = db.message().getMessagesByMsgId(null, mid);
+                    Log.i("MID mid=" + mid + " messages=" + (messages == null ? -1 : messages.size()));
+                    if (messages == null || messages.isEmpty())
+                        return null;
+
+                    Collections.sort(messages, new Comparator<EntityMessage>() {
+                        @Override
+                        public int compare(EntityMessage m1, EntityMessage m2) {
+                            EntityFolder f1 = db.folder().getFolder(m1.folder);
+                            EntityFolder f2 = db.folder().getFolder(m2.folder);
+                            if (f1 == null || f2 == null)
+                                return 0;
+                            int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
+                            int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);
+                            return Integer.compare(i1, i2);
+                        }
+                    });
+
+                    EntityMessage message = messages.get(0);
+
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+                    if (folder != null)
+                        args.putString("type", folder.type);
+
+                    return message;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityMessage message) {
+                    finish();
+
+                    if (message == null)
+                        return;
+
+                    String type = args.getString("type");
+
+                    Intent thread = new Intent(ActivityMain.this, ActivityView.class);
+                    thread.setAction("thread:" + message.id);
+                    thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    thread.putExtra("account", message.account);
+                    thread.putExtra("folder", message.folder);
+                    thread.putExtra("type", type);
+                    thread.putExtra("thread", message.thread);
+                    thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
+                    thread.putExtra("pinned", true);
+                    thread.putExtra("msgid", message.msgid);
+
+                    startActivity(thread);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    // Ignored
+                }
+            }.setExecutor(executor).execute(this, args, "message:mid");
 
             return;
         }

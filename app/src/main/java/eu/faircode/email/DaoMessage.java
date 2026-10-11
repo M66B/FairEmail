@@ -452,9 +452,9 @@ public interface DaoMessage {
     List<EntityMessage> getMessagesByThread(long account, String thread, Long id, Long folder);
 
     @Query("SELECT * FROM message" +
-            " WHERE account = :account" +
+            " WHERE (:account IS NULL OR account = :account)" +
             " AND msgid = :msgid")
-    List<EntityMessage> getMessagesByMsgId(long account, String msgid);
+    List<EntityMessage> getMessagesByMsgId(Long account, String msgid);
 
     @Query("SELECT message.* FROM message" +
             " JOIN folder ON folder.id = message.folder" +
