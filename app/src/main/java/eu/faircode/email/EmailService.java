@@ -37,6 +37,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailSSLProvider;
+import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
@@ -715,6 +716,21 @@ public class EmailService implements AutoCloseable {
         } catch (MessagingException ex) {
             crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
             Log.breadcrumb("Connection failed", crumb);
+
+            /*
+                * OK IMAP4 ready
+                FQ0 CAPABILITY
+                * CAPABILITY IMAP4 IMAP4rev1 IMAP4rev2 ... AUTH=PLAIN AUTH=LOGIN AUTH=XOAUTH2 AUTH=OAUTHBEARER
+                FQ0 OK completed
+                FQ1 AUTHENTICATE XOAUTH2 ...
+                + ...
+                FQ1 BAD invalid command
+             */
+
+            if (ex.getMessage() != null &&
+                    ex.getCause() instanceof BadCommandException &&
+                    (host != null && host.endsWith(".fastmail.com")))
+                throw new AuthenticationFailedException(ex.getMessage(), ex);
 
             if (ex.getMessage() != null &&
                     (ex.getMessage().contains("Session invalidated") ||
