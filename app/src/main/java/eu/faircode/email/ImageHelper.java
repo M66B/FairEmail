@@ -926,11 +926,14 @@ class ImageHelper {
 
         if (bm != null) {
             Matrix rotation = getImageRotation(mimeType, file);
-            if (rotation != null) {
-                Bitmap rotated = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), rotation, true);
-                bm.recycle();
-                bm = rotated;
-            }
+            if (rotation != null)
+                try {
+                    Bitmap rotated = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), rotation, true);
+                    bm.recycle();
+                    bm = rotated;
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
         }
 
         return bm;
