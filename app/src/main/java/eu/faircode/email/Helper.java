@@ -2271,9 +2271,23 @@ public class Helper {
 
     static boolean isDarkTheme(Context context) {
         // R.attr.isLightTheme
-        TypedValue tv = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
-        return (tv.string != null && !"light".contentEquals(tv.string));
+        try {
+            TypedValue tv = new TypedValue();
+            context.getTheme().resolveAttribute(R.attr.themeName, tv, true);
+            return (tv.string != null && !"light".contentEquals(tv.string));
+        } catch (Throwable ex) {
+            /*
+                java.lang.IndexOutOfBoundsException
+                    at android.content.res.StringBlock.nativeGetString(Native Method)
+                    at android.content.res.StringBlock.get(StringBlock.java:82)
+                    at android.content.res.AssetManager.getThemeValue(AssetManager.java:269)
+                    at android.content.res.ResourcesImpl$ThemeImpl.resolveAttribute(ResourcesImpl.java:1295)
+                    at android.content.res.Resources$Theme.resolveAttribute(Resources.java:1538)
+                    at eu.faircode.email.Helper.isDarkTheme(SourceFile:13)
+             */
+            Log.e(ex);
+            return false;
+        }
     }
 
     static void showKeyboard(final View view) {
