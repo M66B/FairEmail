@@ -599,30 +599,33 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 FetchProfile fp = new FetchProfile();
                 fp.add(UIDFolder.FetchProfileItem.UID);
-                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                if (!state.sorted)
+                    fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
                 state.ifolder.fetch(state.imessages, fp);
-                Arrays.sort(state.imessages, new Comparator<Message>() {
-                    @Override
-                    public int compare(Message m1, Message m2) {
-                        Date d1 = null;
-                        try {
-                            d1 = m1.getReceivedDate();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
+                if (!state.sorted) {
+                    Arrays.sort(state.imessages, new Comparator<Message>() {
+                        @Override
+                        public int compare(Message m1, Message m2) {
+                            Date d1 = null;
+                            try {
+                                d1 = m1.getReceivedDate();
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+
+                            Date d2 = null;
+                            try {
+                                d2 = m2.getReceivedDate();
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+
+                            return Long.compare(d1 == null ? 0 : d1.getTime(), d2 == null ? 0 : d2.getTime());
                         }
+                    });
 
-                        Date d2 = null;
-                        try {
-                            d2 = m2.getReceivedDate();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-
-                        return Long.compare(d1 == null ? 0 : d1.getTime(), d2 == null ? 0 : d2.getTime());
-                    }
-                });
-
-                EntityLog.log(context, "Boundary sorted messages=" + state.imessages.length);
+                    EntityLog.log(context, "Boundary sorted messages=" + state.imessages.length);
+                }
 
                 state.index = state.imessages.length - 1;
             } catch (Throwable ex) {
@@ -744,6 +747,38 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         SearchSequence ss = new SearchSequence(protocol);
         Argument args = ss.generateSequence(terms, utf8 ? StandardCharsets.UTF_8.name() : null);
         args.writeAtom("ALL");
+
+        // https://www.rfc-editor.org/rfc/rfc5256
+        if (BuildConfig.DEBUG && protocol.hasCapability("SORT"))
+            try {
+                Argument crit = new Argument();
+                //crit.writeAtom("REVERSE");
+                crit.writeAtom("ARRIVAL");
+                Argument sargs = new Argument();
+                sargs.writeArgument(crit);
+                sargs.writeAtom(utf8 ? "UTF-8" : "US-ASCII");
+                sargs.append(args);
+                Response[] sr = protocol.command("SORT", sargs);
+                if (sr != null && sr.length > 0 && sr[sr.length - 1].isOK()) {
+                    List<Integer> snums = new ArrayList<>();
+                    for (Response r : sr)
+                        if (r instanceof IMAPResponse && ((IMAPResponse) r).keyEquals("SORT")) {
+                            int msgnum;
+                            while ((msgnum = r.readNumber()) != -1)
+                                snums.add(msgnum);
+                        }
+                    EntityLog.log(context, "Boundary sorting messages=" + snums.size());
+                    Message[] imessages = new Message[snums.size()];
+                    for (int i = 0; i < snums.size(); i++)
+                        imessages[i] = state.ifolder.getMessage(snums.get(i));
+                    state.sorted = true;
+                    EntityLog.log(context, "Boundary sorted messages=" + snums.size());
+                    return imessages;
+                }
+                EntityLog.log(context, "Boundary sort failed=" + (sr == null || sr.length == 0 ? null : sr[sr.length - 1]));
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
 
         // https://www.rfc-editor.org/rfc/rfc3501#section-6.4.4
         Response[] responses = protocol.command("SEARCH" + (utf8 ? " CHARSET UTF-8" : ""), args);
@@ -1023,6 +1058,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         EmailService iservice = null;
         IMAPFolder ifolder = null;
         Message[] imessages = null;
+        boolean sorted = false;
 
         void getMessages(int max) throws MessagingException {
             int count = ifolder.getMessageCount();
@@ -1045,6 +1081,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             iservice = null;
             ifolder = null;
             imessages = null;
+            sorted = false;
 
             Helper.gc("Boundary reset");
         }
