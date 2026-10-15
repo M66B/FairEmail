@@ -1141,7 +1141,7 @@ public class ApplicationEx extends Application
             editor.putInt("spacing", 0);
 
         if (version < 2338)
-            editor.remove("show_changelog");
+            editor.remove("show_changelog").remove("third_party_notified");
 
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);
