@@ -1464,12 +1464,13 @@ public class EntityRule {
     }
 
     private boolean onActionFlag(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+        boolean unflag = jargs.optBoolean("unflag", false);
         Integer color = (jargs.has("color") && !jargs.isNull("color")
                 ? jargs.getInt("color") : null);
 
-        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color, false);
+        EntityOperation.queue(context, message, EntityOperation.FLAG, !unflag, color, false);
 
-        message.ui_flagged = true;
+        message.ui_flagged = !unflag;
         message.color = color;
 
         return true;

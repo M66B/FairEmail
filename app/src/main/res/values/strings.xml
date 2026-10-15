@@ -2137,6 +2137,7 @@
     <string name="title_rule_local_only" translatable="false">Local notification only</string>
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Add star</string>
+    <string name="title_rule_unflag">Remove star</string>
     <string name="title_rule_importance">Set importance</string>
     <string name="title_rule_keyword">Keyword</string>
     <string name="title_rule_keyword_add">Add</string>

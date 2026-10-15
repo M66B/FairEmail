@@ -148,6 +148,7 @@ public class FragmentRule extends FragmentBase {
     private CheckBox cbScheduleEnd;
     private CheckBox cbSnoozeSeen;
 
+    private CheckBox cbUnflag;
     private ViewButtonColor btnColor;
 
     private Spinner spImportance;
@@ -365,6 +366,7 @@ public class FragmentRule extends FragmentBase {
         cbScheduleEnd = view.findViewById(R.id.cbScheduleEnd);
         cbSnoozeSeen = view.findViewById(R.id.cbSnoozeSeen);
 
+        cbUnflag = view.findViewById(R.id.cbUnflag);
         btnColor = view.findViewById(R.id.btnColor);
 
         spImportance = view.findViewById(R.id.spImportance);
@@ -1464,6 +1466,7 @@ public class FragmentRule extends FragmentBase {
                                     break;
 
                                 case EntityRule.TYPE_FLAG:
+                                    cbUnflag.setChecked(jaction.optBoolean("unflag", false));
                                     btnColor.setColor(
                                             !jaction.has("color") || jaction.isNull("color")
                                                     ? null : jaction.getInt("color"));
@@ -1928,6 +1931,7 @@ public class FragmentRule extends FragmentBase {
                     break;
 
                 case EntityRule.TYPE_FLAG:
+                    jaction.put("unflag", cbUnflag.isChecked());
                     int color = btnColor.getColor();
                     if (color != Color.TRANSPARENT)
                         jaction.put("color", color);

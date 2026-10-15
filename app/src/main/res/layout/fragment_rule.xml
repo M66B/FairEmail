@@ -994,6 +994,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbHideSeen" />
 
+                <CheckBox
+                    android:id="@+id/cbUnflag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_unflag"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbSnoozeSeen" />
+
                 <TextView
                     android:id="@+id/tvColor"
                     android:layout_width="wrap_content"
@@ -1002,7 +1011,7 @@
                     android:text="@string/title_color"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbSnoozeSeen" />
+                    app:layout_constraintTop_toBottomOf="@id/cbUnflag" />
 
                 <eu.faircode.email.ViewButtonColor
                     android:id="@+id/btnColor"
@@ -1572,7 +1581,7 @@
                     android:id="@+id/grpFlag"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvColor,btnColor" />
+                    app:constraint_referenced_ids="cbUnflag,tvColor,btnColor" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpImportance"
