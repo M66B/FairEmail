@@ -1538,7 +1538,7 @@
                     tvRecipientCondition,cbRecipientNot,
                     vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,
                     tvSubjectCondition,cbSubjectNot,
-                    vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
+                    vSeparatorSubject,tvSubject,cbSubject,etSubject,
                     vSeparatorAttachments,cbAttachments,tvMimeType,etMimeType,
                     tvHeaderCondition,cbHeaderNot,
                     vSeparatorHeader,tvHeader,ibHeader,cbHeader,etHeader,
