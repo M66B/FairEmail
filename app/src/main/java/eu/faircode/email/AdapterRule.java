@@ -232,7 +232,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 String to = null;
                 boolean resend = false;
                 int type = jaction.getInt("type");
-                if (type == EntityRule.TYPE_SNOOZE) {
+                if (type == EntityRule.TYPE_FLAG) {
+                    boolean unflag = jaction.optBoolean("unflag", false);
+                    setAction(getAction(type), unflag ? context.getString(R.string.title_rule_unflag) : null);
+                } else if (type == EntityRule.TYPE_SNOOZE) {
                     int duration = jaction.optInt("duration", 0);
                     setAction(getAction(type), Integer.toString(duration));
                 } else if (type == EntityRule.TYPE_IMPORTANCE) {
