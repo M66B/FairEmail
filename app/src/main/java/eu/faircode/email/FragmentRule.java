@@ -792,6 +792,13 @@ public class FragmentRule extends FragmentBase {
         npDuration.setMinValue(0);
         npDuration.setMaxValue(999);
 
+        cbUnflag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                btnColor.setEnabled(!isChecked);
+            }
+        });
+
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1466,10 +1473,12 @@ public class FragmentRule extends FragmentBase {
                                     break;
 
                                 case EntityRule.TYPE_FLAG:
-                                    cbUnflag.setChecked(jaction.optBoolean("unflag", false));
+                                    boolean unflag = jaction.optBoolean("unflag", false);
+                                    cbUnflag.setChecked(unflag);
                                     btnColor.setColor(
                                             !jaction.has("color") || jaction.isNull("color")
                                                     ? null : jaction.getInt("color"));
+                                    btnColor.setEnabled(!unflag);
                                     break;
 
                                 case EntityRule.TYPE_IMPORTANCE:
@@ -1628,7 +1637,7 @@ public class FragmentRule extends FragmentBase {
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(args);
         fragment.setTargetFragment(FragmentRule.this, REQUEST_DELETE);
-        fragment.show(getParentFragmentManager(), "answer:delete");
+        fragment.show(getParentFragmentManager(), "rule:delete");
     }
 
     private void onActionCheck() {

@@ -98,6 +98,7 @@ public class FragmentRules extends FragmentBase {
     static final int REQUEST_RULE_COPY_ACCOUNT = 5;
     static final int REQUEST_RULE_COPY_FOLDER = 6;
     private static final int REQUEST_CLEAR = 7;
+    static final int REQUEST_DELETE = 8;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -307,6 +308,10 @@ public class FragmentRules extends FragmentBase {
                 case REQUEST_CLEAR:
                     if (resultCode == RESULT_OK && data != null)
                         onClear(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_DELETE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDelete(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -765,5 +770,22 @@ public class FragmentRules extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rules:clear");
+    }
+
+    private void onDelete(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                DB.getInstance(context).rule().deleteRule(id);
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "rule:delete");
+
     }
 }
