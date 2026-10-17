@@ -1655,34 +1655,38 @@ public class HtmlHelper {
                                 }
 
                                 boolean email = group.contains("@") && !group.contains(":");
+                                boolean blacklist = group.toLowerCase().endsWith(".zip") &&
+                                        !(group.toLowerCase().startsWith("https://") || group.toLowerCase().startsWith("http://"));
                                 Log.i("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
-                                        " linked=" + linked + " email=" + email + " count=" + links);
+                                        " linked=" + linked + " email=" + email + " blacklist=" + blacklist + " count=" + links);
 
-                                if (linked)
-                                    span.appendText(text.substring(pos, end));
-                                else {
-                                    span.appendText(text.substring(pos, start));
-
-                                    Element a = document.createElement("a");
-                                    if (BuildConfig.DEBUG && GPA_PATTERN.matcher(group).matches())
-                                        a.attr("href", BuildConfig.GPA_URI + group);
+                                if (!blacklist) {
+                                    if (linked)
+                                        span.appendText(text.substring(pos, end));
                                     else {
-                                        String url = (email ? "mailto:" : "") + group;
-                                        if (outbound)
-                                            try {
-                                                Uri uri = UriHelper.guessScheme(Uri.parse(url));
-                                                a.attr("href", uri.toString());
-                                            } catch (Throwable ex) {
-                                                Log.e(ex);
-                                                a.attr("href", url);
-                                            }
-                                        else
-                                            a.attr("href", url);
-                                    }
-                                    a.text(group);
-                                    span.appendChild(a);
+                                        span.appendText(text.substring(pos, start));
 
-                                    links++;
+                                        Element a = document.createElement("a");
+                                        if (BuildConfig.DEBUG && GPA_PATTERN.matcher(group).matches())
+                                            a.attr("href", BuildConfig.GPA_URI + group);
+                                        else {
+                                            String url = (email ? "mailto:" : "") + group;
+                                            if (outbound)
+                                                try {
+                                                    Uri uri = UriHelper.guessScheme(Uri.parse(url));
+                                                    a.attr("href", uri.toString());
+                                                } catch (Throwable ex) {
+                                                    Log.e(ex);
+                                                    a.attr("href", url);
+                                                }
+                                            else
+                                                a.attr("href", url);
+                                        }
+                                        a.text(group);
+                                        span.appendChild(a);
+
+                                        links++;
+                                    }
                                 }
 
                                 pos = end;
