@@ -1559,11 +1559,11 @@ public class HtmlHelper {
         }
     }
 
-    static void autoLink(Document document) {
-        autoLink(document, false);
+    static void autoLink(Document document, Context context) {
+        autoLink(document, false, context);
     }
 
-    static void autoLink(Document document, boolean outbound) {
+    static void autoLink(Document document, boolean outbound, Context context) {
         // https://en.wikipedia.org/wiki/List_of_URI_schemes
         // https://en.wikipedia.org/wiki/Geo_URI_scheme
         // https://developers.google.com/maps/documentation/urls/android-intents
@@ -1586,6 +1586,11 @@ public class HtmlHelper {
                         "|" +
                         "(?i:tel:" + Patterns.PHONE.pattern() + ")" +
                         (BuildConfig.DEBUG ? "|(" + GPA_PATTERN + ")" : ""));
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean autolink = prefs.getBoolean("auto_link_rx", true);
+        if (!outbound && !autolink)
+            return;
 
         NodeTraversor.traverse(new NodeVisitor() {
             private int links = 0;

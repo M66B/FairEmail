@@ -246,7 +246,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                         if (!TextUtils.isEmpty(text)) {
                             html = "<span>" + text.replaceAll("\\r?\\n", "<br>") + "</span>";
                             Document d = JsoupEx.parse(html);
-                            HtmlHelper.autoLink(d, true);
+                            HtmlHelper.autoLink(d, true, ActivityCompose.this);
                             html = d.body().html();
                         }
                     }

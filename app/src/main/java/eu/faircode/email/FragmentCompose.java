@@ -8346,7 +8346,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedRef = null;
                 if (!ref.isEmpty()) {
                     Document dref = JsoupEx.parse(ref.outerHtml());
-                    HtmlHelper.autoLink(dref);
+                    HtmlHelper.autoLink(dref, context);
                     Document quote = HtmlHelper.sanitizeView(context, dref, show_images);
                     spannedRef = HtmlHelper.fromDocument(context, quote,
                             new HtmlHelper.ImageGetterEx() {

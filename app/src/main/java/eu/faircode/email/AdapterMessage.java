@@ -3375,7 +3375,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
 
                         HtmlHelper.guessSchemes(document);
-                        HtmlHelper.autoLink(document);
+                        HtmlHelper.autoLink(document, context);
 
                         if (message.ui_found && found && !TextUtils.isEmpty(searched))
                             HtmlHelper.highlightSearched(context, document, searched, searchedPartial);
@@ -3407,7 +3407,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Context tcontext = (force_light ? ApplicationEx.getThemedContext(context, R.style.AppThemeBaseLight) : context);
                         int colorAccent = Helper.resolveColor(tcontext, androidx.appcompat.R.attr.colorAccent);
 
-                        HtmlHelper.autoLink(document);
+                        HtmlHelper.autoLink(document, context);
 
                         if (message.ui_found && found && !TextUtils.isEmpty(searched))
                             HtmlHelper.highlightSearched(tcontext, document, searched, searchedPartial);
@@ -6135,7 +6135,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message.isPlainOnly() && monospaced_pre)
                         HtmlHelper.restorePre(document);
                     HtmlHelper.guessSchemes(document);
-                    HtmlHelper.autoLink(document);
+                    HtmlHelper.autoLink(document, context);
                     HtmlHelper.embedInlineImages(context, message.id, document, true);
                     HtmlHelper.markText(document);
                     if (disable_tracking)

@@ -323,7 +323,7 @@ public class ActivityEML extends ActivityBase {
                     String html = result.parts.getHtml(context, download_plain);
                     if (html != null) {
                         Document parsed = JsoupEx.parse(html);
-                        HtmlHelper.autoLink(parsed);
+                        HtmlHelper.autoLink(parsed, context);
                         Document document = HtmlHelper.sanitizeView(context, parsed, false);
                         result.body = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
                             @Override
