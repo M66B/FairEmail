@@ -1441,8 +1441,8 @@ please go to the settings via the navigation menu (left side menu), tap on the w
 An Outlook / Live / Hotmail account can be set up via the quick setup wizard and selecting "*Outlook/Office 365 (OAuth)*".
 
 To use third-party email apps for consumer Outlook accounts, IMAP must be enabled.
-For this, please go to the Outlook website, tap on the settings wheel at the top right,
-select 'Mail', select 'Forwarding and IMAP', and in the section 'POP and IMAP' enable 'Let devices and apps use IMAP'.
+For this, please go to the Outlook website with a browser, switch to desktop mode (mostly via the three-dot overflow menu of the browser),
+tap on the settings wheel at the top right, select 'Mail', select 'Forwarding and IMAP', and in the section 'POP and IMAP' enable 'Let devices and apps use IMAP'.
 
 **Important**: a personal and a business account can have the same email address, but have different mailboxes (folders). So, please make sure you select the right option.
 
