@@ -916,11 +916,13 @@ public class SMTPTransport extends Transport {
 	    try {
 		// use "initial response" capability, if supported
 		String ir = getInitialResponse(host, authzid, user, passwd);
+		boolean deferredResponse = ("XOAUTH2".equals(mech) && ir != null &&
+			"AUTH ".length() + mech.length() + 1 + ir.length() + 2 /* CR/LF */ > 512);
 		if (noauthdebug && isTracing()) {
 		    logger.fine("AUTH " + mech + " command trace suppressed");
 		    suspendTracing();
 		}
-		if (ir != null)
+		if (ir != null && !deferredResponse)
 		    resp = simpleCommand("AUTH " + mech + " " +
 					    (ir.length() == 0 ? "=" : ir));
 		else
@@ -932,11 +934,13 @@ public class SMTPTransport extends Transport {
 		 */
 		if (resp == 530) {
 		    startTLS();
-		    if (ir != null)
+		    if (ir != null && !deferredResponse)
 			resp = simpleCommand("AUTH " + mech + " " + ir);
 		    else
 			resp = simpleCommand("AUTH " + mech);
 		}
+		if (resp == 334 && deferredResponse)
+		    resp = simpleCommand(ir);
 		if (resp == 334)
 		    doAuth(host, authzid, user, passwd);
 	    } catch (IOException ex) {	// should never happen, ignore
