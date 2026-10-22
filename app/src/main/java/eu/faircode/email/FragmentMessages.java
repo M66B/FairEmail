@@ -2197,6 +2197,9 @@ public class FragmentMessages extends FragmentBase
                 final SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
                     @Override
                     public boolean onSwipeRight() {
+                        if (iProperties.canScrollHorizontally())
+                            return false;
+
                         if (prev == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
                             view.startAnimation(bounce);
@@ -2208,6 +2211,9 @@ public class FragmentMessages extends FragmentBase
 
                     @Override
                     public boolean onSwipeLeft() {
+                        if (iProperties.canScrollHorizontally())
+                            return false;
+
                         if (next == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
                             view.startAnimation(bounce);
@@ -2772,6 +2778,25 @@ public class FragmentMessages extends FragmentBase
             updateExpanded();
             if (value)
                 handleExpand(message.id);
+        }
+
+        @Override
+        public boolean canScrollHorizontally() {
+            List<Long> expanded = values.get("expanded");
+            if (expanded != null)
+                for (Long id : expanded)
+                    if (getValue("full", id)) {
+                        int pos = adapter.getPositionForKey(id);
+                        AdapterMessage.ViewHolder holder =
+                                (AdapterMessage.ViewHolder) rvMessage.findViewHolderForAdapterPosition(pos);
+                        if (holder != null) {
+                            View wvBody = holder.itemView.findViewById(R.id.wvBody);
+                            if (wvBody instanceof WebViewEx &&
+                                    (wvBody.canScrollHorizontally(-1) || wvBody.canScrollHorizontally(1)))
+                                return true;
+                        }
+                    }
+            return false;
         }
 
         @Override

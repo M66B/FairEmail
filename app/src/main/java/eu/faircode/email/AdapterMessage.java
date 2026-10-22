@@ -9597,6 +9597,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         void setExpanded(TupleMessageEx message, boolean expanded, boolean scroll);
 
+        boolean canScrollHorizontally();
+
         void setSize(long id, Float size);
 
         float getSize(long id, float defaultSize);
