@@ -36,6 +36,16 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2339 2026-10-24
+
+* Fixed all reported issues
+* Small improvements and minor bug fixes
+* Added support for [RFC 2392](https://www.rfc-editor.org/info/rfc2392/)
+* Updated [MiniDNS](https://github.com/minidns/minidns) to version 1.1.3
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [S/MIME root certificates](https://wiki.mozilla.org/CA/Included_Certificates)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2338 2026-10-02
 
 * Fixed all reported issues
