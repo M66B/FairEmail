@@ -1098,6 +1098,7 @@
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_drafts">Ingen Kladde-mappe</string>
     <string name="title_no_junk_folder">Ingen spammappe er valgt til denne konto</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Besked ikke fundet</string>
     <string name="title_default_composable">Standard-e-mailadressen bestemmes af den primære kontos primære identitet</string>
     <string name="title_no_composable">Afsendelse af e-mails kræver opsætning af en identitet samt valg af en Kladde-mappe under kontoindstillingerne</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>
@@ -1791,6 +1792,7 @@ For at slette vedhæftninger, opret en ny besked og slet den gamle.
     <string name="title_rule_ignore">Undertryk notifikationer</string>
     <string name="title_rule_snooze">Udsæt</string>
     <string name="title_rule_flag">Tilføj stjerne</string>
+    <string name="title_rule_unflag">Fjern stjerne</string>
     <string name="title_rule_importance">Angiv vigtighed</string>
     <string name="title_rule_keyword">Nøgleord</string>
     <string name="title_rule_keyword_add">Tilføj</string>

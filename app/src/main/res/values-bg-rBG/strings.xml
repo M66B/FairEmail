@@ -1760,6 +1760,7 @@
     <string name="title_rule_ignore">Спри уведомлението</string>
     <string name="title_rule_snooze">Отложи</string>
     <string name="title_rule_flag">Добави звезда</string>
+    <string name="title_rule_unflag">Премахване на звезда</string>
     <string name="title_rule_importance">Задаване на важност</string>
     <string name="title_rule_keyword">Ключова дума</string>
     <string name="title_rule_keyword_add">Добавяне</string>

@@ -1747,6 +1747,7 @@ Android 可能會要求訪問所選資料夾的權限，儘管應用程式並不
     <string name="title_rule_ignore">抑止通知</string>
     <string name="title_rule_snooze">延後</string>
     <string name="title_rule_flag">加上星號</string>
+    <string name="title_rule_unflag">移除星號</string>
     <string name="title_rule_importance">設定重要性</string>
     <string name="title_rule_keyword">關鍵字</string>
     <string name="title_rule_keyword_add">新增</string>

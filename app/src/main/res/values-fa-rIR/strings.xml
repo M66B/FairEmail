@@ -788,6 +788,7 @@
     <string name="title_no_user">نام کاربری وجود ندارد</string>
     <string name="title_no_password">گذرواژه موجود نیست</string>
     <string name="title_no_inbox">صندوق دریافتی پیدا نشد</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">پیام پیدا نشد</string>
     <string name="title_no_standard">فراهم‌کننده از پروتکل اختصاصی استفاده می‌کند برای همین استفاده از کارخواه‌های شخص سوم ممکن نیست</string>
     <string name="title_no_idle">این فراهم‌کننده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. برای همین دریافت پیام‌های تازه با دیرکرد همراه خواهد بود و مصرف باتری افزایش خواهد یافت.</string>
     <string name="title_no_utf8">فراهم‌کننده از UTF-8 پشتیبانی نمی‌کند</string>
@@ -1262,6 +1263,7 @@
     <string name="title_rule_ignore">بی‌صدا کردن اعلان</string>
     <string name="title_rule_snooze">تعویق</string>
     <string name="title_rule_flag">افزودن ستاره</string>
+    <string name="title_rule_unflag">حذف ستاره</string>
     <string name="title_rule_importance">تعیین اهمیت</string>
     <string name="title_rule_keyword_add">افزودن</string>
     <string name="title_rule_keyword_delete">حذف</string>

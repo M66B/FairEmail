@@ -1521,6 +1521,7 @@
     <string name="title_rule_ignore">Utišaj obvestilo</string>
     <string name="title_rule_snooze">Dremež</string>
     <string name="title_rule_flag">Dodaj zvezdico</string>
+    <string name="title_rule_unflag">Odstrani zvezdico</string>
     <string name="title_rule_importance">Nastavi pomembnost</string>
     <string name="title_rule_keyword_add">Dodaj</string>
     <string name="title_rule_keyword_delete">Izbriši</string>

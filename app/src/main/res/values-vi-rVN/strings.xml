@@ -1388,6 +1388,7 @@
     <string name="title_rule_ignore">Bãi bỏ thông báo</string>
     <string name="title_rule_snooze">Báo lại</string>
     <string name="title_rule_flag">Thêm sao</string>
+    <string name="title_rule_unflag">Bỏ sao</string>
     <string name="title_rule_importance">Đặt tầm quan trọng</string>
     <string name="title_rule_keyword_add">Thêm</string>
     <string name="title_rule_keyword_delete">Xoá</string>

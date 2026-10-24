@@ -1104,6 +1104,7 @@
     <string name="title_no_inbox">Boîte de réception introuvable</string>
     <string name="title_no_drafts">Aucun dossier Brouillons</string>
     <string name="title_no_junk_folder">Il n\'y a aucun dossier « Indésirables » sélectionné pour ce compte</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Message introuvable</string>
     <string name="title_default_composable">L\'adresse e-mail par défaut est déterminée à partir de l\'identité principale du compte principal</string>
     <string name="title_no_composable">L\'envoi d\'e-mails nécessite la configuration d\'une identité et la sélection d\'un dossier « Brouillons » dans les paramètres du compte</string>
     <string name="title_no_standard">Ce fournisseur utilise un protocole de messagerie propriétaire, il n’est donc pas possible d’utiliser des clients de messagerie tiers</string>
@@ -1800,6 +1801,7 @@
     <string name="title_rule_ignore">Supprimer la notification</string>
     <string name="title_rule_snooze">Reporter</string>
     <string name="title_rule_flag">Marquer comme suivi</string>
+    <string name="title_rule_unflag">Ne plus marquer comme suivi</string>
     <string name="title_rule_importance">Définir l\'importance</string>
     <string name="title_rule_keyword">Mot-clé</string>
     <string name="title_rule_keyword_add">Ajouter</string>

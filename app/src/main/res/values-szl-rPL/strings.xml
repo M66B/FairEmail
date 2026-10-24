@@ -1123,6 +1123,7 @@ Nie musisz być tutaj, aby skonfigurować konto. W tym celu skorzystaj z przycis
     <string name="title_no_inbox">Nie znaleziono skrzynki odbiorczej</string>
     <string name="title_no_drafts">Brak folderu szkiców</string>
     <string name="title_no_junk_folder">Dla tego konta nie wybrano folderu spam</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Nie znaleziono wiadomości</string>
     <string name="title_default_composable">Domyślny adres e-mail jest określony przez podstawową tożsamość konta głównego</string>
     <string name="title_no_composable">Wysyłanie wiadomości e-mail wymaga skonfigurowania tożsamości i wybrania folderu szkiców w ustawieniach konta</string>
     <string name="title_no_standard">Ten dostawca korzysta z zastrzeżonego protokołu e-mail i dlatego nie jest możliwe korzystanie z klientów e-mail firm trzecich</string>
@@ -1815,6 +1816,7 @@ Jest to bezpieczny, sformatowany widok wiadomości.
     <string name="title_rule_ignore">Wycisz powiadomienie</string>
     <string name="title_rule_snooze">Odłóż</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
+    <string name="title_rule_unflag">Usuń gwiazdkę</string>
     <string name="title_rule_importance">Ustaw ważność</string>
     <string name="title_rule_keyword">Słowo kluczowe</string>
     <string name="title_rule_keyword_add">Dodaj</string>

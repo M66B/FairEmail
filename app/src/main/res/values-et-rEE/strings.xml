@@ -1790,6 +1790,7 @@ Sa ei pea olema siin, et kontot häälestada. Palun kasuta selleks kiirseadistam
     <string name="title_rule_ignore">Summuta teavitus</string>
     <string name="title_rule_snooze">Tukasta</string>
     <string name="title_rule_flag">Lisa tärn</string>
+    <string name="title_rule_unflag">Eemalda tärn</string>
     <string name="title_rule_importance">Määra tähtsus</string>
     <string name="title_rule_keyword">Märksõna</string>
     <string name="title_rule_keyword_add">Lisa</string>

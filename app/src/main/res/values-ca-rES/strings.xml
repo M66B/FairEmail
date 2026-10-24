@@ -1115,6 +1115,7 @@ Les opcions estan categoritzades per pestanya, dividides en seccions, organitzad
     <string name="title_rule_ignore">Elimina les notificacions</string>
     <string name="title_rule_snooze">Posposa</string>
     <string name="title_rule_flag">Afegeix a destacats</string>
+    <string name="title_rule_unflag">Treure de destacats</string>
     <string name="title_rule_importance">Estableix la importància</string>
     <string name="title_rule_keyword_add">Afegir</string>
     <string name="title_rule_keyword_delete">Eliminar</string>

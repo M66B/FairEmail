@@ -1379,6 +1379,7 @@
     <string name="title_rule_ignore">Potisni obavijest</string>
     <string name="title_rule_snooze">Utišaj</string>
     <string name="title_rule_flag">Dodaj zvjezdicu</string>
+    <string name="title_rule_unflag">Ukloni zvjezdicu</string>
     <string name="title_rule_importance">Postavi važnost</string>
     <string name="title_rule_keyword_add">Dodaj</string>
     <string name="title_rule_keyword_delete">Izbriši</string>

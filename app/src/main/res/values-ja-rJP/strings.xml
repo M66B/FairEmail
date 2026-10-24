@@ -1769,6 +1769,7 @@
     <string name="title_rule_ignore">通知しない</string>
     <string name="title_rule_snooze">スヌーズ</string>
     <string name="title_rule_flag">スターを付ける</string>
+    <string name="title_rule_unflag">スターを削除</string>
     <string name="title_rule_importance">重要度を設定</string>
     <string name="title_rule_keyword">キーワード</string>
     <string name="title_rule_keyword_add">追加</string>

@@ -1800,6 +1800,7 @@
     <string name="title_rule_ignore">Suprimă notificare</string>
     <string name="title_rule_snooze">Amână</string>
     <string name="title_rule_flag">Adaugă stea</string>
+    <string name="title_rule_unflag">Elimină stea</string>
     <string name="title_rule_importance">Setare importanță</string>
     <string name="title_rule_keyword">Cuvânt cheie</string>
     <string name="title_rule_keyword_add">Adaugă</string>

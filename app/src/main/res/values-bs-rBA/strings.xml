@@ -1111,6 +1111,7 @@
     <string name="title_no_inbox">Inbox nije pronađen</string>
     <string name="title_no_drafts">Nema foldera za nacrte</string>
     <string name="title_no_junk_folder">Nema izabranog spam foldera za ovaj račun</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Poruka nije pronađena</string>
     <string name="title_default_composable">Zadana e-mail adresa je određena na osnovu primarnog identiteta primarnog računa</string>
     <string name="title_no_composable">Slanje e-pošte zahtijeva da se postavi identitet, te izabere folder za nacrte u postavkama računa</string>
     <string name="title_no_standard">Ovaj provajder koristi vlastiti e-mail protokol i stoga nije moguće koristiti e-mail klijente trećih strana</string>
@@ -1804,6 +1805,7 @@
     <string name="title_rule_ignore">Potisni obavještenje</string>
     <string name="title_rule_snooze">Odgodi</string>
     <string name="title_rule_flag">Zvjezdica</string>
+    <string name="title_rule_unflag">Ukloni zvjezdicu</string>
     <string name="title_rule_importance">Postavi važnost</string>
     <string name="title_rule_keyword">Ključna riječ</string>
     <string name="title_rule_keyword_add">Dodaj</string>

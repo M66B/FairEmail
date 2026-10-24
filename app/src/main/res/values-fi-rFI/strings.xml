@@ -1745,6 +1745,7 @@ Tämä voi epäonnistua, minkä takia vanha viesti siirretään roskakoriin talt
     <string name="title_rule_ignore">Vaimenna ilmoitus</string>
     <string name="title_rule_snooze">Torkuta</string>
     <string name="title_rule_flag">Lisää tähti</string>
+    <string name="title_rule_unflag">Poista tähti</string>
     <string name="title_rule_importance">Aseta oma tärkeysjärjestys</string>
     <string name="title_rule_keyword">Avainsana</string>
     <string name="title_rule_keyword_add">Lisää</string>

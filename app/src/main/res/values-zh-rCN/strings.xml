@@ -1089,6 +1089,7 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">邮件未找到</string>
     <string name="title_default_composable">默认电子邮件地址由主账户的主身份确定</string>
     <string name="title_no_composable">发送邮件需要配置一个身份，并在帐账户设置中选择一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
@@ -1778,6 +1779,7 @@
     <string name="title_rule_ignore">禁止通知</string>
     <string name="title_rule_snooze">打盹</string>
     <string name="title_rule_flag">添加星标</string>
+    <string name="title_rule_unflag">移除星标</string>
     <string name="title_rule_importance">设置重要性</string>
     <string name="title_rule_keyword">关键词</string>
     <string name="title_rule_keyword_add">添加</string>

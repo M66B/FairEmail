@@ -1092,6 +1092,7 @@
     <string name="title_no_inbox">Bejövő mappa nem található</string>
     <string name="title_no_drafts">Nem található a piszkozatok mappája</string>
     <string name="title_no_junk_folder">Ehhez a fiókhoz nincs Spam mappa kijelölve</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Üzenet nem található</string>
     <string name="title_default_composable">Az alapértelmezett e-mail cím az elsődleges fiók elsődleges identitása alapján kerül meghatározásra</string>
     <string name="title_no_composable">Email-ek küldéséhez konfigurálni kell egy identitást, és kiválasztani egy piszkozatok mappát a fiókbeállításokban</string>
     <string name="title_no_standard">Ez a szolgáltató zárt email protokollt használ, ezért nem lehetséges harmadik féltől származó email kliens használata</string>
@@ -1782,6 +1783,7 @@
     <string name="title_rule_ignore">Értesítések felfüggesztése</string>
     <string name="title_rule_snooze">Szundi</string>
     <string name="title_rule_flag">Csillagozás</string>
+    <string name="title_rule_unflag">Csillag törlése</string>
     <string name="title_rule_importance">Fontosság beállítása</string>
     <string name="title_rule_keyword">Kulcsszó</string>
     <string name="title_rule_keyword_add">Hozzáadás</string>

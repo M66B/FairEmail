@@ -1121,6 +1121,7 @@ Blokkerer en sender er en gratis egenskap.
     <string name="title_rule_ignore">Undertrykke varsling</string>
     <string name="title_rule_snooze">Utsett</string>
     <string name="title_rule_flag">Legg til stjerne</string>
+    <string name="title_rule_unflag">Fjern stjerne</string>
     <string name="title_rule_importance">Sett viktighet</string>
     <string name="title_rule_keyword">Nøkkelord</string>
     <string name="title_rule_keyword_add">Legg til</string>

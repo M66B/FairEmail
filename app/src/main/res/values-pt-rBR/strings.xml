@@ -1098,6 +1098,7 @@
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_no_drafts">Nenhuma pasta de rascunhos</string>
     <string name="title_no_junk_folder">Não existe pasta de spam selecionada para essa conta</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Mensagem não encontrada</string>
     <string name="title_default_composable">O endereço de e-mail padrão é determinado pela identidade da conta principal</string>
     <string name="title_no_composable">Enviar e-mails requer uma identidade para ser configurada e uma pasta de rascunhos para ser selecionada nas configurações da conta</string>
     <string name="title_no_standard">Este provedor utiliza um protocolo de e-mail proprietário e, portanto, não é possível usar clientes de e-mail de terceiros</string>
@@ -1789,6 +1790,7 @@
     <string name="title_rule_ignore">Suprimir notificação</string>
     <string name="title_rule_snooze">Soneca</string>
     <string name="title_rule_flag">Adicionar estrela</string>
+    <string name="title_rule_unflag">Remover estrela</string>
     <string name="title_rule_importance">Definir a importância</string>
     <string name="title_rule_keyword">Palavra-chave</string>
     <string name="title_rule_keyword_add">Adicionar</string>
