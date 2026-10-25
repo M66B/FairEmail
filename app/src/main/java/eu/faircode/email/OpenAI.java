@@ -60,7 +60,7 @@ public class OpenAI {
     static final String CONTENT_TEXT = "text";
     static final String CONTENT_IMAGE = "image_url";
 
-    private static final int TIMEOUT = 40; // seconds
+    static final int DEFAULT_TIMEOUT = 20; // seconds
     private static final int SCALE2PIXELS = 1440; // medium
 
     static boolean isAvailable(Context context) {
@@ -193,6 +193,7 @@ public class OpenAI {
     private static JSONObject call(Context context, String method, String path, JSONObject args) throws JSONException, IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String apikey = prefs.getString("openai_apikey", null);
+        int timeout = prefs.getInt("openai_timeout", DEFAULT_TIMEOUT);
 
         // https://platform.openai.com/docs/api-reference/introduction
         Uri uri = Uri.parse(getUri(context)).buildUpon().appendEncodedPath(path).build();
@@ -206,8 +207,8 @@ public class OpenAI {
         connection.setRequestMethod(method);
         connection.setDoOutput(args != null);
         connection.setDoInput(true);
-        connection.setReadTimeout(TIMEOUT * 1000);
-        connection.setConnectTimeout(TIMEOUT * 1000);
+        connection.setReadTimeout(timeout * 1000);
+        connection.setConnectTimeout(timeout * 1000);
         ConnectionHelper.setUserAgent(context, connection);
         connection.setRequestProperty("Accept", "application/json");
         connection.setRequestProperty("Content-Type", "application/json");

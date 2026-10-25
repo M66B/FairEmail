@@ -82,6 +82,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
     private TextView tvOpenAiPrivacy;
     private EditText etOpenAi;
     private TextInputLayout tilOpenAi;
+    private EditText etOpenAiTimeout;
     private EditText etOpenAiModel;
     private ImageButton ibOpenAiModel;
     private EditText etOpenAiMaxTokens;
@@ -115,7 +116,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             "deepl_enabled",
             "vt_enabled",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_model", "openai_max_tokens", "openai_multimodal", "openai_temperature", "openai_summarize", "openai_answer", "openai_system",
+            "openai_enabled", "openai_uri", "openai_model", "openai_timeout", "openai_max_tokens", "openai_multimodal", "openai_temperature", "openai_summarize", "openai_answer", "openai_system",
             "gemini_enabled", "gemini_uri", "gemini_model", "gemini_temperature", "gemini_summarize", "gemini_answer"
     ));
 
@@ -160,6 +161,7 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
         tvOpenAiPrivacy = view.findViewById(R.id.tvOpenAiPrivacy);
         etOpenAi = view.findViewById(R.id.etOpenAi);
         tilOpenAi = view.findViewById(R.id.tilOpenAi);
+        etOpenAiTimeout = view.findViewById(R.id.etOpenAiTimeout);
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
         ibOpenAiModel = view.findViewById(R.id.ibOpenAiModel);
         etOpenAiMaxTokens = view.findViewById(R.id.etOpenAiMaxTokens);
@@ -494,6 +496,31 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
                     prefs.edit().remove("openai_apikey").apply();
                 else
                     prefs.edit().putString("openai_apikey", apikey).apply();
+            }
+        });
+
+        etOpenAiTimeout.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    int timeout = (s.length() > 0 ? Integer.parseInt(s.toString()) : 0);
+                    if (timeout == 0)
+                        prefs.edit().remove("openai_timeout").apply();
+                    else
+                        prefs.edit().putInt("openai_timeout", timeout).apply();
+                } catch (NumberFormatException ex) {
+                    Log.e(ex);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
             }
         });
 
@@ -950,6 +977,9 @@ public class FragmentOptionsIntegrations extends FragmentBase implements SharedP
             swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
             etOpenAi.setText(prefs.getString("openai_uri", null));
             tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
+            int timeout = prefs.getInt("openai_timeout", 0);
+            etOpenAiTimeout.setText(timeout == 0 ? null : Integer.toString(timeout));
+            etOpenAiTimeout.setHint(Integer.toString(OpenAI.DEFAULT_TIMEOUT));
             etOpenAiModel.setText(prefs.getString("openai_model", null));
             etOpenAiModel.setEnabled(swOpenAi.isChecked());
             ibOpenAiModel.setEnabled(swOpenAi.isChecked());
