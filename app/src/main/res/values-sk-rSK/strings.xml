@@ -1747,6 +1747,7 @@ Systém Android môže požiadať o povolenie prístupu k vybranému priečinku,
     <string name="title_rule_ignore">Potlačiť upozornenie</string>
     <string name="title_rule_snooze">Odložiť</string>
     <string name="title_rule_flag">Pridať hviezdičku</string>
+    <string name="title_rule_unflag">Odstrániť z obľúbených</string>
     <string name="title_rule_importance">Nastaviť dôležitosť</string>
     <string name="title_rule_keyword">Kľúčové slovo</string>
     <string name="title_rule_keyword_add">Pridať</string>

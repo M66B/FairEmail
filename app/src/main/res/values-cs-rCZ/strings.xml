@@ -1800,6 +1800,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_ignore">Potlačit oznámení</string>
     <string name="title_rule_snooze">Odložit</string>
     <string name="title_rule_flag">Přidat hvězdičku</string>
+    <string name="title_rule_unflag">Odebrat hvězdičku</string>
     <string name="title_rule_importance">Nastavit důležitost</string>
     <string name="title_rule_keyword">Klíčové slovo</string>
     <string name="title_rule_keyword_add">Přidat</string>

@@ -1695,6 +1695,7 @@
     <string name="title_rule_hide">숨김</string>
     <string name="title_rule_snooze">미루기</string>
     <string name="title_rule_flag">즐겨찾기</string>
+    <string name="title_rule_unflag">즐겨찾기 해제</string>
     <string name="title_rule_importance">중요도 설정</string>
     <string name="title_rule_keyword_add">추가</string>
     <string name="title_rule_keyword_delete">삭제</string>

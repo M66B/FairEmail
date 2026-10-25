@@ -1753,6 +1753,7 @@ Saat mengirim pesan, gambar disalin ke dalam pesan dari lokasi yang dipilih.
     <string name="title_rule_ignore">Sembunyikan notifikasi</string>
     <string name="title_rule_snooze">Tunda</string>
     <string name="title_rule_flag">Tambahkan bintang</string>
+    <string name="title_rule_unflag">Hapus bintang</string>
     <string name="title_rule_importance">Atur sebagai penting</string>
     <string name="title_rule_keyword">Kata kunci</string>
     <string name="title_rule_keyword_add">Tambah</string>

@@ -1091,6 +1091,7 @@ De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslag
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_drafts">Geen map voor concepten</string>
     <string name="title_no_junk_folder">Er is geen spammap geselecteerd voor dit account</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Bericht niet gevonden</string>
     <string name="title_default_composable">Het standaard e-mailadres wordt bepaald door de primaire identiteit van het primaire account</string>
     <string name="title_no_composable">E-mails versturen vereist dat een identiteit wordt geconfigureerd, en een conceptmap wordt geselecteerd in de accountinstellingen</string>
     <string name="title_no_standard">Deze provider gebruikt een eigen e-mailprotocol en daarom is het niet mogelijk om e-mailclients van derden te gebruiken</string>
@@ -1775,6 +1776,7 @@ Bij het verzenden van een bericht wordt de afbeelding vanaf de geselecteerde loc
     <string name="title_rule_ignore">Onderdruk melding</string>
     <string name="title_rule_snooze">Sluimeren</string>
     <string name="title_rule_flag">Ster toevoegen</string>
+    <string name="title_rule_unflag">Ster verwijderen</string>
     <string name="title_rule_importance">Stel belang in</string>
     <string name="title_rule_keyword">Sleutelwoord</string>
     <string name="title_rule_keyword_add">Voeg toe</string>

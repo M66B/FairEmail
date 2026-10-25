@@ -1125,6 +1125,7 @@
     <string name="title_no_inbox">Папка \"Входящие\" не найдена</string>
     <string name="title_no_drafts">Нет папки черновиков</string>
     <string name="title_no_junk_folder">Для этой учётной записи не выбрана папка со спамом</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Сообщение не найдено</string>
     <string name="title_default_composable">Адрес электронной почты по умолчанию определяется основным идентификатором основной учётной записи</string>
     <string name="title_no_composable">Отправка писем требует настройки идентификатора, также должна быть выбрана папка черновиков в настройках учётной записи</string>
     <string name="title_no_standard">Этот провайдер использует проприетарный протокол электронной почты, что не позволяет использовать сторонние почтовые клиенты</string>
@@ -1817,6 +1818,7 @@
     <string name="title_rule_ignore">Подавить уведомление</string>
     <string name="title_rule_snooze">Отложить</string>
     <string name="title_rule_flag">В избранное</string>
+    <string name="title_rule_unflag">Удалить из избранного</string>
     <string name="title_rule_importance">Установить важность</string>
     <string name="title_rule_keyword">Ключевое слово</string>
     <string name="title_rule_keyword_add">Добавить</string>

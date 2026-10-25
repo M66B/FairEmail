@@ -1804,6 +1804,7 @@
     <string name="title_rule_ignore">השתקת התראה</string>
     <string name="title_rule_snooze">השהיה</string>
     <string name="title_rule_flag">הוספת כוכב</string>
+    <string name="title_rule_unflag">הסרת כוכב</string>
     <string name="title_rule_importance">הגדרת חשיבות</string>
     <string name="title_rule_keyword">מילת מפתח</string>
     <string name="title_rule_keyword_add">הוספה</string>

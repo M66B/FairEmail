@@ -182,6 +182,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_documentation">Doğru e-posta sunucusu yapılandırması için lütfen e-posta sağlayıcınızın belgelerine bakın</string>
     <string name="title_setup_account_remark">E-posta al</string>
     <string name="title_setup_identity_remark">E-posta gönder</string>
+    <string name="title_setup_account_identity_hint">Hesap ayarlarında adı, rengi ve kaydırma eylemlerini ayarlayabilir ve kimlik ayarlarında bir imza ile varsayılan CC veya BCC adreslerini yapılandırabilirsiniz.</string>
     <string name="title_setup_accounts">Hesaplar</string>
     <string name="title_setup_identities">Kimlikler</string>
     <string name="title_setup_google_sign_in">Google ile giriş yap</string>
@@ -196,6 +197,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_login">Chrome bir hesapta oturum açtıysa, yalnızca Android üzerinden yeni bir hesap eklenebilir. Bu, Chrome senkronizasyon ayarları aracılığıyla Chrome\'dan çıkış yapılarak önlenebilir.</string>
     <string name="title_setup_gmail_max">\"Maksimum sayıda hesapta oturum açtınız\" hata mesajının görüntülenmesi durumunda, tarayıcınızdan tüm Google hesaplarından çıkış yapmanız gerekir.</string>
     <string name="title_setup_outlook_hint">Bir takma ad adresi söz konusu olduğunda, Office 365 sihirbazı muhtemelen kullanılmalıdır.</string>
+    <string name="title_setup_outlook_passkey_hint">Microsoft, bir Geçiş Anahtarı ayarlamanızı isteyebilir. Bu işlem mobil cihazlarda daha karmaşıktır; bu nedenle bu isteğe bağlı adımı atlamayı veya iptal etmeyi düşünebilirsiniz.</string>
     <string name="title_setup_outlook_modern">Microsoft\'un güvenlik politikalarındaki değişiklikler nedeniyle, 16 Eylül 2024 tarihinden itibaren yalnızca Outlook/Hotmail/Live sihirbazı çalışacaktır.</string>
     <string name="title_setup_gmail_on_device">Neden bir cihaz hesabı seçmem gerekiyor?</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
@@ -342,8 +344,13 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_check_gmail_password">Bazı Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmayı durdurabilir</string>
     <string name="title_check_outlook_oauth">Outlook hesaplarınız 16 Ekim 2024 tarihinden sonra çalışmaya devam edecek</string>
     <string name="title_check_outlook_password">Outlook/Hotmail/Live hesaplarınızdan bazıları 16 Eylül 2024 tarihinden sonra çalışmayı durduracak</string>
+    <string name="title_check_gmx">GMX hesabınızı 24 Eylül 2026 tarihinden önce bir uygulama şifresi ile güncellemeniz gerekmektedir.</string>
     <string name="title_advanced_hint_title">Daha gelişmiş seçenekler</string>
     <string name="title_advanced_hint_message">        Daha gelişmiş seçeneklere gidiyorsunuz.        Tüm seçenekler, farklı bir tercihiniz olmadığı sürece değiştirmenizin gerekmediği yaygın kullanılan varsayılan değerlere sahiptir.
+    </string>
+    <string name="title_advanced_hint_configure">
+Bir hesap yapılandırması gerçekleştirmek için burada bulunmanız gerekmemektedir. Lütfen bunun için hızlı kurulum sihirbazı butonunu kullanın.
+         Hızlı kurulum sihirbazı  neredeyse her zaman çalışır; ancak çalışmazsa, sihirbaz düğmesinin biraz altındaki klasik manuel kurulumu kullanabilirsiniz.
     </string>
     <string name="title_advanced_hint_remark">Seçenekler sekmeye göre sınıflandırılmış, bölümlere ayrılmış, görünüm veya kullanıma göre düzenlenmiş ve aranabilir.
     </string>
@@ -494,6 +501,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_open_safe">Yalnızca güvenli bağlantıları aç</string>
     <string name="title_advanced_http_redirect">Bağlantının yeniden yönlendirilmesine izin ver</string>
     <string name="title_advanced_bouncy_castle">Bouncy Castle\'ın güvenli soket sağlayıcısını (JSSE) kullan</string>
+    <string name="title_advanced_local_network">Yerel ağ izinleri</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_caption_general">Genel</string>
     <string name="title_advanced_caption_navigation">Gezinme</string>
@@ -823,6 +831,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send">\'Send\' entegrasyonu</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) entegrasyonu</string>
     <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_max_tokens">Maksimum token sayısı (sınırsız olması için boş bırakın)</string>
     <string name="title_advanced_openai_temperature">Sıcaklık: %1$s</string>
     <string name="title_advanced_openai_moderation">İçerik denetimi</string>
     <string name="title_advanced_gemini">Gemini entegrasyonu</string>
@@ -1047,6 +1056,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_gmail">Gmail hesabının güvenilir senkronizasyonu için mümkün olduğunda Gmail hızlı kurulum sihirbazı kullanılmalıdır</string>
     <string name="title_domain">Alan adı</string>
     <string name="title_autoconfig">Ayarları al</string>
+    <string name="title_lan_required">Yerel ağ izni gerekli</string>
     <string name="title_aliases">Takma adlar</string>
     <string name="title_provider">Sağlayıcı</string>
     <string name="title_custom">Özel</string>
@@ -1062,6 +1072,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_notify_remark">Bunu hesaba özel bildirimler için etkinleştirebilirsiniz</string>
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>
+    <string name="title_user_hint">Genellikle birincil e-posta adresi</string>
     <string name="title_password">Parola</string>
     <string name="title_password_storage">Şifreler nasıl saklanır?</string>
     <string name="title_case_sensitive">Kullanıcı adları ve parolalar büyük-küçük harfe duyarlıdır</string>
@@ -1220,6 +1231,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_show_flagged">Yıldızlı mesaj sayısını göster</string>
     <string name="title_subscribed_only">Sadece abone olunanlar</string>
     <string name="title_sort_unread_atop">Okunmamışları üstte sırala</string>
+    <string name="title_sort_sync">Senkronize edilene göre sırala</string>
     <string name="title_search_folder">Klasörleri ara</string>
     <string name="title_apply_to_all">Tümüne uygula</string>
     <string name="title_edit_account_name">Hesap adını düzenle</string>
@@ -1353,6 +1365,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_quick_actions_snooze">Ertele</string>
     <string name="title_quick_actions_clear">Eylemden sonra seçimi temizle</string>
     <string name="title_trash">Çöp Kutusu</string>
+    <string name="title_trash_conversation">Sohbeti sil</string>
     <string name="title_trash_selection">Çöp seçimi</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">&#8230;\'ya kopyala</string>
@@ -1638,7 +1651,9 @@ Dosya: strings. xml</string>
     <string name="title_charset_auto">Otomatik</string>
     <string name="title_alternative_text">Düzen metni yükle</string>
     <string name="title_alternative_html">HTML\'i yükle</string>
+    <string name="title_no_openpgp">OpenPGP sağlayıcısı bulunamadı</string>
     <string name="title_no_openpgp_remark">Önce PGP uçtan uca şifrelemenin yapılandırılması gerekir</string>
+    <string name="title_user_interaction">OpenPGP sağlayıcısına aktarılıyor</string>
     <string name="title_padlock">Mesajın şifresini çözmek için asma kilidi kullan</string>
     <string name="title_signed_data">Mesaj metnini göstermek için imzayı doğrula</string>
     <string name="title_not_encrypted">Mesaj imzalı veya şifreli değil</string>
@@ -1689,6 +1704,7 @@ Dosya: strings. xml</string>
     <string name="title_search_with_unseen">Okunmamış</string>
     <string name="title_search_with_flagged">Yıldızlanmış</string>
     <string name="title_search_with_hidden">Gizli (sadece cihazda)</string>
+    <string name="title_search_with_importance">Önem durumu (yalnızca cihazda)</string>
     <string name="title_search_with_encrypted">Şifrelenmiş (sadece cihazda)</string>
     <string name="title_search_with_attachments">Eklerle (yalnızca cihazda)</string>
     <string name="title_search_with_size">Mesaj boyutu daha büyük</string>
@@ -1796,6 +1812,7 @@ Dosya: strings. xml</string>
     <string name="title_rule_ignore">Bildirimi gizle</string>
     <string name="title_rule_snooze">Erteleme</string>
     <string name="title_rule_flag">Yıldız Ekle</string>
+    <string name="title_rule_unflag">Yıldızı kaldır</string>
     <string name="title_rule_importance">Önem derecesini ayarla</string>
     <string name="title_rule_keyword">Anahtar kelime</string>
     <string name="title_rule_keyword_add">Ekle</string>
@@ -2021,6 +2038,7 @@ Dosya: strings. xml</string>
     <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için tüm klasörler ve tüm mesajlar varsayılan olarak senkronize edilmeyecektir</string>
     <string name="title_hint_airplane">Uçak modu açık</string>
     <string name="title_hint_vpn_active">VPN etkin</string>
+    <string name="title_hint_vpn_settings">VPN listesi</string>
     <string name="title_hint_notifications">Bildirim izni yok</string>
     <string name="title_hint_notifications_remark">(Hesap) uyarıları için de bildirim izinleri gereklidir. Yeni mesajlara ilişkin bildirimler ayarlardan kapatılabilir.</string>
     <string name="title_hint_battery_optimizations">Pil optimizasyonu halen etkin</string>

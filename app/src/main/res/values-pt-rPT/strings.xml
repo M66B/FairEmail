@@ -1098,6 +1098,7 @@ Não precisará da maioria das opções e, como algumas opções são bastante e
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_no_drafts">Nenhuma pasta de rascunhos</string>
     <string name="title_no_junk_folder">Não há nenhuma pasta de ‘spam’ seleccionada para esta conta</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Mensagem não encontrada</string>
     <string name="title_default_composable">O endereço de correio electrónico predefinido é determinado pela identidade principal da conta principal</string>
     <string name="title_no_composable">O envio de mensagens de correio electrónico requer uma identidade a ser configurada, e uma pasta de rascunhos a ser seleccionada nas configurações da conta</string>
     <string name="title_no_standard">Este provedor utiliza um protocolo de correio eletrónico proprietário, o que impossibilita a utilização de clientes de correio eletrónico de terceiros</string>
@@ -1794,6 +1795,7 @@ Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a i
     <string name="title_rule_ignore">Suprimir as notificações</string>
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_flag">Adicionar estrela</string>
+    <string name="title_rule_unflag">Remover estrela</string>
     <string name="title_rule_importance">Definir a prioridade</string>
     <string name="title_rule_keyword">Palavra chave</string>
     <string name="title_rule_keyword_add">Adicionar</string>

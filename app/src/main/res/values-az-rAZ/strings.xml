@@ -1793,6 +1793,7 @@
     <string name="title_rule_ignore">Bildirişi gizlət</string>
     <string name="title_rule_snooze">Ertələ</string>
     <string name="title_rule_flag">Ulduz əlavə et</string>
+    <string name="title_rule_unflag">Ulduzu çıxart</string>
     <string name="title_rule_importance">Vacibliyi ayarla</string>
     <string name="title_rule_keyword">Açar söz</string>
     <string name="title_rule_keyword_add">Əlavə et</string>

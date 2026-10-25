@@ -1096,6 +1096,7 @@
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_drafts">No hay carpeta de borradores</string>
     <string name="title_no_junk_folder">No hay ninguna carpeta de spam seleccionada para esta cuenta</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Mensaje no encontrado</string>
     <string name="title_default_composable">La dirección de correo electrónico por defecto está determinada por la identidad principal de la cuenta principal</string>
     <string name="title_no_composable">El envío de correos electrónicos requiere que se configure una identidad y que se seleccione una carpeta de borradores en la configuración de la cuenta</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>
@@ -1786,6 +1787,7 @@
     <string name="title_rule_ignore">Suprimir notificación</string>
     <string name="title_rule_snooze">Posponer</string>
     <string name="title_rule_flag">Destacar</string>
+    <string name="title_rule_unflag">No destacar</string>
     <string name="title_rule_importance">Establecer importancia</string>
     <string name="title_rule_keyword">Palabra clave</string>
     <string name="title_rule_keyword_add">Añadir</string>

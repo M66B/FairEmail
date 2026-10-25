@@ -1128,6 +1128,7 @@
     <string name="title_no_inbox">Вхідної теки не знайдено</string>
     <string name="title_no_drafts">Немає теки для чернеток</string>
     <string name="title_no_junk_folder">Не вибрано теку для спаму у цього облікового запису</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Повідомлення не знайдено</string>
     <string name="title_default_composable">Адреса електронної пошти за замовчуванням визначається за основним профілем основного облікового запису</string>
     <string name="title_no_composable">Для надсилання електронної пошти потрібно налаштувати профіль, а також в налаштуваннях облікового запису слід вибрати теку для чернеток</string>
     <string name="title_no_standard">Цей постачальник використовує власний протокол електронної пошти і тому неможливо використовувати сторонні e-mail клієнти</string>
@@ -1822,6 +1823,7 @@
     <string name="title_rule_ignore">Вимкнути сповіщення</string>
     <string name="title_rule_snooze">Відкласти</string>
     <string name="title_rule_flag">До обраного</string>
+    <string name="title_rule_unflag">Вилучити з обраних</string>
     <string name="title_rule_importance">Встановити важливість</string>
     <string name="title_rule_keyword">Ключове слово</string>
     <string name="title_rule_keyword_add">Додати</string>

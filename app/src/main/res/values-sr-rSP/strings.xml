@@ -712,6 +712,7 @@
     <string name="title_rule_ignore">Потисни обавештење</string>
     <string name="title_rule_snooze">Одложи</string>
     <string name="title_rule_flag">Додај звездицу</string>
+    <string name="title_rule_unflag">Уклони звездицу</string>
     <string name="title_rule_importance">Постави приоритет</string>
     <string name="title_rule_keyword_add">Додај</string>
     <string name="title_rule_keyword_delete">Обриши</string>

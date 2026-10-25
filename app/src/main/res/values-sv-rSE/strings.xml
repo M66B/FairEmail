@@ -1736,6 +1736,7 @@
     <string name="title_rule_ignore">Dämpa avisering</string>
     <string name="title_rule_snooze">Slumra</string>
     <string name="title_rule_flag">Lägg till stjärna</string>
+    <string name="title_rule_unflag">Ta bort stjärna</string>
     <string name="title_rule_importance">Sätt betydelsen</string>
     <string name="title_rule_keyword">Nyckelord</string>
     <string name="title_rule_keyword_add">Lägg till</string>

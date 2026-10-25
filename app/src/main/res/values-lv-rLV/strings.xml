@@ -406,6 +406,7 @@
     <string name="title_advanced_prefer_ip4">Dot priekšroku IPv4, nevis IPv6</string>
     <string name="title_advanced_prefer_ip6">Dot virsroku IPv6 pār IPv4</string>
     <string name="title_advanced_cert_transparency">Sertifikāta caurredzamība</string>
+    <string name="title_advanced_caption_list">Saraksts</string>
     <string name="title_advanced_caption_conversation">@string/title_legend_thread</string>
     <string name="title_advanced_caption_file">Datnes</string>
     <string name="title_advanced_close_pane">Sakļaut rindu vai sleju pēc sarakstes aizvēršanas</string>
@@ -464,7 +465,7 @@
     <string name="title_advanced_notify_action_move">Pārvietot</string>
     <string name="title_advanced_notify_action_reply">Atbildēt</string>
     <string name="title_advanced_notify_action_seen">Izlasīts</string>
-    <string name="title_advanced_notify_action_hide">Slēpt</string>
+    <string name="title_advanced_notify_action_hide">@string/title_hide</string>
     <string name="title_advanced_notify_remove">Noņemt jauna ziņojuma paziņojumu pēc piesišanas tam</string>
     <string name="title_advanced_notify_clear">Noņemt paziņojumus par jauniem ziņojumiem pēc ziņojumu saraksta apskatīšanas</string>
     <string name="title_advanced_biometrics_notify">Rādīt paziņojuma saturu, kad izmanto lietotnes aizslēgšanu</string>
@@ -673,7 +674,7 @@
     <string name="title_apply_to_all">Pielietot visam</string>
     <string name="title_edit_account_name">Labot konta nosaukumu</string>
     <string name="title_edit_account_color">Labot konta krāsu</string>
-    <string name="title_hide_folder">Paslēpt mapi</string>
+    <string name="title_hide_folder">Slēpt mapi</string>
     <string name="title_hide_seen_folder">Paslēpt mapi, ja visi ziņojumi ir izlasīti</string>
     <string name="title_hide_seen_folder_hint">Tikai kontā un apvienotajā mapju sarakstā</string>
     <string name="title_unified_folder">Rādīt apvienotajā iesūtnē</string>
@@ -713,8 +714,8 @@
     <string name="title_unseen">Atzīmēt kā neizlasītu</string>
     <string name="title_seen_unseen">Atzīmēt kā izlasītu/nelasītu</string>
     <string name="title_toggle_seen">Pārslēgt izlasīšanu</string>
-    <string name="title_hide">Paslēpt</string>
-    <string name="title_unhide">Parādīt</string>
+    <string name="title_hide">Slēpt</string>
+    <string name="title_unhide">Rādīt</string>
     <string name="title_flag">Pievienot zvaigzni</string>
     <string name="title_flag_color">Krāsaina zvaigzne&#8230;</string>
     <string name="title_unflag">Noņemt zvaizgni</string>
@@ -955,10 +956,11 @@ Sākotnēji meklēšana tiek veikta ierīcē.
         Tādēļ attēla datni nevajadzētu izdzēst.
     </string>
     <string name="title_edit_signature_delete">Vai tiešām vēlaties dzēst parakstu?</string>
-    <string name="title_answer_hide">Paslēpt izvēlnēs</string>
+    <string name="title_answer_hide">Slēpt izvēlnēs</string>
     <string name="title_answer_placeholder_lastname">Sūtītāja uzvārds</string>
     <string name="title_rule_unseen">Atzīmēt kā neizlasītu</string>
-    <string name="title_rule_hide">Slēpt</string>
+    <string name="title_rule_hide">@string/title_hide</string>
+    <string name="title_rule_unflag">Noņemt zvaizgni</string>
     <string name="title_rule_importance">Iestatīt svarīgumu</string>
     <string name="title_rule_keyword_add">@string/title_add</string>
     <string name="title_rule_keyword_delete">@string/title_delete</string>
@@ -979,6 +981,7 @@ Sākotnēji meklēšana tiek veikta ierīcē.
     <string name="title_rule_tts_from">No</string>
     <string name="title_rule_tts_subject">Temats</string>
     <string name="title_legend_section_folders">Mapes</string>
+    <string name="title_legend_section_messages">Ziņojumi</string>
     <string name="title_legend_section_compose">Sastādīt</string>
     <string name="title_legend_executing">Izpilda darbības</string>
     <string name="title_legend_downloading">Lejupielādē</string>
@@ -1005,6 +1008,7 @@ Sākotnēji meklēšana tiek veikta ierīcē.
     <string name="title_legend_show_junk">Uzskata par mēstuli</string>
     <string name="title_legend_not_junk">Neuzskata par mēstuli</string>
     <string name="title_legend_create_rule">Izveidot kārtulu</string>
+    <string name="title_legend_hide_images">Slēpt attēlus</string>
     <string name="title_legend_save">@string/title_save</string>
     <string name="title_legend_delete">@string/title_delete</string>
     <string name="title_legend_folder_type">Mapes tips</string>

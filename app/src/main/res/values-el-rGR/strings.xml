@@ -1770,6 +1770,7 @@
     <string name="title_rule_ignore">Καταστολή των ειδοποιήσεων</string>
     <string name="title_rule_snooze">Αναβολή</string>
     <string name="title_rule_flag">Προσθήκη αστεριού</string>
+    <string name="title_rule_unflag">Αφαίρεση αστεριού</string>
     <string name="title_rule_importance">Ορισμός σημαντικότητας</string>
     <string name="title_rule_keyword">Λέξη-κλειδί</string>
     <string name="title_rule_keyword_add">Προσθήκη</string>

@@ -757,7 +757,7 @@
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_autolock">Sperren bei ausgeschaltetem Bildschirm</string>
-    <string name="title_advanced_autolock_nav">Beim Verlassen der App sperren</string>
+    <string name="title_advanced_autolock_nav">Sperren beim Verlassen der App</string>
     <string name="title_advanced_generic_user_agent">Allgemeinen User Agent verwenden</string>
     <string name="title_advanced_load_emoji">Aktualisierte Emoji von Google-Play-Diensten laden</string>
     <string name="title_advanced_disconnect_auto_update">Listen wöchentlich automatisch aktualisieren</string>
@@ -1105,6 +1105,7 @@
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_drafts">Kein Entwürfe-Ordner festgelegt</string>
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
+    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Nachricht nicht gefunden</string>
     <string name="title_default_composable">Die Standard-E-Mail-Adresse wird durch die Hauptidentität des Hauptkontos bestimmt</string>
     <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Entwürfe-Ordners</string>
     <string name="title_no_standard">Dieser Anbieter verwendet ein proprietäres E-Mail-Protokoll, sodass es nicht möglich ist, E-Mail-Programme von Dritten zu verwenden</string>
@@ -1801,6 +1802,7 @@
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Stern hinzufügen</string>
+    <string name="title_rule_unflag">Stern entfernen</string>
     <string name="title_rule_importance">Wichtigkeit festlegen</string>
     <string name="title_rule_keyword">Schlagwort</string>
     <string name="title_rule_keyword_add">Hinzufügen</string>

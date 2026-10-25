@@ -639,6 +639,7 @@
     <string name="title_rule_seen">علامة كـ مقروء</string>
     <string name="title_rule_unseen">وضع علامة كغير مقروء</string>
     <string name="title_rule_flag">إضافة نجمة</string>
+    <string name="title_rule_unflag">إزالة نجمة</string>
     <string name="title_rule_keyword_add">إضافة</string>
     <string name="title_rule_keyword_delete">حذف</string>
     <string name="title_rule_move">نقل</string>

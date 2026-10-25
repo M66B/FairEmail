@@ -1782,6 +1782,7 @@ By it ferstjoeren fan in berjocht wurdt de ôfbylding fan de selektearre lokaasj
     <string name="title_rule_ignore">Melding ûnderdrukke</string>
     <string name="title_rule_snooze">Slommerje</string>
     <string name="title_rule_flag">Stjer tafoegje</string>
+    <string name="title_rule_unflag">Stjer fuortsmite</string>
     <string name="title_rule_importance">Belang ynstelle</string>
     <string name="title_rule_keyword">Kaaiwurd</string>
     <string name="title_rule_keyword_add">Tafoegje</string>

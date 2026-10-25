@@ -6587,7 +6587,8 @@ Since Android 17, [local network permission](https://developer.android.com/priva
 
 This permission can be granted via a button on the connection settings page, or inline via the account/identity settings screen after entering a local network address.
 
-Very few people will need local network access, and to avoid questions regarding a new permission, this permission is available only in the [GitHub version](https://github.com/M66B/FairEmail/releases).
+Very few people will need local network access, and to avoid questions regarding a new permission called "*Nearby devices*" by Google (!),
+this permission is available only in the [GitHub version](https://github.com/M66B/FairEmail/releases).
 
 If the app navigated to this FAQ after you clicked the button to grant local network permission, then the GitHub version is not (or is no longer) installed.
 If you are using the Play Store version of the app, you can install the GitHub version as an update.

@@ -1181,6 +1181,7 @@ Hasiera batean, bilaketa gailuan egiten da, Zerbitzarian ere bilatzeko, sakatu \
     <string name="title_rule_ignore">Ez jakinarazi</string>
     <string name="title_rule_snooze">Atzeratu</string>
     <string name="title_rule_flag">Gehitu izarra</string>
+    <string name="title_rule_unflag">Kendu izarra</string>
     <string name="title_rule_importance">Ezarri garrantzia</string>
     <string name="title_rule_keyword_add">Gehitu</string>
     <string name="title_rule_keyword_delete">Ezabatu</string>

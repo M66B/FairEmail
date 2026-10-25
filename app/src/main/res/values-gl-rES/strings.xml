@@ -1387,6 +1387,7 @@
     <string name="title_rule_ignore">Omitir notificación</string>
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_flag">Engadir estrela</string>
+    <string name="title_rule_unflag">Eliminar estrela</string>
     <string name="title_rule_importance">Definir importancia</string>
     <string name="title_rule_keyword_add">Engadir</string>
     <string name="title_rule_keyword_delete">Eliminar</string>
