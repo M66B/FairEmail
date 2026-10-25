@@ -415,13 +415,13 @@ public class MessageHelper {
             imessage.addHeader("Sensitivity", "Company-Confidential");
 
         // References
-        if (message.references != null)
+        if (!TextUtils.isEmpty(message.references))
             imessage.addHeader("References", limitReferences(message.references));
 
-        if (message.inreplyto != null)
+        if (!TextUtils.isEmpty(message.inreplyto))
             imessage.addHeader("In-Reply-To", message.inreplyto);
 
-        if (message.wasforwardedfrom != null && !forward_new)
+        if (!TextUtils.isEmpty(message.wasforwardedfrom) && !forward_new)
             imessage.addHeader("X-Forwarded-Message-Id", message.wasforwardedfrom);
 
         imessage.addHeader(HEADER_CORRELATION_ID, message.msgid);
