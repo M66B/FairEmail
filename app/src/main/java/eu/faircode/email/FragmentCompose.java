@@ -4089,6 +4089,8 @@ public class FragmentCompose extends FragmentBase {
                 // Get arguments
                 Intent data = args.getParcelable("data");
                 Bundle largs = data.getBundleExtra(BuildConfig.APPLICATION_ID);
+                if (largs == null)
+                    throw new IllegalArgumentException("Meta data not returned by PGP provider");
                 long id = largs.getLong("id", -1);
                 String session = largs.getString("session");
 
