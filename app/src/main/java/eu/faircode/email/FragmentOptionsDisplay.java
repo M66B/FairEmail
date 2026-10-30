@@ -1124,6 +1124,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("reverse_addresses", checked).apply();
+                swReverseAlways.setEnabled(checked);
             }
         });
 
@@ -1761,6 +1762,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swShowRecipients.setChecked(prefs.getBoolean("show_recipients", false));
             swReverseAddresses.setChecked(prefs.getBoolean("reverse_addresses", true));
             swReverseAlways.setChecked(prefs.getBoolean("reverse_always", false));
+            swReverseAlways.setEnabled(swReverseAddresses.isChecked());
 
             swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
             swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
