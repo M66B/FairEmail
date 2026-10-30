@@ -151,6 +151,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swDistinguishContacts;
     private SwitchCompat swShowRecipients;
     private SwitchCompat swReverseAddresses;
+    private SwitchCompat swReverseAlways;
     private Spinner spFontSizeSender;
     private Spinner spSenderEllipsize;
 
@@ -228,7 +229,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "highlight_unread", "highlight_color", "account_color", "account_color_size",
             "avatars", "bimi", "bimi_vmc", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "ddg_icons", "favicons_dmarc", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
-            "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "reverse_addresses",
+            "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients", "reverse_addresses", "reverse_always",
             "font_size_sender", "sender_ellipsize",
             "subject_top", "subject_italic", "highlight_subject", "font_size_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
@@ -339,6 +340,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
         swShowRecipients = view.findViewById(R.id.swShowRecipients);
         swReverseAddresses = view.findViewById(R.id.swReverseAddresses);
+        swReverseAlways = view.findViewById(R.id.swReverseAlways);
         spFontSizeSender = view.findViewById(R.id.spFontSizeSender);
         spSenderEllipsize = view.findViewById(R.id.spSenderEllipsize);
 
@@ -1125,6 +1127,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swReverseAlways.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("reverse_always", checked).apply();
+            }
+        });
+
         spFontSizeSender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -1751,6 +1760,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
             swShowRecipients.setChecked(prefs.getBoolean("show_recipients", false));
             swReverseAddresses.setChecked(prefs.getBoolean("reverse_addresses", true));
+            swReverseAlways.setChecked(prefs.getBoolean("reverse_always", false));
 
             swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
             swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));

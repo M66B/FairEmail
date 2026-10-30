@@ -292,6 +292,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean distinguish_contacts;
     private boolean show_recipients;
     private boolean reverse_addresses;
+    private boolean reverse_always;
     private Float font_size_sender;
     private Float font_size_subject;
     private boolean subject_top;
@@ -1327,7 +1328,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outgoing = isOutgoing(message);
             boolean reverse = reverse_addresses &&
                     ((outgoing && viewType != ViewType.THREAD &&
-                            (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH)) ||
+                            (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH || reverse_always)) ||
                             (viewType == ViewType.UNIFIED && type == null &&
                                     message.folderUnified && outgoing) ||
                             (viewType == ViewType.FOLDER &&
@@ -8576,6 +8577,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         this.show_recipients = prefs.getBoolean("show_recipients", false);
         this.reverse_addresses = prefs.getBoolean("reverse_addresses", true);
+        this.reverse_always = prefs.getBoolean("reverse_always", false);
 
         this.subject_top = prefs.getBoolean("subject_top", false);
 
