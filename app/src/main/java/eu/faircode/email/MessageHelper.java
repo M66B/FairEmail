@@ -3413,14 +3413,14 @@ public class MessageHelper {
             if (ip.toLowerCase(Locale.ROOT).startsWith("ipv6:"))
                 ip = ip.substring(5);
             if (ConnectionHelper.isNumericAddress(ip) &&
-                    ConnectionHelper.isLocalAddress(ip, true))
+                    ConnectionHelper.isLocalAddress(null, ip, true))
                 return true;
         }
 
         int f = value.indexOf(' ');
         String host = (f < 0 ? value : value.substring(0, f));
         if (ConnectionHelper.isNumericAddress(host)) {
-            if (ConnectionHelper.isLocalAddress(host, true))
+            if (ConnectionHelper.isLocalAddress(null, host, true))
                 return true;
         }
 

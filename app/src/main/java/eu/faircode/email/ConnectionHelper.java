@@ -23,6 +23,7 @@ import android.accounts.AccountsException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.net.LinkAddress;
 import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -646,18 +647,36 @@ public class ConnectionHelper {
         return (b[0] & 0xFE) == 0xFC; // fc00::/7
     }
 
-    static boolean isLocalAddress(String host, boolean unwrap) {
+    static boolean isLocalAddress(Context context, String host, boolean unwrap) {
         if (TextUtils.isEmpty(host))
             return false;
         try {
             InetAddress addr = InetAddress.getByName(host);
             if (unwrap)
                 addr = unwrapEmbeddedV4(addr);
-            return (addr.isLoopbackAddress() ||
+            if (addr.isLoopbackAddress() ||
                     addr.isSiteLocalAddress() ||
                     addr.isLinkLocalAddress() ||
                     //isCarrierGradeNat(addr) ||
-                    isUniqueLocalAddress(addr));
+                    isUniqueLocalAddress(addr))
+                return true;
+
+            if (context != null) {
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (cm == null)
+                    return false;
+
+                Network activeNetwork = cm.getActiveNetwork();
+                LinkProperties lp = cm.getLinkProperties(activeNetwork);
+                if (lp == null)
+                    return false;
+                for (LinkAddress linkAddress : lp.getLinkAddresses()) {
+                    if (inSubnet(addr.getHostAddress(), linkAddress.getAddress().getHostAddress(), linkAddress.getPrefixLength()))
+                        return true;
+                }
+            }
+
+            return false;
         } catch (Throwable ex) {
             Log.e(ex);
             return false;
@@ -729,8 +748,7 @@ public class ConnectionHelper {
 
     static boolean inSubnet(final String ip, final String net, final int prefix) {
         try {
-            return new IPAddressString(net + "/" + prefix).getAddress()
-                    .contains(new IPAddressString(ip).getAddress());
+            return new IPAddressString(net + "/" + prefix).contains(new IPAddressString(ip));
         } catch (Throwable ex) {
             Log.w(ex);
             return false;
@@ -1123,5 +1141,37 @@ public class ConnectionHelper {
             return new Socket(proxy);
         } else
             return new Socket();
+    }
+
+    static void testInSubnet() {
+        testSubnet("192.168.1.42", "192.168.1.0", 24, true);
+        testSubnet("192.168.2.42", "192.168.1.0", 24, false);
+        testSubnet("192.168.1.0", "192.168.1.0", 24, true);
+        testSubnet("192.168.1.255", "192.168.1.0", 24, true);
+
+        // Eén specifiek adres
+        testSubnet("192.168.1.42", "192.168.1.42", 32, true);
+        testSubnet("192.168.1.43", "192.168.1.42", 32, false);
+
+        // Alle IPv4-adressen
+        testSubnet("203.0.113.42", "0.0.0.0", 0, true);
+
+        // IPv6
+        testSubnet("2001:db8:1::42", "2001:db8:1::", 64, true);
+        testSubnet("2001:db8:2::42", "2001:db8:1::", 64, false);
+
+        // Ongeldige invoer
+        testSubnet("ongeldig", "192.168.1.0", 24, false);
+        testSubnet("192.168.1.42", "ongeldig", 24, false);
+        testSubnet("192.168.1.42", "192.168.1.0", 33, false);
+        testSubnet("192.168.1.42", "192.168.1.0", -1, false);
+    }
+
+    static void testSubnet(String ip, String net, int prefix, boolean expected) {
+        boolean result = inSubnet(ip, net, prefix);
+
+        Log.i("Test " + (result == expected ? "OK" : "FAILED")
+                + ": " + ip + " in " + net + "/" + prefix
+                + " -> " + result + " (expected: " + expected + ")");
     }
 }

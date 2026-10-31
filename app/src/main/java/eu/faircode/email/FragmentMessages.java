@@ -6554,14 +6554,14 @@ public class FragmentMessages extends FragmentBase
                 if (accounts != null)
                     for (EntityAccount account : accounts)
                         try {
-                            if (ConnectionHelper.isLocalAddress(account.host, false))
+                            if (ConnectionHelper.isLocalAddress(context, account.host, false))
                                 return true;
 
                             List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(account.id);
                             if (identities != null)
                                 for (EntityIdentity identity : identities)
                                     try {
-                                        if (ConnectionHelper.isLocalAddress(identity.host, false))
+                                        if (ConnectionHelper.isLocalAddress(context, identity.host, false))
                                             return true;
                                     } catch (Throwable ignored) {
                                     }

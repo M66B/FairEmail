@@ -1251,7 +1251,7 @@ public class FragmentPop extends FragmentBase {
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 String host = args.getString("host");
                 return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN &&
-                        ConnectionHelper.isLocalAddress(host, false) &&
+                        ConnectionHelper.isLocalAddress(context, host, false) &&
                         !Helper.hasPermission(context, Manifest.permission.ACCESS_LOCAL_NETWORK));
             }
 
