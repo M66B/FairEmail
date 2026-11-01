@@ -986,7 +986,7 @@ public class EntityOperation {
                 Log.e(ex);
             }
 
-        if (EXISTS.equals(name)) {
+        if (EXISTS.equals(name) && message != null) {
             EntityMessage m = db.message().getMessage(message);
             if (m != null)
                 queue(context, m, ADD);
