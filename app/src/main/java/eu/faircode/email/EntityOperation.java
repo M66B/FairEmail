@@ -977,6 +977,11 @@ public class EntityOperation {
                     return;
 
                 db.message().deleteMessage(tmpid);
+
+                if (message != null) {
+                    db.message().setMessageUiHide(message, false);
+                    db.message().setMessageUiBusy(message, null);
+                }
             } catch (JSONException ex) {
                 Log.e(ex);
             }
