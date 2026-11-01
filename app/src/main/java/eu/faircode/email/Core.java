@@ -5261,6 +5261,7 @@ class Core {
                     db.operation().getOperationCount(folder.id, EntityOperation.PURGE) == 0) {
                 update = true;
                 message.ui_hide = false;
+                message.ui_busy = null;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 
