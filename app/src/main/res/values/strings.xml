@@ -1249,6 +1249,8 @@
     <string name="title_advanced_edit_name">Edit name</string>
     <string name="title_advanced_create_alias">Create alias</string>
     <string name="title_advanced_create_alias_remark">In many cases, an alias address must first be verified via the website of the mail provider</string>
+    <string name="title_advanced_import_aliases">Import aliases</string>
+    <string name="title_advanced_import_aliases_new">New aliases: %1$s</string>
 
     <string name="title_create_folder">Create folder</string>
     <string name="title_create_folder_name">Folder name</string>

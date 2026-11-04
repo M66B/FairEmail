@@ -40,6 +40,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -57,6 +58,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.Collator;
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -250,6 +252,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, order++, R.string.title_reset_sign_key);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_create_alias, order++, R.string.title_advanced_create_alias);
+            if (GmailSendAs.isGmail(identity))
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_import_aliases, order++, R.string.title_advanced_import_aliases);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, order++, R.string.title_copy);
@@ -273,6 +277,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                         return true;
                     } else if (itemId == R.string.title_advanced_create_alias) {
                         onActionAlias();
+                        return true;
+                    } else if (itemId == R.string.title_advanced_import_aliases) {
+                        onActionImportGmailAliases();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         onClick(view);
@@ -404,6 +411,31 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                     FragmentDialogAlias fragment = new FragmentDialogAlias();
                     fragment.setArguments(args);
                     fragment.show(parentFragment.getParentFragmentManager(), "alias:create");
+                }
+
+                private void onActionImportGmailAliases() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", identity.id);
+
+                    new SimpleTask<Integer>() {
+                        @Override
+                        protected Integer onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            return GmailSendAs.importAliases(context, id);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Integer count) {
+                            NumberFormat NF = NumberFormat.getInstance();
+                            String msg = context.getString(R.string.title_advanced_import_aliases_new, NF.format(count));
+                            ToastEx.makeText(context, msg, Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "identity:import");
                 }
 
                 private void onActionCopy() {
