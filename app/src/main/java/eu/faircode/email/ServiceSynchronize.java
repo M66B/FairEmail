@@ -2157,7 +2157,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                 " (selected (MessageNew (uid) MessageExpunge FlagChange))" +
                                                 " (subscribed (MessageNew MessageExpunge FlagChange))");
 
-                                        Response[] responses = protocol.command("NOTIFY", arg);
+                                        Response[] responses = Core.sendCommand(protocol, "NOTIFY", arg);
 
                                         if (responses.length == 0)
                                             throw new ProtocolException("No response");

@@ -43,6 +43,7 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.gimap.GmailFolder;
 import com.sun.mail.gimap.GmailMessage;
+import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
@@ -55,6 +56,7 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
+import com.sun.mail.imap.protocol.IMAPResponse;
 import com.sun.mail.imap.protocol.Status;
 import com.sun.mail.imap.protocol.UID;
 import com.sun.mail.imap.protocol.UIDSet;
@@ -4214,7 +4216,7 @@ class Core {
                         MessagingException ex = (MessagingException) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                             @Override
                             public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
-                                protocol.select(folder.name);
+                                protocol.noop();
 
                                 // Yahoo range size: 2000
                                 // https://help.yahoo.com/kb/download-email-yahoo-mail-third-party-sln28681.html
@@ -4277,7 +4279,7 @@ class Core {
                                     Log.i(folder.name + " chunk #" + c + " " + sb);
 
                                     String command = "UID FETCH " + sb + " (UID FLAGS)";
-                                    Response[] responses = protocol.command(command, null);
+                                    Response[] responses = sendCommand(protocol, command, null);
 
                                     if (responses.length > 0 && responses[responses.length - 1].isOK()) {
                                         for (Response response : responses)
@@ -5371,6 +5373,22 @@ class Core {
         }
 
         return message;
+    }
+
+    static Response[] sendCommand(IMAPProtocol protocol, String command, Argument args) {
+        Response[] responses = protocol.command(command, args);
+        try {
+            List<Response> unsolicited = new ArrayList<>();
+            for (Response response : responses)
+                if (response != null && response.isUnTagged() && !response.isBYE() &&
+                        !(response instanceof FetchResponse) &&
+                        !(response instanceof IMAPResponse && ((IMAPResponse) response).keyEquals("STATUS")))
+                    unsolicited.add(response);
+            protocol.notifyResponseHandlers(unsolicited.toArray(new Response[0]));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+        return responses;
     }
 
     private static boolean expunge(Context context, IMAPFolder ifolder, List<Message> messages) {
