@@ -2956,8 +2956,11 @@ public class MessageHelper {
             Address[] from = getAddressHeader("From");
             if (from != null && from.length == 1) {
                 String email = ((InternetAddress) from[0]).getAddress();
-                if (email != null && (email.endsWith(".mozmail.com") || email.endsWith("@mozmail.com")))
+                if (email != null && (email.endsWith(".mozmail.com") || email.endsWith("@mozmail.com"))) {
                     sender = getAddressHeader("Resent-From");
+                    if (sender == null || sender.length == 0)
+                        sender = new Address[]{new InternetAddress("relay@firefox.com")};
+                }
             }
         }
         return sender;

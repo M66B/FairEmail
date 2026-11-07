@@ -467,8 +467,8 @@ public class EntityMessage implements Serializable {
                 "addymail.com".equals(domain) || // AnonAddy
                 "addy.io".equals(domain) || // AnonAddy
                 "addy.to".equals(domain) || // AnonAddy
-                "mozmail.com".equals(domain) ||
-                domain.endsWith(".mozmail.com");
+                "mozmail.com".equals(domain) || domain.endsWith(".mozmail.com") ||
+                "relay@firefox.com".equals(email);
     }
 
     String[] checkFromDomain(Context context) {
