@@ -6366,9 +6366,13 @@ net.vi
 org.vi
 
 // vn : https://vnnic.vn/en/domain-name-vn/domain-name/cctldvn
+// https://vnnic.vn/sites/default/files/vn.cctld.domains.txt
+// Submitted by registry <dnsabuse-support@vnnic.vn> 2026-10-05
 vn
 ac.vn
+ad.vn
 ai.vn
+ap.vn
 biz.vn
 com.vn
 edu.vn
@@ -6380,6 +6384,7 @@ int.vn
 io.vn
 name.vn
 net.vn
+on.vn
 org.vn
 pro.vn
 
@@ -6809,7 +6814,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-10-16T18:37:24Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2026-10-30T19:51:02Z
 // This list is auto-generated, don't edit it manually.
 // aaa : American Automobile Association, Inc.
 // https://www.iana.org/domains/root/db/aaa.html
@@ -8494,10 +8499,6 @@ healthcare
 // help : Innovation service Limited
 // https://www.iana.org/domains/root/db/help.html
 help
-
-// helsinki : City of Helsinki
-// https://www.iana.org/domains/root/db/helsinki.html
-helsinki
 
 // here : Charleston Road Registry Inc.
 // https://www.iana.org/domains/root/db/here.html
@@ -12389,10 +12390,6 @@ claude.app
 claudeusercontent.com
 frame.claudeusercontent.com
 
-// Anysphere Inc : https://cursor.com
-// Submitted by Benson Liu <security@cursor.com>
-*.cursorusercontent.com
-
 // Apigee : https://apigee.com/
 // Submitted by Apigee Security Team <security@apigee.com>
 apigee.io
@@ -12603,6 +12600,10 @@ radio.fm
 // Submitted by Merlin Zhao <devops@bubble.io>
 cdn.bubble.io
 bubbleapps.io
+
+// Butterfly Effect Pte. Ltd. : https://manus.im
+// Submitted by Manus Security Team <security@manus.ai>
+manus.space
 
 // bwCloud-OS : https://bwcloud-os.de/
 // Submitted by Klara Mall <dns@bwcloud-os.de>
@@ -13046,6 +13047,10 @@ dnshome.it
 dyn.now
 heimdns.online
 ddns.wtf
+
+// Docs Flowy : https://docsflowy.com
+// Submitted by Haykel Maaoui <hello@docsflowy.com>
+docsflowy.site
 
 // DotArai : https://www.dotarai.com/
 // Submitted by Atsadawat Netcharadsang <atsadawat@dotarai.co.th>
@@ -14543,6 +14548,10 @@ co.technology
 linkyard-cloud.ch
 linkyard.cloud
 
+// Linkyhost : https://www.linkyhost.com
+// Submitted by Linkyhost Support <support@linkyhost.com>
+linkyhost.page
+
 // Linode : https://linode.com
 // Submitted by <security@linode.com>
 members.linode.com
@@ -14592,6 +14601,7 @@ lohmus.me
 // Lovable : https://lovable.dev
 // Submitted by Fabian Hedin <security@lovable.dev>
 lovable.app
+auth.lovable.app
 lovableproject.com
 lovable.run
 lovable.sh
@@ -15319,6 +15329,10 @@ ox.rs
 // Submitted by Charly Coste <changaco@changaco.oy.lc>
 oy.lc
 
+// Page Lemon : https://pagelemon.com
+// Submitted by Aporia Research Ltd <hi@pagelemon.com>
+pagelemon.dev
+
 // Pagefog : https://pagefog.com/
 // Submitted by Derek Myers <derek@pagefog.com>
 pgfog.com
@@ -15718,6 +15732,11 @@ sakura.tv
 // Submitted by Asheesh Laroia <asheesh@sandstorm.io>
 sandcats.io
 
+// Sanity Inc. : https://www.sanity.io/
+// Submitted by Josh Ellis <security@sanity.io>
+sanity.run
+sanity.studio
+
 // Sav.com, LLC : https://marketing.sav.com/
 // Submitted by Mukul Kudegave <mukul@sav.com>
 sav.case
@@ -15886,6 +15905,10 @@ vipsinaapp.com
 // Submitted by Skylar Challand <support@siteleaf.com>
 siteleaf.net
 
+// Sliplane GmbH : https://sliplane.io
+// Submitted by Jonas Scholz <support@sliplane.io>
+sliplane.app
+
 // Small Technology Foundation : https://small-tech.org
 // Submitted by Aral Balkan <aral@small-tech.org>
 small-web.org
@@ -15947,6 +15970,13 @@ my.at
 my.de
 *.nxa.eu
 nx.gw
+
+// SpaceXSI : https://x.ai/
+// Submitted by Benson Liu <security@x.ai>
+*.apps.grok.bot
+*.pages.grok.bot
+*.cursorusercontent.com
+grok.me
 
 // Spawnbase : https://spawnbase.ai
 // Submitted by Alexander Zuev <security@spawnbase.ai>
@@ -16478,10 +16508,6 @@ weeklylottery.org.uk
 // Submitted by Brandon DuRette <brandon.durette@wpengine.com>
 wpenginepowered.com
 js.wpenginepowered.com
-
-// xAI : https://x.ai/
-// Submitted by Asim Shrestha <security@x.ai>
-grok.me
 
 // XenonCloud GbR : https://xenoncloud.net
 // Submitted by Julian Uphoff <publicsuffixlist@xenoncloud.net>
