@@ -1928,18 +1928,25 @@ public class DebugHelper {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     try {
-                        for (FileStore store : FileSystems.getDefault().getFileStores())
-                            if (!store.isReadOnly() &&
-                                    store.getUsableSpace() != 0 &&
-                                    !"tmpfs".equals(store.type())) {
-                                long total = store.getTotalSpace();
-                                long unalloc = store.getUnallocatedSpace();
+                        ClassLoader loader = ClassLoader.getSystemClassLoader();
+                        Class<?> fileSystemsClass = loader.loadClass("java.nio.file.FileSystems");
+                        Class<?> fileSystemClass = loader.loadClass("java.nio.file.FileSystem");
+                        Class<?> storeClass = loader.loadClass("java.nio.file.FileStore");
+                        Object fs = fileSystemsClass.getMethod("getDefault").invoke(null);
+                        Iterable<?> stores = (Iterable<?>) fileSystemClass.getMethod("getFileStores").invoke(fs);
+                        for (Object store : stores) {
+                            boolean readOnly = (Boolean) storeClass.getMethod("isReadOnly").invoke(store);
+                            long usable = (Long) storeClass.getMethod("getUsableSpace").invoke(store);
+                            String type = (String) storeClass.getMethod("type").invoke(store);
+                            if (!readOnly && usable != 0 && !"tmpfs".equals(type)) {
+                                long total = (Long) storeClass.getMethod("getTotalSpace").invoke(store);
+                                long unalloc = (Long) storeClass.getMethod("getUnallocatedSpace").invoke(store);
                                 size += write(os, String.format("%s %s %s/%s\r\n",
-                                        store,
-                                        store.type(),
+                                        store, type,
                                         Helper.humanReadableByteCount(total - unalloc),
                                         Helper.humanReadableByteCount(total)));
                             }
+                        }
                     } catch (Throwable ex) {
                         // java.lang.ClassCastException: sun.nio.fs.LinuxFileStore cannot be cast to j$.nio.file.FileStore
                         size += write(os, String.format("%s\r\n", ex));
@@ -1947,17 +1954,35 @@ public class DebugHelper {
                     size += write(os, "\r\n");
                 }
 
+                try {
+                    size += write(os, String.format("DB size=%d\r\n", context.getDatabasePath(DB.DB_NAME).length()));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+
                 List<File> files = new ArrayList<>();
                 try {
+                    List<File> all = Helper.listFiles(context.getFilesDir());
+                    long length = 0;
+                    for (File f : all)
+                        length += f.length();
+                    size += write(os, String.format("Files=%d size=%d\r\n", all.size(), length));
                     files.addAll(Helper.listFiles(context.getFilesDir(), MIN_FILE_SIZE));
                 } catch (Throwable ex) {
                     size += write(os, String.format("%s\r\n", ex));
                 }
                 try {
+                    List<File> all = Helper.listFiles(context.getCacheDir());
+                    long length = 0;
+                    for (File f : all)
+                        length += f.length();
+                    size += write(os, String.format("Cache=%d size=%d\r\n", all.size(), length));
                     files.addAll(Helper.listFiles(context.getCacheDir(), MIN_FILE_SIZE));
                 } catch (Throwable ex) {
                     size += write(os, String.format("%s\r\n", ex));
                 }
+
+                size += write(os, "\r\n");
 
                 Collections.sort(files, new Comparator<File>() {
                     @Override
