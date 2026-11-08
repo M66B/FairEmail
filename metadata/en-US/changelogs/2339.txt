@@ -36,6 +36,12 @@ Elopteryx
 
 Next version (Work in progress)
 
+* Fixed all reported issues
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 1.2339 2026-10-24
 
 * Fixed all reported issues
