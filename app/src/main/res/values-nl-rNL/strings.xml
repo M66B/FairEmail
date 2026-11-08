@@ -571,6 +571,7 @@ U zult de meeste opties niet nodig hebben en aangezien sommige opties vrij speci
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_show_recipients">Geadresseerden in berichtkop tonen</string>
     <string name="title_advanced_reverse_addresses">Toon ontvanger voor verzonden berichten</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">In alle mappen</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
     <string name="title_advanced_sender_ellipsize">Indien nodig, verkort de afzender</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
@@ -1091,7 +1092,7 @@ De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslag
     <string name="title_no_inbox">Postvak in niet gevonden</string>
     <string name="title_no_drafts">Geen map voor concepten</string>
     <string name="title_no_junk_folder">Er is geen spammap geselecteerd voor dit account</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Bericht niet gevonden</string>
+    <string name="title_no_message">Bericht niet gevonden</string>
     <string name="title_default_composable">Het standaard e-mailadres wordt bepaald door de primaire identiteit van het primaire account</string>
     <string name="title_no_composable">E-mails versturen vereist dat een identiteit wordt geconfigureerd, en een conceptmap wordt geselecteerd in de accountinstellingen</string>
     <string name="title_no_standard">Deze provider gebruikt een eigen e-mailprotocol en daarom is het niet mogelijk om e-mailclients van derden te gebruiken</string>

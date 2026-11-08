@@ -581,6 +581,7 @@
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler An-Kontakt ist</string>
     <string name="title_advanced_show_recipients">Empfänger im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_reverse_addresses">Empfänger für gesendete Nachrichten anzeigen</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">In allen Ordnern</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
     <string name="title_advanced_sender_ellipsize">Falls erforderlich, Absendernamen kürzen</string>
     <string name="title_advanced_subject_top">Betreff oberhalb des Absenders anzeigen</string>
@@ -1105,7 +1106,7 @@
     <string name="title_no_inbox">Posteingang nicht gefunden</string>
     <string name="title_no_drafts">Kein Entwürfe-Ordner festgelegt</string>
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Nachricht nicht gefunden</string>
+    <string name="title_no_message">Nachricht nicht gefunden</string>
     <string name="title_default_composable">Die Standard-E-Mail-Adresse wird durch die Hauptidentität des Hauptkontos bestimmt</string>
     <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Entwürfe-Ordners</string>
     <string name="title_no_standard">Dieser Anbieter verwendet ein proprietäres E-Mail-Protokoll, sodass es nicht möglich ist, E-Mail-Programme von Dritten zu verwenden</string>

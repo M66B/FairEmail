@@ -180,6 +180,7 @@
     <string name="title_setup_gmail_on_device">چرا لازم است که یک حساب روی دستگاه انتخاب کنم؟</string>
     <string name="title_setup_gmail_password">می‌خواهم به جای حسابی روی دستگاه، به یک حساب با رمز عبور اجازه بدهم</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>
+    <string name="title_setup_office_auth_5_7_3">لطفا از راهنمای سریع نصب \'دیگر سرویس‌دهنده‌ها\' استفاده کنید.</string>
     <string name="title_setup_office_auth_5_7_139">لطفا از راهنمای سریع نصب \'آوت‌لوک/هات‌میل/لایو\' استفاده کنید.</string>
     <string name="title_setup_office_not_connected">
         خطای \'User is authenticated but not connected\' غالبا به معنای غیرفعال بودن IMAP می‌باشد.
@@ -501,6 +502,7 @@
     <string name="title_advanced_only_name">تنها نام مخاطبین را نشان بده</string>
     <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
     <string name="title_advanced_reverse_addresses">نمایش گیرنده پیام‌های ارسالی</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">در همه پوشه‌ها</string>
     <string name="title_advanced_font_size_sender">اندازه متن فرستنده</string>
     <string name="title_advanced_sender_ellipsize">در صورت نیاز، فرستنده را کوتاه کن</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
@@ -788,7 +790,7 @@
     <string name="title_no_user">نام کاربری وجود ندارد</string>
     <string name="title_no_password">گذرواژه موجود نیست</string>
     <string name="title_no_inbox">صندوق دریافتی پیدا نشد</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">پیام پیدا نشد</string>
+    <string name="title_no_message">پیام پیدا نشد</string>
     <string name="title_no_standard">فراهم‌کننده از پروتکل اختصاصی استفاده می‌کند برای همین استفاده از کارخواه‌های شخص سوم ممکن نیست</string>
     <string name="title_no_idle">این فراهم‌کننده از قابلیت نشاندن پیام‌ها پشتیبانی نمی‌کند. برای همین دریافت پیام‌های تازه با دیرکرد همراه خواهد بود و مصرف باتری افزایش خواهد یافت.</string>
     <string name="title_no_utf8">فراهم‌کننده از UTF-8 پشتیبانی نمی‌کند</string>

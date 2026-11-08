@@ -576,6 +576,7 @@
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>
     <string name="title_advanced_show_recipients">Vis modtagere i beskedhoved</string>
     <string name="title_advanced_reverse_addresses">Vis modtager for sendte beskeder</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">I alle mapper</string>
     <string name="title_advanced_font_size_sender">Tekststørrelse, Afsender</string>
     <string name="title_advanced_sender_ellipsize">Om nødvendigt, afkort afsender</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
@@ -1098,7 +1099,7 @@
     <string name="title_no_inbox">Indbakke ikke fundet</string>
     <string name="title_no_drafts">Ingen Kladde-mappe</string>
     <string name="title_no_junk_folder">Ingen spammappe er valgt til denne konto</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Besked ikke fundet</string>
+    <string name="title_no_message">Besked ikke fundet</string>
     <string name="title_default_composable">Standard-e-mailadressen bestemmes af den primære kontos primære identitet</string>
     <string name="title_no_composable">Afsendelse af e-mails kræver opsætning af en identitet samt valg af en Kladde-mappe under kontoindstillingerne</string>
     <string name="title_no_standard">Denne udbyder benytter en proprietær e-mailprotokol, og det er derfor ikke muligt at benytte tredjeparts e-mailklienter</string>

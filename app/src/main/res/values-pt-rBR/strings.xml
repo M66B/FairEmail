@@ -576,6 +576,7 @@
     <string name="title_advanced_distinguish_contacts">Sublinhar o remetente quando o remetente é conhecido como contato local \'para\'</string>
     <string name="title_advanced_show_recipients">Mostrar destinatários no cabeçalho da mensagem</string>
     <string name="title_advanced_reverse_addresses">Mostrar destinatário das mensagens enviadas</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">Em todas as pastas</string>
     <string name="title_advanced_font_size_sender">Tamanho do texto do remetente</string>
     <string name="title_advanced_sender_ellipsize">Se necessário, encurte o remetente</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
@@ -1098,7 +1099,7 @@
     <string name="title_no_inbox">Caixa de entrada não encontrada</string>
     <string name="title_no_drafts">Nenhuma pasta de rascunhos</string>
     <string name="title_no_junk_folder">Não existe pasta de spam selecionada para essa conta</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Mensagem não encontrada</string>
+    <string name="title_no_message">Mensagem não encontrada</string>
     <string name="title_default_composable">O endereço de e-mail padrão é determinado pela identidade da conta principal</string>
     <string name="title_no_composable">Enviar e-mails requer uma identidade para ser configurada e uma pasta de rascunhos para ser selecionada nas configurações da conta</string>
     <string name="title_no_standard">Este provedor utiliza um protocolo de e-mail proprietário e, portanto, não é possível usar clientes de e-mail de terceiros</string>

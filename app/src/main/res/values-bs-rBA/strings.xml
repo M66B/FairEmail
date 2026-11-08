@@ -590,6 +590,7 @@
     <string name="title_advanced_distinguish_contacts">Podvuci pošiljaoca kada je on/a poznat/a kao lokalni \'za\' kontakt</string>
     <string name="title_advanced_show_recipients">Prikaži primaoce u zaglavlju poruke</string>
     <string name="title_advanced_reverse_addresses">Prikaži primaoca poslanih poruka</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">U svim folderima</string>
     <string name="title_advanced_font_size_sender">Veličina teksta pošiljaoca</string>
     <string name="title_advanced_sender_ellipsize">Ako je potrebno, skrati ime pošiljaoca</string>
     <string name="title_advanced_subject_top">Prikaži predmet iznad pošiljaoca</string>
@@ -1111,7 +1112,7 @@
     <string name="title_no_inbox">Inbox nije pronađen</string>
     <string name="title_no_drafts">Nema foldera za nacrte</string>
     <string name="title_no_junk_folder">Nema izabranog spam foldera za ovaj račun</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Poruka nije pronađena</string>
+    <string name="title_no_message">Poruka nije pronađena</string>
     <string name="title_default_composable">Zadana e-mail adresa je određena na osnovu primarnog identiteta primarnog računa</string>
     <string name="title_no_composable">Slanje e-pošte zahtijeva da se postavi identitet, te izabere folder za nacrte u postavkama računa</string>
     <string name="title_no_standard">Ovaj provajder koristi vlastiti e-mail protokol i stoga nije moguće koristiti e-mail klijente trećih strana</string>

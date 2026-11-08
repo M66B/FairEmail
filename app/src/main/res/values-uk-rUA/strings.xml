@@ -607,6 +607,7 @@
     <string name="title_advanced_distinguish_contacts">Підкреслювати відправника, коли відправник збережений в додатку як отримувач</string>
     <string name="title_advanced_show_recipients">Показувати отримувачів в заголовку повідомлення</string>
     <string name="title_advanced_reverse_addresses">Показувати одержувача для надісланих повідомлень</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">У всіх теках</string>
     <string name="title_advanced_font_size_sender">Розмір тексту в полі «Відправник»</string>
     <string name="title_advanced_sender_ellipsize">За потребою скоротити ім\'я відправника</string>
     <string name="title_advanced_subject_top">Показувати тему листа над відправником</string>
@@ -1128,7 +1129,7 @@
     <string name="title_no_inbox">Вхідної теки не знайдено</string>
     <string name="title_no_drafts">Немає теки для чернеток</string>
     <string name="title_no_junk_folder">Не вибрано теку для спаму у цього облікового запису</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Повідомлення не знайдено</string>
+    <string name="title_no_message">Повідомлення не знайдено</string>
     <string name="title_default_composable">Адреса електронної пошти за замовчуванням визначається за основним профілем основного облікового запису</string>
     <string name="title_no_composable">Для надсилання електронної пошти потрібно налаштувати профіль, а також в налаштуваннях облікового запису слід вибрати теку для чернеток</string>
     <string name="title_no_standard">Цей постачальник використовує власний протокол електронної пошти і тому неможливо використовувати сторонні e-mail клієнти</string>

@@ -575,6 +575,7 @@
     <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
     <string name="title_advanced_show_recipients">Mostrar destinatarios en el encabezado del mensaje</string>
     <string name="title_advanced_reverse_addresses">Mostrar destinatario de mensajes enviados</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">En todas las carpetas</string>
     <string name="title_advanced_font_size_sender">Tamaño de fuente de remitente</string>
     <string name="title_advanced_sender_ellipsize">Si es necesario, acortar el remitente</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
@@ -1096,7 +1097,7 @@
     <string name="title_no_inbox">Bandeja de entrada no encontrada</string>
     <string name="title_no_drafts">No hay carpeta de borradores</string>
     <string name="title_no_junk_folder">No hay ninguna carpeta de spam seleccionada para esta cuenta</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">Mensaje no encontrado</string>
+    <string name="title_no_message">Mensaje no encontrado</string>
     <string name="title_default_composable">La dirección de correo electrónico por defecto está determinada por la identidad principal de la cuenta principal</string>
     <string name="title_no_composable">El envío de correos electrónicos requiere que se configure una identidad y que se seleccione una carpeta de borradores en la configuración de la cuenta</string>
     <string name="title_no_standard">Este proveedor utiliza un protocolo de correo electrónico propietario y por lo tanto no es posible utilizar clientes de correo de terceros</string>

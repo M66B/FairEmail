@@ -565,6 +565,7 @@
     <string name="title_advanced_distinguish_contacts">下划线发件人（当其为本地发送给的联系人时）</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
     <string name="title_advanced_reverse_addresses">显示已发送邮件的收件人</string>
+    <string name="title_advanced_reverse_always" comment="title_advanced_reverse_always Title for sub option &quot;(Show recipient for sent messages) In all folders&quot;">在所有文件夹中</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
     <string name="title_advanced_sender_ellipsize">如果需要，缩短发送者长度</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
@@ -1089,7 +1090,7 @@
     <string name="title_no_inbox">未找到收件箱</string>
     <string name="title_no_drafts">无草稿文件夹</string>
     <string name="title_no_junk_folder">未选中此账号的垃圾邮件文件夹</string>
-    <string name="title_no_message" comment="title_no_message Error/warning message shown in a popup">邮件未找到</string>
+    <string name="title_no_message">邮件未找到</string>
     <string name="title_default_composable">默认电子邮件地址由主账户的主身份确定</string>
     <string name="title_no_composable">发送邮件需要配置一个身份，并在帐账户设置中选择一个草稿文件夹</string>
     <string name="title_no_standard">此提供商使用专有的电子邮件协议，因此无法使用第三方电子邮件客户端</string>
