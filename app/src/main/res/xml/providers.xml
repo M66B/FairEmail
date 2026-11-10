@@ -2159,14 +2159,15 @@
     <provider
         name="Virgin Media"
         appPassword="true"
-        domain="ntlworld\\.com,blueyonder\\.co\\.uk,virgin\\.com,virginmedia\\.com"
-        link="https://www.virginmedia.com/help/broadband/manage-email-account">
+        documentation="You must use &lt;a href='https://support.junara.com/hc/en-au/articles/14062324675343-Set-up-App-specific-passwords'&gt;an app-specific password&lt;/a&gt;"
+        domain="ntlworld\\.com,blueyonder\\.co\\.uk,virgin\\.net,virginmedia\\.com"
+        link="https://support.junara.com/hc/en-au/articles/13878114879759-Mail-server-settings">
         <imap
-            host="imap.virginmedia.com"
+            host="imap.junara.com"
             port="993"
             starttls="false" />
         <smtp
-            host="smtp.virginmedia.com"
+            host="smtp.junara.com"
             port="465"
             starttls="false" />
     </provider>
