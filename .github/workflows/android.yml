@@ -59,9 +59,10 @@ jobs:
     - name: Check with Lint
       run: ./gradlew --no-daemon --max-workers=1 --no-build-cache --no-configuration-cache lintGithubRelease
 
+    #https://izzyondroid.org/docs/reproducibleBuilds/DebugFailedRBs/
     - name: Build with Gradle
       env:
-        JAVA_TOOL_OPTIONS: "-XX:ActiveProcessorCount=1"
+        JAVA_TOOL_OPTIONS: "-XX:ActiveProcessorCount=1 -XX:+UnlockExperimentalVMOptions -XX:hashCode=3"
       run: >-
         ./gradlew --no-daemon --max-workers=1
         --no-build-cache --no-configuration-cache
