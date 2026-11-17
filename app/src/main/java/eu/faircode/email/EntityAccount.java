@@ -205,6 +205,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return "imap.seznam.cz".equalsIgnoreCase(host);
     }
 
+    boolean isOnetPl() {
+        return "imap.poczta.onet.pl".equalsIgnoreCase(host);
+    }
+
     boolean isZoho() {
         return (host != null && host.toLowerCase(Locale.ROOT).startsWith("imap.zoho."));
     }

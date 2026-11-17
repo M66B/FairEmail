@@ -5214,6 +5214,7 @@ class Core {
             }
 
             if (!Helper.equal(message.keywords, keywords) &&
+                    !account.isOnetPl() &&
                     !folder.read_only &&
                     (ifolder.getPermanentFlags().contains(Flags.Flag.USER) || MessageHelper.hasUserKeywords(keywords))) {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
