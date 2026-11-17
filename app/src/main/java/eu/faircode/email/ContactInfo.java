@@ -427,6 +427,18 @@ public class ContactInfo {
                             futures.add(Helper.getDownloadTaskExecutor()
                                     .submit(Avatar.getLibravatar(email, scaleToPixels, context)));
 
+                        if (ddg_icons && !TextUtils.isEmpty(Avatar.DDG_URI))
+                            futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
+                                @Override
+                                public Favicon call() throws Exception {
+                                    String parent = UriHelper.getRootDomain(context, domain);
+                                    String uri = Avatar.DDG_URI + Uri.encode(parent) + ".ico";
+                                    Favicon ddg = getFavicon(new URL(uri), null, scaleToPixels, context);
+                                    ddg.type = "ddg";
+                                    return ddg;
+                                }
+                            }));
+
                         if (favicons) {
                             String host = domain;
                             while (host.indexOf('.') > 0) {
@@ -478,18 +490,6 @@ public class ContactInfo {
                                 host = host.substring(dot + 1);
                             }
                         }
-
-                        if (ddg_icons && !TextUtils.isEmpty(Avatar.DDG_URI))
-                            futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
-                                @Override
-                                public Favicon call() throws Exception {
-                                    String parent = UriHelper.getRootDomain(context, domain);
-                                    String uri = Avatar.DDG_URI + Uri.encode(parent) + ".ico";
-                                    Favicon ddg = getFavicon(new URL(uri), null, scaleToPixels, context);
-                                    ddg.type = "ddg";
-                                    return ddg;
-                                }
-                            }));
 
                         if (!TextUtils.isEmpty(favicon_uri) && (!favicons_dmarc || dmarc))
                             futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {

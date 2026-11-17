@@ -1127,6 +1127,47 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvLibravatarsHint" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDdg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:tag="nosuggest"
+                    android:text="@string/title_advanced_ddg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLibravatarPrivacy"
+                    app:switchPadding="12dp" />
+
+                <TextView
+                    android:id="@+id/tvDdgHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:tag="nosuggest"
+                    android:text="@string/title_advanced_privacy_risk"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorWarning"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDdg" />
+
+                <TextView
+                    android:id="@+id/tvDdgPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:tag="nosuggest"
+                    android:text="@string/title_privacy_policy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDdgHint" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swFavicons"
@@ -1136,7 +1177,7 @@
                     android:text="@string/title_advanced_favicons"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLibravatarPrivacy"
+                    app:layout_constraintTop_toBottomOf="@id/tvDdgPrivacy"
                     app:switchPadding="12dp" />
 
                 <TextView
@@ -1193,49 +1234,6 @@
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swDdg"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:tag="nosuggest"
-                    android:text="@string/title_advanced_ddg"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibFavicons"
-                    app:switchPadding="12dp" />
-
-                <TextView
-                    android:id="@+id/tvDdgHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="6dp"
-                    android:tag="nosuggest"
-                    android:text="@string/title_advanced_privacy_risk"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?attr/colorWarning"
-                    app:drawableTint="?attr/colorWarning"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDdg" />
-
-                <TextView
-                    android:id="@+id/tvDdgPrivacy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_open_in_new_12"
-                    android:drawablePadding="6dp"
-                    android:tag="nosuggest"
-                    android:text="@string/title_privacy_policy"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="?android:attr/textColorLink"
-                    app:drawableTint="?android:attr/textColorLink"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDdgHint" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swFaviconsDmarc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1243,7 +1241,7 @@
                     android:text="@string/title_advanced_favicons_dmarc"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDdgPrivacy"
+                    app:layout_constraintTop_toBottomOf="@id/ibFavicons"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
