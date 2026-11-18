@@ -68,7 +68,7 @@ public class FairEmailBackupAgent extends BackupAgent {
             JSONObject jroot = new JSONObject();
             jroot.put("version", 1);
 
-            if (enabled) {
+            if (enabled && Helper.isSecure(this)) {
                 JSONObject jsettings = new JSONObject();
                 jsettings.put("enabled", prefs.getBoolean("enabled", true));
                 jsettings.put("poll_interval", prefs.getInt("poll_interval", 0));
