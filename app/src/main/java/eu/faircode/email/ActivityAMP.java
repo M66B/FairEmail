@@ -64,6 +64,14 @@ public class ActivityAMP extends ActivityBase {
             "cdn.ampproject.org"
     ));
 
+    private static final List<String> DANGEROUS_ELEMENTS = Collections.unmodifiableList(Arrays.asList(
+            "iframe", "frame", "object", "embed"
+    ));
+
+    private static final List<String> LINK_ATTRIBUTES = Collections.unmodifiableList(Arrays.asList(
+            "href", "src", "action", "formaction", "background", "poster", "xlink:href"
+    ));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -267,11 +275,21 @@ public class ActivityAMP extends ActivityBase {
                         }
                     }
 
+                    if (DANGEROUS_ELEMENTS.contains(elm.tagName()) ||
+                            ("meta".equals(elm.tagName()) && elm.hasAttr("http-equiv"))) {
+                        elm.remove();
+                        continue;
+                    }
+
                     List<String> toRemove = new ArrayList<>();
                     for (Attribute attr : elm.attributes()) {
                         String key = attr.getKey().toLowerCase(Locale.ROOT);
-                        String val = attr.getValue().trim().toLowerCase();
-                        if (val.startsWith("javascript:") || key.startsWith("on"))
+                        String val = attr.getValue().replaceAll("\\s+", "").toLowerCase();
+                        if (val.startsWith("javascript:") ||
+                                (LINK_ATTRIBUTES.contains(key) &&
+                                        (val.startsWith("vbscript:") || val.startsWith("data:"))) ||
+                                key.startsWith("on") ||
+                                key.equals("srcdoc"))
                             toRemove.add(attr.getKey());
                     }
 
