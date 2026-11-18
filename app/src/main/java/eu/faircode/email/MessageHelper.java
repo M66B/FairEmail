@@ -198,6 +198,7 @@ public class MessageHelper {
 
     private static final int MAX_HEADER_LENGTH = 998;
     private static final int MAX_MESSAGE_SIZE = 10 * 1024 * 1024; // bytes
+    private static final int MAX_MESSAGE_PARTS = 100;
     private static final int MAX_KEYWORDS = 32;
     private static final int MAX_LABELS = 32;
     private static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
@@ -3927,6 +3928,10 @@ public class MessageHelper {
         private List<AttachmentPart> attachments = new ArrayList<>();
         private ArrayList<String> warnings = new ArrayList<>();
 
+        int getCount() {
+            return text.size() + extra.size() + attachments.size();
+        }
+
         String getProtectedSubject() {
             return protected_subject;
         }
@@ -5383,7 +5388,7 @@ public class MessageHelper {
                 Log.e(ex);
             }
 
-            if (isMimeType(part, "multipart/*")) {
+            if (isMimeType(part, "multipart/*") && parts.getCount() < MAX_MESSAGE_PARTS) {
                 Multipart multipart;
                 Object content = part.getContent(); // Should always be Multipart
 
