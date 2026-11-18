@@ -194,6 +194,10 @@ import org.bouncycastle.cms.jcajce.JceKeyTransRecipientId;
 import org.bouncycastle.operator.DefaultAlgorithmNameFinder;
 import org.bouncycastle.util.Store;
 import org.json.JSONException;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.TextNode;
 import org.openintents.openpgp.AutocryptPeerUpdate;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.OpenPgpSignatureResult;
@@ -10116,20 +10120,34 @@ public class FragmentMessages extends FragmentBase
                         if (file.exists()) {
                             // https://tools.ietf.org/html/rfc4880#section-6.2
                             String html = Helper.readText(file);
-                            String body = HtmlHelper.fromHtml(html, context).toString();
+                            Document doc = JsoupEx.parse(html);
+                            for (Element br : doc.select("br"))
+                                br.replaceWith(new TextNode("\n"));
+                            for (Element block : doc.select("div, p"))
+                                block.after(new TextNode("\n"));
+                            String body = doc.body().wholeText();
+
                             int begin = body.indexOf(PgpHelper.PGP_BEGIN_MESSAGE);
                             int end = body.indexOf(PgpHelper.PGP_END_MESSAGE);
                             if (begin >= 0 && begin < end) {
                                 String[] lines = body
                                         .substring(begin, end + PgpHelper.PGP_END_MESSAGE.length())
-                                        .split("\\r?\\n");
+                                        .replace("\r\n", "\n")
+                                        .replace('\r', '\n')
+                                        .split("\n");
 
                                 List<String> disarmored = new ArrayList<>();
                                 for (String line : lines)
-                                    if (!TextUtils.isEmpty(line) && !line.contains(": "))
+                                    if (!line.replace('\u00a0', ' ').trim().isEmpty() && !line.contains(": "))
                                         disarmored.add(line);
 
-                                String pgpMessage = TextUtils.join("\n\r", disarmored);
+                                disarmored.add(1, "");
+
+                                if (BuildConfig.DEBUG)
+                                    for (String line : disarmored)
+                                        Log.i("PGP " + line);
+
+                                String pgpMessage = TextUtils.join("\n", disarmored);
 
                                 inline = true;
                                 Log.i("PGP inline");
