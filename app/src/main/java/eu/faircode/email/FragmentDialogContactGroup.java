@@ -189,6 +189,17 @@ public class FragmentDialogContactGroup extends FragmentDialogBase {
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
+                .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        try {
+                            SimpleCursorAdapter adapter = (SimpleCursorAdapter) spGroup.getAdapter();
+                            adapter.changeCursor(null);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                })
                 .create();
     }
 }
