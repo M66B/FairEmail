@@ -388,7 +388,7 @@ public class Helper {
         }
     }
 
-    private static class PriorityFuture<T> implements RunnableFuture<T> {
+    static class PriorityFuture<T> implements RunnableFuture<T> {
         private int priority;
         private long order;
         private RunnableFuture<T> wrapped;
@@ -405,6 +405,10 @@ public class Helper {
 
         public long getOrder() {
             return this.order;
+        }
+
+        public boolean isGroup(long group) {
+            return (wrapped instanceof PriorityRunnable && ((PriorityRunnable) wrapped).getGroup() == group);
         }
 
         @Override

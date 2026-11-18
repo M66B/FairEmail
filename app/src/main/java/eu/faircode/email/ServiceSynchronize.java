@@ -2740,10 +2740,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     // Stop executing operations
                     Log.i(account.name + " stop executing operations");
                     state.nextSerial();
-                    for (Runnable task : ((ThreadPoolExecutor) executor).getQueue().toArray(new Runnable[0]))
-                        if (task instanceof Helper.PriorityRunnable &&
-                                ((Helper.PriorityRunnable) task).getGroup() == group)
-                            ((ThreadPoolExecutor) executor).remove(task);
+                    try {
+                        for (Runnable task : ((ThreadPoolExecutor) executor).getQueue().toArray(new Runnable[0]))
+                            if (task instanceof Helper.PriorityFuture && ((Helper.PriorityFuture) task).isGroup(group))
+                                ((ThreadPoolExecutor) executor).remove(task);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
 
                     // Close store
                     try {
