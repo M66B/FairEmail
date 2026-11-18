@@ -62,7 +62,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     private Boolean show_images;
     private static String userAgent = null;
 
-    static final int DEFAULT_VIEWPORT_HEIGHT = 8000;
+    static final int DEFAULT_VIEWPORT_HEIGHT = 16000;
     private static final long PAGE_LOADED_FALLBACK_DELAY = 1500L; // milliseconds
 
     public WebViewEx(Context context) {
