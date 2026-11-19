@@ -1143,8 +1143,11 @@ public class ApplicationEx extends Application
         if (version < 2338)
             editor.remove("show_changelog").remove("third_party_notified");
 
-        if (version < 2341)
+        if (version < 2341) {
             editor.putInt("viewport_height", 0);
+            if (!prefs.contains("check_names"))
+                editor.putBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE);
+        }
 
         if (version < BuildConfig.VERSION_CODE)
             editor.putInt("previous_version", version);

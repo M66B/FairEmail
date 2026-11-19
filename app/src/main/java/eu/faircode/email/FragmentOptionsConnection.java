@@ -607,7 +607,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                         boolean ssl_harden_strict = prefs.getBoolean("ssl_harden_strict", false);
                         boolean cert_strict = prefs.getBoolean("cert_strict", true);
                         boolean cert_transparency = (prefs.getBoolean("cert_transparency", false) && false);
-                        boolean check_names = prefs.getBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE);
+                        boolean check_names = prefs.getBoolean("check_names", true);
                         boolean bc = prefs.getBoolean("bouncy_castle", false);
                         boolean fips = prefs.getBoolean("bc_fips", false);
 
@@ -843,7 +843,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swSslHardenStrict.setEnabled(swSslHarden.isChecked());
             swCertStrict.setChecked(prefs.getBoolean("cert_strict", true));
             swCertTransparency.setChecked(prefs.getBoolean("cert_transparency", false) && false);
-            swCheckNames.setChecked(prefs.getBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE));
+            swCheckNames.setChecked(prefs.getBoolean("check_names", true));
             swOpenSafe.setChecked(prefs.getBoolean("open_safe", false));
             swHttpRedirect.setChecked(prefs.getBoolean("http_redirect", true));
             swBouncyCastle.setChecked(prefs.getBoolean("bouncy_castle", false));
