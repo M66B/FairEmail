@@ -65,7 +65,8 @@ public class ActivityAMP extends ActivityBase {
     ));
 
     private static final List<String> DANGEROUS_ELEMENTS = Collections.unmodifiableList(Arrays.asList(
-            "iframe", "frame", "object", "embed"
+            "iframe", "frame", "object", "embed",
+            "animate", "set" // SVG: can set href to a javascript: url
     ));
 
     private static final List<String> LINK_ATTRIBUTES = Collections.unmodifiableList(Arrays.asList(
@@ -284,7 +285,7 @@ public class ActivityAMP extends ActivityBase {
                     List<String> toRemove = new ArrayList<>();
                     for (Attribute attr : elm.attributes()) {
                         String key = attr.getKey().toLowerCase(Locale.ROOT);
-                        String val = attr.getValue().replaceAll("\\s+", "").toLowerCase();
+                        String val = attr.getValue().replaceAll("[\\u0000-\\u0020\\u007F]", "").toLowerCase(Locale.ROOT); // Like the URL parser
                         if (val.startsWith("javascript:") ||
                                 (LINK_ATTRIBUTES.contains(key) &&
                                         (val.startsWith("vbscript:") || val.startsWith("data:"))) ||
