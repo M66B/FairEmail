@@ -330,7 +330,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         } else
                             view.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-                        Intent saved = args.getParcelable("intent");
+                        Intent saved = args.getParcelable(ActivityBase.getIntentKey());
                         if (saved == null) {
                             startActivity(view, options);
                             if (sync_on_launch)
@@ -408,8 +408,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                     public void delegate() {
                                         Intent intent = getIntent();
                                         Bundle args = new Bundle();
-                                        if (intent.hasExtra("intent"))
-                                            args.putParcelable("intent", intent.getParcelableExtra("intent"));
+                                        if (intent.hasExtra(ActivityBase.getIntentKey()))
+                                            args.putParcelable(ActivityBase.getIntentKey(), intent.getParcelableExtra(ActivityBase.getIntentKey()));
                                         boot.execute(ActivityMain.this, args, "main:accounts:auth");
                                     }
                                 },

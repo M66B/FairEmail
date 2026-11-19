@@ -83,6 +83,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 abstract class ActivityBase extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private int themeId;
@@ -93,6 +94,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
 
     private static final double LUMINANCE_THRESHOLD = 0.7f;
+
+    private static final String INTENT_KEY = UUID.randomUUID().toString();
+
+    public static String getIntentKey() {
+        return "intent_" + INTENT_KEY;
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -781,7 +788,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 Intent intent = getIntent();
                 processStreams(intent);
                 Intent main = new Intent(this, ActivityMain.class)
-                        .putExtra("intent", intent);
+                        .putExtra(getIntentKey(), intent);
                 main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(main);
             }
