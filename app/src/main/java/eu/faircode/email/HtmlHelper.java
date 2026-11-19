@@ -3024,11 +3024,16 @@ public class HtmlHelper {
         return preview + "…";
     }
 
-    @NonNull
     static String getText(Context context, String html) {
+        return getText(context, html, false);
+    }
+
+    @NonNull
+    static String getText(Context context, String html, boolean plain_only) {
         Document d = sanitizeCompose(context, html, false);
 
-        truncate(d, getMaxFormatTextSize(context));
+        if (!plain_only)
+            truncate(d, getMaxFormatTextSize(context));
 
         SpannableStringBuilder ssb = fromDocument(context, d, null, null);
 

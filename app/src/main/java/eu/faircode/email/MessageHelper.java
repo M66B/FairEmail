@@ -1390,7 +1390,7 @@ public class MessageHelper {
         String htmlContent = document.html();
         String htmlContentType = "text/html; charset=" + Charset.defaultCharset().name();
 
-        String plainContent = HtmlHelper.getText(context, document.html());
+        String plainContent = HtmlHelper.getText(context, document.html(), message.isPlainOnly());
         String plainContentType = "text/plain; charset=" + Charset.defaultCharset().name();
 
         if (format_flowed) {
