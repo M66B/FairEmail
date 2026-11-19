@@ -5489,19 +5489,6 @@ public class FragmentCompose extends FragmentBase {
 
         NoStreamException.check(uri.getUri(), context);
 
-        if ("file".equals(uri.getUri().getScheme())) {
-            String path = uri.getUri().getPath();
-            File dataDir = context.getDataDir();
-            if (path != null &&
-                    new File(path).getCanonicalPath().startsWith(dataDir.getCanonicalPath() + File.separator))
-                throw new SecurityException("Shared private file uri=" + uri);
-        } else if ("content".equals(uri.getUri().getScheme()) &&
-                BuildConfig.APPLICATION_ID.equals(uri.getUri().getAuthority())) {
-            List<String> segments = uri.getUri().getPathSegments();
-            if (segments.isEmpty() || !"photo".equals(segments.get(0)))
-                throw new SecurityException("Shared private content uri=" + uri);
-        }
-
         EntityAttachment attachment = new EntityAttachment();
         Helper.UriInfo info = Helper.getInfo(uri, context);
 
