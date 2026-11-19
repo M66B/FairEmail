@@ -6485,7 +6485,9 @@ public class FragmentCompose extends FragmentBase {
 
                         File file = attachment.getFile(context);
                         Helper.copy(ics, file);
-                        Helper.secureDelete(ics);
+                        File calendarDir = Helper.ensureExists(context, "calendar");
+                        if (ics.getCanonicalPath().startsWith(calendarDir.getCanonicalPath() + File.separator))
+                            Helper.secureDelete(ics);
 
                         ICalendar icalendar = CalendarHelper.parse(context, file);
                         VEvent event = icalendar.getEvents().get(0);
