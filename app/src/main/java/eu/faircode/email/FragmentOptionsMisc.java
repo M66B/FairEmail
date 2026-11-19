@@ -2105,7 +2105,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
                         final Context context = getContext();
-                        File dataDir = Helper.getDataDir(context));
+                        File dataDir = Helper.getDataDir(context);
                         File filesDir = context.getFilesDir();
                         File cacheDir = context.getCacheDir();
 
