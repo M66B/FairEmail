@@ -292,8 +292,11 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             if (uris.size() > 0)
                 args.putParcelableArrayList("attachments", uris);
 
-        } else
+        } else {
             args = intent.getExtras();
+            if (args != null)
+                args.remove("attachments");
+        }
 
         Log.logBundle(args);
 
