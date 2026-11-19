@@ -265,7 +265,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 for (int i = 0; i < clip.getItemCount(); i++) {
                     ClipData.Item item = clip.getItemAt(i);
                     Uri stream = (item == null ? null : item.getUri());
-                    if (stream != null && !isPrivateContent(uri))
+                    if (stream != null && !isPrivateContent(stream))
                         uris.add(new UriType(stream, intent.getType(), description, this));
                 }
 
@@ -276,7 +276,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 if (streams != null) {
                     // Some apps send null streams
                     for (Uri stream : streams)
-                        if (stream != null && !isPrivateContent(uri)) {
+                        if (stream != null && !isPrivateContent(stream)) {
                             boolean found = false;
                             for (UriType e : uris)
                                 if (stream.equals(e.getUri())) {
