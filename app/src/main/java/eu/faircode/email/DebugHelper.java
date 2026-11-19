@@ -1858,7 +1858,7 @@ public class DebugHelper {
                 size += write(os, String.format("Cache: %s\r\n  external: %s\n",
                         context.getCacheDir(), context.getExternalCacheDir()));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                    size += write(os, String.format("Data: %s\r\n", context.getDataDir().getAbsolutePath()));
+                    size += write(os, String.format("Data: %s\r\n", Helper.getDataDir(context).getAbsolutePath()));
                 size += write(os, String.format("Database: %s\r\n",
                         context.getDatabasePath(DB.DB_NAME)));
 

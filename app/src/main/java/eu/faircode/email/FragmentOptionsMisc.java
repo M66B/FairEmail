@@ -2088,7 +2088,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         files.addAll(Helper.listFiles(context.getFilesDir(), MIN_FILE_SIZE));
                         files.addAll(Helper.listFiles(context.getCacheDir(), MIN_FILE_SIZE));
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                            files.addAll(Helper.listFiles(context.getDataDir(), MIN_FILE_SIZE));
+                            files.addAll(Helper.listFiles(Helper.getDataDir(context), MIN_FILE_SIZE));
 
                         Collections.sort(files, new Comparator<File>() {
                             @Override
@@ -2105,8 +2105,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
                         final Context context = getContext();
-                        File dataDir = (Build.VERSION.SDK_INT < Build.VERSION_CODES.N
-                                ? null : context.getDataDir());
+                        File dataDir = Helper.getDataDir(context));
                         File filesDir = context.getFilesDir();
                         File cacheDir = context.getCacheDir();
 

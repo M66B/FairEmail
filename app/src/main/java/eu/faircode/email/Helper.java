@@ -3174,6 +3174,13 @@ public class Helper {
         }
     }
 
+    static File getDataDir(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            return new File(context.getApplicationInfo().dataDir);
+        else
+            return context.getDataDir();
+    }
+
     static long getAvailableStorageSpace() {
         return getAvailableStorageSpace(Environment.getDataDirectory().getAbsolutePath());
     }

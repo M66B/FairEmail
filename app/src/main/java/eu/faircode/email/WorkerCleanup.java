@@ -195,7 +195,7 @@ public class WorkerCleanup extends Worker {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     Log.i("Checking for pma files");
-                    File pma = new File(context.getDataDir(), "app_webview/BrowserMetrics");
+                    File pma = new File(Helper.getDataDir(context), "app_webview/BrowserMetrics");
                     File[] files = pma.listFiles();
                     if (files != null)
                         for (File file : files)
