@@ -77,6 +77,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -812,13 +813,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 else {
                     ArrayList<Uri> processed = new ArrayList<>();
                     for (Uri uri : uris)
-                        if (uri != null)
+                        if (uri != null && !isPrivateContent(uri))
                             processed.add(processUri(uri));
                     intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, processed);
                 }
             } else {
                 Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-                if (uri == null)
+                if (uri == null || isPrivateContent(uri))
                     intent.removeExtra(Intent.EXTRA_STREAM);
                 else
                     intent.putExtra(Intent.EXTRA_STREAM, processUri(uri));
@@ -862,6 +863,29 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.w(ex);
             return uri;
         }
+    }
+
+    boolean isPrivateContent(Uri uri) {
+        if ("file".equals(uri.getScheme()))
+            try {
+                String path = uri.getPath();
+                if (path == null)
+                    return false;
+                return new File(path).getCanonicalPath()
+                        .startsWith(Helper.getDataDir(this).getCanonicalPath() + File.separator);
+            } catch (IOException ex) {
+                Log.e(ex);
+                return false;
+            }
+        else if ("content".equals(uri.getScheme())) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+                return false;
+            else if (!BuildConfig.APPLICATION_ID.equals(uri.getAuthority()))
+                return false;
+            else
+                return (getLaunchedFromUid() != getApplicationInfo().uid);
+        } else
+            return false;
     }
 
     @Override

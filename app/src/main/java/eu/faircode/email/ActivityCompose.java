@@ -27,7 +27,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
@@ -45,7 +44,6 @@ import androidx.preference.PreferenceManager;
 import org.jsoup.nodes.Document;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -345,29 +343,6 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                 Intent.ACTION_SENDTO.equals(action) ||
                 Intent.ACTION_SEND.equals(action) ||
                 Intent.ACTION_SEND_MULTIPLE.equals(action));
-    }
-
-    private boolean isPrivateContent(Uri uri) {
-        if ("file".equals(uri.getScheme()))
-            try {
-                String path = uri.getPath();
-                if (path == null)
-                    return false;
-                return new File(path).getCanonicalPath()
-                        .startsWith(Helper.getDataDir(this).getCanonicalPath() + File.separator);
-            } catch (IOException ex) {
-                Log.e(ex);
-                return false;
-            }
-        else if ("content".equals(uri.getScheme())) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-                return false;
-            else if (!BuildConfig.APPLICATION_ID.equals(uri.getAuthority()))
-                return false;
-            else
-                return (getLaunchedFromUid() != getApplicationInfo().uid);
-        } else
-            return false;
     }
 
     private List<String> sanitize(String[] addresses) {
