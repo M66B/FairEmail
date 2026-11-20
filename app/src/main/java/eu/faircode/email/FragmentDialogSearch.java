@@ -166,11 +166,11 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                 if (TextUtils.isEmpty(typed))
                     return cursor;
 
-                int i = 0;
+                int i = 1;
 
                 String keyword = TupleKeyword.getKeyword(context, typed.toString());
                 if (!TextUtils.isEmpty(keyword))
-                    cursor.addRow(new Object[]{i++ + 1, keyword});
+                    cursor.addRow(new Object[]{i++, keyword});
 
                 if (cbSearchIndex.isEnabled() && cbSearchIndex.isChecked()) {
                     SQLiteDatabase db = Fts4DbHelper.getInstance(context);
@@ -178,8 +178,9 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                             db,
                             typed + "%",
                             MAX_SUGGESTIONS);
-                    for (; i < suggestions.size(); i++)
-                        cursor.addRow(new Object[]{i + 1, suggestions.get(i)});
+                    for (String suggestion : suggestions)
+                        cursor.addRow(new Object[]{i++, suggestion});
+
                     return cursor;
                 }
 
@@ -436,8 +437,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             cbSubject.setChecked(last_search_subject);
             cbKeywords.setChecked(last_search_keywords);
             cbMessage.setChecked(last_search_message);
-            tvSearchTextUnsupported.setText(getString(R.string.title_search_text_unsupported,
-                    "full text search not supported"));
             cbNotes.setChecked(last_search_notes);
             cbFileNames.setChecked(last_search_filenames);
             cbSearchTrash.setChecked(last_search_trash);
@@ -446,10 +445,10 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             tvAfter.setText(null);
             tvBefore.setText(null);
             cbSearchDevice.setChecked(last_search_device);
-            cbSearchDevice.setEnabled(account > 0 && folder > 0);
         } else {
             etQuery.setText(criteria.query);
             cbSearchIndex.setChecked(criteria.fts);
+            cbSearchIndex.setEnabled(criteria.fts && pro);
             cbSenders.setChecked(criteria.in_senders);
             cbRecipients.setChecked(criteria.in_recipients);
             cbSubject.setChecked(criteria.in_subject);
@@ -457,6 +456,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             cbMessage.setChecked(criteria.in_message);
             cbNotes.setChecked(criteria.in_notes);
             cbFileNames.setChecked(criteria.in_filenames);
+            cbSearchTrash.setChecked(criteria.in_trash);
+            cbSearchJunk.setChecked(criteria.in_junk);
             cbHeaders.setChecked(criteria.in_headers);
             cbHtml.setChecked(criteria.in_html);
             // criteria.with_folder_type
@@ -476,6 +477,9 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         break;
                     }
             }
+
+            tvSearchTextUnsupported.setText(getString(R.string.title_search_text_unsupported,
+                    "full text search not supported"));
 
             cbSearchTrash.setChecked(criteria.in_trash);
             cbSearchJunk.setChecked(criteria.in_junk);
@@ -504,6 +508,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
             cbSearchDevice.setChecked(!server);
         }
+
+        cbSearchDevice.setEnabled(account > 0 && folder > 0);
 
         grpMore.setVisibility(View.GONE);
         cbHeaders.setVisibility(View.GONE);
