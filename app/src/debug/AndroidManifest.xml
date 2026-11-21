@@ -115,6 +115,10 @@
             <category android:name="android.intent.category.HOME" />
         </intent>
 
+        <intent>
+            <action android:name="android.view.InputMethod" />
+        </intent>
+
         <provider
             android:name="androidx.car.app.connection.provider"
             android:authorities="androidx.car.app.connection"

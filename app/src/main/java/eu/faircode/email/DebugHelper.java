@@ -71,6 +71,8 @@ import android.text.TextUtils;
 import android.view.Display;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.view.textservice.SpellCheckerInfo;
 import android.view.textservice.TextServicesManager;
 
@@ -402,6 +404,41 @@ public class DebugHelper {
                 contacts[0], contacts[1]));
 
         sb.append(String.format("Accessibility: %b\r\n", Helper.isAccessibilityEnabled(context)));
+
+
+        try {
+            String selected = Settings.Secure.getString(resolver, Settings.Secure.DEFAULT_INPUT_METHOD);
+            sb.append(String.format("IME selected: %s\r\n", selected == null ? "-" : selected));
+
+            InputMethodManager imm = Helper.getSystemService(context, InputMethodManager.class);
+            if (imm != null) {
+                List<InputMethodInfo> enabled = imm.getEnabledInputMethodList();
+                for (InputMethodInfo imi : imm.getInputMethodList()) {
+                    boolean imeEnabled = false;
+                    for (InputMethodInfo item : enabled)
+                        if (imi.getId().equals(item.getId())) {
+                            imeEnabled = true;
+                            break;
+                        }
+
+                    String version = "-";
+                    try {
+                        PackageInfo pi = pm.getPackageInfo(imi.getPackageName(), 0);
+                        version = pi.versionName + " #" +
+                                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+                                        ? pi.getLongVersionCode() : pi.versionCode);
+                    } catch (PackageManager.NameNotFoundException ignored) {
+                        // Package visibility may restrict version information.
+                    }
+
+                    sb.append(String.format("IME: %s (%s) version=%s enabled=%b selected=%b\r\n",
+                            imi.loadLabel(pm), imi.getId(), version, imeEnabled,
+                            imi.getId().equals(selected)));
+                }
+            }
+        } catch (Throwable ex) {
+            sb.append(ex).append("\r\n");
+        }
 
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
