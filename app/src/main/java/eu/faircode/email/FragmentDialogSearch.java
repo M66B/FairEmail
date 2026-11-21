@@ -775,6 +775,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        dialog.setCanceledOnTouchOutside(false);
         return dialog;
     }
 
