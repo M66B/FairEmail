@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchOverlayRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollSearch"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fadeScrollbars="false"
@@ -124,13 +130,12 @@
             app:srcCompat="@drawable/twotone_sticky_note_2_24"
             tools:ignore="MissingConstraints" />
 
-        <eu.faircode.email.TextViewAutoCompleteAction
+        <eu.faircode.email.TextViewSearchAction
             android:id="@+id/etQuery"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:completionThreshold="2"
-            android:hint="@string/title_search_for_hint"
+                    android:hint="@string/title_search_for_hint"
             android:imeOptions="actionGo"
             android:inputType="text"
             android:maxLines="1"
@@ -140,7 +145,7 @@
             app:layout_constraintTop_toBottomOf="@id/ibFlow">
 
             <requestFocus />
-        </eu.faircode.email.TextViewAutoCompleteAction>
+        </eu.faircode.email.TextViewSearchAction>
 
         <Button
             android:id="@+id/btnSearch1"
@@ -635,3 +640,12 @@
             tvDate,btnAfter,btnBefore,tvBefore,tvAfter,cbSearchDevice" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSuggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/colorBackground"
+        android:elevation="8dp"
+        android:focusable="false"
+        android:visibility="gone" />
+</FrameLayout>

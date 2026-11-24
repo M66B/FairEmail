@@ -28,12 +28,18 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
-import android.database.MatrixCursor;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.FrameLayout;
+import android.widget.ScrollView;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +50,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
-import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -54,17 +59,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
-import androidx.cursoradapter.widget.SimpleCursorAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
+    private ExecutorService suggestionExecutor;
+    private final AtomicInteger suggestionGeneration = new AtomicInteger();
+    private Handler suggestionHandler;
+    private Runnable pendingSuggestionQuery;
+
     private static final int MAX_SUGGESTIONS = 3;
     private static final int RECENTLY_TOUCHED = 7 * 24; // hours
 
@@ -98,7 +112,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
-        final TextViewAutoCompleteAction etQuery = dview.findViewById(R.id.etQuery);
+        final TextViewSearchAction etQuery = dview.findViewById(R.id.etQuery);
         final Button btnSearch1 = dview.findViewById(R.id.btnSearch1);
         final Button btnSearch2 = dview.findViewById(R.id.btnSearch2);
         final Button btnSearch3 = dview.findViewById(R.id.btnSearch3);
@@ -150,68 +164,188 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                context,
-                R.layout.search_suggestion,
-                null,
-                new String[]{"suggestion"},
-                new int[]{android.R.id.text1},
-                0);
+        final FrameLayout overlayRoot = dview.findViewById(R.id.searchOverlayRoot);
+        final ScrollView scrollSearch = dview.findViewById(R.id.scrollSearch);
+        final RecyclerView rvSuggestions = dview.findViewById(R.id.rvSuggestions);
+        final SearchSuggestionAdapter suggestionsAdapter = new SearchSuggestionAdapter(context);
 
-        adapter.setFilterQueryProvider(new FilterQueryProvider() {
-            public Cursor runQuery(CharSequence typed) {
-                Log.i("Search suggest=" + typed);
+        suggestionExecutor = Executors.newSingleThreadExecutor();
+        suggestionHandler = new Handler(Looper.getMainLooper());
+        rvSuggestions.setLayoutManager(new LinearLayoutManager(context));
+        rvSuggestions.setAdapter(suggestionsAdapter);
+        rvSuggestions.setItemAnimator(null);
+        rvSuggestions.setHasFixedSize(true);
+        rvSuggestions.setItemViewCacheSize(MAX_SUGGESTIONS);
+        rvSuggestions.setNestedScrollingEnabled(false);
+        rvSuggestions.setFocusable(false);
+        rvSuggestions.setFocusableInTouchMode(false);
 
-                MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "suggestion"});
-                if (TextUtils.isEmpty(typed))
-                    return cursor;
-
-                int i = 1;
-
-                String keyword = TupleKeyword.getKeyword(context, typed.toString());
-                if (!TextUtils.isEmpty(keyword))
-                    cursor.addRow(new Object[]{i++, keyword});
-
-                if (cbSearchIndex.isEnabled() && cbSearchIndex.isChecked()) {
-                    SQLiteDatabase db = Fts4DbHelper.getInstance(context);
-                    List<String> suggestions = Fts4DbHelper.getSuggestions(
-                            db,
-                            typed + "%",
-                            MAX_SUGGESTIONS);
-                    for (String suggestion : suggestions)
-                        cursor.addRow(new Object[]{i++, suggestion});
-
-                    return cursor;
-                }
-
-                DB db = DB.getInstance(context);
-                return db.message().getSuggestions(
-                        cbSubject.isChecked(),
-                        cbSenders.isChecked(),
-                        account < 0 ? null : account,
-                        folder < 0 ? null : folder,
-                        "%" + typed + "%",
-                        MAX_SUGGESTIONS);
+        final Runnable positionSuggestions = () -> {
+            if (suggestionsAdapter.getItemCount() == 0)
+                return;
+            if (!etQuery.isShown() || !etQuery.hasFocus()) {
+                rvSuggestions.setVisibility(View.GONE);
+                return;
             }
-        });
 
-        adapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
-            @Override
-            public CharSequence convertToString(Cursor cursor) {
-                int colSuggestion = cursor.getColumnIndex("suggestion");
-                return cursor.getString(colSuggestion);
+            int[] editLocation = new int[2];
+            int[] rootLocation = new int[2];
+            etQuery.getLocationInWindow(editLocation);
+            overlayRoot.getLocationInWindow(rootLocation);
+            int top = editLocation[1] - rootLocation[1] + etQuery.getHeight();
+            // Align the overlay with the actual input field, not the padded ScrollView
+            int left = Math.max(0, editLocation[0] - rootLocation[0]);
+            int width = Math.min(etQuery.getWidth(), overlayRoot.getWidth() - left);
+            if (width <= 0)
+                return;
+            if (top < 0)
+                return; // The search field may be moving during scrolling
+            int rowHeight = Math.round(48 * getResources().getDisplayMetrics().density);
+            int available = overlayRoot.getHeight() - top;
+            if (available < rowHeight)
+                return; // Transient resize/IME animation: keep the list state
+            int height = Math.min(suggestionsAdapter.getItemCount() * rowHeight, available);
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) rvSuggestions.getLayoutParams();
+            if (lp.topMargin != top || lp.leftMargin != left ||
+                    lp.width != width || lp.height != height) {
+                lp.gravity = Gravity.TOP | Gravity.LEFT;
+                lp.topMargin = top;
+                lp.leftMargin = left;
+                lp.width = width;
+                lp.height = height;
+                rvSuggestions.setLayoutParams(lp);
             }
-        });
+            rvSuggestions.bringToFront();
+        };
 
-        etQuery.setActionRunnable(new Runnable() {
-            @Override
-            public void run() {
-                etQuery.setText(null);
-            }
-        });
+        scrollSearch.setOnScrollChangeListener((View.OnScrollChangeListener)
+                (v, scrollX, scrollY, oldScrollX, oldScrollY) -> positionSuggestions.run());
+        overlayRoot.getViewTreeObserver().addOnGlobalLayoutListener(positionSuggestions::run);
+
+        etQuery.setActionRunnable(() -> etQuery.setText(null));
         etQuery.setActionEnabled(true);
 
-        etQuery.setAdapter(adapter);
+        final boolean[] selectingSuggestion = new boolean[1];
+        suggestionsAdapter.setOnSelect(suggestion -> {
+            selectingSuggestion[0] = true;
+            suggestionGeneration.incrementAndGet();
+            if (pendingSuggestionQuery != null)
+                suggestionHandler.removeCallbacks(pendingSuggestionQuery);
+            rvSuggestions.setVisibility(View.GONE);
+            etQuery.setText(suggestion);
+            etQuery.setSelection(etQuery.length());
+            selectingSuggestion[0] = false;
+
+            // Match the recent-search buttons: selecting a suggestion runs the search
+            // Post to let the RecyclerView finish dispatching this click first
+            etQuery.post(() -> {
+                Dialog current = getDialog();
+                if (isAdded() && current instanceof AlertDialog) {
+                    Button positive = ((AlertDialog) current).getButton(DialogInterface.BUTTON_POSITIVE);
+                    if (positive != null)
+                        positive.performClick();
+                }
+            });
+        });
+
+        etQuery.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                final int generation = suggestionGeneration.incrementAndGet();
+                if (pendingSuggestionQuery != null)
+                    suggestionHandler.removeCallbacks(pendingSuggestionQuery);
+
+                final String query = s.toString();
+                if (selectingSuggestion[0])
+                    return;
+                if (query.length() < 2) {
+                    suggestionsAdapter.setSuggestions(new ArrayList<>());
+                    rvSuggestions.setVisibility(View.GONE);
+                    return;
+                }
+                // Keep the current suggestions visible while the next filtered
+                // result is pending. Hiding here caused flicker on every keystroke.
+
+                // Snapshot UI state on the main thread, never read widgets in the worker
+                final boolean ftsEnabled = cbSearchIndex.isEnabled() && cbSearchIndex.isChecked();
+                final boolean searchSubject = cbSubject.isChecked();
+                final boolean searchSenders = cbSenders.isChecked();
+
+                pendingSuggestionQuery = () -> {
+                    if (suggestionExecutor == null || suggestionExecutor.isShutdown())
+                        return;
+                    suggestionExecutor.execute(() -> {
+                        List<String> result = new ArrayList<>();
+                        try {
+                            String keyword = TupleKeyword.getKeyword(context, query);
+                            if (!TextUtils.isEmpty(keyword))
+                                result.add(keyword);
+
+                            if (ftsEnabled) {
+                                SQLiteDatabase ftsDb = Fts4DbHelper.getInstance(context);
+                                result.addAll(Fts4DbHelper.getSuggestions(
+                                        ftsDb, query + "%", MAX_SUGGESTIONS));
+                            } else {
+                                DB db = DB.getInstance(context);
+                                try (Cursor cursor = db.message().getSuggestions(
+                                        searchSubject, searchSenders,
+                                        account < 0 ? null : account,
+                                        folder < 0 ? null : folder,
+                                        "%" + query + "%", MAX_SUGGESTIONS)) {
+                                    if (cursor != null) {
+                                        int column = cursor.getColumnIndexOrThrow("suggestion");
+                                        while (cursor.moveToNext())
+                                            result.add(cursor.getString(column));
+                                    }
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                        // Do not show duplicate suggestions or more than MAX_SUGGESTIONS
+                        List<String> unique = new ArrayList<>();
+                        for (String item : result)
+                            if (!TextUtils.isEmpty(item) && !unique.contains(item)) {
+                                unique.add(item);
+                                if (unique.size() == MAX_SUGGESTIONS)
+                                    break;
+                            }
+                        suggestionHandler.post(() -> {
+                            if (generation != suggestionGeneration.get() ||
+                                    !query.contentEquals(etQuery.getText()) ||
+                                    !etQuery.isAttachedToWindow() || !etQuery.hasFocus())
+                                return;
+                            suggestionsAdapter.setSuggestions(unique);
+                            if (unique.isEmpty())
+                                rvSuggestions.setVisibility(View.GONE);
+                            else {
+                                // Set bounds before showing so the first layout does not resize the dialog
+                                positionSuggestions.run();
+                                if (rvSuggestions.getLayoutParams().height > 0)
+                                    rvSuggestions.setVisibility(View.VISIBLE);
+                            }
+                            Log.i("Search inline suggestions=" + unique.size());
+                        });
+                    });
+                };
+                suggestionHandler.postDelayed(pendingSuggestionQuery, 120);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        etQuery.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                suggestionGeneration.incrementAndGet();
+                rvSuggestions.setVisibility(View.GONE);
+            }
+        });
 
         View.OnClickListener onSearch = new View.OnClickListener() {
             @Override
@@ -787,6 +921,13 @@ public class FragmentDialogSearch extends FragmentDialogBase {
 
     @Override
     public void onDismiss(@NonNull DialogInterface dialog) {
+        suggestionGeneration.incrementAndGet();
+        if (suggestionHandler != null && pendingSuggestionQuery != null)
+            suggestionHandler.removeCallbacks(pendingSuggestionQuery);
+        if (suggestionExecutor != null) {
+            suggestionExecutor.shutdownNow();
+            suggestionExecutor = null;
+        }
         super.onDismiss(dialog);
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }

@@ -33,6 +33,9 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
+import android.view.Gravity;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -45,9 +48,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.core.content.ContextCompat;
-import androidx.cursoradapter.widget.CursorAdapter;
-import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
@@ -60,6 +63,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -70,6 +74,7 @@ public class FragmentOptions extends FragmentBase {
     private PagerAdapter adapter;
     private String searching = null;
     private SuggestData data = null;
+    private Runnable optionOverlayCleanup;
 
     private int dp24;
 
@@ -299,6 +304,10 @@ public class FragmentOptions extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_setup, menu);
+        if (optionOverlayCleanup != null) {
+            optionOverlayCleanup.run();
+            optionOverlayCleanup = null;
+        }
 
         final String saved = searching;
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
@@ -307,57 +316,74 @@ public class FragmentOptions extends FragmentBase {
         if (searchView != null)
             searchView.setQueryHint(getString(R.string.title_search));
 
-        final SearchView.OnSuggestionListener onSuggestionListener = new SearchView.OnSuggestionListener() {
-            @Override
-            public boolean onSuggestionSelect(int position) {
-                return false;
+        // Same-window RecyclerView overlay. SearchView must not create its own popup.
+        final FrameLayout optionHost = getActivity().findViewById(android.R.id.content);
+        final RecyclerView rvOptionSuggestions = new RecyclerView(optionHost.getContext());
+        final OptionsSuggestionAdapter optionSuggestionAdapter = new OptionsSuggestionAdapter(optionHost.getContext());
+        rvOptionSuggestions.setLayoutManager(new LinearLayoutManager(optionHost.getContext()));
+        rvOptionSuggestions.setAdapter(optionSuggestionAdapter);
+        rvOptionSuggestions.setNestedScrollingEnabled(false);
+        rvOptionSuggestions.setFocusable(false);
+        rvOptionSuggestions.setFocusableInTouchMode(false);
+        rvOptionSuggestions.setBackgroundColor(Helper.resolveColor(getContext(), R.attr.colorCardBackground));
+        rvOptionSuggestions.setElevation(Helper.dp2pixels(getContext(), 8));
+        rvOptionSuggestions.setVisibility(View.GONE);
+        optionHost.addView(rvOptionSuggestions, new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 0));
+        final TextView optionSearchInput = (searchView == null ? null :
+                searchView.findViewById(androidx.appcompat.R.id.search_src_text));
+        final Runnable positionOptions = () -> {
+            if (rvOptionSuggestions.getVisibility() != View.VISIBLE ||
+                    optionSearchInput == null || !optionSearchInput.isShown() ||
+                    optionHost.getWidth() == 0 || optionHost.getHeight() == 0) {
+                if (optionSearchInput == null || !optionSearchInput.isShown())
+                    rvOptionSuggestions.setVisibility(View.GONE);
+                return;
             }
-
-            @Override
-            public boolean onSuggestionClick(int position) {
-                Cursor cursor = searchView.getSuggestionsAdapter().getCursor();
-
-                if (cursor != null && cursor.moveToPosition(position)) {
-                    int tab = cursor.getInt(cursor.getColumnIndex("tab"));
-                    int resid = cursor.getInt(cursor.getColumnIndex("resid"));
-
-                    pager.setCurrentItem(tab);
-                    FragmentBase fragment = (FragmentBase) adapter.instantiateItem(pager, tab);
-                    if (fragment instanceof FragmentSetup)
-                        ((FragmentSetup) fragment).prepareSearch();
-                    fragment.scrollTo(resid, -dp24);
-                    menuSearch.collapseActionView();
-
-                    // Blink found text
-                    View view = fragment.getView();
-                    if (view != null) {
-                        View child = view.findViewById(resid);
-                        if (child != null) {
-                            int c = Helper.resolveColor(view.getContext(), R.attr.colorHighlight);
-                            Drawable b = child.getBackground();
-                            child.post(new Runnable() {
-                                private int count = 0;
-
-                                @Override
-                                public void run() {
-                                    if (count % 2 == 1)
-                                        child.setBackground(b);
-                                    else
-                                        child.setBackgroundColor(c);
-                                    if (++count <= 7)
-                                        child.postDelayed(this, 250);
-                                }
-                            });
-                        }
-                    }
-                }
-
-                return true;
+            int[] anchor = new int[2];
+            int[] host = new int[2];
+            optionSearchInput.getLocationInWindow(anchor);
+            optionHost.getLocationInWindow(host);
+            int top = Math.max(0, anchor[1] - host[1] + optionSearchInput.getHeight());
+            int minRowHeight = Helper.dp2pixels(getContext(), 48);
+            int available = optionHost.getHeight() - top;
+            if (available < minRowHeight)
+                return; // IME is resizing; do not flicker
+            int width = Math.min(optionHost.getWidth(), Math.max(
+                    optionSearchInput.getWidth(), Helper.dp2pixels(getContext(), 280)));
+            int left = Math.max(0, Math.min(optionHost.getWidth() - width,
+                    anchor[0] - host[0]));
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) rvOptionSuggestions.getLayoutParams();
+            int height = Math.min(available, optionSuggestionAdapter.measureHeight(width, 6));
+            if (lp.topMargin != top || lp.leftMargin != left || lp.width != width || lp.height != height) {
+                lp.topMargin = top;
+                lp.leftMargin = left;
+                lp.width = width;
+                lp.height = height;
+                lp.gravity = Gravity.TOP | Gravity.LEFT;
+                rvOptionSuggestions.setLayoutParams(lp);
             }
+            rvOptionSuggestions.bringToFront();
         };
-
-        if (searchView != null)
-            searchView.setOnSuggestionListener(onSuggestionListener);
+        final ViewTreeObserver.OnGlobalLayoutListener optionGlobalLayout = positionOptions::run;
+        optionHost.getViewTreeObserver().addOnGlobalLayoutListener(optionGlobalLayout);
+        optionOverlayCleanup = () -> {
+            rvOptionSuggestions.setVisibility(View.GONE);
+            if (optionHost.getViewTreeObserver().isAlive())
+                optionHost.getViewTreeObserver().removeOnGlobalLayoutListener(optionGlobalLayout);
+            optionHost.removeView(rvOptionSuggestions);
+        };
+        optionSuggestionAdapter.setOnSelect(item -> {
+            rvOptionSuggestions.setVisibility(View.GONE);
+            selectOptionSuggestion(item.tab, item.resid, menuSearch);
+        });
+        if (searchView != null) {
+            searchView.setSuggestionsAdapter(null); // Disable SearchView's internal PopupWindow
+            searchView.setOnCloseListener(() -> {
+                rvOptionSuggestions.setVisibility(View.GONE);
+                return false;
+            });
+        }
 
         if (searchView != null)
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -365,9 +391,11 @@ public class FragmentOptions extends FragmentBase {
                 public boolean onQueryTextSubmit(String query) {
                     searching = query;
 
-                    CursorAdapter adapter = searchView.getSuggestionsAdapter();
-                    if (adapter != null && adapter.getCount() > 0)
-                        onSuggestionListener.onSuggestionClick(0);
+                    if (optionSuggestionAdapter.getItemCount() > 0) {
+                        OptionsSuggestionAdapter.Item item = optionSuggestionAdapter.get(0);
+                        if (item != null)
+                            selectOptionSuggestion(item.tab, item.resid, menuSearch);
+                    }
 
                     return false;
                 }
@@ -377,6 +405,10 @@ public class FragmentOptions extends FragmentBase {
                     if (newText != null)
                         newText = newText.trim();
                     searching = newText;
+                    if (newText == null || newText.length() < 2) {
+                        optionSuggestionAdapter.setItems(new ArrayList<>());
+                        rvOptionSuggestions.setVisibility(View.GONE);
+                    }
                     suggest(newText);
                     return false;
                 }
@@ -429,6 +461,8 @@ public class FragmentOptions extends FragmentBase {
                 }
 
                 private void _suggest(String query) {
+                    if (!TextUtils.equals(searching, query) || !isAdded() || getView() == null)
+                        return;
                     MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "tab", "resid", "title"});
 
                     if (data != null &&
@@ -438,15 +472,21 @@ public class FragmentOptions extends FragmentBase {
                             id = getSuggestions(query.toLowerCase(), id, tab, data.titles[tab], data.views[tab], cursor);
                     }
 
-                    searchView.setSuggestionsAdapter(new SimpleCursorAdapter(
-                            pager.getContext(),
-                            R.layout.spinner_item1_dropdown,
-                            cursor,
-                            new String[]{"title"},
-                            new int[]{android.R.id.text1},
-                            0
-                    ));
-                    searchView.getSuggestionsAdapter().notifyDataSetChanged();
+                    List<OptionsSuggestionAdapter.Item> matches = new ArrayList<>();
+                    try {
+                        int colTab = cursor.getColumnIndexOrThrow("tab");
+                        int colRes = cursor.getColumnIndexOrThrow("resid");
+                        int colTitle = cursor.getColumnIndexOrThrow("title");
+                        while (cursor.moveToNext())
+                            matches.add(new OptionsSuggestionAdapter.Item(
+                                    cursor.getInt(colTab), cursor.getInt(colRes), cursor.getString(colTitle)));
+                    } finally {
+                        cursor.close();
+                    }
+                    optionSuggestionAdapter.setItems(matches);
+                    rvOptionSuggestions.setVisibility(matches.isEmpty() || searchView.isIconified()
+                            ? View.GONE : View.VISIBLE);
+                    rvOptionSuggestions.post(positionOptions);
                 }
 
                 private int getSuggestions(String query, int id, int tab, String title, View view, MatrixCursor cursor) {
@@ -497,11 +537,47 @@ public class FragmentOptions extends FragmentBase {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
                 menuSearch.collapseActionView();
+                if (optionOverlayCleanup != null) {
+                    optionOverlayCleanup.run();
+                    optionOverlayCleanup = null;
+                }
                 getViewLifecycleOwner().getLifecycle().removeObserver(this);
             }
         });
 
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private void selectOptionSuggestion(int tab, int resid, MenuItem menuSearch) {
+        if (pager == null || adapter == null || !isAdded())
+            return;
+        pager.setCurrentItem(tab);
+        FragmentBase fragment = (FragmentBase) adapter.instantiateItem(pager, tab);
+        if (fragment instanceof FragmentSetup)
+            ((FragmentSetup) fragment).prepareSearch();
+        fragment.scrollTo(resid, -dp24);
+        menuSearch.collapseActionView();
+        // Blink the destination option as in the upstream SearchView suggestion handler
+        View view = fragment.getView();
+        if (view != null) {
+            View child = view.findViewById(resid);
+            if (child != null) {
+                int color = Helper.resolveColor(view.getContext(), R.attr.colorHighlight);
+                Drawable previous = child.getBackground();
+                child.post(new Runnable() {
+                    private int count = 0;
+                    @Override
+                    public void run() {
+                        if (count % 2 == 1)
+                            child.setBackground(previous);
+                        else
+                            child.setBackgroundColor(color);
+                        if (++count <= 7)
+                            child.postDelayed(this, 250);
+                    }
+                });
+            }
+        }
     }
 
     static void reset(Context context, List<String> options, Runnable confirmed) {
