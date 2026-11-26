@@ -3310,6 +3310,11 @@ public class FragmentCompose extends FragmentBase {
             args.putLong("id", draft.id);
             args.putInt("type", draft.ui_encrypt);
 
+            if (EntityMessage.SMIME_ENCRYPTONLY.equals(draft.ui_encrypt)) {
+                onSmime(args, action, extras);
+                return;
+            }
+
             new SimpleTask<EntityIdentity>() {
                 @Override
                 protected EntityIdentity onExecute(Context context, Bundle args) {
@@ -4530,16 +4535,18 @@ public class FragmentCompose extends FragmentBase {
                 };
                 bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
-                if (alias == null)
+                boolean sign = !EntityMessage.SMIME_ENCRYPTONLY.equals(type);
+                if (sign && alias == null)
                     throw new IllegalArgumentException("Key alias missing");
 
-                // Get private key
-                PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
-                if (privkey == null)
+                // Get private key (except for encrypt only)
+                PrivateKey privkey = (sign ? KeyChain.getPrivateKey(context, alias) : null);
+                if (sign && privkey == null)
                     throw new IllegalArgumentException("Private key missing");
-                Log.i("S/MIME privkey algo=" + privkey.getAlgorithm());
+                if (privkey != null)
+                    Log.i("S/MIME privkey algo=" + privkey.getAlgorithm());
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (BuildConfig.DEBUG || debug)) {
+                if (privkey != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (BuildConfig.DEBUG || debug)) {
                     KeyFactory keyFactory = KeyFactory.getInstance(privkey.getAlgorithm(), "AndroidKeyStore");
                     KeyInfo info = keyFactory.getKeySpec(privkey, KeyInfo.class);
                     if (info != null) {
@@ -4569,11 +4576,12 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                 // Get public key
-                X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
-                if (chain == null || chain.length == 0)
+                X509Certificate[] chain = (sign ? KeyChain.getCertificateChain(context, alias) : null);
+                if (sign && (chain == null || chain.length == 0))
                     throw new IllegalArgumentException("Certificate missing");
-                for (X509Certificate cert : chain)
-                    Log.i("S/MIME cert sign algo=" + cert.getSigAlgName() + " " + cert.getSigAlgOID());
+                if (chain != null)
+                    for (X509Certificate cert : chain)
+                        Log.i("S/MIME cert sign algo=" + cert.getSigAlgName() + " " + cert.getSigAlgOID());
 
                 X509Certificate[] schain = chain;
                 if (salias != null)
@@ -4629,8 +4637,10 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 // Store selected alias
-                identity.setAlias(alias, type);
-                db.identity().setIdentitySignKeyAlias(identity.id, identity.sign_key_alias);
+                if (sign) {
+                    identity.setAlias(alias, type);
+                    db.identity().setIdentitySignKeyAlias(identity.id, identity.sign_key_alias);
+                }
 
                 // Build content
                 File sinput = new File(tmp, draft.id + ".smime_sign");
@@ -4639,7 +4649,7 @@ public class FragmentCompose extends FragmentBase {
                             new BufferedOutputStream(new FileOutputStream(sinput)), EntityAttachment.SMIME_CONTENT, null)) {
                         bpContent.writeTo(os);
                     }
-                else
+                else if (sign)
                     try (FileOutputStream fos = new FileOutputStream(sinput)) {
                         bpContent.writeTo(fos);
                     }
@@ -4739,13 +4749,13 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityCertificate acertificate : acertificates) {
                             X509Certificate cert = acertificate.getCertificate();
                             Log.i("S/MIME " + email + " sign algo=" + cert.getSigAlgName() + " " + cert.getSigAlgOID());
-                            if (!SmimeHelper.match(privkey, cert))
+                            if (sign ? !SmimeHelper.match(privkey, cert) : !"RSA".equals(cert.getPublicKey().getAlgorithm()))
                                 continue;
                             try {
                                 cert.checkValidity();
                                 certs.add(cert);
                                 found = true;
-                                if (cert.equals(chain[0]))
+                                if (chain != null && cert.equals(chain[0]))
                                     own = false;
                             } catch (CertificateException ex) {
                                 Log.w(ex);
@@ -4763,7 +4773,7 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 // Allow sender to decrypt own message
-                if (own && SmimeHelper.match(privkey, chain[0]))
+                if (own && chain != null && SmimeHelper.match(privkey, chain[0]))
                     certs.add(chain[0]);
 
                 if (!EntityMessage.SMIME_ENCRYPTONLY.equals(type)) {
@@ -4789,7 +4799,7 @@ public class FragmentCompose extends FragmentBase {
 
                 // Encrypt
                 CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
-                if ("EC".equals(privkey.getAlgorithm())) {
+                if (privkey != null && "EC".equals(privkey.getAlgorithm())) {
                     // openssl ecparam -name secp384r1 -genkey -out ecdsa.key
                     // openssl req -new -x509 -days 365 -key ecdsa.key -sha256 -out ecdsa.crt
                     // openssl pkcs12 -export -out ecdsa.pfx -inkey ecdsa.key -in ecdsa.crt
@@ -6543,15 +6553,15 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityAttachment attachment : attachments)
                             if (attachment.subsequence == null
                                     ? !attachment.isEncryption() &&
-                                      (cid.contains(attachment.cid) ||
-                                       !("reply".equals(action) || "reply_all".equals(action)))
+                                    (cid.contains(attachment.cid) ||
+                                            !("reply".equals(action) || "reply_all".equals(action)))
                                     : "forward".equals(action) &&
-                                      tnef.size() == 1 &&
+                                    tnef.size() == 1 &&
                                     attachment.sequence.equals(tnef.get(0).sequence) &&
-                                      !"subject.txt".equals(attachment.name) &&
-                                      !"body.html".equals(attachment.name) &&
-                                      !"body.rtf".equals(attachment.name) &&
-                                      !"attributes.txt".equals(attachment.name)) {
+                                    !"subject.txt".equals(attachment.name) &&
+                                    !"body.html".equals(attachment.name) &&
+                                    !"body.rtf".equals(attachment.name) &&
+                                    !"attributes.txt".equals(attachment.name)) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
 
