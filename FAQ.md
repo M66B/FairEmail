@@ -1692,6 +1692,9 @@ Some devices have a firewall, which you can access like this:
 
 Android *Settings, Data usage, Three-dots overflow menu, Data usage control*
 
+Sometimes, an email server blocks a range of network addresses incorrectly, which might cause this problem too.
+You can try to get a new network address for WiFi by turning your modem/router for ca. 20 minutes off and for mobile data by turning flight mode on for ca. 10 minutes.
+
 The error *... Connection refused ...* (ECONNREFUSED) means that the email server
 or something between the email server and the app, like a firewall, actively refused the connection.
 
