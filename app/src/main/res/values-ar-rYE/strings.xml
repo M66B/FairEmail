@@ -230,6 +230,8 @@
     <string name="title_setup_permissions_notify_explanation">إذن الإشعارات مطلوب لإظهار إشعارات الرسائل الجديدة في شريط الحالة</string>
     <string name="title_setup_permission_why">ما هي الأذونات المطلوبة ولماذا؟</string>
     <string name="title_setup_permission_import_contacts">كيف يمكنني استيراد جهات الاتصال؟</string>
+    <string name="title_setup_import_graph_contact">Outlook contacts</string>
+    <string name="title_setup_import_graph_new">New contacts: %1$s</string>
     <string name="title_setup_doze">تجاهل تحسينات البطارية</string>
     <string name="title_setup_doze_remark">لإرسال واستقبال البريد الإلكتروني بشكل موثوق في الخلفية</string>
     <string name="title_setup_doze_explanation">يجب تعطيل تحسينات البطارية للتطبيق لضمان إرسال واستقبال الرسائل بشكل موثوق في الخلفية</string>
@@ -266,6 +268,7 @@
         كلمة المرور مطلوبة لاستيراد الإعدادات مرة أخرى، لذا يرجى عدم نسيانها!
     </string>
     <string name="title_setup_export_do">سيحتوي ملف التصدير على جميع الإعدادات والبيانات، ولكن لا توجد رسائل ولا صور مشار إليها في التوقيعات</string>
+    <string name="title_setup_backup">How to back up messages؟</string>
     <string name="title_setup_password">الكلمة السرية</string>
     <string name="title_setup_password_chars">تحتوي كلمة المرور على أحرف تحكم أو مسافات بيضاء</string>
     <string name="title_setup_password_repeat">أعد كتابة الكلمة السرية</string>
@@ -352,6 +355,8 @@
     <string name="title_advanced_unseen">جميع الرسائل غير المقروءة</string>
     <string name="title_advanced_check_mx">التحقق من عناوين البريد الإلكتروني للمرسل عند مزامنة الرسائل</string>
     <string name="title_advanced_send_reminders">إظهار التذكيرات</string>
+    <string name="title_advanced_send_delayed">Local stranger</string>
+    <string name="title_advanced_send_undo">Folder local stranger</string>
     <string name="title_advanced_save_revisions">حفظ مسودة التنقيحات للتراجع وإعادة الاستخدام</string>
     <string name="title_advanced_auto_save_paragraph">قم بحفظ مسودة بشكل آلي بعد كل فقرة</string>
     <string name="title_advanced_auto_save_dot">احفط مسودة بشكل آلي بعد كل مسودة</string>
@@ -369,6 +374,7 @@
     <string name="title_advanced_limit_reply">الحد من عدد الاقتباسات المتداخلة</string>
     <string name="title_advanced_resize_reply">إعادة قياس الصور في الرسالة المجاب عليها</string>
     <string name="title_advanced_signature_location">موضوع التوقيع</string>
+    <string name="title_advanced_reply_move_inbox">Also for messages in the inbox</string>
     <string name="title_advanced_plain_only_reply">تلقائياً نص عادي فقط عند الرد على رسالة نص عادي فقط</string>
     <string name="title_advanced_metered">استخدام اتصالات أجهزة الاستنشاق</string>
     <string name="title_advanced_roaming">تحميل الرسائل والمرفقات أثناء التجوال</string>

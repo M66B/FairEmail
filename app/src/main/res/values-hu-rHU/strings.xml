@@ -1163,7 +1163,7 @@
     <string name="title_edit_rules">Szabályok szerkesztése</string>
     <string name="title_execute_rules">Szabályok végrehajtása</string>
     <string name="title_export_messages">Üzenetek exportálása</string>
-    <string name="title_import_messages">Fontos üzenetek</string>
+    <string name="title_import_messages">Üzenetek importálása</string>
     <string name="title_create_channel">Értesítési csatorna létrehozása</string>
     <string name="title_edit_channel">Értesítési csatorna szerkesztése</string>
     <string name="title_delete_channel">Értesítési csatorna törlése</string>

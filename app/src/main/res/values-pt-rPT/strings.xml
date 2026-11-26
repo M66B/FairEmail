@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Pesquisa do FairEmail</string>
-    <string name="app_send_self">Enviar para si</string>
+    <string name="app_send_self">Enviar para mim</string>
     <string name="app_changelog">Registo de alterações</string>
-    <string name="app_welcome">O FairEmail é uma aplicação de correio electrónico de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que está acostumado.</string>
+    <string name="app_welcome">FairEmail é uma aplicação de correio eletrónico de código aberto focada na privacidade e na segurança. Por esta razão, algumas funcionalidades podem funcionar de uma forma diferente do que está habituado(a).</string>
     <string name="app_limitations">Por exemplo, na configuração padrão as mensagens são reformatadas para remover elementos inseguros e melhorar a legibilidade, como a abertura de hiperligações precisa de ser confirmada por motivos de segurança. Ambas as opções podem ser desactivadas caso pretenda.</string>
     <string name="app_unsupported">Bugs na versão Android deste dispositivo em específico causam encerramentos inesperados</string>
     <string name="app_data_loss">Poderão perder-se todos os dados</string>
-    <string name="app_continue">Continuar mesmo assim</string>
-    <string name="app_exit">Pressione novamente \'voltar\' para sair</string>
-    <string name="app_cake">Espaço insuficiente</string>
+    <string name="app_continue">Mesmo assim, continuar?</string>
+    <string name="app_exit">Voltar \'atrás\' novamente para sair</string>
+    <string name="app_cake">Espaço de armazenamento insuficiente</string>
     <string name="app_cake_remaining">Espaço de armazenamento restante no dispositivo: %1$s</string>
     <string name="app_cake_required">Espaço mínimo de armazenamento necessário: %1$s</string>
     <string name="app_updated">Última atualização: %1$s</string>
-    <string name="app_download">Descarregada via: %1$s</string>
+    <string name="app_download">Transferida de: %1$s</string>
     <string name="app_error">A maioria das mensagens de erro têm causas externas (rede, servidor, etc.) ou são causadas por uma configuração incorreta, muitas vezes fora do padrão. Uma avaliação negativa não resolve estes problemas. Solicitar apoio é quase sempre mais eficaz.</string>
     <string name="app_motd">
         Com o Android 14/15 beta, notificações de \'App not responding\' ocorrem ocasionalmente.
@@ -24,7 +24,7 @@
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progresso</string>
-    <string name="channel_update">Actualizações</string>
+    <string name="channel_update">Atualizações</string>
     <string name="channel_announcements">Anúncios</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
@@ -35,7 +35,7 @@
     <string name="channel_notification_description">Notificações de novas mensagens</string>
     <string name="channel_progress_description">Notificações de progresso de atividades em execução mais longas</string>
     <plurals name="page_conversation">
-        <item quantity="one">Conversa</item>
+        <item quantity="one">Conversação</item>
         <item quantity="other">Conversas</item>
     </plurals>
     <plurals name="page_message">
@@ -46,7 +46,7 @@
     <string name="page_compose">Compor</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Novas mensagens</string>
-    <string name="shortcut_refresh">Actualizar</string>
+    <string name="shortcut_refresh">Atualizar</string>
     <string name="shortcut_compose">Compor</string>
     <string name="shortcut_setup">Definições</string>
     <plurals name="title_notification_synchronizing">
@@ -82,17 +82,17 @@
         <item quantity="other">%1$d anexos</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Definir %1$d mensagem como spam?</item>
+        <item quantity="one">Definir %1$d mensagem como lixo eletrónico?</item>
         <item quantity="other">Definir %1$d mensagens como spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Definir mensagem de %1$s como spam?</string>
-    <string name="title_junk_hint">O seu fornecedor de correio electrónico é responsável por filtrar o ‘spam’. Uma aplicação de correio eletrónico não possui toda a informação necessária para o fazer de forma confiável.</string>
+    <string name="title_ask_spam_who">Definir mensagem de %1$s como lixo eletrónico?</string>
+    <string name="title_junk_hint">O seu fornecedor de correio eletrónico é responsável por filtrar o lixo eletrónico. Uma aplicação de correio eletrónico não possui toda a informação necessária para o fazer de forma confiável.</string>
     <string name="title_junk_pop_hint">
         Mensagens de remetentes bloqueados não serão transferidas.
         Se \"Deixar as mensagens no servidor\" não estiver activado, essas mensagens serão perdidas permanentemente!
     </string>
     <string name="title_block">Bloquear %1$s</string>
-    <string name="title_block_sender">Bloquear Remetente</string>
+    <string name="title_block_sender">Bloquear remetente</string>
     <string name="title_block_sender_domain">Bloquear domínio \'%1$s\'</string>
     <string name="title_block_sender_remark">Bloquear significa mover automaticamente para a pasta de spam</string>
     <string name="title_block_sender_hint">Bloquear um remetente é um recurso gratuito.
@@ -114,19 +114,19 @@
         <item quantity="one">%1$s dia</item>
         <item quantity="other">%1$s dias</item>
     </plurals>
-    <string name="title_junk_filter">Usar filtro de spam local</string>
-    <string name="title_junk_filter_hint">Isto pode aumentar o uso de bateria e marcar incorrectamente mensagens como sendo ‘spam’</string>
-    <string name="title_junk_blocklist">Usar listas de bloqueio de spam</string>
+    <string name="title_junk_filter">Usar filtro de lixo eletrónico local</string>
+    <string name="title_junk_filter_hint">Isto pode aumentar a utilização da bateria e marcar incorretamente as mensagens como lixo eletrónico</string>
+    <string name="title_junk_blocklist">Usar listas de bloqueio de lixo eletrónico</string>
     <string name="title_junk_clear">Limpar</string>
-    <string name="title_junk_clear_hint">Serão eliminadas todas as regras de bloqueio de remetente</string>
+    <string name="title_junk_clear_hint">Isto irá eliminar todas as regras de bloqueio do remetente</string>
     <string name="title_notification_sending">A enviar mensagens</string>
     <string name="title_notification_waiting">A aguardar por ligação válida à Internet</string>
-    <string name="title_notification_idle">Ausente</string>
+    <string name="title_notification_idle">Inativa</string>
     <string name="title_notification_failed">A conta \'%1$s\' falhou</string>
     <string name="title_notification_alert">Alerta do servidor: \'%1$s\'</string>
     <string name="title_notification_sending_left">Tentativas restantes: %1$d</string>
     <string name="title_notification_sending_retry">O envio será testado de novo quando a sua ligação à Internet mudar ou quando puxar para baixo na caixa de saída</string>
-    <string name="title_notification_sending_failed">Falha ao enviar para %1$s</string>
+    <string name="title_notification_sending_failed">O envio para %1$s falhou</string>
     <string name="title_notification_redacted">Informação suprimida: a autenticação biométrica / PIN está activa</string>
     <string name="title_factor_minutes">%1$d minutos</string>
     <string name="menu_answers">Modelos</string>
@@ -136,9 +136,9 @@
     <string name="menu_setup">Definições</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_test">Programa de teste</string>
-    <string name="menu_faq">Suporte</string>
+    <string name="menu_faq">Apoio</string>
     <string name="menu_translate">Ajude a traduzir</string>
-    <string name="menu_issue">Comunicar um problema</string>
+    <string name="menu_issue">Reportar problema</string>
     <string name="menu_attribution">Agradecimentos</string>
     <string name="menu_privacy">Privacidade</string>
     <string name="menu_about">Sobre</string>
@@ -177,18 +177,18 @@
     <string name="title_setup_wizard_intro">Na maioria dos casos, o botão do assistente pode ser usado para adicionar uma conta, caso contrário, os endereços do servidor podem ser inseridos ou alterados manualmente usando a opção de configuração manual</string>
     <string name="title_setup_wizard_tutorials">Tutoriais</string>
     <string name="title_setup_wizard_multiple">O assistente pode ser novamente utilizado para configurar mais contas</string>
-    <string name="title_setup_wizard_new">Preciso de um novo endereço de e-mail</string>
+    <string name="title_setup_wizard_new">Eu preciso de um novo endereço de correio eletrónico</string>
     <string name="title_setup_manual">Configuração manual e opções da conta</string>
     <string name="title_setup_classic">Configuração clássica</string>
-    <string name="title_setup_wizard_hint">O assistente rápido de configuração para \"Outro Provedor\" acima geralmente funciona também, é mais fácil do que inserir todos os dados do servidor.</string>
-    <string name="title_setup_documentation">Por favor, veja a documentação do seu provedor de e-mail para a correta configuração do servidor de e-mail</string>
-    <string name="title_setup_account_remark">Receber e-mail</string>
-    <string name="title_setup_identity_remark">Enviar e-mail</string>
+    <string name="title_setup_wizard_hint">O assistente rápido de configuração para \"Outro Provedor\" em cima, geralmente também funciona, e é mais fácil do que inserir todos os dados do servidor.</string>
+    <string name="title_setup_documentation">Por favor, consulte a documentação do seu provedor de correio eletrónico para a correta configuração do servidor de correio eletrónico</string>
+    <string name="title_setup_account_remark">Receber mensagem</string>
+    <string name="title_setup_identity_remark">Enviar mensagem</string>
     <string name="title_setup_account_identity_hint">Pode configurar um nome, cor e ações de deslizar nas definições da conta e configurar uma assinatura e endereços CC ou BCC padrão nas definições de identidade.</string>
     <string name="title_setup_accounts">Contas</string>
     <string name="title_setup_identities">Identidades</string>
-    <string name="title_setup_google_sign_in">Iniciar a sessão com conta Google</string>
-    <string name="title_setup_other">Outro fornecedor</string>
+    <string name="title_setup_google_sign_in">Iniciar a sessão com Google</string>
+    <string name="title_setup_other">Outro provedor</string>
     <string name="title_setup_inbound">Somente e-mails recebidos (e-mail não pode ser enviado!)</string>
     <string name="title_setup_imap">Conta IMAP</string>
     <string name="title_setup_pop3">Conta POP3</string>
@@ -217,7 +217,7 @@ O erro \'User is authenticated but not connected\' significa principalmente que 
     <string name="title_setup_oauth_brave">Ao usar o navegador Brave, deve ativar a opção nas configurações do Brave para permitir que os links abram em apps fora do Brave</string>
     <string name="title_setup_oauth_browser">Autorização requer um navegador que permite abrir links de aplicações (muitas vezes uma configuração de segurança), para que, no final, o token de autorização possa ser transferido para o FairEmail</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
-    <string name="title_setup_select_account">Seleccionar conta</string>
+    <string name="title_setup_select_account">Selecionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_no_settings_hint">Tente configurar manualmente a conta, utilizando as configurações fornecidas pelo seu provedor de e-mail</string>
@@ -228,7 +228,7 @@ O erro \'User is authenticated but not connected\' significa principalmente que 
     <string name="title_setup_advanced_protection">Quando inscrito no programa avançado de protecção não é possível usar uma aplicação de correio electrónico de terceiros. Esta é uma restrição imposta pela Google.</string>
     <string name="title_setup_quick_success">Uma conta foi adicionada com sucesso</string>
     <string name="title_setup_quick_no_sent">Não foi seleccionada qualquer pasta de mensagens enviadas. As mensagens enviadas poderão não ser guardadas.</string>
-    <string name="title_setup_quick_configure">Para editar o nome, cor, acções de deslize, etc.</string>
+    <string name="title_setup_quick_configure">Para editar o nome, cor, ações de deslize, etc.</string>
     <string name="title_setup_manage">Gerir</string>
     <string name="title_setup_grant">Conceder</string>
     <string name="title_setup_grant_again">Conceder as permissões necessárias</string>
@@ -259,26 +259,26 @@ O erro \'User is authenticated but not connected\' significa principalmente que 
     <string name="title_setup_doze_device">Isto é provavelmente necessário para este dispositivo</string>
     <string name="title_setup_alarm_12">A aplicação não funcionará corretamente</string>
     <string name="title_setup_fg_15">A aplicação não pode ser iniciada automaticamente</string>
-    <string name="title_setup_inexact">Alarmes &amp; lembretes são desativados</string>
+    <string name="title_setup_inexact">Os alarmes e os lembretes estão desativados</string>
     <string name="title_setup_background">Restrições de segundo plano estão activas</string>
     <string name="title_setup_data">A poupança de dados está ligada</string>
     <string name="title_setup_always">Notificações de novas mensagens instantâneas</string>
     <string name="title_setup_always_remark">Se activado, as ligações instáveis, hardware de rede antigo, entre outros, podem resultar numa utilização superior de bateria</string>
     <string name="title_setup_advanced_options">Mostrar opções avançadas</string>
-    <string name="title_setup_inbox">Ir para a caixa de entrada</string>
-    <string name="title_setup_go">Começar</string>
+    <string name="title_setup_inbox">Ir para caixa de entrada</string>
+    <string name="title_setup_go">Ir</string>
     <string name="title_setup_to_do">Pendente</string>
     <string name="title_setup_done">Concluído</string>
     <string name="title_setup_still">Ainda por fazer</string>
     <string name="title_setup_error">Erro</string>
     <string name="title_setup_manual_setup">Configuração manual</string>
     <string name="title_setup_pop">Usar POP3 (não recomendado)</string>
-    <string name="title_setup_recent">Use \'recente\' para vários clientes de e-mail</string>
-    <string name="title_setup_configuring">A configurar conta &#8230;</string>
+    <string name="title_setup_recent">Use \'recente\' para vários clientes de correio eletrónico</string>
+    <string name="title_setup_configuring">A configurar a conta &#8230;</string>
     <string name="title_setup_app_password">Talvez tenha de recorrer às \'palavras-passe da aplicação\'</string>
     <string name="title_setup_extra">Extra</string>
-    <string name="title_setup_delete_account_hint">As contas apenas serão removidas da aplicação</string>
-    <string name="title_setup_close">Fechar configurações</string>
+    <string name="title_setup_delete_account_hint">Isto só irá remover as contas da aplicação</string>
+    <string name="title_setup_close">Fechar definições</string>
     <string name="title_setup_export">Exportar definições</string>
     <string name="title_setup_import">Importar definições</string>
     <string name="title_setup_export_remark">
@@ -287,23 +287,23 @@ O erro \'User is authenticated but not connected\' significa principalmente que 
     </string>
     <string name="title_setup_export_do">O ficheiro de exportação conterá todas as configurações e dados, mas nenhuma mensagem ou imagem referenciada nas assinaturas</string>
     <string name="title_setup_scroll">Os diálogos de entrada podem ser deslizados!</string>
-    <string name="title_setup_backup">Como fazer backup das mensagens?</string>
+    <string name="title_setup_backup">Como efetuar uma cópia de segurança das mensagens?</string>
     <string name="title_setup_password">Palavra-passe</string>
-    <string name="title_setup_password_chars">A palavra-passe contém caracteres de controlo ou espaços em branco</string>
-    <string name="title_setup_password_repeat">Repita a palavra-passe</string>
+    <string name="title_setup_password_chars">A palavra-passe contém carateres de controlo ou espaços em branco</string>
+    <string name="title_setup_password_repeat">Repetir palavra-passe</string>
     <string name="title_setup_password_missing">Palavra-passe em falta</string>
     <string name="title_setup_password_different">As palavras-passe não coincidem</string>
-    <string name="title_setup_password_invalid">Senha incorreta ou arquivo de configurações danificado</string>
+    <string name="title_setup_password_invalid">Palavra-passe incorreta ou ficheiro de definições danificado</string>
     <string name="title_setup_import_accounts">Importar contas e identidades</string>
     <string name="title_setup_import_delete">Eliminar primeiro as contas existentes</string>
     <string name="title_setup_import_rules">Importar regras de filtragem</string>
     <string name="title_setup_import_contacts">Importar contactos locais</string>
-    <string name="title_setup_import_answers">Importar predefiniçãoes de respostas</string>
-    <string name="title_setup_import_searches">Importar pesquisas salvas</string>
+    <string name="title_setup_import_answers">Importar modelos de resposta</string>
+    <string name="title_setup_import_searches">Importar pesquisas guardadas</string>
     <string name="title_setup_import_settings">Opções de importação</string>
-    <string name="title_setup_exported">Configurações exportadas</string>
-    <string name="title_setup_imported">Configurações importadas</string>
-    <string name="title_setup_import_invalid">Ficheiro de configurações inválido</string>
+    <string name="title_setup_exported">Definições exportadas</string>
+    <string name="title_setup_imported">Definições importadas</string>
+    <string name="title_setup_import_invalid">Ficheiro de definições inválido</string>
     <string name="title_importing_account">Conta %1$s</string>
     <string name="title_importing_identity">Identidade %1$s</string>
     <string name="title_importing_exists">Ignorado: já existe</string>
@@ -313,22 +313,22 @@ O erro \'User is authenticated but not connected\' significa principalmente que 
     <string name="title_reset_order">Redefinir a ordenação</string>
     <string name="title_setup_authentication">Autenticação</string>
     <string name="title_setup_biometrics">Autenticação biométrica</string>
-    <string name="title_setup_biometrics_enable">Activar</string>
-    <string name="title_setup_biometrics_disable">Desactivar</string>
+    <string name="title_setup_biometrics_enable">Ativar</string>
+    <string name="title_setup_biometrics_disable">Desativar</string>
     <string name="title_setup_biometrics_unlock">Desbloquear</string>
-    <string name="title_setup_theme">Seleccionar tema</string>
+    <string name="title_setup_theme">Selecionar tema</string>
     <string name="title_setup_theme_blue_orange">Azul/laranja</string>
-    <string name="title_setup_theme_yellow_purple">Amarelo/Roxo</string>
+    <string name="title_setup_theme_yellow_purple">Amarelo/roxo</string>
     <string name="title_setup_theme_red_green">Vermelho/verde</string>
     <string name="title_setup_theme_grey">Cinzento</string>
     <string name="title_setup_theme_black">Preto</string>
     <string name="title_setup_theme_white">Branco</string>
     <string name="title_setup_theme_black_or_white">Preto ou branco</string>
-    <string name="title_setup_theme_black_and_white">Preto e Branco</string>
-    <string name="title_setup_theme_reverse">Inverter cores</string>
+    <string name="title_setup_theme_black_and_white">Preto e branco</string>
+    <string name="title_setup_theme_reverse">Trocar cores</string>
     <string name="title_setup_theme_light">Claro</string>
     <string name="title_setup_theme_dark">Escuro</string>
-    <string name="title_setup_theme_system">Usar o mesmo do sistema</string>
+    <string name="title_setup_theme_system">Seguir o sistema</string>
     <string name="title_setup_theme_black_background">Fundo preto</string>
     <string name="title_setup_theme_html_light">Fundo claro para visualização da mensagem original</string>
     <string name="title_setup_theme_composer_light">Fundo claro para editor de mensagens</string>
@@ -425,8 +425,8 @@ Não precisará da maioria das opções e, como algumas opções são bastante e
     <string name="title_advanced_send_nav_color">Use a cor de identidade para a barra de ação inferior</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
-    <string name="title_advanced_send_undo">Mostrar opção de desfazer envio</string>
-    <string name="title_advanced_send_top">Mostrar botão enviar no topo</string>
+    <string name="title_advanced_send_undo">Mostrar opção de anular envio</string>
+    <string name="title_advanced_send_top">Mostrar botão de enviar no topo</string>
     <string name="title_advanced_attach_new">Criar uma nova mensagem rascunho para endereços e arquivos partilhados</string>
     <string name="title_advanced_answer_caption">Configurações do botão de resposta</string>
     <string name="title_advanced_answer_default">Um pequeno toque no botão de resposta irá:</string>
@@ -2400,17 +2400,17 @@ Este é um resumo do conteúdo de um ficheiro de mensagem em bruto.
         <item>60 s</item>
     </string-array>
     <string-array name="fontNameNames">
-        <item>Cursivo</item>
+        <item>Cursive</item>
         <item>Serif</item>
-        <item>Sans Serif</item>
+        <item>Sans-serif</item>
         <item>Monospace</item>
         <item>Fantasia</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <string-array name="addressFormatNames">
-        <item>Apenas o nome</item>
-        <item>Apenas o e-mail</item>
-        <item>Nome e e-mail</item>
+        <item>Apenas nome</item>
+        <item>Apenas E-mail</item>
+        <item>Nome e E-mail</item>
     </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
@@ -2427,9 +2427,9 @@ Este é um resumo do conteúdo de um ficheiro de mensagem em bruto.
         <item>Ponto</item>
     </string-array>
     <string-array name="accountColorSizes">
-        <item>Estreito</item>
+        <item>Estreita</item>
         <item>Médio</item>
-        <item>Largo</item>
+        <item>Larga</item>
     </string-array>
     <string-array name="contactTypes">
         <item>Destinatário</item>
