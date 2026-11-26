@@ -36,6 +36,16 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version (Work in progress)
 
+### 1.2342 2026-11-26
+
+* Fixed S/MIME encrypt-only
+* Fixed searching for Xiaomi HyperOS 4
+* Hardened security
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2341 2026-11-13 *
 
 * Small improvements and minor bug fixes
